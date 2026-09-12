@@ -131,17 +131,29 @@ def seg_audio_filter(volume: float, speed: float, duration: float) -> str:
     return ",".join(parts)
 
 
-def make_caption_png(text: str, size_px: int, W: int, H: int, center_px: float, out: Path) -> None:
-    """渲染一条字幕为透明 PNG（白字 + 黑描边），水平居中，中心位于 center_px。"""
+def make_caption_png(text: str, size_px: int, W: int, H: int, center_px: float, out: Path,
+                     panel: bool = False) -> None:
+    """渲染一条字幕为透明 PNG（白字 + 黑描边），水平居中，中心位于 center_px。
+
+    `panel=True` 时额外画一块**半透明深色底板** —— 这是用户参考成片（瓦参考素材）的标签形态：
+    白粗字 + 半透明底，让字在亮画面上也读得清。预览要能反映它，否则会误判成"没有底板"。
+    """
     font = ImageFont.truetype(FONT_PATH if os.path.exists(FONT_PATH) else FONT_PATH_FALLBACK, size_px)
     img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(img)
-    box = d.textbbox((0, 0), text, font=font, stroke_width=max(2, size_px // 18))
+    stroke = max(2, size_px // 18)
+    box = d.textbbox((0, 0), text, font=font, stroke_width=stroke)
     tw, th = box[2] - box[0], box[3] - box[1]
     x = (W - tw) / 2 - box[0]
     y = center_px - th / 2 - box[1]
+    if panel:
+        padx, pady = round(size_px * 0.55), round(size_px * 0.22)
+        d.rounded_rectangle(
+            [x + box[0] - stroke - padx, center_px - th / 2 - pady,
+             x + box[0] + tw + stroke + padx, center_px + th / 2 + pady],
+            radius=round(size_px * 0.10), fill=(0, 0, 0, 115))   # ≈ #00000073
     d.text((x, y), text, font=font, fill=(255, 255, 255, 255),
-           stroke_width=max(2, size_px // 18), stroke_fill=(0, 0, 0, 255))
+           stroke_width=stroke, stroke_fill=(0, 0, 0, 255))
     img.save(out)
 
 
@@ -328,7 +340,8 @@ def main() -> int:
         size_px = round(EM_PER_SIZE * float(t.get("style", {}).get("size", 8.0)))
         center = px_from_y(float(t["style"]["transform_y"]), H)
         png = WORK / f"cap_{t['id']}.png"
-        make_caption_png(t["content"], size_px, W, H, center, png)
+        make_caption_png(t["content"], size_px, W, H, center, png,
+                         panel=bool(t.get("background")))
         cap_meta.append((t, png, size_px, center))
 
     args = ["-y", "-i", str(cur)]

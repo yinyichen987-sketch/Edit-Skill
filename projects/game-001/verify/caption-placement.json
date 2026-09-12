@@ -156,6 +156,66 @@
       "overlaps_forbid_zone": false,
       "box_bottom_over_ui_cap": false,
       "verdict": "OK"
+    },
+    {
+      "draft": "GAME_MONT_VT",
+      "segment": "848ef66904304b4f815a0ce56b04b5fb",
+      "transform_y": 0.6875,
+      "center_px": 300.0,
+      "half_px": 63.480000000000004,
+      "box_px": [
+        236.5,
+        363.5
+      ],
+      "in_allow_zone": true,
+      "overlaps_forbid_zone": false,
+      "box_bottom_over_ui_cap": false,
+      "verdict": "OK"
+    },
+    {
+      "draft": "GAME_MONT_VT",
+      "segment": "9dc9e6852eb444aba927aceff306e41e",
+      "transform_y": 0.6875,
+      "center_px": 300.0,
+      "half_px": 44.965,
+      "box_px": [
+        255.0,
+        345.0
+      ],
+      "in_allow_zone": true,
+      "overlaps_forbid_zone": false,
+      "box_bottom_over_ui_cap": false,
+      "verdict": "OK"
+    },
+    {
+      "draft": "GAME_MONT_LS",
+      "segment": "3de31194b993410580927a24373d8cfc",
+      "transform_y": 0.611111,
+      "center_px": 210.0,
+      "half_px": 35.7075,
+      "box_px": [
+        174.3,
+        245.7
+      ],
+      "in_allow_zone": true,
+      "overlaps_forbid_zone": false,
+      "box_bottom_over_ui_cap": false,
+      "verdict": "OK"
+    },
+    {
+      "draft": "GAME_MONT_LS",
+      "segment": "c4174e95715b4f028ff0dced7ae5101f",
+      "transform_y": 0.611111,
+      "center_px": 210.0,
+      "half_px": 25.2862,
+      "box_px": [
+        184.7,
+        235.3
+      ],
+      "in_allow_zone": true,
+      "overlaps_forbid_zone": false,
+      "box_bottom_over_ui_cap": false,
+      "verdict": "OK"
     }
   ]
 }

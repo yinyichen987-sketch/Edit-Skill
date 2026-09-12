@@ -45,7 +45,7 @@
       "role": "run_c",
       "rule_id": "MONT-01",
       "reason": "集锦第 1 镜 / 8 拍（3.7500s）@128BPM；拍点 0.0–8.0；速度 1.0×（吃素材 3.7500s）。c 段连续长镜：C-H5(击杀播报同帧，信息量最高) → C-H7 → C-H8。",
-      "volume": 0.596,
+      "volume": 0.766,
       "filter": {
         "type": "青橙",
         "intensity": 65.0
@@ -73,7 +73,7 @@
       "role": "run_a",
       "rule_id": "MONT-01",
       "reason": "集锦第 2 镜 / 8 拍（3.7500s）@128BPM；拍点 8.0–16.0；速度 1.0×（吃素材 3.7500s）。a 段连续长镜：A-H2(拾取) → A-H3(**实测 2 HP**，conf 0.95) → A-H4。",
-      "volume": 0.49,
+      "volume": 0.63,
       "filter": {
         "type": "青橙",
         "intensity": 65.0
@@ -105,7 +105,7 @@
       "role": "run_b",
       "rule_id": "MONT-01",
       "reason": "集锦第 3 镜 / 8 拍（3.7500s）@128BPM；拍点 16.0–24.0；速度 1.0×（吃素材 3.7500s）。b 段连续长镜：B-H1(**全 70 秒音频能量最强**) → B-H2(击杀确认)，起点=drop。",
-      "volume": 0.596,
+      "volume": 0.766,
       "filter": {
         "type": "青橙",
         "intensity": 65.0
@@ -137,7 +137,7 @@
       "role": "run_c2",
       "rule_id": "MONT-01",
       "reason": "集锦第 4 镜 / 4 拍（1.8750s）@128BPM；拍点 24.0–28.0；速度 1.0×（吃素材 1.8750s）。c 段第二段：C-H10 持续交火（与第 1 镜不重叠、不连号）。",
-      "volume": 0.596,
+      "volume": 0.766,
       "filter": {
         "type": "青橙",
         "intensity": 65.0
@@ -165,7 +165,7 @@
       "role": "ending",
       "rule_id": "MONT-01",
       "reason": "集锦第 5 镜 / 4 拍（1.8750s）@128BPM；拍点 28.0–32.0；速度 1.0×（吃素材 1.8750s）。b 段收尾：B-H7「获胜」横幅，收在最强的情绪点上。",
-      "volume": 0.596,
+      "volume": 0.766,
       "filter": {
         "type": "青橙",
         "intensity": 65.0
@@ -205,7 +205,7 @@
           1.0
         ],
         "transform_x": 0.0,
-        "transform_y": -0.740741
+        "transform_y": 0.611111
       },
       "animation": {
         "intro": "弹簧",
@@ -229,6 +229,11 @@
         "diffuse": 18.0,
         "distance": 6.0,
         "angle": -45.0
+      },
+      "background": {
+        "color": "#00000073",
+        "style": 1,
+        "round_radius": 0.08
       }
     },
     {
@@ -247,7 +252,7 @@
           0.35
         ],
         "transform_x": 0.0,
-        "transform_y": -0.79
+        "transform_y": 0.611111
       },
       "animation": {
         "intro": "弹入",
@@ -271,6 +276,11 @@
         "diffuse": 18.0,
         "distance": 6.0,
         "angle": -45.0
+      },
+      "background": {
+        "color": "#00000073",
+        "style": 1,
+        "round_radius": 0.08
       }
     },
     {
@@ -289,7 +299,7 @@
           0.2
         ],
         "transform_x": 0.0,
-        "transform_y": -0.79
+        "transform_y": 0.611111
       },
       "animation": {
         "intro": "复古打字机",
@@ -313,6 +323,11 @@
         "diffuse": 18.0,
         "distance": 6.0,
         "angle": -45.0
+      },
+      "background": {
+        "color": "#00000073",
+        "style": 1,
+        "round_radius": 0.08
       }
     },
     {
@@ -331,7 +346,7 @@
           1.0
         ],
         "transform_x": 0.0,
-        "transform_y": -0.79
+        "transform_y": 0.611111
       },
       "animation": {
         "intro": "弹入",
@@ -355,6 +370,11 @@
         "diffuse": 18.0,
         "distance": 6.0,
         "angle": -45.0
+      },
+      "background": {
+        "color": "#00000073",
+        "style": 1,
+        "round_radius": 0.08
       }
     },
     {
@@ -373,7 +393,7 @@
           0.2
         ],
         "transform_x": 0.0,
-        "transform_y": -0.740741
+        "transform_y": 0.611111
       },
       "animation": {
         "intro": "渐显",
@@ -396,6 +416,11 @@
         "diffuse": 18.0,
         "distance": 6.0,
         "angle": -45.0
+      },
+      "background": {
+        "color": "#00000073",
+        "style": 1,
+        "round_radius": 0.08
       }
     }
   ],
@@ -405,7 +430,7 @@
       "track": "bgm",
       "start": 0.0,
       "duration": 15.0,
-      "volume": 0.34,
+      "volume": 0.46,
       "fade": {
         "in": 0.0,
         "out": 0.25
@@ -502,7 +527,7 @@
   ],
   "audio": {
     "voice_priority": "low",
-    "bgm_volume": 0.34
+    "bgm_volume": 0.46
   },
   "qa": {
     "required": [
