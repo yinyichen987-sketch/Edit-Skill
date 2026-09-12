@@ -1,0 +1,239 @@
+{
+ "version": "1.0",
+ "project": "BILI_H2H_STYLE",
+ "canvas": {
+  "width": 1920,
+  "height": 1080,
+  "fps": 30
+ },
+ "style_ref": "game-op-highlight",
+ "target_duration_s": 30.079903,
+ "tracks": [
+  {
+   "type": "video",
+   "name": "main"
+  },
+  {
+   "type": "audio",
+   "name": "bgm"
+  }
+ ],
+ "clips": [
+  {
+   "id": "s01",
+   "track": "main",
+   "source": "../../../原始素材/851622c586bb012a42a402a4ac587111.mp4",
+   "source_in": 29.5,
+   "start": 0.0,
+   "duration": 2.819991,
+   "role": "run_851622c5",
+   "rule_id": "MONT-BILI-11",
+   "reason": "第 1 镜 / 6 拍（2.8200s）；歌曲拍点 0–6（127.66BPM，1 拍 0.469998s）；素材 29.50→32.32s。**每段素材只切一刀、取一整段连杀**。依据：band −3.58dB（全集最响）；绿色技能特效 + 交火。",
+   "volume": 0.28
+  },
+  {
+   "id": "s02",
+   "track": "main",
+   "source": "../../../原始素材/4c58efb455faef8b4795ba6d6538b54b.mp4",
+   "source_in": 11.0,
+   "start": 2.819991,
+   "duration": 2.819991,
+   "role": "run_4c58efb4",
+   "rule_id": "MONT-BILI-11",
+   "reason": "第 2 镜 / 6 拍（2.8200s）；歌曲拍点 6–12（127.66BPM，1 拍 0.469998s）；素材 11.00→13.82s。**每段素材只切一刀、取一整段连杀**。依据：band −4.70dB；交火 + 击杀。",
+   "volume": 0.28
+  },
+  {
+   "id": "s03",
+   "track": "main",
+   "source": "../../../原始素材/b61cc53d55e6aa28e89031fc5ec5693c.mp4",
+   "source_in": 24.0,
+   "start": 5.639982,
+   "duration": 2.349992,
+   "role": "run_b61cc53d",
+   "rule_id": "MONT-BILI-11",
+   "reason": "第 3 镜 / 5 拍（2.3500s）；歌曲拍点 12–17（127.66BPM，1 拍 0.469998s）；素材 24.00→26.35s。**每段素材只切一刀、取一整段连杀**。依据：band −5.17dB；检视 + 遭遇。",
+   "volume": 0.28,
+   "transition": {
+    "type": "信号故障",
+    "duration": 0.12
+   }
+  },
+  {
+   "id": "s04",
+   "track": "main",
+   "source": "../../../原始素材/0a550967b46f242263f68b33be2252df.mp4",
+   "source_in": 27.0,
+   "start": 7.989974,
+   "duration": 2.819991,
+   "role": "run_0a550967",
+   "rule_id": "MONT-BILI-11",
+   "reason": "第 4 镜 / 6 拍（2.8200s）；歌曲拍点 17–23（127.66BPM，1 拍 0.469998s）；素材 27.00→29.82s。**每段素材只切一刀、取一整段连杀**。依据：band −5.18dB；右上角连续击杀播报。",
+   "volume": 0.28
+  },
+  {
+   "id": "s05",
+   "track": "main",
+   "source": "../../../原始素材/58b8e283b2ac553c9a9c4c8c113270db.mp4",
+   "source_in": 10.5,
+   "start": 10.809965,
+   "duration": 2.819991,
+   "role": "run_58b8e283",
+   "rule_id": "MONT-BILI-11",
+   "reason": "第 5 镜 / 6 拍（2.8200s）；歌曲拍点 23–29（127.66BPM，1 拍 0.469998s）；素材 10.50→13.32s。**每段素材只切一刀、取一整段连杀**。依据：band −5.87dB；运动模糊下的高强度动作。",
+   "volume": 0.28
+  },
+  {
+   "id": "s06",
+   "track": "main",
+   "source": "../../../原始素材/9526869dadea10a6413c208760aa5c42.mp4",
+   "source_in": 14.5,
+   "start": 13.629956,
+   "duration": 2.349992,
+   "role": "run_9526869d",
+   "rule_id": "MONT-BILI-11",
+   "reason": "第 6 镜 / 5 拍（2.3500s）；歌曲拍点 29–34（127.66BPM，1 拍 0.469998s）；素材 14.50→16.85s。**每段素材只切一刀、取一整段连杀**。依据：band −6.02dB；技能 + 击杀。",
+   "volume": 0.28
+  },
+  {
+   "id": "s07",
+   "track": "main",
+   "source": "../../../原始素材/7f0d8287758a222f243b1d145c045d94.mp4",
+   "source_in": 37.25,
+   "start": 15.979948,
+   "duration": 2.819991,
+   "role": "run_7f0d8287",
+   "rule_id": "MONT-BILI-11",
+   "reason": "第 7 镜 / 6 拍（2.8200s）；歌曲拍点 34–40（127.66BPM，1 拍 0.469998s）；素材 37.25→40.07s。**每段素材只切一刀、取一整段连杀**。依据：band −6.08dB；击杀播报 + 技能。",
+   "volume": 0.28
+  },
+  {
+   "id": "s08",
+   "track": "main",
+   "source": "../../../原始素材/4b0460c400bbb5320acb6063b4f59358.mp4",
+   "source_in": 4.5,
+   "start": 18.799939,
+   "duration": 2.819991,
+   "role": "run_4b0460c4",
+   "rule_id": "MONT-BILI-11",
+   "reason": "第 8 镜 / 6 拍（2.8200s）；歌曲拍点 40–46（127.66BPM，1 拍 0.469998s）；素材 4.50→7.32s。**每段素材只切一刀、取一整段连杀**。依据：band −6.82dB；原 a 段，双通道高强度。",
+   "volume": 0.28,
+   "transition": {
+    "type": "信号故障",
+    "duration": 0.2
+   }
+  },
+  {
+   "id": "s09",
+   "track": "main",
+   "source": "../../../原始素材/38cc49038ae23ca325952b7cbcd4926d.mp4",
+   "source_in": 0.5,
+   "start": 21.61993,
+   "duration": 2.819991,
+   "role": "run_38cc4903",
+   "rule_id": "MONT-BILI-11",
+   "reason": "第 9 镜 / 6 拍（2.8200s）；歌曲拍点 46–52（127.66BPM，1 拍 0.469998s）；素材 0.50→3.32s。**每段素材只切一刀、取一整段连杀**。依据：band −8.11dB；开场爆发。",
+   "volume": 0.28
+  },
+  {
+   "id": "s10",
+   "track": "main",
+   "source": "../../../原始素材/dcc871b1791e7796fadac842593f10f7.mp4",
+   "source_in": 19.0,
+   "start": 24.439921,
+   "duration": 2.819991,
+   "role": "run_dcc871b1",
+   "rule_id": "MONT-BILI-11",
+   "reason": "第 10 镜 / 6 拍（2.8200s）；歌曲拍点 52–58（127.66BPM，1 拍 0.469998s）；素材 19.00→21.82s。**每段素材只切一刀、取一整段连杀**。依据：band −8.13dB；原 c 段，A 点交火。",
+   "volume": 0.28
+  },
+  {
+   "id": "s11",
+   "track": "main",
+   "source": "../../../原始素材/6b2eea343eee7595c3c0ede10d21d028.mp4",
+   "source_in": 21.5,
+   "start": 27.259912,
+   "duration": 2.819991,
+   "role": "run_6b2eea34",
+   "rule_id": "MONT-BILI-11",
+   "reason": "第 11 镜 / 6 拍（2.8200s）；歌曲拍点 58–64（127.66BPM，1 拍 0.469998s）；素材 21.50→24.32s。**每段素材只切一刀、取一整段连杀**。依据：band −7.44dB；原 b 段，**「获胜」横幅**收尾。",
+   "volume": 0.28,
+   "transition": {
+    "type": "信号故障",
+    "duration": 0.12
+   }
+  }
+ ],
+ "texts": [],
+ "audio_overlays": [
+  {
+   "source": "../bgm/h2h_style_16bars.wav",
+   "track": "bgm",
+   "start": 0.0,
+   "duration": 30.079903,
+   "volume": 0.85,
+   "fade": {
+    "in": 0.0,
+    "out": 0.35
+   }
+  }
+ ],
+ "effect_tracks": [
+  {
+   "name": "g_vig",
+   "effects": [
+    {
+     "type": "暗角",
+     "start": 0.0,
+     "duration": 30.079903,
+     "params": [
+      10.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "g_grain",
+   "effects": [
+    {
+     "type": "噪点",
+     "start": 0.0,
+     "duration": 30.079903,
+     "params": [
+      5.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "g_sharp",
+   "effects": [
+    {
+     "type": "精细锐化",
+     "start": 0.0,
+     "duration": 30.079903,
+     "params": [
+      12.0,
+      10.0,
+      8.0,
+      100.0,
+      70.0
+     ]
+    }
+   ]
+  }
+ ],
+ "audio": {
+  "voice_priority": "low",
+  "bgm_volume": 0.85
+ },
+ "qa": {
+  "required": [
+   "duration-valid",
+   "audio-present",
+   "no-black-frame"
+  ]
+ },
+ "_bgm_note": "BGM = Hearts2Hearts《STYLE》第 90 小节起 16 小节（歌曲 169.45s → 199.53s，30.08s）。⚠️ 这是**商业录音**：B站 有音乐版权检测，可能被限流/静音；若要投放或变现，请改用 B站 音乐库 / 已授权曲目。",
+ "_form_note": "操作高光集锦：11 镜 / 10 切 / 64 拍 @127.66BPM / 30.080s。**每段素材只出现一次、各取一整段连续连杀**（用户要求）。"
+}
