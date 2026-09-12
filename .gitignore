@@ -71,3 +71,6 @@ projects/**/preview/_work/
 # ---- 抽帧探针（体积大且可用 ffmpeg 一条命令重生）----
 projects/**/verification/frame-probe/*.png
 
+
+# ---- 抽帧脚本的临时落盘（保留成体系的 frames/ 与证据图）----
+projects/**/film-analysis/_*.png
