@@ -67,3 +67,6 @@ projects/**/_peek*.txt
 .agent-teams/
 projects/**/preview/_work/
 
+# ---- 抽帧探针（体积大且可用 ffmpeg 一条命令重生）----
+projects/**/verification/frame-probe/*.png
+

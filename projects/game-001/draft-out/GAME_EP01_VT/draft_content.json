@@ -99,28 +99,28 @@
         "speeds": [
             {
                 "curve_speed": null,
-                "id": "35af8539ed83400cb68b0609c9f584b8",
+                "id": "6c20559383db481c9f9d2f5d9d187a08",
                 "mode": 0,
                 "speed": 1.0,
                 "type": "speed"
             },
             {
                 "curve_speed": null,
-                "id": "44efa031253f4e63812cbaa025e55c74",
+                "id": "52da28ae2e8d4641ab4711c0be7780d6",
                 "mode": 0,
                 "speed": 1.0,
                 "type": "speed"
             },
             {
                 "curve_speed": null,
-                "id": "b99743f8958e4d5fb8c48348907711e6",
+                "id": "2676804df1a8475dad506ea8c795d5be",
                 "mode": 0,
                 "speed": 1.0,
                 "type": "speed"
             },
             {
                 "curve_speed": null,
-                "id": "635c04e7428a43debf6b2984bade8ff7",
+                "id": "1233821a8b184575ab10e4c4c964e054",
                 "mode": 0,
                 "speed": 1.0,
                 "type": "speed"
@@ -131,7 +131,7 @@
         "text_templates": [],
         "texts": [
             {
-                "id": "53d350279b634da6bbf92692e66eba48",
+                "id": "0e51e56e91cf43769165cfabe32103b3",
                 "content": "{\"styles\": [{\"fill\": {\"alpha\": 1.0, \"content\": {\"render_type\": \"solid\", \"solid\": {\"alpha\": 1.0, \"color\": [1.0, 1.0, 1.0]}}}, \"range\": [0, 4], \"size\": 6.0, \"bold\": true, \"italic\": false, \"underline\": false, \"strokes\": []}], \"text\": \"2 HP\"}",
                 "typesetting": 0,
                 "alignment": 0,
@@ -145,7 +145,7 @@
                 "global_alpha": 1.0
             },
             {
-                "id": "206acdc46df346beacbebd7264b4f73a",
+                "id": "0f50fd840d3a42a48bba378d39d0c08e",
                 "content": "{\"styles\": [{\"fill\": {\"alpha\": 1.0, \"content\": {\"render_type\": \"solid\", \"solid\": {\"alpha\": 1.0, \"color\": [1.0, 1.0, 1.0]}}}, \"range\": [0, 10], \"size\": 5.0, \"bold\": true, \"italic\": false, \"underline\": false, \"strokes\": []}], \"text\": \"血只剩两格，他还在打\"}",
                 "typesetting": 0,
                 "alignment": 0,
@@ -159,7 +159,7 @@
                 "global_alpha": 1.0
             },
             {
-                "id": "3666f89d29d9419f92093727ff447452",
+                "id": "62c38aeb052d471c8c0ecb1c9c3fc54b",
                 "content": "{\"styles\": [{\"fill\": {\"alpha\": 1.0, \"content\": {\"render_type\": \"solid\", \"solid\": {\"alpha\": 1.0, \"color\": [1.0, 1.0, 1.0]}}}, \"range\": [0, 6], \"size\": 5.0, \"bold\": true, \"italic\": false, \"underline\": false, \"strokes\": []}], \"text\": \"击杀播报出现\"}",
                 "typesetting": 0,
                 "alignment": 0,
@@ -173,7 +173,7 @@
                 "global_alpha": 1.0
             },
             {
-                "id": "db6e7ea222b7497b962b08cefa5c5f3f",
+                "id": "3777fa2e6ab44b81b9895987d8fbbc1b",
                 "content": "{\"styles\": [{\"fill\": {\"alpha\": 1.0, \"content\": {\"render_type\": \"solid\", \"solid\": {\"alpha\": 1.0, \"color\": [1.0, 1.0, 1.0]}}}, \"range\": [0, 9], \"size\": 5.0, \"bold\": true, \"italic\": false, \"underline\": false, \"strokes\": []}], \"text\": \"一枪放倒，播报确认\"}",
                 "typesetting": 0,
                 "alignment": 0,
@@ -187,7 +187,7 @@
                 "global_alpha": 1.0
             },
             {
-                "id": "da1402b32d224c12bc3c8955948ddd71",
+                "id": "f1b4f0185f2848489c2edae9700f57fe",
                 "content": "{\"styles\": [{\"fill\": {\"alpha\": 1.0, \"content\": {\"render_type\": \"solid\", \"solid\": {\"alpha\": 1.0, \"color\": [1.0, 0.9, 0.2]}}}, \"range\": [0, 10], \"size\": 6.0, \"bold\": true, \"italic\": false, \"underline\": false, \"strokes\": []}], \"text\": \"这枪换你，敢不敢上？\"}",
                 "typesetting": 0,
                 "alignment": 0,
@@ -208,7 +208,7 @@
                 "category_name": "",
                 "duration": 130000,
                 "effect_id": "322575",
-                "id": "6e96cab3be754fe49486feef8f5531b7",
+                "id": "95d40cc522c54ec39d61ed30f48b413b",
                 "is_overlap": false,
                 "name": "闪白",
                 "platform": "all",
@@ -220,7 +220,7 @@
                 "category_name": "",
                 "duration": 130000,
                 "effect_id": "322575",
-                "id": "8863887a34f34e7fa9823639dc81153f",
+                "id": "5db55dd0567449efa504ca1ddd97b2d6",
                 "is_overlap": false,
                 "name": "闪白",
                 "platform": "all",
@@ -232,7 +232,7 @@
                 "category_name": "",
                 "duration": 130000,
                 "effect_id": "322575",
-                "id": "69a0a3919a41407298d0d3f00a20e622",
+                "id": "c3f1ebfc635d4f93bc1bde2cc5ea8e51",
                 "is_overlap": false,
                 "name": "闪白",
                 "platform": "all",
@@ -262,9 +262,9 @@
                 "crop_scale": 1.0,
                 "duration": 18984000,
                 "height": 720,
-                "id": "17a8ffd60eac4dfd902121302ecd67e4",
+                "id": "f71859d061e04df88db1fc5c4be3209c",
                 "local_material_id": "",
-                "material_id": "17a8ffd60eac4dfd902121302ecd67e4",
+                "material_id": "f71859d061e04df88db1fc5c4be3209c",
                 "material_name": "4b0460c400bbb5320acb6063b4f59358.mp4",
                 "media_path": "",
                 "path": "C:\\Users\\18930\\Desktop\\Edit skill\\原始素材\\4b0460c400bbb5320acb6063b4f59358.mp4",
@@ -290,9 +290,9 @@
                 "crop_scale": 1.0,
                 "duration": 18984000,
                 "height": 720,
-                "id": "aa60be222d364c80b4f69b6f12bc3ec4",
+                "id": "a0deb9b6301c40cca1b1b896cef6fcca",
                 "local_material_id": "",
-                "material_id": "aa60be222d364c80b4f69b6f12bc3ec4",
+                "material_id": "a0deb9b6301c40cca1b1b896cef6fcca",
                 "material_name": "4b0460c400bbb5320acb6063b4f59358.mp4",
                 "media_path": "",
                 "path": "C:\\Users\\18930\\Desktop\\Edit skill\\原始素材\\4b0460c400bbb5320acb6063b4f59358.mp4",
@@ -318,9 +318,9 @@
                 "crop_scale": 1.0,
                 "duration": 26017000,
                 "height": 720,
-                "id": "320c3482d71c476cbec2a5d73c00d070",
+                "id": "adc53a1e4ad049fea35e7987fa09f5cb",
                 "local_material_id": "",
-                "material_id": "320c3482d71c476cbec2a5d73c00d070",
+                "material_id": "adc53a1e4ad049fea35e7987fa09f5cb",
                 "material_name": "6b2eea343eee7595c3c0ede10d21d028.mp4",
                 "media_path": "",
                 "path": "C:\\Users\\18930\\Desktop\\Edit skill\\原始素材\\6b2eea343eee7595c3c0ede10d21d028.mp4",
@@ -346,9 +346,9 @@
                 "crop_scale": 1.0,
                 "duration": 26017000,
                 "height": 720,
-                "id": "7e7fea6ebbaf4b0f958d57f843ea4f53",
+                "id": "ffdc50c3f7734ff484c320f86f336718",
                 "local_material_id": "",
-                "material_id": "7e7fea6ebbaf4b0f958d57f843ea4f53",
+                "material_id": "ffdc50c3f7734ff484c320f86f336718",
                 "material_name": "6b2eea343eee7595c3c0ede10d21d028.mp4",
                 "media_path": "",
                 "path": "C:\\Users\\18930\\Desktop\\Edit skill\\原始素材\\6b2eea343eee7595c3c0ede10d21d028.mp4",
@@ -372,7 +372,7 @@
         {
             "attribute": 0,
             "flag": 0,
-            "id": "f1a351d47ea14cdfbc82120255ff02e0",
+            "id": "9081caea96e649aaa88fd685392bd60c",
             "is_default_name": false,
             "name": "main",
             "segments": [
@@ -389,8 +389,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "dae0c1660c964221a31e4deb2cd646c7",
-                    "material_id": "17a8ffd60eac4dfd902121302ecd67e4",
+                    "id": "2b3e8569e0844f92854774455cd3b6a7",
+                    "material_id": "f71859d061e04df88db1fc5c4be3209c",
                     "target_timerange": {
                         "start": 0,
                         "duration": 2050000
@@ -404,8 +404,8 @@
                     "speed": 1.0,
                     "volume": 0.7,
                     "extra_material_refs": [
-                        "35af8539ed83400cb68b0609c9f584b8",
-                        "6e96cab3be754fe49486feef8f5531b7"
+                        "6c20559383db481c9f9d2f5d9d187a08",
+                        "95d40cc522c54ec39d61ed30f48b413b"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -448,8 +448,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "c27edb2cf87d466796d48c458b12f5a2",
-                    "material_id": "aa60be222d364c80b4f69b6f12bc3ec4",
+                    "id": "8b30d0ea6f8745dc889a8dbe2316e247",
+                    "material_id": "a0deb9b6301c40cca1b1b896cef6fcca",
                     "target_timerange": {
                         "start": 2050000,
                         "duration": 4400000
@@ -463,8 +463,8 @@
                     "speed": 1.0,
                     "volume": 0.7,
                     "extra_material_refs": [
-                        "44efa031253f4e63812cbaa025e55c74",
-                        "8863887a34f34e7fa9823639dc81153f"
+                        "52da28ae2e8d4641ab4711c0be7780d6",
+                        "5db55dd0567449efa504ca1ddd97b2d6"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -507,8 +507,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "b76ea8bf98674626823b28bbb9c18de8",
-                    "material_id": "320c3482d71c476cbec2a5d73c00d070",
+                    "id": "919e8876733742c18da860e0e3a228f2",
+                    "material_id": "adc53a1e4ad049fea35e7987fa09f5cb",
                     "target_timerange": {
                         "start": 6450000,
                         "duration": 5600000
@@ -522,8 +522,8 @@
                     "speed": 1.0,
                     "volume": 0.851,
                     "extra_material_refs": [
-                        "b99743f8958e4d5fb8c48348907711e6",
-                        "69a0a3919a41407298d0d3f00a20e622"
+                        "2676804df1a8475dad506ea8c795d5be",
+                        "c3f1ebfc635d4f93bc1bde2cc5ea8e51"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -566,8 +566,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "d009809f36974374b243dccf110adeed",
-                    "material_id": "7e7fea6ebbaf4b0f958d57f843ea4f53",
+                    "id": "8ad9638d9f6840aa91b580b17b0a9c19",
+                    "material_id": "ffdc50c3f7734ff484c320f86f336718",
                     "target_timerange": {
                         "start": 12050000,
                         "duration": 2950000
@@ -581,7 +581,7 @@
                     "speed": 1.0,
                     "volume": 0.851,
                     "extra_material_refs": [
-                        "635c04e7428a43debf6b2984bade8ff7"
+                        "1233821a8b184575ab10e4c4c964e054"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -617,7 +617,7 @@
         {
             "attribute": 0,
             "flag": 0,
-            "id": "e88fb9b86abe4a58bbc34b00d46da892",
+            "id": "ae2cdfc342cd4e84a599381ba91209fb",
             "is_default_name": false,
             "name": "caption",
             "segments": [
@@ -634,8 +634,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "ba04aa4fa6464c8cb8619931b20fc111",
-                    "material_id": "53d350279b634da6bbf92692e66eba48",
+                    "id": "2632899163ae46fd93b4215357001a8b",
+                    "material_id": "0e51e56e91cf43769165cfabe32103b3",
                     "target_timerange": {
                         "start": 200000,
                         "duration": 1850000
@@ -646,7 +646,7 @@
                     "speed": 1.0,
                     "volume": 1.0,
                     "extra_material_refs": [
-                        "354eeeeeb44c4e8f86437c3a74bb5276"
+                        "b499039923b94adf90997de78526b494"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -684,8 +684,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "44d03e5bc8004dbd914dc7fc861b9cfa",
-                    "material_id": "206acdc46df346beacbebd7264b4f73a",
+                    "id": "cf66181367be40a6bf76aa29eebbe31e",
+                    "material_id": "0f50fd840d3a42a48bba378d39d0c08e",
                     "target_timerange": {
                         "start": 2350000,
                         "duration": 2300000
@@ -696,7 +696,7 @@
                     "speed": 1.0,
                     "volume": 1.0,
                     "extra_material_refs": [
-                        "f55b2dd7971443de913815bc88672938"
+                        "9d409cf543b64407a84f2767ad443d9c"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -734,8 +734,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "c72e24aad35f466cb9d08adbbfec4b79",
-                    "material_id": "3666f89d29d9419f92093727ff447452",
+                    "id": "6b2fcabfb02f4cc599e6ada2571c3d6e",
+                    "material_id": "62c38aeb052d471c8c0ecb1c9c3fc54b",
                     "target_timerange": {
                         "start": 4900000,
                         "duration": 1700000
@@ -746,7 +746,7 @@
                     "speed": 1.0,
                     "volume": 1.0,
                     "extra_material_refs": [
-                        "a30167c86f414aa2881a0cc65eb53551"
+                        "266376fcfa7e499aa9e51b825bd8e536"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -784,8 +784,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "e1339df037bf4f49b1bed47fd685f7eb",
-                    "material_id": "db6e7ea222b7497b962b08cefa5c5f3f",
+                    "id": "fa67fc436c154f8883a06a13126f9c34",
+                    "material_id": "3777fa2e6ab44b81b9895987d8fbbc1b",
                     "target_timerange": {
                         "start": 6800000,
                         "duration": 3400000
@@ -796,7 +796,7 @@
                     "speed": 1.0,
                     "volume": 1.0,
                     "extra_material_refs": [
-                        "379fda843d104008beef147f336acd41"
+                        "3df01d71bfbc4f5d9cec6500af329c39"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -834,8 +834,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "be5c4cc81e9e4ee9ad518a8c3f5ab6f7",
-                    "material_id": "da1402b32d224c12bc3c8955948ddd71",
+                    "id": "c3c1cf072d064a84814832f12f3324db",
+                    "material_id": "f1b4f0185f2848489c2edae9700f57fe",
                     "target_timerange": {
                         "start": 12100000,
                         "duration": 2650000
@@ -846,7 +846,7 @@
                     "speed": 1.0,
                     "volume": 1.0,
                     "extra_material_refs": [
-                        "e3c115c3cd00426a97855b15b7e21241"
+                        "62ab8fe44dfd4c31bae6ff6b467ff16a"
                     ],
                     "is_tone_modify": false,
                     "clip": {

@@ -84,6 +84,29 @@ def kf_series(item: dict, prop: str) -> list[tuple[float, float]]:
     return sorted(out)
 
 
+def probe_dims(path: Path) -> tuple[int, int] | None:
+    """读素材像素尺寸（pymediainfo，与 edl_to_draft 用的是同一套依赖）。"""
+    try:
+        from pymediainfo import MediaInfo
+    except ImportError:
+        return None
+    for t in MediaInfo.parse(str(path)).tracks:
+        if t.track_type == "Video" and t.width and t.height:
+            return int(t.width), int(t.height)
+    return None
+
+
+def contain_size(sw: int, sh: int, W: int, H: int) -> tuple[int, int]:
+    """剪映 scale=1.0 的 displayed 尺寸 —— contain（等比装进画布）。
+
+    实测依据：1280x720 放进 1080x1920、scale=1.0 时剪映渲染出的画面带是 1080x608，
+    与 contain 理论值 1080x607.5 吻合（见 draft 封面实测）。
+    """
+    if sw / sh >= W / H:
+        return W, max(2, round(W * sh / sw))
+    return max(2, round(H * sw / sh)), H
+
+
 def make_caption_png(text: str, size_px: int, W: int, H: int, center_px: float, out: Path) -> None:
     """渲染一条字幕为透明 PNG（白字 + 黑描边），水平居中，中心位于 center_px。"""
     font = ImageFont.truetype(FONT_PATH if os.path.exists(FONT_PATH) else FONT_PATH_FALLBACK, size_px)
@@ -119,17 +142,61 @@ def main() -> int:
         src = Path(c["source"]) if os.path.isabs(c["source"]) else (base / c["source"]).resolve()
         out = WORK / f"seg{i}.mp4"
 
-        vf = [f"scale={W}:{H}:force_original_aspect_ratio=decrease",
-              f"pad={W}:{H}:(ow-iw)/2:(oh-ih)/2", "setsar=1", f"fps={FPS}"]
+        clip_cfg = c.get("clip") or {}
+        band_scale = float(clip_cfg.get("scale", clip_cfg.get("scale_y", 1.0)))
+        bf = c.get("background_filling") or {}
+        blur_bg = bf.get("type") == "blur"
 
-        # 关键帧推拉（uniform_scale / scale_x）→ crop 成比例再放回原尺寸
+        # 关键帧推拉（uniform_scale / scale_x）→ 先裁再放大，等价于「画面变大」
         sc = kf_series(c, "uniform_scale") or kf_series(c, "scale_x")
+        # 关键帧亮度 → eq（需 eval=frame 才逐帧求值）
+        br = kf_series(c, "brightness")
+
+        base_f = [f"scale={W}:{H}:force_original_aspect_ratio=decrease",
+                  "setsar=1", f"fps={FPS}"]
+
+        if blur_bg:
+            # 竖屏构图：画面带 + 素材自身的模糊放大版填满画布（消灭 2/3 黑边）
+            dims = probe_dims(src)
+            sw, sh = dims if dims else (1280, 720)
+            bw, bh = contain_size(sw, sh, W, H)
+            band_w, band_h = max(2, round(bw * band_scale)), max(2, round(bh * band_scale))
+            sigma = max(6.0, 8.0 + float(bf.get("blur", 0.75)) * 28.0)
+            fg = [f"scale={band_w}:{band_h}:flags=bicubic"]
+            if sc:
+                z = piecewise(sc)
+                fg = [f"crop=w='{bw}/({z})':h='{bh}/({z})':x='(iw-ow)/2':y='(ih-oh)/2'",
+                      f"scale={band_w}:{band_h}:flags=bicubic"]
+            fc = (
+                f"[0:v]{','.join(base_f)}[base];"
+                f"[base]split=2[fgsrc][bgsrc];"
+                f"[bgsrc]scale={W}:{H}:force_original_aspect_ratio=increase,"
+                f"crop={W}:{H},gblur=sigma={sigma:.1f}[bg];"
+                f"[fgsrc]{','.join(fg)}[fg];"
+                f"[bg][fg]overlay=(W-w)/2:(H-h)/2[ov]"
+            )
+            if br:
+                fc += f";[ov]eq=brightness='{piecewise(br)}':eval=frame[vout]"
+                last = "vout"
+            else:
+                last = "ov"
+            run(["-y", "-ss", f"{c.get('source_in', 0)}", "-t", f"{c['duration']}", "-i", str(src),
+                 "-filter_complex", fc, "-map", f"[{last}]",
+                 "-af", f"volume={c.get('volume', 1.0)}",
+                 "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p",
+                 "-c:a", "aac", "-ar", "48000", "-ac", "2", str(out)],
+                f"clip {c['id']}  {src.name}  in={c.get('source_in',0)}  dur={c['duration']}  "
+                f"竖屏构图 画面带{band_w}x{band_h}({band_scale}x) + 模糊底 sigma={sigma:.0f}"
+                + (f"  推拉关键帧{len(sc)}个" if sc else "")
+                + (f"  亮度关键帧{len(br)}个" if br else ""))
+            seg_files.append(out)
+            continue
+
+        vf = base_f + [f"pad={W}:{H}:(ow-iw)/2:(oh-ih)/2"]
         if sc:
             z = piecewise(sc)
             vf.append(f"crop=w='iw/({z})':h='ih/({z})':x='(iw-ow)/2':y='(ih-oh)/2'")
             vf.append(f"scale={W}:{H}:flags=bicubic")
-        # 关键帧亮度 → eq（需 eval=frame 才逐帧求值）
-        br = kf_series(c, "brightness")
         if br:
             vf.append(f"eq=brightness='{piecewise(br)}':eval=frame")
 

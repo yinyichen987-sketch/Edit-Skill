@@ -191,6 +191,56 @@ def _keyframes(seg, item, report: dict, ctx: str) -> None:
         seg.add_keyframe(prop, tsec(kf["time"]), float(kf["value"]))
 
 
+def band_scale(canvas_w: int, canvas_h: int, src_w: int, src_h: int,
+               band_h: float) -> float:
+    """求「让素材在画布中显示为 band_h 像素高」所需的 clip.scale。
+
+    依据（**实测得出，不是猜的**）：
+      · 剪映里 `clip.scale = 1.0` 表示 **contain（等比缩放到完整装进画布）**。
+        实测证据：1280x720 素材放进 1080x1920 画布、scale=1.0 时，剪映自己渲染出的
+        草稿封面里画面带正好是 1080x608，上下各 656px 黑边；而 contain 的理论值
+        是 1080x607.5。两者一致（±1px 取整）。
+      · 因此：装进画布后的基准高度 = canvas_w * src_h / src_w（当素材比画布更宽时，
+        以画布宽为基准；否则以画布高为基准）。
+      · 想得到 band_h 高 → scale = band_h / 基准高度。
+
+    注意 scale_x/scale_y 必须取同一个值，否则画面会变形。
+    """
+    src_ar = src_w / src_h
+    canvas_ar = canvas_w / canvas_h
+    if src_ar >= canvas_ar:          # 素材更宽 → 以画布宽为准
+        base_h = canvas_w * src_h / src_w
+    else:                            # 素材更高 → 以画布高为准
+        base_h = float(canvas_h)
+    return band_h / base_h
+
+
+def _clip_settings_of(item, report: dict, sid) -> "d.ClipSettings | None":
+    """把 EDL 片段上的 `clip` 块转成剪映的图像调节设置。
+
+    坐标系实测结论（与 pyJianYingDraft 文档互相印证）：
+      transform_x / transform_y 的单位是**半个画布宽 / 半个画布高**，正方向为**上/左**。
+      即  y_px = H/2 - (H/2) * transform_y  （y_px 从画面顶部算起）
+      交叉验证：LS 画布 1920x1080 时 transform_y=-0.7407 → 940px、-0.79 → 966.6px；
+                VT 画布 1080x1920 时 transform_y=+0.6875 → 300px、-0.5104 → 1450px。
+                两组四个数全部吻合。
+    """
+    c = item.get("clip") or {}
+    if not c:
+        return None
+    scale = c.get("scale", 1.0)
+    return d.ClipSettings(
+        alpha=float(c.get("alpha", 1.0)),
+        flip_horizontal=bool(c.get("flip_horizontal", False)),
+        flip_vertical=bool(c.get("flip_vertical", False)),
+        rotation=float(c.get("rotation", 0.0)),
+        scale_x=float(c.get("scale_x", scale)),
+        scale_y=float(c.get("scale_y", scale)),
+        transform_x=float(c.get("transform_x", 0.0)),
+        transform_y=float(c.get("transform_y", 0.0)),
+    )
+
+
 def _apply_video_advanced(seg, item, report: dict) -> None:
     """把 clip 的高级字段落到片段上。**必须在 add_segment 之前调用。**"""
     sid = item.get("id", "?")
@@ -317,7 +367,9 @@ def build(edl: dict, draft_root: str, name: str | None, dry_run: bool) -> dict:
             seg = d.AudioSegment(src, d.trange(tsec(start), tsec(duration)), **kwargs)
             _apply_audio_advanced(seg, item, report)
         else:
-            seg = d.VideoSegment(src, d.trange(tsec(start), tsec(duration)), **kwargs)
+            seg = d.VideoSegment(src, d.trange(tsec(start), tsec(duration)),
+                                 clip_settings=_clip_settings_of(item, report, item.get("id", "?")),
+                                 **kwargs)
             _apply_video_advanced(seg, item, report)
 
         built.append((item["track"], seg))
@@ -342,6 +394,49 @@ def build(edl: dict, draft_root: str, name: str | None, dry_run: bool) -> dict:
     for track, seg in built:
         script.add_segment(seg, track)
         report["clips"] += 1
+
+    # ---- 独立特效轨 ----
+    # 注意：**片段特效会作用于整个片段**，所以 0.1–0.3s 的打击特效必须走独立特效轨，
+    # 否则会把整段都加上特效。
+    for et in edl.get("effect_tracks") or []:
+        name = et.get("name") or "fx"
+        script.append_track(d.TrackSpec(d.TrackType.effect, name))
+        report.setdefault("effect_tracks", []).append(name)
+        report["tracks"].append({"name": name, "type": "effect"})
+        for e in et.get("effects") or []:
+            obj = (_enum_of(d.VideoSceneEffectType, e.get("type"), report, f"特效轨 {name}")
+                   or _enum_of(d.VideoCharacterEffectType, e.get("type"), report, f"特效轨 {name}"))
+            if obj is None:
+                continue
+            script.add_effect(obj, d.trange(tsec(e["start"]), tsec(e["duration"])),
+                              track_name=name, params=e.get("params"))
+            report["effects"] = report.get("effects", 0) + 1
+
+    # ---- 音效叠加 ----
+    # 剪映音效库无法程序化引用（AudioSegment 只接受本地文件路径），
+    # 因此音效需先用 ffmpeg 从原素材裁成文件（枪声/播报音都能这样取）。
+    declared = {t["name"] for t in (edl.get("tracks") or [])}
+    for ao in edl.get("audio_overlays") or []:
+        name = ao.get("track") or "sfx"
+        if name not in declared:
+            script.append_track(d.TrackSpec(d.TrackType.audio, name))
+            declared.add(name)
+            report.setdefault("effect_tracks", []).append(name)
+            report["tracks"].append({"name": name, "type": "audio"})
+        src = resolve(ao["source"])
+        if not os.path.exists(src):
+            msg = f"音效文件不存在: {ao['source']}"
+            report["warnings"].append(msg)
+            print(f"  [WARN] {msg}")
+            continue
+        kwargs = {"volume": float(ao.get("volume", 1.0))}
+        if ao.get("source_in") is not None:
+            kwargs["source_timerange"] = d.trange(tsec(ao["source_in"]), tsec(ao["duration"]))
+        seg = d.AudioSegment(src, d.trange(tsec(ao["start"]), tsec(ao["duration"])), **kwargs)
+        if ao.get("fade"):
+            seg.add_fade(tsec(ao["fade"].get("in", 0)), tsec(ao["fade"].get("out", 0)))
+        script.add_segment(seg, name)
+        report["audio_overlays"] = report.get("audio_overlays", 0) + 1
 
     for item in edl.get("texts") or []:
         style = item.get("style") or {}
@@ -447,7 +542,8 @@ def main() -> int:
         print(f"     位置: {report.get('draft_dir')}")
     print(f"     轨道 {len(report['tracks'])} 条: "
           + ", ".join(f"{t['name']}({t['type']})" for t in report["tracks"]))
-    print(f"     视频片段 {report['clips']} 个 | 文本 {report['texts']} 条")
+    print(f"     视频片段 {report['clips']} 个 | 文本 {report['texts']} 条"
+          f" | 特效 {report.get('effects', 0)} 个 | 音效叠加 {report.get('audio_overlays', 0)} 个")
     print("     下一步：在剪映中打开该草稿，检查后手动导出（剪映 7+ 不支持自动导出）")
     print("=" * 60)
     return 0

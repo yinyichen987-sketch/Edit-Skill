@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "project": "GAME_EP01_VT_PRO",
+  "project": "GAME_EP01_VT_HIT",
   "canvas": {
     "width": 1080,
     "height": 1920,
@@ -39,8 +39,13 @@
         },
         {
           "property": "uniform_scale",
+          "time": 0.9,
+          "value": 1.06
+        },
+        {
+          "property": "uniform_scale",
           "time": 2.05,
-          "value": 1.12
+          "value": 1.02
         }
       ],
       "background_filling": {
@@ -111,38 +116,23 @@
         },
         {
           "property": "uniform_scale",
-          "time": 3.3,
-          "value": 1.04
+          "time": 3.5,
+          "value": 1.05
         },
         {
           "property": "uniform_scale",
-          "time": 3.5,
+          "time": 3.62,
           "value": 1.14
         },
         {
           "property": "uniform_scale",
-          "time": 3.9,
+          "time": 4.02,
           "value": 1.02
         },
         {
           "property": "uniform_scale",
           "time": 5.6,
           "value": 1.06
-        },
-        {
-          "property": "brightness",
-          "time": 3.3,
-          "value": 0.0
-        },
-        {
-          "property": "brightness",
-          "time": 3.5,
-          "value": 0.1
-        },
-        {
-          "property": "brightness",
-          "time": 3.9,
-          "value": 0.0
         }
       ],
       "background_filling": {
@@ -209,8 +199,9 @@
         "transform_y": 0.6875
       },
       "animation": {
-        "intro": "放大",
-        "intro_duration": 0.3
+        "intro": "弹入",
+        "intro_duration": 0.3,
+        "loop": "跳动"
       },
       "border": {
         "color": [
@@ -329,7 +320,7 @@
         "transform_y": -0.5104
       },
       "animation": {
-        "intro": "弹入",
+        "intro": "向上滑动",
         "intro_duration": 0.25
       },
       "border": {
@@ -369,8 +360,8 @@
         "transform_y": -0.5104
       },
       "animation": {
-        "intro": "弹入",
-        "intro_duration": 0.3
+        "intro": "渐显",
+        "intro_duration": 0.35
       },
       "border": {
         "color": [
@@ -404,7 +395,76 @@
       "loudness-aligned"
     ]
   },
-  "_pro_derived_from": "ep01-vertical.json",
-  "_pro_note": "高级版：在基础版之上加关键帧推拉/冲击脉冲、字幕入场动画与描边阴影。刻意不含滤镜与视频特效（它们依赖素材下载，风险高）。",
+  "effect_tracks": [
+    {
+      "name": "fx",
+      "effects": [
+        {
+          "type": "冲击波",
+          "start": 0.3,
+          "duration": 0.2
+        },
+        {
+          "type": "闪光震动",
+          "start": 2.35,
+          "duration": 0.15
+        },
+        {
+          "type": "冲击波",
+          "start": 9.95,
+          "duration": 0.25
+        },
+        {
+          "type": "星火炸开",
+          "start": 12.05,
+          "duration": 0.3
+        }
+      ]
+    },
+    {
+      "name": "fx2",
+      "effects": [
+        {
+          "type": "闪白",
+          "start": 9.95,
+          "duration": 0.1
+        }
+      ]
+    }
+  ],
+  "audio_overlays": [
+    {
+      "source": "../sfx/impact_a.wav",
+      "start": 0.3,
+      "duration": 0.14,
+      "volume": 0.9,
+      "fade": {
+        "in": 0.005,
+        "out": 0.04
+      }
+    },
+    {
+      "source": "../sfx/impact_b.wav",
+      "start": 9.95,
+      "duration": 0.14,
+      "volume": 1.0,
+      "fade": {
+        "in": 0.005,
+        "out": 0.04
+      }
+    },
+    {
+      "source": "../sfx/win.wav",
+      "start": 12.05,
+      "duration": 0.4,
+      "volume": 0.8,
+      "fade": {
+        "in": 0.01,
+        "out": 0.1
+      }
+    }
+  ],
+  "_hit_derived_from": "ep01-vertical.json",
+  "_hit_note": "打击感版：独立特效轨（冲击波/闪光震动/闪白/星火炸开）+ 从原素材裁出的音效 impact + 精细运镜与字幕节奏。不含滤镜（1052 个里仅 250 个非 VIP 且游戏感滤镜全是 VIP）与蒙版（剪映 11.4 静默失效）。",
   "_framing_note": "竖屏构图修正：canvas_blur 背景填充（blur=0.75）+ 画面带放大 1.18x。依据：实测 scale=1.0 = contain，横屏素材直落竖屏画布会留 2/3 黑边（剪映封面实测 1080x608 画面带 + 上下各 656px 黑）。"
 }
