@@ -38,6 +38,10 @@ KILLS = ROOT / "projects/game-001/analysis2/kills_mine.json"
 
 GAP = 5.0        # 无击杀超过这么多秒就应被删掉（与 build_by_exclusion.py 一致）
 MIN_SEG = 1.35   # 每段最短时长（MIN_SEG=1.5 的 90% 容差）
+# 第 6 条：击杀密度下限。用户反馈带来的**决定性指标** ——
+#   他满意的三段密度是 0.35 / 0.61 / 0.38，不满意的 #1/#3 只有 0.19 / 0.16。
+#   只看"段内 >=2 杀"不够：两杀之间那几秒可能是空的（购买阶段/空房间）。
+MIN_DENSITY = 0.25   # 杀/秒
 
 
 def main() -> int:
@@ -121,11 +125,30 @@ def main() -> int:
     else:
         print(f"  ✓ 最短段 {min(c['duration'] for c in clips):.2f}s")
 
+    # ---- 6. 击杀密度 ----
+    print(f"\n【6】击杀密度 >= {MIN_DENSITY:.2f} 杀/秒（不只有'发生过击杀'，还要够密）")
+    low, dens = [], []
+    for c in clips:
+        short = pathlib.Path(c["source"]).stem[:8]
+        a, b = c["source_in"], c["source_in"] + c["duration"]
+        k = len([x for x in mine.get(short, []) if a - 0.05 <= x <= b + 0.05])
+        d = k / c["duration"]
+        dens.append(d)
+        if d < MIN_DENSITY:
+            low.append((c["id"], d, k, c["duration"]))
+    if low:
+        for i, d, k, L in low:
+            print(f"  x {i} 密度 {d:.2f}（{k} 杀 / {L:.2f}s）")
+            fails.append(f"{i} 密度 {d:.2f}")
+    else:
+        ds = sorted(dens)
+        print(f"  ok 全部通过（中位 {ds[len(ds)//2]:.2f}，最低 {ds[0]:.2f}）")
+
     print()
     if fails:
         print(f"[FAIL] {len(fails)} 项不满足：{fails}")
         return 1
-    print("[OK] 五条判据全部通过。")
+    print("[OK] 六条判据全部通过。")
     return 0
 
 

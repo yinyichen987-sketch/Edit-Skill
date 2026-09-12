@@ -37,7 +37,10 @@ ROOT = pathlib.Path(__file__).resolve().parents[3]
 KM = ROOT / "projects/game-001/analysis2/kills_mine.json"
 OUT = ROOT / "projects/game-001/analysis2/source_blocks.json"
 
-GAP = 5.0     # 无击杀超过这么多秒 = "过长"，删
+GAP = 3.0     # 无击杀超过这么多秒 = "过长"，删。
+              # ⚠️ 由 5.0 收紧到 3.0：用户指出后者留下了"太多没用的镜头"。
+              #    实测 3.0 是"没有任何一段击杀密度 < 0.25/秒"的临界点
+              #    （5.0 时最低 0.16，即有约 6 秒画面里只有 1 次击杀）。
 PRE = 0.6     # 删除区间的右端留出（给下一杀前摇）
 POST = 1.5    # 删除区间的左端留出（给上一杀收尾）
 MIN_CUT = 1.5  # 真正能删掉的部分不足这么多秒 ⇒ 不值得切这一刀，保留
