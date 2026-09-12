@@ -43,7 +43,7 @@ except (AttributeError, ValueError):
 ROOT = pathlib.Path(__file__).resolve().parents[3]
 BLOCKS = ROOT / "projects/game-001/analysis2/source_blocks.json"
 OUT = ROOT / "projects/game-001/edl/bili-montage.json"
-BGM = "../bgm/h2h_style_blocks.wav"
+BGM = "../bgm/h2h_style_uncut.wav"   # 整条不切版：345s（2×172.5s 循环）
 BGM_VOLUME = 0.80        # 比上一版降一点：商业母带 −0.1dBFS + 游戏原声容易冲到 0
 GAME_VOLUME = 0.30
 
@@ -173,6 +173,27 @@ def main() -> int:
     OUT.write_text(json.dumps(edl, ensure_ascii=False, indent=1), encoding="utf-8")
     clips = edl["clips"]
     total = sum(c["duration"] for c in clips)
+
+    # ★ 自检：BGM 必须**不短于**成片，否则转换器会抛一句看不出原因的
+    #   "截取的素材时间范围超出了素材时长"。这个坑已犯三次，改成在这里拦。
+    bgm_path = (OUT.parent / BGM).resolve()
+    if not bgm_path.exists():
+        print(f"  [FAIL] BGM 不存在: {bgm_path}")
+        raise SystemExit(1)
+    try:
+        from pymediainfo import MediaInfo
+        bgm_dur = 0.0
+        for t in MediaInfo.parse(str(bgm_path)).tracks:
+            if t.track_type == "Audio":
+                bgm_dur = (t.duration or 0) / 1000.0
+                break
+        if bgm_dur < total:
+            print(f"  [FAIL] BGM 只有 {bgm_dur:.2f}s，成片却有 {total:.2f}s —— "
+                  f"请先重新生成 BGM（需 >= {total:.2f}s）")
+            raise SystemExit(1)
+        print(f"  [i] BGM {bgm_path.name} {bgm_dur:.2f}s >= 成片 {total:.2f}s  ok")
+    except ImportError:
+        pass
     durs = sorted(c["duration"] for c in clips)
     from collections import Counter
     nb = len(Counter(c["role"] for c in clips))

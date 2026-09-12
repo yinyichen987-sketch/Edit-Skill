@@ -199,7 +199,7 @@
  "texts": [],
  "audio_overlays": [
   {
-   "source": "../bgm/h2h_style_blocks.wav",
+   "source": "../bgm/h2h_style_uncut.wav",
    "track": "bgm",
    "start": 0.0,
    "duration": 336.141,
