@@ -237,7 +237,7 @@ pyJianYingDraft 只生成 2 个文件，剪映原生草稿有 24+ 个条目。�
 |---|---|
 | 剪辑形式规格（含 §13 验证覆盖图） | `projects/game-001/spec/format-spec.md` |
 | 单集选材与取舍说明 | `projects/game-001/spec/episode-plan.md` |
-| VALORANT 风格规则集（28 条） | `references/styles/game-valorant.md` |
+| VALORANT 风格规则集（**30 条**：HOOK 4 / SEL 5 / CUT 5 / TRN 3 / CAP 5 / AUD 4 / EXP 4） | `references/styles/game-valorant.md` |
 | EDL ×2 + 剪映草稿 ×2 | `projects/game-001/edl/`、`draft-out/` |
 | 素材深读（含错误分类学） | `projects/game-001/analysis/` |
 | 4 个验证工具 + 总门禁 | `projects/game-001/verification/` |

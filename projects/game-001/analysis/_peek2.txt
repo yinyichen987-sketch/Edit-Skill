@@ -1,3 +1,0 @@
-a vs_old_pacing={"detected_shot_count": 12, "detected_cut_count": 11, "avg_shot_s": 1.582, "median_shot_s": 1.4, "min_shot_s": 0.3, "max_shot_s": 4.649, "cuts_per_minute": 34.77, "confidence_that_these_are_real_cuts"
-b vs_old_pacing={"detected_shot_count": 16, "detected_cut_count": 15, "avg_shot_s": 1.626, "median_shot_s": 1.25, "min_shot_s": 0.267, "max_shot_s": 5.467, "cuts_per_minute": 34.59, "confidence_that_these_are_real_cu
-c vs_old_pacing={"detected_shot_count": 19, "detected_cut_count": 18, "avg_shot_s": 1.316, "median_shot_s": 0.633, "min_shot_s": 0.172, "max_shot_s": 7.3, "cuts_per_minute": 43.18, "confidence_that_these_are_real_cut

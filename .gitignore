@@ -54,9 +54,14 @@ spike/media/
 assets/raw/
 assets/final/
 projects/**/media/
-projects/**/draft-out/
+
+# 注：`projects/**/draft-out/` **不再忽略** —— 剪映草稿是交付物本体（每份约 35 KB），
+# 必须随分支一起交付，否则按 GitHub 链接找不到。此前忽略它是早期为防草稿入库所加，属误设。
 
 # ---- 本轮派生的批量素材（体积大且可重生；被文档引用的证据帧不在此列）----
 projects/**/analysis/frames/
 projects/**/analysis/sheets/
+projects/**/_tmp/
+projects/**/__pycache__/
+projects/**/_peek*.txt
 .agent-teams/
