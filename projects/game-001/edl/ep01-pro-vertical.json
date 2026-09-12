@@ -1,0 +1,381 @@
+{
+  "version": "1.0",
+  "project": "GAME_EP01_VT_PRO",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "style_ref": "game-valorant",
+  "target_duration_s": 15.0,
+  "tracks": [
+    {
+      "type": "video",
+      "name": "main"
+    },
+    {
+      "type": "text",
+      "name": "caption"
+    }
+  ],
+  "clips": [
+    {
+      "id": "c1",
+      "track": "main",
+      "source": "../../../原始素材/4b0460c400bbb5320acb6063b4f59358.mp4",
+      "source_in": 6.05,
+      "start": 0.0,
+      "duration": 2.05,
+      "role": "hook",
+      "rule_id": "HOOK-01",
+      "reason": "钩子：取 A-H3（a 6.35–6.95，2 HP 交火，t1 置信 0.95，全集最高）及其前后余量。首帧必须是严格池里的动态画面（HOOK-01），2 HP 读数能在前 2 秒被 0.20s 起的定位字幕兑现；同帧起声、无片头（HOOK-02）；画面同时可当抖音封面（HOOK-03）。**入点 6.05 由 CUT-05 的高光余量约束反推**：距 A-H3 起点 6.35 留 0.30s（满足 ≥0.3s），不能再贴边。a 段硬上界 18.984，本片段止于 8.10，余量 10.884s（CUT-04）；a 为 CFR、无丢帧点，切点天然安全（CUT-05）。",
+      "confidence": 0.95,
+      "volume": 0.7,
+      "keyframes": [
+        {
+          "property": "uniform_scale",
+          "time": 0.0,
+          "value": 1.0
+        },
+        {
+          "property": "uniform_scale",
+          "time": 2.05,
+          "value": 1.12
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "track": "main",
+      "source": "../../../原始素材/4b0460c400bbb5320acb6063b4f59358.mp4",
+      "source_in": 8.1,
+      "start": 2.05,
+      "duration": 4.4,
+      "role": "body",
+      "rule_id": "SEL-01",
+      "reason": "建立段：与 c1 在素材内首尾相接（8.10 起），是同一段连续镜头（非复用，SEL-02），叙事为「2HP 之后他还活着」。段内被动覆盖 A-H4（a 8.40–9.00，usable:false，不单独上字幕）；**出点 12.50 由 CUT-05 反推**：距 A-H5 终点 12.20 留 0.30s（满足 ≥0.3s），并同时给 A-H4 起点 8.40 留出 0.30s。source_in + duration = 12.50 <= 18.984，余量 6.484s。转场按重叠模型：本片段 2.05s 起的 0.13s 与前一原片段（至 2.05s）重叠。",
+      "confidence": 0.85,
+      "volume": 0.7,
+      "transition": {
+        "type": "闪白",
+        "duration": 0.13
+      },
+      "keyframes": [
+        {
+          "property": "uniform_scale",
+          "time": 0.0,
+          "value": 1.1
+        },
+        {
+          "property": "uniform_scale",
+          "time": 4.4,
+          "value": 1.0
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "track": "main",
+      "source": "../../../原始素材/6b2eea343eee7595c3c0ede10d21d028.mp4",
+      "source_in": 5.0,
+      "start": 6.45,
+      "duration": 5.6,
+      "role": "body",
+      "rule_id": "CUT-01",
+      "reason": "高潮段，全片声压顶点：覆盖 B-H1（b 5.40–7.00，band +22.96dB 为全 70 秒音频能量最强）+ B-H2（b 8.50–9.10 击杀播报「我 ⟨枪⟩ ZCQ891」，带明确归属）+ B-H3 前段（9.40 起，flux 32.9 全集最高）。入点 5.00 距 B-H1 起点 5.40 留 0.40s（≥0.3s）。段尾由 11.00s 收到 10.60s，是避开 b 段**不安全窗口 [10.9797, 11.0454]**（含 VFR 丢帧）：距窗口起点 10.9797 约 0.380s，远超 CUT-05 的 ±0.1s 容差（原方案此处为 0.000s，违规）。b 段硬上界 26.017，余量 15.417s。",
+      "confidence": 0.9,
+      "volume": 0.851,
+      "transition": {
+        "type": "闪白",
+        "duration": 0.13
+      },
+      "keyframes": [
+        {
+          "property": "uniform_scale",
+          "time": 0.0,
+          "value": 1.0
+        },
+        {
+          "property": "uniform_scale",
+          "time": 3.3,
+          "value": 1.04
+        },
+        {
+          "property": "uniform_scale",
+          "time": 3.5,
+          "value": 1.14
+        },
+        {
+          "property": "uniform_scale",
+          "time": 3.9,
+          "value": 1.02
+        },
+        {
+          "property": "uniform_scale",
+          "time": 5.6,
+          "value": 1.06
+        },
+        {
+          "property": "brightness",
+          "time": 3.3,
+          "value": 0.0
+        },
+        {
+          "property": "brightness",
+          "time": 3.5,
+          "value": 0.1
+        },
+        {
+          "property": "brightness",
+          "time": 3.9,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "id": "c4",
+      "track": "main",
+      "source": "../../../原始素材/6b2eea343eee7595c3c0ede10d21d028.mp4",
+      "source_in": 21.4,
+      "start": 12.05,
+      "duration": 2.95,
+      "role": "ending",
+      "rule_id": "HOOK-04",
+      "reason": "收束 + 提问式互动：取 B-H7（b 21.40 起画面中央「获胜」横幅，t1 置信 0.9，t1 明确标注为结尾情绪素材）作结果定格，字幕只写提问、不做事件断言（SEL-04）。**出点 24.35 由 CUT-05 反推**：距 B-H6 终点 24.00 留 0.35s（满足 ≥0.3s），原方案的 24.80 只留 0.20s、不达标。入点 21.40 位于 b 段不安全窗口 [12.9787, 13.0120] 之后 8.387s，符合 CUT-05「从窗口之后切入最省事」；b 段硬上界 26.017，本片段止于 24.35，余量 1.667s（CUT-04）。",
+      "confidence": 0.9,
+      "volume": 0.851,
+      "transition": {
+        "type": "闪白",
+        "duration": 0.13
+      },
+      "keyframes": [
+        {
+          "property": "uniform_scale",
+          "time": 0.0,
+          "value": 1.0
+        },
+        {
+          "property": "uniform_scale",
+          "time": 2.95,
+          "value": 1.12
+        }
+      ]
+    }
+  ],
+  "texts": [
+    {
+      "id": "t1",
+      "track": "caption",
+      "content": "2 HP",
+      "start": 0.2,
+      "duration": 1.85,
+      "style": {
+        "size": 6.0,
+        "bold": true,
+        "color": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "transform_x": 0.0,
+        "transform_y": 0.6875
+      },
+      "animation": {
+        "intro": "放大",
+        "intro_duration": 0.3
+      },
+      "border": {
+        "color": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "width": 70.0
+      },
+      "shadow": {
+        "color": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "diffuse": 18.0,
+        "distance": 6.0,
+        "angle": -45.0
+      }
+    },
+    {
+      "id": "t2",
+      "track": "caption",
+      "content": "血只剩两格，他还在打",
+      "start": 2.35,
+      "duration": 2.3,
+      "style": {
+        "size": 5.0,
+        "bold": true,
+        "color": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "transform_x": 0.0,
+        "transform_y": -0.5104
+      },
+      "animation": {
+        "intro": "弹入",
+        "intro_duration": 0.25
+      },
+      "border": {
+        "color": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "width": 55.0
+      },
+      "shadow": {
+        "color": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "diffuse": 18.0,
+        "distance": 6.0,
+        "angle": -45.0
+      }
+    },
+    {
+      "id": "t3",
+      "track": "caption",
+      "content": "击杀播报出现",
+      "start": 4.9,
+      "duration": 1.7,
+      "style": {
+        "size": 5.0,
+        "bold": true,
+        "color": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "transform_x": 0.0,
+        "transform_y": -0.5104
+      },
+      "animation": {
+        "intro": "弹入",
+        "intro_duration": 0.25
+      },
+      "border": {
+        "color": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "width": 55.0
+      },
+      "shadow": {
+        "color": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "diffuse": 18.0,
+        "distance": 6.0,
+        "angle": -45.0
+      }
+    },
+    {
+      "id": "t4",
+      "track": "caption",
+      "content": "一枪放倒，播报确认",
+      "start": 6.8,
+      "duration": 3.4,
+      "style": {
+        "size": 5.0,
+        "bold": true,
+        "color": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "transform_x": 0.0,
+        "transform_y": -0.5104
+      },
+      "animation": {
+        "intro": "弹入",
+        "intro_duration": 0.25
+      },
+      "border": {
+        "color": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "width": 55.0
+      },
+      "shadow": {
+        "color": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "diffuse": 18.0,
+        "distance": 6.0,
+        "angle": -45.0
+      }
+    },
+    {
+      "id": "t5",
+      "track": "caption",
+      "content": "这枪换你，敢不敢上？",
+      "start": 12.1,
+      "duration": 2.65,
+      "style": {
+        "size": 6.0,
+        "bold": true,
+        "color": [
+          1.0,
+          0.9,
+          0.2
+        ],
+        "transform_x": 0.0,
+        "transform_y": -0.5104
+      },
+      "animation": {
+        "intro": "弹入",
+        "intro_duration": 0.3
+      },
+      "border": {
+        "color": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "width": 70.0
+      },
+      "shadow": {
+        "color": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "diffuse": 18.0,
+        "distance": 6.0,
+        "angle": -45.0
+      }
+    }
+  ],
+  "audio": {
+    "voice_priority": "high",
+    "bgm_volume": 0.0
+  },
+  "qa": {
+    "required": [
+      "duration-valid",
+      "no-black-frame",
+      "audio-present",
+      "loudness-aligned"
+    ]
+  },
+  "_pro_derived_from": "ep01-vertical.json",
+  "_pro_note": "高级版：在基础版之上加关键帧推拉/冲击脉冲、字幕入场动画与描边阴影。刻意不含滤镜与视频特效（它们依赖素材下载，风险高）。"
+}

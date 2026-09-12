@@ -168,6 +168,101 @@ def _transition(name: str):
     return tt
 
 
+def _enum_of(enum_cls, name, report: dict, ctx: str):
+    """按名称取枚举成员；取不到就记警告并返回 None（不静默）。"""
+    if not name:
+        return None
+    obj = getattr(enum_cls, str(name), None)
+    if obj is None:
+        msg = f"{ctx} 的 '{name}' 不在 {enum_cls.__name__} 中，已跳过"
+        report["warnings"].append(msg)
+        print(f"  [WARN] {msg}")
+    return obj
+
+
+def _keyframes(seg, item, report: dict, ctx: str) -> None:
+    for kf in item.get("keyframes") or []:
+        prop = getattr(d.KeyframeProperty, str(kf.get("property")), None)
+        if prop is None:
+            msg = f"{ctx} 的关键帧属性 '{kf.get('property')}' 不存在，已跳过"
+            report["warnings"].append(msg)
+            print(f"  [WARN] {msg}")
+            continue
+        seg.add_keyframe(prop, tsec(kf["time"]), float(kf["value"]))
+
+
+def _apply_video_advanced(seg, item, report: dict) -> None:
+    """把 clip 的高级字段落到片段上。**必须在 add_segment 之前调用。**"""
+    sid = item.get("id", "?")
+
+    anim = item.get("animation") or {}
+    for key, enum_cls in (("intro", d.IntroType), ("outro", d.OutroType), ("group", d.GroupAnimationType)):
+        obj = _enum_of(enum_cls, anim.get(key), report, f"片段 {sid} 动画.{key}")
+        if obj is None:
+            continue
+        dur = anim.get(f"{key}_duration")
+        seg.add_animation(obj, duration=tsec(dur) if dur else None)
+
+    flt = item.get("filter") or {}
+    obj = _enum_of(d.FilterType, flt.get("type"), report, f"片段 {sid} 滤镜")
+    if obj is not None:
+        seg.add_filter(obj, intensity=float(flt.get("intensity", 100.0)))
+
+    eff = item.get("effect") or {}
+    if eff.get("type"):
+        obj = (_enum_of(d.VideoSceneEffectType, eff["type"], report, f"片段 {sid} 特效")
+               or _enum_of(d.VideoCharacterEffectType, eff["type"], report, f"片段 {sid} 角色特效"))
+        if obj is not None:
+            seg.add_effect(obj, params=eff.get("params"))
+
+    mk = item.get("mask") or {}
+    if mk.get("type"):
+        obj = _enum_of(d.MaskType, mk["type"], report, f"片段 {sid} 蒙版")
+        if obj is not None:
+            seg.add_mask(obj, **{k: v for k, v in mk.items() if k != "type"})
+
+    obj = _enum_of(d.MixModeType, item.get("mix_mode"), report, f"片段 {sid} 混合模式")
+    if obj is not None:
+        seg.set_mix_mode(obj)
+
+    bf = item.get("background_filling")
+    if bf:
+        seg.add_background_filling(bf.get("type", "blur"),
+                                   blur=float(bf.get("blur", 0.0625)),
+                                   color=bf.get("color", "#00000000"))
+
+    fd = item.get("fade")
+    if fd:
+        seg.add_fade(tsec(fd.get("in", 0)), tsec(fd.get("out", 0)))
+
+    _keyframes(seg, item, report, f"片段 {sid}")
+
+
+def _apply_audio_advanced(seg, item, report: dict) -> None:
+    sid = item.get("id", "?")
+    obj = _enum_of(d.AudioSceneEffectType, (item.get("effect") or {}).get("type"),
+                   report, f"音频片段 {sid} 音效")
+    if obj is not None:
+        seg.add_effect(obj)
+    fd = item.get("fade")
+    if fd:
+        seg.add_fade(tsec(fd.get("in", 0)), tsec(fd.get("out", 0)))
+    _keyframes(seg, item, report, f"音频片段 {sid}")
+
+
+def _apply_text_advanced(seg, item, report: dict) -> None:
+    sid = item.get("id", "?")
+    anim = item.get("animation") or {}
+    for key, enum_cls in (("intro", d.TextIntro), ("outro", d.TextOutro), ("loop", d.TextLoopAnim)):
+        obj = _enum_of(enum_cls, anim.get(key), report, f"文本 {sid} 动画.{key}")
+        if obj is None:
+            continue
+        dur = anim.get(f"{key}_duration")
+        seg.add_animation(obj, duration=tsec(dur) if dur else None)
+    _keyframes(seg, item, report, f"文本 {sid}")
+
+
+
 def build(edl: dict, draft_root: str, name: str | None, dry_run: bool) -> dict:
     base_dir = os.path.dirname(os.path.abspath(edl.get("__path__", ".")))
     canvas = edl.get("canvas") or {}
@@ -220,8 +315,10 @@ def build(edl: dict, draft_root: str, name: str | None, dry_run: bool) -> dict:
 
         if track_type_of.get(item["track"]) == "audio":
             seg = d.AudioSegment(src, d.trange(tsec(start), tsec(duration)), **kwargs)
+            _apply_audio_advanced(seg, item, report)
         else:
             seg = d.VideoSegment(src, d.trange(tsec(start), tsec(duration)), **kwargs)
+            _apply_video_advanced(seg, item, report)
 
         built.append((item["track"], seg))
         by_track.setdefault(item["track"], []).append((item, seg))
@@ -252,18 +349,47 @@ def build(edl: dict, draft_root: str, name: str | None, dry_run: bool) -> dict:
         text_style = d.TextStyle(
             size=float(style.get("size", 8.0)),
             bold=bool(style.get("bold", False)),
+            italic=bool(style.get("italic", False)),
             color=tuple(color) if color else (1.0, 1.0, 1.0),
+            align=int(style.get("align", 0)),
+            letter_spacing=int(style.get("letter_spacing", 0)),
+            line_spacing=int(style.get("line_spacing", 0)),
         )
         clip = d.ClipSettings(
             transform_x=float(style.get("transform_x", 0.0)),
             transform_y=float(style.get("transform_y", 0.0)),
         )
+        # 描边 / 阴影 / 背景：EDL 里给就带上（"高级感"很大一部分来自这三项）
+        border = None
+        if item.get("border"):
+            b = item["border"]
+            border = d.TextBorder(color=tuple(b.get("color", (0.0, 0.0, 0.0))),
+                                  width=float(b.get("width", 40.0)))
+        shadow = None
+        if item.get("shadow"):
+            s = item["shadow"]
+            shadow = d.TextShadow(color=tuple(s.get("color", (0.0, 0.0, 0.0))),
+                                  diffuse=float(s.get("diffuse", 15.0)),
+                                  distance=float(s.get("distance", 5.0)),
+                                  angle=float(s.get("angle", -45.0)))
+        background = None
+        if item.get("background"):
+            g = item["background"]
+            background = d.TextBackground(color=g.get("color", "#00000080"),
+                                          style=int(g.get("style", 1)),
+                                          round_radius=float(g.get("round_radius", 0.0)))
+
         seg = d.TextSegment(
             item["content"],
             d.trange(tsec(item["start"]), tsec(item["duration"])),
             style=text_style,
             clip_settings=clip,
+            border=border,
+            shadow=shadow,
+            background=background,
         )
+        # 文本动画与关键帧也必须在入轨前挂好（与转场同一机制：入轨时才登记素材）
+        _apply_text_advanced(seg, item, report)
         script.add_segment(seg, item.get("track", "caption"))
         report["texts"] += 1
 

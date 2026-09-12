@@ -1,7 +1,7 @@
 {
     "canvas_config": {
-        "width": 1920,
-        "height": 1080,
+        "width": 1080,
+        "height": 1920,
         "ratio": "original"
     },
     "color_space": 0,
@@ -85,7 +85,103 @@
         "loudnesses": [],
         "manual_deformations": [],
         "masks": [],
-        "material_animations": [],
+        "material_animations": [
+            {
+                "id": "15c48641dc704e3089b09a1e1fc01da1",
+                "type": "sticker_animation",
+                "multi_language_current": "none",
+                "animations": [
+                    {
+                        "anim_adjust_params": null,
+                        "platform": "all",
+                        "panel": "",
+                        "material_type": "sticker",
+                        "name": "放大",
+                        "id": "1644264",
+                        "type": "in",
+                        "resource_id": "6724919499042066958",
+                        "start": 0,
+                        "duration": 300000
+                    }
+                ]
+            },
+            {
+                "id": "f79203ab5714439ea9997dfc57efb4cc",
+                "type": "sticker_animation",
+                "multi_language_current": "none",
+                "animations": [
+                    {
+                        "anim_adjust_params": null,
+                        "platform": "all",
+                        "panel": "",
+                        "material_type": "sticker",
+                        "name": "弹入",
+                        "id": "1644313",
+                        "type": "in",
+                        "resource_id": "6887482184844710413",
+                        "start": 0,
+                        "duration": 250000
+                    }
+                ]
+            },
+            {
+                "id": "11ac1d1e580342ca9b8c0b7b42cb733c",
+                "type": "sticker_animation",
+                "multi_language_current": "none",
+                "animations": [
+                    {
+                        "anim_adjust_params": null,
+                        "platform": "all",
+                        "panel": "",
+                        "material_type": "sticker",
+                        "name": "弹入",
+                        "id": "1644313",
+                        "type": "in",
+                        "resource_id": "6887482184844710413",
+                        "start": 0,
+                        "duration": 250000
+                    }
+                ]
+            },
+            {
+                "id": "b457defbe0cb476aa7f0babab84f632a",
+                "type": "sticker_animation",
+                "multi_language_current": "none",
+                "animations": [
+                    {
+                        "anim_adjust_params": null,
+                        "platform": "all",
+                        "panel": "",
+                        "material_type": "sticker",
+                        "name": "弹入",
+                        "id": "1644313",
+                        "type": "in",
+                        "resource_id": "6887482184844710413",
+                        "start": 0,
+                        "duration": 250000
+                    }
+                ]
+            },
+            {
+                "id": "2b5af67b7a9e4412a792bd49994a9ed9",
+                "type": "sticker_animation",
+                "multi_language_current": "none",
+                "animations": [
+                    {
+                        "anim_adjust_params": null,
+                        "platform": "all",
+                        "panel": "",
+                        "material_type": "sticker",
+                        "name": "弹入",
+                        "id": "1644313",
+                        "type": "in",
+                        "resource_id": "6887482184844710413",
+                        "start": 0,
+                        "duration": 300000
+                    }
+                ]
+            }
+        ],
         "material_colors": [],
         "multi_language_refs": [],
         "placeholders": [],
@@ -99,28 +195,28 @@
         "speeds": [
             {
                 "curve_speed": null,
-                "id": "1b31e32eb2914ee9b51ca32104340ff7",
+                "id": "bab92cd81ff94b61bde2531813b2671c",
                 "mode": 0,
                 "speed": 1.0,
                 "type": "speed"
             },
             {
                 "curve_speed": null,
-                "id": "fe6d6580f7a64404a218f4bd9d31acc9",
+                "id": "b8200cf81b5c4f3b8e0811242ee7bffe",
                 "mode": 0,
                 "speed": 1.0,
                 "type": "speed"
             },
             {
                 "curve_speed": null,
-                "id": "4b3860a3b57d4430bf587089d15b91aa",
+                "id": "602b646d271a4f5784b04d61d09848cb",
                 "mode": 0,
                 "speed": 1.0,
                 "type": "speed"
             },
             {
                 "curve_speed": null,
-                "id": "a2dc47f200684349a0b719ace9a1b55c",
+                "id": "743bcc225e6043829a90cf0e64f7c392",
                 "mode": 0,
                 "speed": 1.0,
                 "type": "speed"
@@ -131,8 +227,8 @@
         "text_templates": [],
         "texts": [
             {
-                "id": "5c7208e5a0e7413784ea95e1da096293",
-                "content": "{\"styles\": [{\"fill\": {\"alpha\": 1.0, \"content\": {\"render_type\": \"solid\", \"solid\": {\"alpha\": 1.0, \"color\": [1.0, 1.0, 1.0]}}}, \"range\": [0, 4], \"size\": 6.0, \"bold\": true, \"italic\": false, \"underline\": false, \"strokes\": []}], \"text\": \"2 HP\"}",
+                "id": "7238483bce654aa18ef87ddd05a37d43",
+                "content": "{\"styles\": [{\"fill\": {\"alpha\": 1.0, \"content\": {\"render_type\": \"solid\", \"solid\": {\"alpha\": 1.0, \"color\": [1.0, 1.0, 1.0]}}}, \"range\": [0, 4], \"size\": 6.0, \"bold\": true, \"italic\": false, \"underline\": false, \"strokes\": [{\"content\": {\"solid\": {\"alpha\": 1.0, \"color\": [0.0, 0.0, 0.0]}}, \"width\": 0.13999999999999999}], \"shadows\": [{\"diffuse\": 0.03, \"alpha\": 1.0, \"distance\": 6.0, \"content\": {\"solid\": {\"color\": [0.0, 0.0, 0.0]}}, \"angle\": -45.0}]}], \"text\": \"2 HP\"}",
                 "typesetting": 0,
                 "alignment": 0,
                 "letter_spacing": 0.0,
@@ -140,13 +236,13 @@
                 "line_feed": 1,
                 "line_max_width": 0.82,
                 "force_apply_line_max_width": false,
-                "check_flag": 7,
+                "check_flag": 47,
                 "type": "text",
                 "global_alpha": 1.0
             },
             {
-                "id": "7ddfb2f9f414479e9e452e028a956936",
-                "content": "{\"styles\": [{\"fill\": {\"alpha\": 1.0, \"content\": {\"render_type\": \"solid\", \"solid\": {\"alpha\": 1.0, \"color\": [1.0, 1.0, 1.0]}}}, \"range\": [0, 10], \"size\": 5.0, \"bold\": true, \"italic\": false, \"underline\": false, \"strokes\": []}], \"text\": \"血只剩两格，他还在打\"}",
+                "id": "46119f6f3fba4af6a1364dc7eb03b677",
+                "content": "{\"styles\": [{\"fill\": {\"alpha\": 1.0, \"content\": {\"render_type\": \"solid\", \"solid\": {\"alpha\": 1.0, \"color\": [1.0, 1.0, 1.0]}}}, \"range\": [0, 10], \"size\": 5.0, \"bold\": true, \"italic\": false, \"underline\": false, \"strokes\": [{\"content\": {\"solid\": {\"alpha\": 1.0, \"color\": [0.0, 0.0, 0.0]}}, \"width\": 0.11000000000000001}], \"shadows\": [{\"diffuse\": 0.03, \"alpha\": 1.0, \"distance\": 6.0, \"content\": {\"solid\": {\"color\": [0.0, 0.0, 0.0]}}, \"angle\": -45.0}]}], \"text\": \"血只剩两格，他还在打\"}",
                 "typesetting": 0,
                 "alignment": 0,
                 "letter_spacing": 0.0,
@@ -154,13 +250,13 @@
                 "line_feed": 1,
                 "line_max_width": 0.82,
                 "force_apply_line_max_width": false,
-                "check_flag": 7,
+                "check_flag": 47,
                 "type": "text",
                 "global_alpha": 1.0
             },
             {
-                "id": "8e35896334a6434cac17cf757b5b85a2",
-                "content": "{\"styles\": [{\"fill\": {\"alpha\": 1.0, \"content\": {\"render_type\": \"solid\", \"solid\": {\"alpha\": 1.0, \"color\": [1.0, 1.0, 1.0]}}}, \"range\": [0, 6], \"size\": 5.0, \"bold\": true, \"italic\": false, \"underline\": false, \"strokes\": []}], \"text\": \"击杀播报出现\"}",
+                "id": "ce2a284beafa47018ebfdb875eae3ec4",
+                "content": "{\"styles\": [{\"fill\": {\"alpha\": 1.0, \"content\": {\"render_type\": \"solid\", \"solid\": {\"alpha\": 1.0, \"color\": [1.0, 1.0, 1.0]}}}, \"range\": [0, 6], \"size\": 5.0, \"bold\": true, \"italic\": false, \"underline\": false, \"strokes\": [{\"content\": {\"solid\": {\"alpha\": 1.0, \"color\": [0.0, 0.0, 0.0]}}, \"width\": 0.11000000000000001}], \"shadows\": [{\"diffuse\": 0.03, \"alpha\": 1.0, \"distance\": 6.0, \"content\": {\"solid\": {\"color\": [0.0, 0.0, 0.0]}}, \"angle\": -45.0}]}], \"text\": \"击杀播报出现\"}",
                 "typesetting": 0,
                 "alignment": 0,
                 "letter_spacing": 0.0,
@@ -168,13 +264,13 @@
                 "line_feed": 1,
                 "line_max_width": 0.82,
                 "force_apply_line_max_width": false,
-                "check_flag": 7,
+                "check_flag": 47,
                 "type": "text",
                 "global_alpha": 1.0
             },
             {
-                "id": "38092a86b7e34b59ab6527e26e04c161",
-                "content": "{\"styles\": [{\"fill\": {\"alpha\": 1.0, \"content\": {\"render_type\": \"solid\", \"solid\": {\"alpha\": 1.0, \"color\": [1.0, 1.0, 1.0]}}}, \"range\": [0, 9], \"size\": 5.0, \"bold\": true, \"italic\": false, \"underline\": false, \"strokes\": []}], \"text\": \"一枪放倒，播报确认\"}",
+                "id": "a4038a1551194beca55afd5cc6ad2c25",
+                "content": "{\"styles\": [{\"fill\": {\"alpha\": 1.0, \"content\": {\"render_type\": \"solid\", \"solid\": {\"alpha\": 1.0, \"color\": [1.0, 1.0, 1.0]}}}, \"range\": [0, 9], \"size\": 5.0, \"bold\": true, \"italic\": false, \"underline\": false, \"strokes\": [{\"content\": {\"solid\": {\"alpha\": 1.0, \"color\": [0.0, 0.0, 0.0]}}, \"width\": 0.11000000000000001}], \"shadows\": [{\"diffuse\": 0.03, \"alpha\": 1.0, \"distance\": 6.0, \"content\": {\"solid\": {\"color\": [0.0, 0.0, 0.0]}}, \"angle\": -45.0}]}], \"text\": \"一枪放倒，播报确认\"}",
                 "typesetting": 0,
                 "alignment": 0,
                 "letter_spacing": 0.0,
@@ -182,13 +278,13 @@
                 "line_feed": 1,
                 "line_max_width": 0.82,
                 "force_apply_line_max_width": false,
-                "check_flag": 7,
+                "check_flag": 47,
                 "type": "text",
                 "global_alpha": 1.0
             },
             {
-                "id": "e26d7d1cd440485a9ed97c15a9d4a88d",
-                "content": "{\"styles\": [{\"fill\": {\"alpha\": 1.0, \"content\": {\"render_type\": \"solid\", \"solid\": {\"alpha\": 1.0, \"color\": [1.0, 0.9, 0.2]}}}, \"range\": [0, 10], \"size\": 6.0, \"bold\": true, \"italic\": false, \"underline\": false, \"strokes\": []}], \"text\": \"这枪换你，敢不敢上？\"}",
+                "id": "aa9d0ef6d46c42629a98681f935d36c4",
+                "content": "{\"styles\": [{\"fill\": {\"alpha\": 1.0, \"content\": {\"render_type\": \"solid\", \"solid\": {\"alpha\": 1.0, \"color\": [1.0, 0.9, 0.2]}}}, \"range\": [0, 10], \"size\": 6.0, \"bold\": true, \"italic\": false, \"underline\": false, \"strokes\": [{\"content\": {\"solid\": {\"alpha\": 1.0, \"color\": [0.0, 0.0, 0.0]}}, \"width\": 0.13999999999999999}], \"shadows\": [{\"diffuse\": 0.03, \"alpha\": 1.0, \"distance\": 6.0, \"content\": {\"solid\": {\"color\": [0.0, 0.0, 0.0]}}, \"angle\": -45.0}]}], \"text\": \"这枪换你，敢不敢上？\"}",
                 "typesetting": 0,
                 "alignment": 0,
                 "letter_spacing": 0.0,
@@ -196,7 +292,7 @@
                 "line_feed": 1,
                 "line_max_width": 0.82,
                 "force_apply_line_max_width": false,
-                "check_flag": 7,
+                "check_flag": 47,
                 "type": "text",
                 "global_alpha": 1.0
             }
@@ -208,7 +304,7 @@
                 "category_name": "",
                 "duration": 130000,
                 "effect_id": "322575",
-                "id": "df023a266b99410ea5bf5aed54840a69",
+                "id": "b9a75f3038394cd4a5562abb513ac323",
                 "is_overlap": false,
                 "name": "闪白",
                 "platform": "all",
@@ -220,7 +316,7 @@
                 "category_name": "",
                 "duration": 130000,
                 "effect_id": "322575",
-                "id": "27a6e94b41ce4ac2af1a2d7cd9b3e222",
+                "id": "bc3f6cdefee44046b6999f436a145266",
                 "is_overlap": false,
                 "name": "闪白",
                 "platform": "all",
@@ -232,7 +328,7 @@
                 "category_name": "",
                 "duration": 130000,
                 "effect_id": "322575",
-                "id": "d470ff947f2a4b0391a05ff41aa8deb4",
+                "id": "a8db9fe78fae407f93e236b21dae27b0",
                 "is_overlap": false,
                 "name": "闪白",
                 "platform": "all",
@@ -262,9 +358,9 @@
                 "crop_scale": 1.0,
                 "duration": 18984000,
                 "height": 720,
-                "id": "8f49d1ef5c9b4fddb2034031eb1170ad",
+                "id": "4c3d84577f164651862c2648b4a85025",
                 "local_material_id": "",
-                "material_id": "8f49d1ef5c9b4fddb2034031eb1170ad",
+                "material_id": "4c3d84577f164651862c2648b4a85025",
                 "material_name": "4b0460c400bbb5320acb6063b4f59358.mp4",
                 "media_path": "",
                 "path": "C:\\Users\\18930\\Desktop\\Edit skill\\原始素材\\4b0460c400bbb5320acb6063b4f59358.mp4",
@@ -290,9 +386,9 @@
                 "crop_scale": 1.0,
                 "duration": 18984000,
                 "height": 720,
-                "id": "d1049fe5d97a469e8aa48204bb6ad2fd",
+                "id": "710b088b9e08442ca82af5423c8c22d4",
                 "local_material_id": "",
-                "material_id": "d1049fe5d97a469e8aa48204bb6ad2fd",
+                "material_id": "710b088b9e08442ca82af5423c8c22d4",
                 "material_name": "4b0460c400bbb5320acb6063b4f59358.mp4",
                 "media_path": "",
                 "path": "C:\\Users\\18930\\Desktop\\Edit skill\\原始素材\\4b0460c400bbb5320acb6063b4f59358.mp4",
@@ -318,9 +414,9 @@
                 "crop_scale": 1.0,
                 "duration": 26017000,
                 "height": 720,
-                "id": "abba7abfc44e493da1ae08f0608ff764",
+                "id": "10732f5545e44568af09b198bf6d8f09",
                 "local_material_id": "",
-                "material_id": "abba7abfc44e493da1ae08f0608ff764",
+                "material_id": "10732f5545e44568af09b198bf6d8f09",
                 "material_name": "6b2eea343eee7595c3c0ede10d21d028.mp4",
                 "media_path": "",
                 "path": "C:\\Users\\18930\\Desktop\\Edit skill\\原始素材\\6b2eea343eee7595c3c0ede10d21d028.mp4",
@@ -346,9 +442,9 @@
                 "crop_scale": 1.0,
                 "duration": 26017000,
                 "height": 720,
-                "id": "41ff9ef91a1645d1af80f9f97c738885",
+                "id": "c15ec09b778746c0adabbe1d3b3f296f",
                 "local_material_id": "",
-                "material_id": "41ff9ef91a1645d1af80f9f97c738885",
+                "material_id": "c15ec09b778746c0adabbe1d3b3f296f",
                 "material_name": "6b2eea343eee7595c3c0ede10d21d028.mp4",
                 "media_path": "",
                 "path": "C:\\Users\\18930\\Desktop\\Edit skill\\原始素材\\6b2eea343eee7595c3c0ede10d21d028.mp4",
@@ -372,7 +468,7 @@
         {
             "attribute": 0,
             "flag": 0,
-            "id": "5b3b91e4ad444d8bb745b5daa0794a2d",
+            "id": "13e687b281134f8590f3fa7b2700fb71",
             "is_default_name": false,
             "name": "main",
             "segments": [
@@ -389,13 +485,55 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "1d8728d1c2964000ae3f713fa96bff9b",
-                    "material_id": "8f49d1ef5c9b4fddb2034031eb1170ad",
+                    "id": "8658328bb4b24dea95684fcedc434e3f",
+                    "material_id": "4c3d84577f164651862c2648b4a85025",
                     "target_timerange": {
                         "start": 0,
                         "duration": 2050000
                     },
-                    "common_keyframes": [],
+                    "common_keyframes": [
+                        {
+                            "id": "e45df8ff40194f1aae2c469455b21bba",
+                            "keyframe_list": [
+                                {
+                                    "curveType": "Line",
+                                    "graphID": "",
+                                    "left_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "right_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "id": "f42f278bd6d94d4399f90e88113e3e50",
+                                    "time_offset": 0,
+                                    "values": [
+                                        1.0
+                                    ]
+                                },
+                                {
+                                    "curveType": "Line",
+                                    "graphID": "",
+                                    "left_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "right_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "id": "0ba69a4a5a9445e2ac6941695897e8d8",
+                                    "time_offset": 2050000,
+                                    "values": [
+                                        1.12
+                                    ]
+                                }
+                            ],
+                            "material_id": "",
+                            "property_type": "KFTypeScaleX"
+                        }
+                    ],
                     "keyframe_refs": [],
                     "source_timerange": {
                         "start": 6050000,
@@ -404,8 +542,8 @@
                     "speed": 1.0,
                     "volume": 0.7,
                     "extra_material_refs": [
-                        "1b31e32eb2914ee9b51ca32104340ff7",
-                        "df023a266b99410ea5bf5aed54840a69"
+                        "bab92cd81ff94b61bde2531813b2671c",
+                        "b9a75f3038394cd4a5562abb513ac323"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -448,13 +586,55 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "5ea1c869315c4b568aaad2daf46124ed",
-                    "material_id": "d1049fe5d97a469e8aa48204bb6ad2fd",
+                    "id": "d9e6d1f88232409eb77fcf2f3a9f262a",
+                    "material_id": "710b088b9e08442ca82af5423c8c22d4",
                     "target_timerange": {
                         "start": 2050000,
                         "duration": 4400000
                     },
-                    "common_keyframes": [],
+                    "common_keyframes": [
+                        {
+                            "id": "893b054764f94f9eb60101eb874f56b9",
+                            "keyframe_list": [
+                                {
+                                    "curveType": "Line",
+                                    "graphID": "",
+                                    "left_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "right_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "id": "64e3c1cadf1640faa47fd11d709dca94",
+                                    "time_offset": 0,
+                                    "values": [
+                                        1.1
+                                    ]
+                                },
+                                {
+                                    "curveType": "Line",
+                                    "graphID": "",
+                                    "left_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "right_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "id": "17bc2a0224b743989630e79967591437",
+                                    "time_offset": 4400000,
+                                    "values": [
+                                        1.0
+                                    ]
+                                }
+                            ],
+                            "material_id": "",
+                            "property_type": "KFTypeScaleX"
+                        }
+                    ],
                     "keyframe_refs": [],
                     "source_timerange": {
                         "start": 8100000,
@@ -463,8 +643,8 @@
                     "speed": 1.0,
                     "volume": 0.7,
                     "extra_material_refs": [
-                        "fe6d6580f7a64404a218f4bd9d31acc9",
-                        "27a6e94b41ce4ac2af1a2d7cd9b3e222"
+                        "b8200cf81b5c4f3b8e0811242ee7bffe",
+                        "bc3f6cdefee44046b6999f436a145266"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -507,13 +687,164 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "33ee81272d6243879f3d26eff9435e4b",
-                    "material_id": "abba7abfc44e493da1ae08f0608ff764",
+                    "id": "08841d574f8f4374ad8e76feb50ec51c",
+                    "material_id": "10732f5545e44568af09b198bf6d8f09",
                     "target_timerange": {
                         "start": 6450000,
                         "duration": 5600000
                     },
-                    "common_keyframes": [],
+                    "common_keyframes": [
+                        {
+                            "id": "1bb33de426b944fdabb9fc5d98fedb98",
+                            "keyframe_list": [
+                                {
+                                    "curveType": "Line",
+                                    "graphID": "",
+                                    "left_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "right_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "id": "b450a13a4a7a48b2ada7770b1a15f4c8",
+                                    "time_offset": 0,
+                                    "values": [
+                                        1.0
+                                    ]
+                                },
+                                {
+                                    "curveType": "Line",
+                                    "graphID": "",
+                                    "left_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "right_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "id": "e0520f9349434a2abcc9607a22d6027d",
+                                    "time_offset": 3300000,
+                                    "values": [
+                                        1.04
+                                    ]
+                                },
+                                {
+                                    "curveType": "Line",
+                                    "graphID": "",
+                                    "left_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "right_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "id": "ec33be309b4948efb7b36256a9d51e5c",
+                                    "time_offset": 3500000,
+                                    "values": [
+                                        1.14
+                                    ]
+                                },
+                                {
+                                    "curveType": "Line",
+                                    "graphID": "",
+                                    "left_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "right_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "id": "2fa6e70992994163ae3ab6ea834f055f",
+                                    "time_offset": 3900000,
+                                    "values": [
+                                        1.02
+                                    ]
+                                },
+                                {
+                                    "curveType": "Line",
+                                    "graphID": "",
+                                    "left_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "right_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "id": "c29dfd336e9b4d7785b86021c9fe4ff2",
+                                    "time_offset": 5600000,
+                                    "values": [
+                                        1.06
+                                    ]
+                                }
+                            ],
+                            "material_id": "",
+                            "property_type": "KFTypeScaleX"
+                        },
+                        {
+                            "id": "96c440cd083f4f63ae44f4f3bb2c8c42",
+                            "keyframe_list": [
+                                {
+                                    "curveType": "Line",
+                                    "graphID": "",
+                                    "left_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "right_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "id": "1ffae9d413264d558d0da3e818cda7d9",
+                                    "time_offset": 3300000,
+                                    "values": [
+                                        0.0
+                                    ]
+                                },
+                                {
+                                    "curveType": "Line",
+                                    "graphID": "",
+                                    "left_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "right_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "id": "6640d7202de849e4ad8a1b4585a88902",
+                                    "time_offset": 3500000,
+                                    "values": [
+                                        0.1
+                                    ]
+                                },
+                                {
+                                    "curveType": "Line",
+                                    "graphID": "",
+                                    "left_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "right_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "id": "d30c3fe0edfa4233b53f2ffc31bd475c",
+                                    "time_offset": 3900000,
+                                    "values": [
+                                        0.0
+                                    ]
+                                }
+                            ],
+                            "material_id": "",
+                            "property_type": "KFTypeBrightness"
+                        }
+                    ],
                     "keyframe_refs": [],
                     "source_timerange": {
                         "start": 5000000,
@@ -522,8 +853,8 @@
                     "speed": 1.0,
                     "volume": 0.851,
                     "extra_material_refs": [
-                        "4b3860a3b57d4430bf587089d15b91aa",
-                        "d470ff947f2a4b0391a05ff41aa8deb4"
+                        "602b646d271a4f5784b04d61d09848cb",
+                        "a8db9fe78fae407f93e236b21dae27b0"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -566,13 +897,55 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "c5056107496348c7a06416eeba232aa2",
-                    "material_id": "41ff9ef91a1645d1af80f9f97c738885",
+                    "id": "fbbec4bd7c9d44f9ae94ae0c48b7908c",
+                    "material_id": "c15ec09b778746c0adabbe1d3b3f296f",
                     "target_timerange": {
                         "start": 12050000,
                         "duration": 2950000
                     },
-                    "common_keyframes": [],
+                    "common_keyframes": [
+                        {
+                            "id": "138dfa14605c4ababd72866a8cae2ce6",
+                            "keyframe_list": [
+                                {
+                                    "curveType": "Line",
+                                    "graphID": "",
+                                    "left_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "right_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "id": "de0e85ea18e34f128543105d9bee0731",
+                                    "time_offset": 0,
+                                    "values": [
+                                        1.0
+                                    ]
+                                },
+                                {
+                                    "curveType": "Line",
+                                    "graphID": "",
+                                    "left_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "right_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "id": "d47586a3c4f24f0c9ace512ff9fcdf58",
+                                    "time_offset": 2950000,
+                                    "values": [
+                                        1.12
+                                    ]
+                                }
+                            ],
+                            "material_id": "",
+                            "property_type": "KFTypeScaleX"
+                        }
+                    ],
                     "keyframe_refs": [],
                     "source_timerange": {
                         "start": 21400000,
@@ -581,7 +954,7 @@
                     "speed": 1.0,
                     "volume": 0.851,
                     "extra_material_refs": [
-                        "a2dc47f200684349a0b719ace9a1b55c"
+                        "743bcc225e6043829a90cf0e64f7c392"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -617,7 +990,7 @@
         {
             "attribute": 0,
             "flag": 0,
-            "id": "44c73dea61144818b18a23303cff228a",
+            "id": "34a9b62fee6a4678bfb36076a9082d00",
             "is_default_name": false,
             "name": "caption",
             "segments": [
@@ -634,8 +1007,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "f20a881ac38e4badae47fbe8a3a34f8c",
-                    "material_id": "5c7208e5a0e7413784ea95e1da096293",
+                    "id": "382f61cb4e0346e88f80c43b9703e46c",
+                    "material_id": "7238483bce654aa18ef87ddd05a37d43",
                     "target_timerange": {
                         "start": 200000,
                         "duration": 1850000
@@ -646,7 +1019,8 @@
                     "speed": 1.0,
                     "volume": 1.0,
                     "extra_material_refs": [
-                        "008877217c6c4a7895841239ebf15ff7"
+                        "5f6ed1b2427a4902a450f4bba3e23183",
+                        "15c48641dc704e3089b09a1e1fc01da1"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -662,7 +1036,7 @@
                         },
                         "transform": {
                             "x": 0.0,
-                            "y": -0.7407
+                            "y": 0.6875
                         }
                     },
                     "uniform_scale": {
@@ -684,8 +1058,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "0f90f5fa3c394bc1b1fcfaa82a1bd801",
-                    "material_id": "7ddfb2f9f414479e9e452e028a956936",
+                    "id": "e68314cc083541f0acb60d16f16a586c",
+                    "material_id": "46119f6f3fba4af6a1364dc7eb03b677",
                     "target_timerange": {
                         "start": 2350000,
                         "duration": 2300000
@@ -696,7 +1070,8 @@
                     "speed": 1.0,
                     "volume": 1.0,
                     "extra_material_refs": [
-                        "e3ced859ec2a40e38ae2ed3866b7f95d"
+                        "9857c9f488344d30840ef79e7d5306bf",
+                        "f79203ab5714439ea9997dfc57efb4cc"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -712,7 +1087,7 @@
                         },
                         "transform": {
                             "x": 0.0,
-                            "y": -0.79
+                            "y": -0.5104
                         }
                     },
                     "uniform_scale": {
@@ -734,8 +1109,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "63ad812a88904bd48bdaab9777de60ef",
-                    "material_id": "8e35896334a6434cac17cf757b5b85a2",
+                    "id": "d044e63c7d174ac0a8e468d193c6cc71",
+                    "material_id": "ce2a284beafa47018ebfdb875eae3ec4",
                     "target_timerange": {
                         "start": 4900000,
                         "duration": 1700000
@@ -746,7 +1121,8 @@
                     "speed": 1.0,
                     "volume": 1.0,
                     "extra_material_refs": [
-                        "8cc46d35d0164cb69d666b1ddd775c8d"
+                        "a3ef10d7e5e1439c959aed4bc5768220",
+                        "11ac1d1e580342ca9b8c0b7b42cb733c"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -762,7 +1138,7 @@
                         },
                         "transform": {
                             "x": 0.0,
-                            "y": -0.79
+                            "y": -0.5104
                         }
                     },
                     "uniform_scale": {
@@ -784,8 +1160,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "86a3c2cabb404b4596d1eb53bf832587",
-                    "material_id": "38092a86b7e34b59ab6527e26e04c161",
+                    "id": "d5816a4237444007adb45261b15eaef5",
+                    "material_id": "a4038a1551194beca55afd5cc6ad2c25",
                     "target_timerange": {
                         "start": 6800000,
                         "duration": 3400000
@@ -796,7 +1172,8 @@
                     "speed": 1.0,
                     "volume": 1.0,
                     "extra_material_refs": [
-                        "6d07b2fa62654c6db728f9d037b0d717"
+                        "0722c2d2d48e400a82fccc56e0a79d5d",
+                        "b457defbe0cb476aa7f0babab84f632a"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -812,7 +1189,7 @@
                         },
                         "transform": {
                             "x": 0.0,
-                            "y": -0.79
+                            "y": -0.5104
                         }
                     },
                     "uniform_scale": {
@@ -834,8 +1211,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "d71f74c2212f4428b16d2fd779640e04",
-                    "material_id": "e26d7d1cd440485a9ed97c15a9d4a88d",
+                    "id": "b5e2b5631bac409f90022e6d3f770c54",
+                    "material_id": "aa9d0ef6d46c42629a98681f935d36c4",
                     "target_timerange": {
                         "start": 12100000,
                         "duration": 2650000
@@ -846,7 +1223,8 @@
                     "speed": 1.0,
                     "volume": 1.0,
                     "extra_material_refs": [
-                        "4d2d0414e8c54597a14ffb3423ffd2ad"
+                        "546d5f911bce489a9230e13e28d8f84d",
+                        "2b5af67b7a9e4412a792bd49994a9ed9"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -862,7 +1240,7 @@
                         },
                         "transform": {
                             "x": 0.0,
-                            "y": -0.7407
+                            "y": -0.5104
                         }
                     },
                     "uniform_scale": {

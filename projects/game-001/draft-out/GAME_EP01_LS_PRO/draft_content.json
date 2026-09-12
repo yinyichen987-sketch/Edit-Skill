@@ -85,7 +85,103 @@
         "loudnesses": [],
         "manual_deformations": [],
         "masks": [],
-        "material_animations": [],
+        "material_animations": [
+            {
+                "id": "abf590fe1c724f80a0c403fffb2719b4",
+                "type": "sticker_animation",
+                "multi_language_current": "none",
+                "animations": [
+                    {
+                        "anim_adjust_params": null,
+                        "platform": "all",
+                        "panel": "",
+                        "material_type": "sticker",
+                        "name": "放大",
+                        "id": "1644264",
+                        "type": "in",
+                        "resource_id": "6724919499042066958",
+                        "start": 0,
+                        "duration": 300000
+                    }
+                ]
+            },
+            {
+                "id": "264c5508fd4743c5b9f19c9ba1f135a2",
+                "type": "sticker_animation",
+                "multi_language_current": "none",
+                "animations": [
+                    {
+                        "anim_adjust_params": null,
+                        "platform": "all",
+                        "panel": "",
+                        "material_type": "sticker",
+                        "name": "弹入",
+                        "id": "1644313",
+                        "type": "in",
+                        "resource_id": "6887482184844710413",
+                        "start": 0,
+                        "duration": 250000
+                    }
+                ]
+            },
+            {
+                "id": "3e948553e8ed4e34b732b4efe200ec20",
+                "type": "sticker_animation",
+                "multi_language_current": "none",
+                "animations": [
+                    {
+                        "anim_adjust_params": null,
+                        "platform": "all",
+                        "panel": "",
+                        "material_type": "sticker",
+                        "name": "弹入",
+                        "id": "1644313",
+                        "type": "in",
+                        "resource_id": "6887482184844710413",
+                        "start": 0,
+                        "duration": 250000
+                    }
+                ]
+            },
+            {
+                "id": "5b8c893772734924b9b03835ee0c2dac",
+                "type": "sticker_animation",
+                "multi_language_current": "none",
+                "animations": [
+                    {
+                        "anim_adjust_params": null,
+                        "platform": "all",
+                        "panel": "",
+                        "material_type": "sticker",
+                        "name": "弹入",
+                        "id": "1644313",
+                        "type": "in",
+                        "resource_id": "6887482184844710413",
+                        "start": 0,
+                        "duration": 250000
+                    }
+                ]
+            },
+            {
+                "id": "1c532973bb544e88ac3c2e7e7b43c038",
+                "type": "sticker_animation",
+                "multi_language_current": "none",
+                "animations": [
+                    {
+                        "anim_adjust_params": null,
+                        "platform": "all",
+                        "panel": "",
+                        "material_type": "sticker",
+                        "name": "弹入",
+                        "id": "1644313",
+                        "type": "in",
+                        "resource_id": "6887482184844710413",
+                        "start": 0,
+                        "duration": 300000
+                    }
+                ]
+            }
+        ],
         "material_colors": [],
         "multi_language_refs": [],
         "placeholders": [],
@@ -99,28 +195,28 @@
         "speeds": [
             {
                 "curve_speed": null,
-                "id": "1b31e32eb2914ee9b51ca32104340ff7",
+                "id": "37ddf49344754cb1accafdcf3fd9785f",
                 "mode": 0,
                 "speed": 1.0,
                 "type": "speed"
             },
             {
                 "curve_speed": null,
-                "id": "fe6d6580f7a64404a218f4bd9d31acc9",
+                "id": "ce27497249d7461bbdcfebda6795abe8",
                 "mode": 0,
                 "speed": 1.0,
                 "type": "speed"
             },
             {
                 "curve_speed": null,
-                "id": "4b3860a3b57d4430bf587089d15b91aa",
+                "id": "4b954bdec0f3478b999eb0e7bc59db4e",
                 "mode": 0,
                 "speed": 1.0,
                 "type": "speed"
             },
             {
                 "curve_speed": null,
-                "id": "a2dc47f200684349a0b719ace9a1b55c",
+                "id": "e026638767c749d39f593c009141cf37",
                 "mode": 0,
                 "speed": 1.0,
                 "type": "speed"
@@ -131,8 +227,8 @@
         "text_templates": [],
         "texts": [
             {
-                "id": "5c7208e5a0e7413784ea95e1da096293",
-                "content": "{\"styles\": [{\"fill\": {\"alpha\": 1.0, \"content\": {\"render_type\": \"solid\", \"solid\": {\"alpha\": 1.0, \"color\": [1.0, 1.0, 1.0]}}}, \"range\": [0, 4], \"size\": 6.0, \"bold\": true, \"italic\": false, \"underline\": false, \"strokes\": []}], \"text\": \"2 HP\"}",
+                "id": "3c19947d8a164e4787c6b456109e10fa",
+                "content": "{\"styles\": [{\"fill\": {\"alpha\": 1.0, \"content\": {\"render_type\": \"solid\", \"solid\": {\"alpha\": 1.0, \"color\": [1.0, 1.0, 1.0]}}}, \"range\": [0, 4], \"size\": 6.0, \"bold\": true, \"italic\": false, \"underline\": false, \"strokes\": [{\"content\": {\"solid\": {\"alpha\": 1.0, \"color\": [0.0, 0.0, 0.0]}}, \"width\": 0.13999999999999999}], \"shadows\": [{\"diffuse\": 0.03, \"alpha\": 1.0, \"distance\": 6.0, \"content\": {\"solid\": {\"color\": [0.0, 0.0, 0.0]}}, \"angle\": -45.0}]}], \"text\": \"2 HP\"}",
                 "typesetting": 0,
                 "alignment": 0,
                 "letter_spacing": 0.0,
@@ -140,13 +236,13 @@
                 "line_feed": 1,
                 "line_max_width": 0.82,
                 "force_apply_line_max_width": false,
-                "check_flag": 7,
+                "check_flag": 47,
                 "type": "text",
                 "global_alpha": 1.0
             },
             {
-                "id": "7ddfb2f9f414479e9e452e028a956936",
-                "content": "{\"styles\": [{\"fill\": {\"alpha\": 1.0, \"content\": {\"render_type\": \"solid\", \"solid\": {\"alpha\": 1.0, \"color\": [1.0, 1.0, 1.0]}}}, \"range\": [0, 10], \"size\": 5.0, \"bold\": true, \"italic\": false, \"underline\": false, \"strokes\": []}], \"text\": \"血只剩两格，他还在打\"}",
+                "id": "7440752f381d413a8895a8e3916fff52",
+                "content": "{\"styles\": [{\"fill\": {\"alpha\": 1.0, \"content\": {\"render_type\": \"solid\", \"solid\": {\"alpha\": 1.0, \"color\": [1.0, 1.0, 1.0]}}}, \"range\": [0, 10], \"size\": 5.0, \"bold\": true, \"italic\": false, \"underline\": false, \"strokes\": [{\"content\": {\"solid\": {\"alpha\": 1.0, \"color\": [0.0, 0.0, 0.0]}}, \"width\": 0.11000000000000001}], \"shadows\": [{\"diffuse\": 0.03, \"alpha\": 1.0, \"distance\": 6.0, \"content\": {\"solid\": {\"color\": [0.0, 0.0, 0.0]}}, \"angle\": -45.0}]}], \"text\": \"血只剩两格，他还在打\"}",
                 "typesetting": 0,
                 "alignment": 0,
                 "letter_spacing": 0.0,
@@ -154,13 +250,13 @@
                 "line_feed": 1,
                 "line_max_width": 0.82,
                 "force_apply_line_max_width": false,
-                "check_flag": 7,
+                "check_flag": 47,
                 "type": "text",
                 "global_alpha": 1.0
             },
             {
-                "id": "8e35896334a6434cac17cf757b5b85a2",
-                "content": "{\"styles\": [{\"fill\": {\"alpha\": 1.0, \"content\": {\"render_type\": \"solid\", \"solid\": {\"alpha\": 1.0, \"color\": [1.0, 1.0, 1.0]}}}, \"range\": [0, 6], \"size\": 5.0, \"bold\": true, \"italic\": false, \"underline\": false, \"strokes\": []}], \"text\": \"击杀播报出现\"}",
+                "id": "196cdb69ff344445a168455bb24e8737",
+                "content": "{\"styles\": [{\"fill\": {\"alpha\": 1.0, \"content\": {\"render_type\": \"solid\", \"solid\": {\"alpha\": 1.0, \"color\": [1.0, 1.0, 1.0]}}}, \"range\": [0, 6], \"size\": 5.0, \"bold\": true, \"italic\": false, \"underline\": false, \"strokes\": [{\"content\": {\"solid\": {\"alpha\": 1.0, \"color\": [0.0, 0.0, 0.0]}}, \"width\": 0.11000000000000001}], \"shadows\": [{\"diffuse\": 0.03, \"alpha\": 1.0, \"distance\": 6.0, \"content\": {\"solid\": {\"color\": [0.0, 0.0, 0.0]}}, \"angle\": -45.0}]}], \"text\": \"击杀播报出现\"}",
                 "typesetting": 0,
                 "alignment": 0,
                 "letter_spacing": 0.0,
@@ -168,13 +264,13 @@
                 "line_feed": 1,
                 "line_max_width": 0.82,
                 "force_apply_line_max_width": false,
-                "check_flag": 7,
+                "check_flag": 47,
                 "type": "text",
                 "global_alpha": 1.0
             },
             {
-                "id": "38092a86b7e34b59ab6527e26e04c161",
-                "content": "{\"styles\": [{\"fill\": {\"alpha\": 1.0, \"content\": {\"render_type\": \"solid\", \"solid\": {\"alpha\": 1.0, \"color\": [1.0, 1.0, 1.0]}}}, \"range\": [0, 9], \"size\": 5.0, \"bold\": true, \"italic\": false, \"underline\": false, \"strokes\": []}], \"text\": \"一枪放倒，播报确认\"}",
+                "id": "a30805fc52fc4878bf88d6f0bce0ae9e",
+                "content": "{\"styles\": [{\"fill\": {\"alpha\": 1.0, \"content\": {\"render_type\": \"solid\", \"solid\": {\"alpha\": 1.0, \"color\": [1.0, 1.0, 1.0]}}}, \"range\": [0, 9], \"size\": 5.0, \"bold\": true, \"italic\": false, \"underline\": false, \"strokes\": [{\"content\": {\"solid\": {\"alpha\": 1.0, \"color\": [0.0, 0.0, 0.0]}}, \"width\": 0.11000000000000001}], \"shadows\": [{\"diffuse\": 0.03, \"alpha\": 1.0, \"distance\": 6.0, \"content\": {\"solid\": {\"color\": [0.0, 0.0, 0.0]}}, \"angle\": -45.0}]}], \"text\": \"一枪放倒，播报确认\"}",
                 "typesetting": 0,
                 "alignment": 0,
                 "letter_spacing": 0.0,
@@ -182,13 +278,13 @@
                 "line_feed": 1,
                 "line_max_width": 0.82,
                 "force_apply_line_max_width": false,
-                "check_flag": 7,
+                "check_flag": 47,
                 "type": "text",
                 "global_alpha": 1.0
             },
             {
-                "id": "e26d7d1cd440485a9ed97c15a9d4a88d",
-                "content": "{\"styles\": [{\"fill\": {\"alpha\": 1.0, \"content\": {\"render_type\": \"solid\", \"solid\": {\"alpha\": 1.0, \"color\": [1.0, 0.9, 0.2]}}}, \"range\": [0, 10], \"size\": 6.0, \"bold\": true, \"italic\": false, \"underline\": false, \"strokes\": []}], \"text\": \"这枪换你，敢不敢上？\"}",
+                "id": "e824c0b4c7d9463b928ab66e7437245f",
+                "content": "{\"styles\": [{\"fill\": {\"alpha\": 1.0, \"content\": {\"render_type\": \"solid\", \"solid\": {\"alpha\": 1.0, \"color\": [1.0, 0.9, 0.2]}}}, \"range\": [0, 10], \"size\": 6.0, \"bold\": true, \"italic\": false, \"underline\": false, \"strokes\": [{\"content\": {\"solid\": {\"alpha\": 1.0, \"color\": [0.0, 0.0, 0.0]}}, \"width\": 0.13999999999999999}], \"shadows\": [{\"diffuse\": 0.03, \"alpha\": 1.0, \"distance\": 6.0, \"content\": {\"solid\": {\"color\": [0.0, 0.0, 0.0]}}, \"angle\": -45.0}]}], \"text\": \"这枪换你，敢不敢上？\"}",
                 "typesetting": 0,
                 "alignment": 0,
                 "letter_spacing": 0.0,
@@ -196,7 +292,7 @@
                 "line_feed": 1,
                 "line_max_width": 0.82,
                 "force_apply_line_max_width": false,
-                "check_flag": 7,
+                "check_flag": 47,
                 "type": "text",
                 "global_alpha": 1.0
             }
@@ -208,7 +304,7 @@
                 "category_name": "",
                 "duration": 130000,
                 "effect_id": "322575",
-                "id": "df023a266b99410ea5bf5aed54840a69",
+                "id": "394331e8014443e3ba670671659a8701",
                 "is_overlap": false,
                 "name": "闪白",
                 "platform": "all",
@@ -220,7 +316,7 @@
                 "category_name": "",
                 "duration": 130000,
                 "effect_id": "322575",
-                "id": "27a6e94b41ce4ac2af1a2d7cd9b3e222",
+                "id": "9cb1955f3f274360ada4ba9cbda9f568",
                 "is_overlap": false,
                 "name": "闪白",
                 "platform": "all",
@@ -232,7 +328,7 @@
                 "category_name": "",
                 "duration": 130000,
                 "effect_id": "322575",
-                "id": "d470ff947f2a4b0391a05ff41aa8deb4",
+                "id": "3a17aed7fd3945bca7e5e7aa37c90324",
                 "is_overlap": false,
                 "name": "闪白",
                 "platform": "all",
@@ -262,9 +358,9 @@
                 "crop_scale": 1.0,
                 "duration": 18984000,
                 "height": 720,
-                "id": "8f49d1ef5c9b4fddb2034031eb1170ad",
+                "id": "c563a6867b1a4a6dba2f8981fcc3c68c",
                 "local_material_id": "",
-                "material_id": "8f49d1ef5c9b4fddb2034031eb1170ad",
+                "material_id": "c563a6867b1a4a6dba2f8981fcc3c68c",
                 "material_name": "4b0460c400bbb5320acb6063b4f59358.mp4",
                 "media_path": "",
                 "path": "C:\\Users\\18930\\Desktop\\Edit skill\\原始素材\\4b0460c400bbb5320acb6063b4f59358.mp4",
@@ -290,9 +386,9 @@
                 "crop_scale": 1.0,
                 "duration": 18984000,
                 "height": 720,
-                "id": "d1049fe5d97a469e8aa48204bb6ad2fd",
+                "id": "772eb1158c6b43c88c31bf1b4118881b",
                 "local_material_id": "",
-                "material_id": "d1049fe5d97a469e8aa48204bb6ad2fd",
+                "material_id": "772eb1158c6b43c88c31bf1b4118881b",
                 "material_name": "4b0460c400bbb5320acb6063b4f59358.mp4",
                 "media_path": "",
                 "path": "C:\\Users\\18930\\Desktop\\Edit skill\\原始素材\\4b0460c400bbb5320acb6063b4f59358.mp4",
@@ -318,9 +414,9 @@
                 "crop_scale": 1.0,
                 "duration": 26017000,
                 "height": 720,
-                "id": "abba7abfc44e493da1ae08f0608ff764",
+                "id": "e2a88ca2edaa4478ab30cda8db033fab",
                 "local_material_id": "",
-                "material_id": "abba7abfc44e493da1ae08f0608ff764",
+                "material_id": "e2a88ca2edaa4478ab30cda8db033fab",
                 "material_name": "6b2eea343eee7595c3c0ede10d21d028.mp4",
                 "media_path": "",
                 "path": "C:\\Users\\18930\\Desktop\\Edit skill\\原始素材\\6b2eea343eee7595c3c0ede10d21d028.mp4",
@@ -346,9 +442,9 @@
                 "crop_scale": 1.0,
                 "duration": 26017000,
                 "height": 720,
-                "id": "41ff9ef91a1645d1af80f9f97c738885",
+                "id": "473d4561eca240db96cdf55f3ed1f769",
                 "local_material_id": "",
-                "material_id": "41ff9ef91a1645d1af80f9f97c738885",
+                "material_id": "473d4561eca240db96cdf55f3ed1f769",
                 "material_name": "6b2eea343eee7595c3c0ede10d21d028.mp4",
                 "media_path": "",
                 "path": "C:\\Users\\18930\\Desktop\\Edit skill\\原始素材\\6b2eea343eee7595c3c0ede10d21d028.mp4",
@@ -372,7 +468,7 @@
         {
             "attribute": 0,
             "flag": 0,
-            "id": "5b3b91e4ad444d8bb745b5daa0794a2d",
+            "id": "037b32bda8014c74af198d895217419c",
             "is_default_name": false,
             "name": "main",
             "segments": [
@@ -389,13 +485,55 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "1d8728d1c2964000ae3f713fa96bff9b",
-                    "material_id": "8f49d1ef5c9b4fddb2034031eb1170ad",
+                    "id": "2eabf8f9d58c4aa0b12614e6a225f6d2",
+                    "material_id": "c563a6867b1a4a6dba2f8981fcc3c68c",
                     "target_timerange": {
                         "start": 0,
                         "duration": 2050000
                     },
-                    "common_keyframes": [],
+                    "common_keyframes": [
+                        {
+                            "id": "75ef0a72ba764ee9bc6b29515a25a2da",
+                            "keyframe_list": [
+                                {
+                                    "curveType": "Line",
+                                    "graphID": "",
+                                    "left_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "right_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "id": "dc659d89bfbe4e41adf26789aa1c5f01",
+                                    "time_offset": 0,
+                                    "values": [
+                                        1.0
+                                    ]
+                                },
+                                {
+                                    "curveType": "Line",
+                                    "graphID": "",
+                                    "left_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "right_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "id": "20363019e63d40508aa8282fe1f82f55",
+                                    "time_offset": 2050000,
+                                    "values": [
+                                        1.12
+                                    ]
+                                }
+                            ],
+                            "material_id": "",
+                            "property_type": "KFTypeScaleX"
+                        }
+                    ],
                     "keyframe_refs": [],
                     "source_timerange": {
                         "start": 6050000,
@@ -404,8 +542,8 @@
                     "speed": 1.0,
                     "volume": 0.7,
                     "extra_material_refs": [
-                        "1b31e32eb2914ee9b51ca32104340ff7",
-                        "df023a266b99410ea5bf5aed54840a69"
+                        "37ddf49344754cb1accafdcf3fd9785f",
+                        "394331e8014443e3ba670671659a8701"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -448,13 +586,55 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "5ea1c869315c4b568aaad2daf46124ed",
-                    "material_id": "d1049fe5d97a469e8aa48204bb6ad2fd",
+                    "id": "f1998142190549cb922c9fc99076be7b",
+                    "material_id": "772eb1158c6b43c88c31bf1b4118881b",
                     "target_timerange": {
                         "start": 2050000,
                         "duration": 4400000
                     },
-                    "common_keyframes": [],
+                    "common_keyframes": [
+                        {
+                            "id": "c8772feb618746c79c4c91eb6cabfd79",
+                            "keyframe_list": [
+                                {
+                                    "curveType": "Line",
+                                    "graphID": "",
+                                    "left_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "right_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "id": "3ed5c37d657f4a42b92bc21b3c5ffde4",
+                                    "time_offset": 0,
+                                    "values": [
+                                        1.1
+                                    ]
+                                },
+                                {
+                                    "curveType": "Line",
+                                    "graphID": "",
+                                    "left_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "right_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "id": "943c018f6ca14c86a4031a2fba4cb64a",
+                                    "time_offset": 4400000,
+                                    "values": [
+                                        1.0
+                                    ]
+                                }
+                            ],
+                            "material_id": "",
+                            "property_type": "KFTypeScaleX"
+                        }
+                    ],
                     "keyframe_refs": [],
                     "source_timerange": {
                         "start": 8100000,
@@ -463,8 +643,8 @@
                     "speed": 1.0,
                     "volume": 0.7,
                     "extra_material_refs": [
-                        "fe6d6580f7a64404a218f4bd9d31acc9",
-                        "27a6e94b41ce4ac2af1a2d7cd9b3e222"
+                        "ce27497249d7461bbdcfebda6795abe8",
+                        "9cb1955f3f274360ada4ba9cbda9f568"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -507,13 +687,164 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "33ee81272d6243879f3d26eff9435e4b",
-                    "material_id": "abba7abfc44e493da1ae08f0608ff764",
+                    "id": "db20e3d34ad3461c91c22ec56f970511",
+                    "material_id": "e2a88ca2edaa4478ab30cda8db033fab",
                     "target_timerange": {
                         "start": 6450000,
                         "duration": 5600000
                     },
-                    "common_keyframes": [],
+                    "common_keyframes": [
+                        {
+                            "id": "29cad0d2356b40d69c083c4a6249226f",
+                            "keyframe_list": [
+                                {
+                                    "curveType": "Line",
+                                    "graphID": "",
+                                    "left_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "right_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "id": "3078043d734549228e79ae586f59566b",
+                                    "time_offset": 0,
+                                    "values": [
+                                        1.0
+                                    ]
+                                },
+                                {
+                                    "curveType": "Line",
+                                    "graphID": "",
+                                    "left_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "right_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "id": "0f3ea87f04be44c2a8f41411d78b0fec",
+                                    "time_offset": 3300000,
+                                    "values": [
+                                        1.04
+                                    ]
+                                },
+                                {
+                                    "curveType": "Line",
+                                    "graphID": "",
+                                    "left_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "right_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "id": "9aae7b07d831400485dce2957f248392",
+                                    "time_offset": 3500000,
+                                    "values": [
+                                        1.14
+                                    ]
+                                },
+                                {
+                                    "curveType": "Line",
+                                    "graphID": "",
+                                    "left_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "right_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "id": "b1bf830d8575431d9ee1df31e7662c00",
+                                    "time_offset": 3900000,
+                                    "values": [
+                                        1.02
+                                    ]
+                                },
+                                {
+                                    "curveType": "Line",
+                                    "graphID": "",
+                                    "left_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "right_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "id": "6446549bd04c4477a35550b081e2ca57",
+                                    "time_offset": 5600000,
+                                    "values": [
+                                        1.06
+                                    ]
+                                }
+                            ],
+                            "material_id": "",
+                            "property_type": "KFTypeScaleX"
+                        },
+                        {
+                            "id": "e2a93a6cf59444c3ab0c7277eea8212e",
+                            "keyframe_list": [
+                                {
+                                    "curveType": "Line",
+                                    "graphID": "",
+                                    "left_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "right_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "id": "b9d51665188b4cb98374b7928e00f286",
+                                    "time_offset": 3300000,
+                                    "values": [
+                                        0.0
+                                    ]
+                                },
+                                {
+                                    "curveType": "Line",
+                                    "graphID": "",
+                                    "left_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "right_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "id": "877066f3b67c4db59fe54edccb2bc470",
+                                    "time_offset": 3500000,
+                                    "values": [
+                                        0.1
+                                    ]
+                                },
+                                {
+                                    "curveType": "Line",
+                                    "graphID": "",
+                                    "left_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "right_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "id": "aeb2f17f89534106b072f43010b877dd",
+                                    "time_offset": 3900000,
+                                    "values": [
+                                        0.0
+                                    ]
+                                }
+                            ],
+                            "material_id": "",
+                            "property_type": "KFTypeBrightness"
+                        }
+                    ],
                     "keyframe_refs": [],
                     "source_timerange": {
                         "start": 5000000,
@@ -522,8 +853,8 @@
                     "speed": 1.0,
                     "volume": 0.851,
                     "extra_material_refs": [
-                        "4b3860a3b57d4430bf587089d15b91aa",
-                        "d470ff947f2a4b0391a05ff41aa8deb4"
+                        "4b954bdec0f3478b999eb0e7bc59db4e",
+                        "3a17aed7fd3945bca7e5e7aa37c90324"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -566,13 +897,55 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "c5056107496348c7a06416eeba232aa2",
-                    "material_id": "41ff9ef91a1645d1af80f9f97c738885",
+                    "id": "12dba1a778464784b2d124e0c9dd1fdf",
+                    "material_id": "473d4561eca240db96cdf55f3ed1f769",
                     "target_timerange": {
                         "start": 12050000,
                         "duration": 2950000
                     },
-                    "common_keyframes": [],
+                    "common_keyframes": [
+                        {
+                            "id": "4a4d3593f1e047dbb3352a446ab8ee4f",
+                            "keyframe_list": [
+                                {
+                                    "curveType": "Line",
+                                    "graphID": "",
+                                    "left_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "right_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "id": "815245937dc94a03bd0c7829a1e008be",
+                                    "time_offset": 0,
+                                    "values": [
+                                        1.0
+                                    ]
+                                },
+                                {
+                                    "curveType": "Line",
+                                    "graphID": "",
+                                    "left_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "right_control": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "id": "00e50421de6f422bb6d81e12793ec130",
+                                    "time_offset": 2950000,
+                                    "values": [
+                                        1.12
+                                    ]
+                                }
+                            ],
+                            "material_id": "",
+                            "property_type": "KFTypeScaleX"
+                        }
+                    ],
                     "keyframe_refs": [],
                     "source_timerange": {
                         "start": 21400000,
@@ -581,7 +954,7 @@
                     "speed": 1.0,
                     "volume": 0.851,
                     "extra_material_refs": [
-                        "a2dc47f200684349a0b719ace9a1b55c"
+                        "e026638767c749d39f593c009141cf37"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -617,7 +990,7 @@
         {
             "attribute": 0,
             "flag": 0,
-            "id": "44c73dea61144818b18a23303cff228a",
+            "id": "ae9cc96d841e4b8f92f7d0ffac0fc1e2",
             "is_default_name": false,
             "name": "caption",
             "segments": [
@@ -634,8 +1007,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "f20a881ac38e4badae47fbe8a3a34f8c",
-                    "material_id": "5c7208e5a0e7413784ea95e1da096293",
+                    "id": "6840be1189be44dba499a70da3b2940a",
+                    "material_id": "3c19947d8a164e4787c6b456109e10fa",
                     "target_timerange": {
                         "start": 200000,
                         "duration": 1850000
@@ -646,7 +1019,8 @@
                     "speed": 1.0,
                     "volume": 1.0,
                     "extra_material_refs": [
-                        "008877217c6c4a7895841239ebf15ff7"
+                        "c78161b854a543139a2c4621899f29ab",
+                        "abf590fe1c724f80a0c403fffb2719b4"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -684,8 +1058,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "0f90f5fa3c394bc1b1fcfaa82a1bd801",
-                    "material_id": "7ddfb2f9f414479e9e452e028a956936",
+                    "id": "5e9094e220834410ad17bfc62625aec9",
+                    "material_id": "7440752f381d413a8895a8e3916fff52",
                     "target_timerange": {
                         "start": 2350000,
                         "duration": 2300000
@@ -696,7 +1070,8 @@
                     "speed": 1.0,
                     "volume": 1.0,
                     "extra_material_refs": [
-                        "e3ced859ec2a40e38ae2ed3866b7f95d"
+                        "f8e7baff7d194ecd8eb3afe8f4080628",
+                        "264c5508fd4743c5b9f19c9ba1f135a2"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -734,8 +1109,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "63ad812a88904bd48bdaab9777de60ef",
-                    "material_id": "8e35896334a6434cac17cf757b5b85a2",
+                    "id": "7843d1df615240cca5e8c7aa97f1c57d",
+                    "material_id": "196cdb69ff344445a168455bb24e8737",
                     "target_timerange": {
                         "start": 4900000,
                         "duration": 1700000
@@ -746,7 +1121,8 @@
                     "speed": 1.0,
                     "volume": 1.0,
                     "extra_material_refs": [
-                        "8cc46d35d0164cb69d666b1ddd775c8d"
+                        "66ac6e1ab6f0430a95fe00d5c1f2b89a",
+                        "3e948553e8ed4e34b732b4efe200ec20"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -784,8 +1160,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "86a3c2cabb404b4596d1eb53bf832587",
-                    "material_id": "38092a86b7e34b59ab6527e26e04c161",
+                    "id": "d182c37a450046fbaa7c82605eff3f3f",
+                    "material_id": "a30805fc52fc4878bf88d6f0bce0ae9e",
                     "target_timerange": {
                         "start": 6800000,
                         "duration": 3400000
@@ -796,7 +1172,8 @@
                     "speed": 1.0,
                     "volume": 1.0,
                     "extra_material_refs": [
-                        "6d07b2fa62654c6db728f9d037b0d717"
+                        "772fbe0e762344a79f94336232f405c3",
+                        "5b8c893772734924b9b03835ee0c2dac"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -834,8 +1211,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "d71f74c2212f4428b16d2fd779640e04",
-                    "material_id": "e26d7d1cd440485a9ed97c15a9d4a88d",
+                    "id": "b3d034e9b0fb4dc6959a8872c2638484",
+                    "material_id": "e824c0b4c7d9463b928ab66e7437245f",
                     "target_timerange": {
                         "start": 12100000,
                         "duration": 2650000
@@ -846,7 +1223,8 @@
                     "speed": 1.0,
                     "volume": 1.0,
                     "extra_material_refs": [
-                        "4d2d0414e8c54597a14ffb3423ffd2ad"
+                        "9c1704a8b11a4cdf98b29dd3669ef783",
+                        "1c532973bb544e88ac3c2e7e7b43c038"
                     ],
                     "is_tone_modify": false,
                     "clip": {

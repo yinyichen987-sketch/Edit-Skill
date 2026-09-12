@@ -60,6 +60,30 @@ def px_from_y(y: float, H: int) -> float:
     return (1.0 - y) / 2.0 * H
 
 
+def piecewise(keys: list[tuple[float, float]], var: str = "t") -> str:
+    """把 [(时刻秒, 值)] 关键帧编成 ffmpeg 分段线性表达式。
+
+    ffmpeg 里逗号是参数分隔符，表达式内的逗号必须转义成 `\\,`。
+    """
+    if not keys:
+        return "1"
+    if len(keys) == 1:
+        return f"{keys[0][1]}"
+    expr = f"{keys[-1][1]}"
+    for (t0, v0), (t1, v1) in zip(reversed(keys[:-1]), reversed(keys[1:])):
+        span = (t1 - t0) or 1e-6
+        seg = f"{v0}+({v1}-{v0})*({var}-{t0})/{span}"
+        expr = f"if(lt({var}\\,{t1})\\,{seg}\\,{expr})"
+    return expr
+
+
+def kf_series(item: dict, prop: str) -> list[tuple[float, float]]:
+    """取出某属性的关键帧序列（相对片段起点的秒 → 值）。"""
+    out = [(float(k["time"]), float(k["value"]))
+           for k in (item.get("keyframes") or []) if k.get("property") == prop]
+    return sorted(out)
+
+
 def make_caption_png(text: str, size_px: int, W: int, H: int, center_px: float, out: Path) -> None:
     """渲染一条字幕为透明 PNG（白字 + 黑描边），水平居中，中心位于 center_px。"""
     font = ImageFont.truetype(FONT_PATH if os.path.exists(FONT_PATH) else FONT_PATH_FALLBACK, size_px)
@@ -89,17 +113,33 @@ def main() -> int:
 
     print(f"=== 渲染预览: {name}  {W}x{H} @{FPS} ===")
 
-    # ---- 1. 逐片段裁剪 + 音量 ----
+    # ---- 1. 逐片段裁剪 + 音量 + 关键帧动效 ----
     seg_files = []
     for i, c in enumerate(edl["clips"]):
         src = Path(c["source"]) if os.path.isabs(c["source"]) else (base / c["source"]).resolve()
         out = WORK / f"seg{i}.mp4"
+
+        vf = [f"scale={W}:{H}:force_original_aspect_ratio=decrease",
+              f"pad={W}:{H}:(ow-iw)/2:(oh-ih)/2", "setsar=1", f"fps={FPS}"]
+
+        # 关键帧推拉（uniform_scale / scale_x）→ crop 成比例再放回原尺寸
+        sc = kf_series(c, "uniform_scale") or kf_series(c, "scale_x")
+        if sc:
+            z = piecewise(sc)
+            vf.append(f"crop=w='iw/({z})':h='ih/({z})':x='(iw-ow)/2':y='(ih-oh)/2'")
+            vf.append(f"scale={W}:{H}:flags=bicubic")
+        # 关键帧亮度 → eq（需 eval=frame 才逐帧求值）
+        br = kf_series(c, "brightness")
+        if br:
+            vf.append(f"eq=brightness='{piecewise(br)}':eval=frame")
+
         run(["-y", "-ss", f"{c.get('source_in', 0)}", "-t", f"{c['duration']}", "-i", str(src),
-             "-vf", f"scale={W}:{H}:force_original_aspect_ratio=decrease,pad={W}:{H}:(ow-iw)/2:(oh-ih)/2,setsar=1,fps={FPS}",
+             "-vf", ",".join(vf),
              "-af", f"volume={c.get('volume', 1.0)}",
              "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p",
              "-c:a", "aac", "-ar", "48000", "-ac", "2", str(out)],
-            f"clip {c['id']}  {src.name}  in={c.get('source_in',0)}  dur={c['duration']}  vol={c.get('volume',1.0)}")
+            f"clip {c['id']}  {src.name}  in={c.get('source_in',0)}  dur={c['duration']}  vol={c.get('volume',1.0)}"
+            + (f"  推拉关键帧{len(sc)}个" if sc else "") + (f"  亮度关键帧{len(br)}个" if br else ""))
         seg_files.append(out)
 
     # ---- 2. 拼接（零间隙，与 EDL 的 start 递进一致）----
