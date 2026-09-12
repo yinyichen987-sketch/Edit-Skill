@@ -381,11 +381,24 @@ def build(edl: dict, draft_root: str, name: str | None, dry_run: bool) -> dict:
         if item.get("source_in") is not None:
             # ⚠️ 变速时**素材窗口 ≠ 时间线长度**：剪映里 target_duration = source_duration / speed，
             # 所以 source_duration = target_duration × speed。
-            # 旧代码一律按 `duration` 取素材窗口，速度≠1 时取多/取少了，
-            # 而且这条错误只在 speed≠1 时才显形（本集此前全是 1.0，所以一直没暴露）。
+            # （旧代码一律按 `duration` 取素材窗口，速度≠1 时会取错；
+            #   这条只在 speed≠1 时才显形，所以长期没暴露。）
+            #
+            # ⚠️⚠️ **只传 source_timerange，绝不同时传 speed。**
+            # 库在 `VideoSegment.__init__` 里是这么写的：
+            #     if source_timerange is not None and speed is not None:
+            #         target_timerange = Timerange(start, round(source_timerange.duration / speed))
+            # 即**它会用 source/speed 反算并覆盖我给的 target 时长**；
+            # 而 source 会被四舍五入到微秒，再除回去可能多出 1µs ——
+            # 于是本段比 EDL 时长长 1µs，与下一段**重叠 1 微秒**，
+            # `add_segment` 的重叠校验直接抛 SegmentOverlap（实测就是这么炸的：
+            # `SegmentOverlap [start: 16406250, end: 18750000]`）。
+            # 只传 source_timerange 时走的是另一分支：库自己 `speed = source/target`，
+            # **target 保持我给的精确值**，相邻片段严丝合缝。
             kwargs["source_timerange"] = d.trange(tsec(item["source_in"]),
                                                   tsec(duration * speed))
-        if item.get("speed") is not None:
+        elif item.get("speed") is not None:
+            # 没给 source_in 时只能直接给 speed（此时由库自己算素材窗口）
             kwargs["speed"] = speed
 
         if track_type_of.get(item["track"]) == "audio":

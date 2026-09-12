@@ -384,6 +384,13 @@ def main() -> int:
         lab = f"v{idx}"
         chain.append(f"[{prev}][{idx+1}:v]overlay=0:0:enable='between(t,{st:.3f},{en:.3f})'[{lab}]")
         prev = lab
+    if not cap_meta:
+        # **没有任何字幕时必须补一个直通滤镜**：否则链路里没有任何滤镜定义输出标签，
+        # 最后 -map [0:v] 会报
+        # "Output with label '0:v' does not exist in any defined filter graph"。
+        # （删掉全部文字后第一次渲染就是这么炸的。）
+        chain.append("[0:v]null[vpass]")
+        prev = "vpass"
 
     alabels = []
     for k, (i_off, c) in enumerate(clip_audio):
