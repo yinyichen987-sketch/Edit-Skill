@@ -41,10 +41,10 @@
       "source": "../../../原始素材/dcc871b1791e7796fadac842593f10f7.mp4",
       "source_in": 6.4,
       "start": 0.0,
-      "duration": 1.875,
-      "role": "hook",
+      "duration": 3.75,
+      "role": "run_c",
       "rule_id": "MONT-01",
-      "reason": "集锦第 1 镜 / 4 拍（1.8750s）@128BPM；拍点 0.0–4.0；速度 1.0×（吃素材 1.8750s）。C-H5 击杀播报同帧、信息量最高的一帧，用最狠的一下开场。",
+      "reason": "集锦第 1 镜 / 8 拍（3.7500s）@128BPM；拍点 0.0–8.0；速度 1.0×（吃素材 3.7500s）。c 段连续长镜：C-H5(击杀播报同帧，信息量最高) → C-H7 → C-H8。",
       "volume": 0.596,
       "filter": {
         "type": "青橙",
@@ -58,8 +58,8 @@
         },
         {
           "property": "uniform_scale",
-          "time": 1.875,
-          "value": 1.239
+          "time": 3.75,
+          "value": 1.2626
         }
       ],
       "background_filling": {
@@ -74,12 +74,12 @@
       "id": "m02",
       "track": "main",
       "source": "../../../原始素材/4b0460c400bbb5320acb6063b4f59358.mp4",
-      "source_in": 6.3,
-      "start": 1.875,
-      "duration": 1.875,
-      "role": "tension",
+      "source_in": 5.6,
+      "start": 3.75,
+      "duration": 3.75,
+      "role": "run_a",
       "rule_id": "MONT-01",
-      "reason": "集锦第 2 镜 / 4 拍（1.8750s）@128BPM；拍点 4.0–8.0；速度 1.0×（吃素材 1.8750s）。A-H3 实测 2 HP（conf 0.95），全集最强悬念。",
+      "reason": "集锦第 2 镜 / 8 拍（3.7500s）@128BPM；拍点 8.0–16.0；速度 1.0×（吃素材 3.7500s）。a 段连续长镜：A-H2(拾取) → A-H3(**实测 2 HP**，conf 0.95) → A-H4。",
       "volume": 0.49,
       "filter": {
         "type": "青橙",
@@ -97,8 +97,8 @@
         },
         {
           "property": "uniform_scale",
-          "time": 1.875,
-          "value": 1.239
+          "time": 3.75,
+          "value": 1.2744
         }
       ],
       "background_filling": {
@@ -114,97 +114,11 @@
       "track": "main",
       "source": "../../../原始素材/6b2eea343eee7595c3c0ede10d21d028.mp4",
       "source_in": 5.4,
-      "start": 3.75,
-      "duration": 1.875,
-      "role": "burst",
-      "rule_id": "MONT-01",
-      "reason": "集锦第 3 镜 / 4 拍（1.8750s）@128BPM；拍点 8.0–12.0；速度 1.0×（吃素材 1.8750s）。B-H1 全 70 秒音频能量最强的一段。",
-      "volume": 0.596,
-      "filter": {
-        "type": "青橙",
-        "intensity": 65.0
-      },
-      "transition": {
-        "type": "信号故障",
-        "duration": 0.12
-      },
-      "keyframes": [
-        {
-          "property": "uniform_scale",
-          "time": 0.0,
-          "value": 1.18
-        },
-        {
-          "property": "uniform_scale",
-          "time": 1.875,
-          "value": 1.2508
-        }
-      ],
-      "background_filling": {
-        "type": "blur",
-        "blur": 0.75
-      },
-      "clip": {
-        "scale": 1.18
-      }
-    },
-    {
-      "id": "m04",
-      "track": "main",
-      "source": "../../../原始素材/dcc871b1791e7796fadac842593f10f7.mp4",
-      "source_in": 0.0,
-      "start": 5.625,
-      "duration": 0.9375,
-      "role": "build",
-      "rule_id": "MONT-01",
-      "reason": "集锦第 4 镜 / 2 拍（0.9375s）@128BPM；拍点 12.0–14.0；速度 1.0×（吃素材 0.9375s）。C-H1 近战位移 + 运动模糊，做推进的短镜。",
-      "volume": 0.596,
-      "filter": {
-        "type": "青橙",
-        "intensity": 65.0
-      },
-      "background_filling": {
-        "type": "blur",
-        "blur": 0.75
-      },
-      "clip": {
-        "scale": 1.18
-      }
-    },
-    {
-      "id": "m05",
-      "track": "main",
-      "source": "../../../原始素材/dcc871b1791e7796fadac842593f10f7.mp4",
-      "source_in": 4.55,
-      "start": 6.5625,
-      "duration": 0.9375,
-      "role": "gasp",
-      "rule_id": "MONT-01",
-      "reason": "集锦第 5 镜 / 2 拍（0.9375s）@128BPM；拍点 14.0–16.0；速度 0.5×（吃素材 0.4688s）。**吸气镜**：C-H4 接近过程本身低运动，0.5× 后近乎静止。",
-      "volume": 0.596,
-      "filter": {
-        "type": "青橙",
-        "intensity": 65.0
-      },
-      "speed": 0.5,
-      "background_filling": {
-        "type": "blur",
-        "blur": 0.75
-      },
-      "clip": {
-        "scale": 1.18
-      }
-    },
-    {
-      "id": "m06",
-      "track": "main",
-      "source": "../../../原始素材/6b2eea343eee7595c3c0ede10d21d028.mp4",
-      "source_in": 8.45,
       "start": 7.5,
-      "duration": 1.875,
-      "role": "drop",
+      "duration": 3.75,
+      "role": "run_b",
       "rule_id": "MONT-01",
-      "reason": "集锦第 6 镜 / 4 拍（1.8750s）@128BPM；拍点 16.0–20.0；速度 1.0×（吃素材 1.8750s）。B-H2 击杀确认（本集最硬的一下），正好压在 7.5s 的 drop 上。",
+      "reason": "集锦第 3 镜 / 8 拍（3.7500s）@128BPM；拍点 16.0–24.0；速度 1.0×（吃素材 3.7500s）。b 段连续长镜：B-H1(**全 70 秒音频能量最强**) → B-H2(击杀确认)，起点=drop。",
       "volume": 0.596,
       "filter": {
         "type": "青橙",
@@ -222,7 +136,7 @@
         },
         {
           "property": "uniform_scale",
-          "time": 1.875,
+          "time": 3.75,
           "value": 1.2862
         }
       ],
@@ -235,23 +149,19 @@
       }
     },
     {
-      "id": "m07",
+      "id": "m04",
       "track": "main",
-      "source": "../../../原始素材/6b2eea343eee7595c3c0ede10d21d028.mp4",
-      "source_in": 17.0,
-      "start": 9.375,
+      "source": "../../../原始素材/dcc871b1791e7796fadac842593f10f7.mp4",
+      "source_in": 19.1,
+      "start": 11.25,
       "duration": 1.875,
-      "role": "bigplay",
+      "role": "run_c2",
       "rule_id": "MONT-01",
-      "reason": "集锦第 7 镜 / 4 拍（1.8750s）@128BPM；拍点 20.0–24.0；速度 1.0×（吃素材 1.8750s）。B-H5 画面有「爆能器已部署」横幅 + 多人交火。",
+      "reason": "集锦第 4 镜 / 4 拍（1.8750s）@128BPM；拍点 24.0–28.0；速度 1.0×（吃素材 1.8750s）。c 段第二段：C-H10 持续交火（与第 1 镜不重叠、不连号）。",
       "volume": 0.596,
       "filter": {
         "type": "青橙",
         "intensity": 65.0
-      },
-      "transition": {
-        "type": "信号故障",
-        "duration": 0.12
       },
       "keyframes": [
         {
@@ -274,46 +184,7 @@
       }
     },
     {
-      "id": "m08",
-      "track": "main",
-      "source": "../../../原始素材/dcc871b1791e7796fadac842593f10f7.mp4",
-      "source_in": 19.1,
-      "start": 11.25,
-      "duration": 1.875,
-      "role": "bigplay",
-      "rule_id": "MONT-01",
-      "reason": "集锦第 8 镜 / 4 拍（1.8750s）@128BPM；拍点 24.0–28.0；速度 1.0×（吃素材 1.8750s）。C-H10 本段最长的高能量持续段。",
-      "volume": 0.596,
-      "filter": {
-        "type": "青橙",
-        "intensity": 65.0
-      },
-      "transition": {
-        "type": "信号故障",
-        "duration": 0.12
-      },
-      "keyframes": [
-        {
-          "property": "uniform_scale",
-          "time": 0.0,
-          "value": 1.18
-        },
-        {
-          "property": "uniform_scale",
-          "time": 1.875,
-          "value": 1.2508
-        }
-      ],
-      "background_filling": {
-        "type": "blur",
-        "blur": 0.75
-      },
-      "clip": {
-        "scale": 1.18
-      }
-    },
-    {
-      "id": "m09",
+      "id": "m05",
       "track": "main",
       "source": "../../../原始素材/6b2eea343eee7595c3c0ede10d21d028.mp4",
       "source_in": 21.4,
@@ -321,7 +192,7 @@
       "duration": 1.875,
       "role": "ending",
       "rule_id": "MONT-01",
-      "reason": "集锦第 9 镜 / 4 拍（1.8750s）@128BPM；拍点 28.0–32.0；速度 1.0×（吃素材 1.8750s）。B-H7「获胜」横幅，收在最强的情绪点上。",
+      "reason": "集锦第 5 镜 / 4 拍（1.8750s）@128BPM；拍点 28.0–32.0；速度 1.0×（吃素材 1.8750s）。b 段收尾：B-H7「获胜」横幅，收在最强的情绪点上。",
       "volume": 0.596,
       "filter": {
         "type": "青橙",
@@ -399,7 +270,7 @@
       "id": "t2",
       "track": "cap_body",
       "content": "2 HP",
-      "start": 1.875,
+      "start": 3.75,
       "duration": 1.875,
       "style": {
         "size": 24.0,
@@ -439,47 +310,6 @@
     },
     {
       "id": "t3",
-      "track": "cap_body",
-      "content": "听声辨位",
-      "start": 3.75,
-      "duration": 1.875,
-      "style": {
-        "size": 20.0,
-        "bold": true,
-        "font": "未来黑",
-        "color": [
-          1.0,
-          1.0,
-          1.0
-        ],
-        "transform_x": 0.0,
-        "transform_y": -0.510417
-      },
-      "animation": {
-        "intro": "向上滑动",
-        "intro_duration": 0.4
-      },
-      "border": {
-        "color": [
-          0.0,
-          0.0,
-          0.0
-        ],
-        "width": 58.0
-      },
-      "shadow": {
-        "color": [
-          0.0,
-          0.0,
-          0.0
-        ],
-        "diffuse": 18.0,
-        "distance": 6.0,
-        "angle": -45.0
-      }
-    },
-    {
-      "id": "t4",
       "track": "cap_body",
       "content": "一枪一个",
       "start": 7.5,
@@ -521,10 +351,10 @@
       }
     },
     {
-      "id": "t5",
+      "id": "t4",
       "track": "cap_body",
-      "content": "已部署",
-      "start": 9.375,
+      "content": "还在打",
+      "start": 11.25,
       "duration": 1.875,
       "style": {
         "size": 20.0,
@@ -532,15 +362,16 @@
         "font": "未来黑",
         "color": [
           1.0,
-          0.9,
-          0.2
+          1.0,
+          1.0
         ],
         "transform_x": 0.0,
         "transform_y": -0.510417
       },
       "animation": {
         "intro": "弹入",
-        "intro_duration": 0.4
+        "intro_duration": 0.4,
+        "loop": "颤抖"
       },
       "border": {
         "color": [
@@ -562,7 +393,7 @@
       }
     },
     {
-      "id": "t6",
+      "id": "t5",
       "track": "cap_top",
       "content": "这枪换你，敢不敢上？",
       "start": 13.125,
@@ -618,7 +449,7 @@
     {
       "source": "../sfx/whoosh.wav",
       "track": "sfx1",
-      "start": 1.875,
+      "start": 3.75,
       "duration": 0.35,
       "volume": 0.7,
       "fade": {
@@ -660,33 +491,11 @@
       }
     },
     {
-      "source": "../sfx/impact_a.wav",
-      "track": "sfx2",
-      "start": 3.75,
-      "duration": 0.14,
-      "volume": 0.85,
-      "fade": {
-        "in": 0.005,
-        "out": 0.035
-      }
-    },
-    {
       "source": "../sfx/sub_drop.wav",
       "track": "sfx2",
       "start": 7.5,
       "duration": 0.9,
       "volume": 0.9,
-      "fade": {
-        "in": 0.005,
-        "out": 0.06
-      }
-    },
-    {
-      "source": "../sfx/whoosh.wav",
-      "track": "sfx2",
-      "start": 9.375,
-      "duration": 0.35,
-      "volume": 0.7,
       "fade": {
         "in": 0.005,
         "out": 0.06
@@ -712,11 +521,6 @@
           "type": "像素故障",
           "start": 7.5,
           "duration": 0.3
-        },
-        {
-          "type": "花屏故障",
-          "start": 13.125,
-          "duration": 0.35
         }
       ]
     },
@@ -724,9 +528,9 @@
       "name": "fx2",
       "effects": [
         {
-          "type": "幻彩故障",
-          "start": 9.375,
-          "duration": 0.25
+          "type": "花屏故障",
+          "start": 13.125,
+          "duration": 0.35
         }
       ]
     }
