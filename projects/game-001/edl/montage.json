@@ -7,7 +7,7 @@
     "fps": 30
   },
   "style_ref": "game-montage",
-  "target_duration_s": 30.0,
+  "target_duration_s": 30.9375,
   "tracks": [
     {
       "type": "video",
@@ -213,10 +213,10 @@
       "source": "../../../原始素材/6b2eea343eee7595c3c0ede10d21d028.mp4",
       "source_in": 13.5,
       "start": 18.75,
-      "duration": 11.25,
+      "duration": 12.1875,
       "role": "run_b2",
       "rule_id": "MONT-01",
-      "reason": "第 4 镜第 1/1 段 / 24 拍（11.2500s）@128BPM；时间线 40–64 拍；速度 1.0×（吃素材 11.2500s，素材 13.500→24.750）。b 段第二段 11.25s：B-H5(爆能器已部署横幅) → B-H7(**「获胜」横幅**)",
+      "reason": "第 4 镜第 1/1 段 / 26 拍（12.1875s）@128BPM；时间线 40–66 拍；速度 1.0×（吃素材 12.1875s，素材 13.500→25.688）。b 段第二段：B-H5(爆能器已部署横幅) → B-H7(**「获胜」横幅，多留一拍半**)",
       "volume": 0.766,
       "filter": {
         "type": "青橙",
@@ -234,7 +234,7 @@
         },
         {
           "property": "uniform_scale",
-          "time": 11.25,
+          "time": 12.1875,
           "value": 1.11
         }
       ]
@@ -243,10 +243,10 @@
   "texts": [],
   "audio_overlays": [
     {
-      "source": "../bgm/bgm_128_16bars.wav",
+      "source": "../bgm/bgm_128_17bars.wav",
       "track": "bgm",
       "start": 0.0,
-      "duration": 30.0,
+      "duration": 30.9375,
       "volume": 0.46,
       "fade": {
         "in": 0.0,
@@ -363,7 +363,7 @@
         {
           "type": "暗角",
           "start": 0.0,
-          "duration": 30.0,
+          "duration": 30.9375,
           "params": [
             10.0
           ]
@@ -376,7 +376,7 @@
         {
           "type": "噪点",
           "start": 0.0,
-          "duration": 30.0,
+          "duration": 30.9375,
           "params": [
             5.0
           ]
@@ -389,7 +389,7 @@
         {
           "type": "精细锐化",
           "start": 0.0,
-          "duration": 30.0,
+          "duration": 30.9375,
           "params": [
             12.0,
             10.0,
@@ -412,6 +412,6 @@
       "no-black-frame"
     ]
   },
-  "_form_note": "集锦形式（不做叙事）：7 镜 / 6 切 / 64 拍 @128BPM / 30.000s。每段原始素材各取**一整段连续画面**（用户确认的集锦定义），有意偏离叙事型的 CUT-01（固定四段）与 CUT-02（≈12 切/分）。CUT-04（不越素材上界）与 CUT-05（避开 VFR 跳变窗）仍强制满足。",
+  "_form_note": "集锦形式（不做叙事）：7 镜 / 6 切 / 66 拍 @128BPM / 30.938s。每段原始素材各取**一整段连续画面**（用户确认的集锦定义），有意偏离叙事型的 CUT-01（固定四段）与 CUT-02（≈12 切/分）。CUT-04（不越素材上界）与 CUT-05（避开 VFR 跳变窗）仍强制满足。",
   "_audio_note": "BGM 为本地合成（128BPM，与剪切点同格，见 tools/make_bgm.py）；whoosh/riser/sub_drop 亦为合成（tools/make_sfx.py）；impact_*/win 从原素材裁出。剪映音效库无法程序化引用。"
 }

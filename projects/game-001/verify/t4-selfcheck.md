@@ -167,7 +167,7 @@
 ## files
 
 - [PASS] 所有 draft_content.json 均在工作区内
-  - 证据：draft-out 下共 11 个草稿，工作区外: 无
+  - 证据：draft-out 下共 12 个草稿，工作区外: 无
 
 ## upstream
 
