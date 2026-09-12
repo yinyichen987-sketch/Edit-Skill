@@ -494,4 +494,27 @@ Missing closing '}' in statement block ...
 `
 
 **另一条**：在这个 harness 里 pwsh 命令**不在 PATH 上**（当前 shell 本身就是 PowerShell），
-所以要直接调用脚本本体 & .\tools\push.ps1 ...，不要写 pwsh -File ...。
+所以要直接调用脚本本体 & .\tools\push.ps1 ...，不要写 pwsh -File ...。\n
+## 装 Python 包 / 下载参考视频：两个沙箱坑（本项目实测）
+
+### 1. pip 的临时目录必须在**工作区内**
+pip install 会往 %TEMP% 解包，而沙箱拒写那里，报：
+
+`
+ERROR: Could not install packages due to an OSError:
+[Errno 13] Permission denied: 'C:\\Users\\...\\Temp\\dsh-xxxx\\pip-unpack-...\\xxx.whl.metadata'
+`
+
+**先看 Collecting <包名> 是否出现** —— 出现了就说明**网络是通的、包已下好**，
+只是解包被拒（别误判成网络问题）。修法：把 TEMP/TMP 指到工作区内再装。
+
+### 2. 从 Python 里发 TLS 请求会被拦
+urllib 报 ssl.SSLEOFError: UNEXPECTED_EOF_WHILE_READING。安装与下载都需要放宽权限。
+（pip 自身能走通，是因为它用 vendored 的 urllib3/certifi。）
+
+### 3. 下载视频：**薄封装 yt-dlp，不要自己写**
+自己实现 B站 链路要处理 **WBI 签名**（w_rid/wts）、uvid 指纹、DASH 分段合流 ——
+会随平台改动失效。用 	ools/dl_reference.py（yt-dlp 的薄封装）。
+
+**⚠️ yt-dlp 的 --print 隐含 --simulate**：加了 --print 就**只打印不下载**，
+必须同时给 --no-simulate。本项目第一次用就踩了 —— 元数据打印得很漂亮，磁盘上却一个文件都没有。

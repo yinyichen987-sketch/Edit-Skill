@@ -1,0 +1,255 @@
+{
+  "source": "C:\\Users\\18930\\Desktop\\Edit skill\\B站参考\\BV1mbPsz5EeK.mp4",
+  "media": {
+    "duration": 37.211,
+    "width": 480,
+    "height": 852,
+    "fps": 26.418,
+    "video_codec": "HEVC",
+    "has_audio": true,
+    "audio_codec": "AAC",
+    "audio_sample_rate": 44100,
+    "audio_channels": 2,
+    "aspect_ratio": "40:71",
+    "orientation": "portrait"
+  },
+  "shots": [
+    {
+      "index": 0,
+      "start": 0.0,
+      "end": 0.038,
+      "duration": 0.038,
+      "cut_score": null
+    },
+    {
+      "index": 1,
+      "start": 0.038,
+      "end": 2.347,
+      "duration": 2.309,
+      "cut_score": 21.22
+    },
+    {
+      "index": 2,
+      "start": 2.347,
+      "end": 3.218,
+      "duration": 0.871,
+      "cut_score": 11.09
+    },
+    {
+      "index": 3,
+      "start": 3.218,
+      "end": 4.467,
+      "duration": 1.249,
+      "cut_score": 17.99
+    },
+    {
+      "index": 4,
+      "start": 4.467,
+      "end": 5.489,
+      "duration": 1.022,
+      "cut_score": 14.52
+    },
+    {
+      "index": 5,
+      "start": 5.489,
+      "end": 7.76,
+      "duration": 2.271,
+      "cut_score": 7.34
+    },
+    {
+      "index": 6,
+      "start": 7.76,
+      "end": 10.486,
+      "duration": 2.726,
+      "cut_score": 3.34
+    },
+    {
+      "index": 7,
+      "start": 10.486,
+      "end": 11.129,
+      "duration": 0.643,
+      "cut_score": 3.49
+    },
+    {
+      "index": 8,
+      "start": 11.129,
+      "end": 11.886,
+      "duration": 0.757,
+      "cut_score": 4.57
+    },
+    {
+      "index": 9,
+      "start": 11.886,
+      "end": 14.915,
+      "duration": 3.029,
+      "cut_score": 9.88
+    },
+    {
+      "index": 10,
+      "start": 14.915,
+      "end": 18.776,
+      "duration": 3.861,
+      "cut_score": 3.33
+    },
+    {
+      "index": 11,
+      "start": 18.776,
+      "end": 19.722,
+      "duration": 0.946,
+      "cut_score": 3.23
+    },
+    {
+      "index": 12,
+      "start": 19.722,
+      "end": 20.063,
+      "duration": 0.341,
+      "cut_score": 3.44
+    },
+    {
+      "index": 13,
+      "start": 20.063,
+      "end": 20.706,
+      "duration": 0.643,
+      "cut_score": 4.9
+    },
+    {
+      "index": 14,
+      "start": 20.706,
+      "end": 22.675,
+      "duration": 1.969,
+      "cut_score": 12.65
+    },
+    {
+      "index": 15,
+      "start": 22.675,
+      "end": 28.467,
+      "duration": 5.792,
+      "cut_score": 17.93
+    },
+    {
+      "index": 16,
+      "start": 28.467,
+      "end": 29.829,
+      "duration": 1.362,
+      "cut_score": 5.29
+    },
+    {
+      "index": 17,
+      "start": 29.829,
+      "end": 31.949,
+      "duration": 2.12,
+      "cut_score": 3.62
+    },
+    {
+      "index": 18,
+      "start": 31.949,
+      "end": 37.211,
+      "duration": 5.262,
+      "cut_score": 4.68
+    }
+  ],
+  "pacing": {
+    "shot_count": 19,
+    "cut_count": 18,
+    "total_duration": 37.211,
+    "avg_shot_duration": 1.958,
+    "median_shot_duration": 1.362,
+    "min_shot_duration": 0.038,
+    "max_shot_duration": 5.792,
+    "stdev_shot_duration": 1.562,
+    "cuts_per_minute": 29.02,
+    "duration_histogram": {
+      "<1s": 7,
+      "1-2s": 4,
+      "2-3s": 4,
+      "3-5s": 2,
+      "5-10s": 2,
+      ">=10s": 0
+    }
+  },
+  "candidate_cuts": [
+    {
+      "time": 0.038,
+      "score": 21.22
+    },
+    {
+      "time": 2.347,
+      "score": 11.09
+    },
+    {
+      "time": 3.218,
+      "score": 17.99
+    },
+    {
+      "time": 4.467,
+      "score": 14.52
+    },
+    {
+      "time": 5.489,
+      "score": 7.34
+    },
+    {
+      "time": 7.76,
+      "score": 3.34
+    },
+    {
+      "time": 10.486,
+      "score": 3.49
+    },
+    {
+      "time": 11.129,
+      "score": 4.57
+    },
+    {
+      "time": 11.886,
+      "score": 9.88
+    },
+    {
+      "time": 14.915,
+      "score": 3.33
+    },
+    {
+      "time": 18.776,
+      "score": 3.23
+    },
+    {
+      "time": 19.722,
+      "score": 3.44
+    },
+    {
+      "time": 20.063,
+      "score": 4.9
+    },
+    {
+      "time": 20.706,
+      "score": 12.65
+    },
+    {
+      "time": 22.675,
+      "score": 17.93
+    },
+    {
+      "time": 28.467,
+      "score": 5.29
+    },
+    {
+      "time": 29.829,
+      "score": 3.62
+    },
+    {
+      "time": 31.949,
+      "score": 4.68
+    }
+  ],
+  "audio": {
+    "has_audio": true,
+    "integrated_loudness_lufs": -17.4,
+    "true_peak_dbfs": -1.9,
+    "loudness_range_lu": 6.4
+  },
+  "analysis_meta": {
+    "scene_score_samples": 983,
+    "detector": "ffmpeg scdet(threshold=0) + adaptive peak detection",
+    "note": "scdet 以亮度差为主，等亮度换色得分偏低；已用自适应基线补偿"
+  }
+}
