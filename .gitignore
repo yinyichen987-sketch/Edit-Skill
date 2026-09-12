@@ -65,3 +65,5 @@ projects/**/_tmp/
 projects/**/__pycache__/
 projects/**/_peek*.txt
 .agent-teams/
+projects/**/preview/_work/
+
