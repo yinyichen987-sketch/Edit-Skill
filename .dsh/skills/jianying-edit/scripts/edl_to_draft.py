@@ -215,6 +215,25 @@ def band_scale(canvas_w: int, canvas_h: int, src_w: int, src_h: int,
     return band_h / base_h
 
 
+def _font_of(name, report: dict, sid):
+    """把 EDL 里的字体名转成剪映字体对象。
+
+    不指定时会落到剪映默认字体；指定的字体**必须在 pyJianYingDraft 的 `FontType`
+    枚举里**（枚举是从剪映本体抽出来的）。注意枚举里既有免费也有 VIP 字体，
+    这里会顺带把 `is_vip` 写进报告，避免误用 VIP 字体。
+    """
+    if not name:
+        return None
+    if not hasattr(d.FontType, name):
+        msg = f"文本 {sid} 指定的字体 '{name}' 不在 FontType 枚举里，已回退默认字体"
+        report["warnings"].append(msg)
+        print(f"  [WARN] {msg}")
+        return None
+    font = getattr(d.FontType, name)
+    report.setdefault("fonts", {}).setdefault(name, bool(font.value.is_vip))
+    return font
+
+
 def _clip_settings_of(item, report: dict, sid) -> "d.ClipSettings | None":
     """把 EDL 片段上的 `clip` 块转成剪映的图像调节设置。
 
@@ -477,6 +496,7 @@ def build(edl: dict, draft_root: str, name: str | None, dry_run: bool) -> dict:
         seg = d.TextSegment(
             item["content"],
             d.trange(tsec(item["start"]), tsec(item["duration"])),
+            font=_font_of(style.get("font"), report, item.get("id", "?")),
             style=text_style,
             clip_settings=clip,
             border=border,

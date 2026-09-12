@@ -56,7 +56,7 @@
 - [PASS] 转场名与 EDL 声明一致
   - 证据：草稿 ['闪白'] vs EDL ['闪白']
 - [PASS] 转场挂在『前序片段』上（剪映 outgoing 约定）
-  - 证据：EDL clips[i] 声明进入转场 -> 草稿应落在 segment[i-1]；期望 [1, 1, 1, 0] 实得 [1, 1, 1, 0]；逐 segment 命中 material id=[['29549a38445545d9884d83f5965ca716'], ['792bd214b22c41be97de9622eb6712ca'], ['656dcb734f1f4282a2cbd12007904401'], []]
+  - 证据：EDL clips[i] 声明进入转场 -> 草稿应落在 segment[i-1]；期望 [1, 1, 1, 0] 实得 [1, 1, 1, 0]；逐 segment 命中 material id=[['17dd0684fadb4223a1f8807dc8f457d7'], ['45bb4a63365f4968810559e84641c94d'], ['d8753c3b45664722b7bcb85d83210ec7'], []]
 - [PASS] 转场与切口的对应顺序与 EDL 一致
   - 证据：EDL 顺序 ['闪白', '闪白', '闪白'] vs 草稿顺序 ['闪白', '闪白', '闪白']
 - [PASS] 草稿位于 projects/game-001/draft-out 内
@@ -78,7 +78,7 @@
 - [PASS] CUT-02 切点密度 10-16 切/分
   - 证据：12.00 切/分
 - [PASS] CAP-01 无字幕中心落入游戏画面区（landscape，禁止区 700-900px）
-  - 证据：e14e8de5bfcd4980b2b4408ca7050899: 940.0px; 9258b85d2c984ae9b51a2c1c09d29b4b: 966.6px; 5270602f66cf497492fa066a7e352792: 966.6px; e58c204e22b04aad985434007b0afadd: 966.6px; 134d9f6244a7446db5e120c5a5f443ae: 940.0px || 全部在安全带
+  - 证据：c95c0acd2efa4f3e81b5b13d811a014a: 940.0px; fc240a399f8644e18e6f4a5fb043973b: 966.6px; fa475f9331c14f42b695a811b2cb306b: 966.6px; 41393e81e0ef47478a87f549e52ce45b: 966.6px; 4f8dd66f94bc4e99a117d1bd4202ebde: 940.0px || 全部在安全带
 
 ## files
 
@@ -126,7 +126,7 @@
 - [PASS] 转场名与 EDL 声明一致
   - 证据：草稿 ['闪白'] vs EDL ['闪白']
 - [PASS] 转场挂在『前序片段』上（剪映 outgoing 约定）
-  - 证据：EDL clips[i] 声明进入转场 -> 草稿应落在 segment[i-1]；期望 [1, 1, 1, 0] 实得 [1, 1, 1, 0]；逐 segment 命中 material id=[['6e96cab3be754fe49486feef8f5531b7'], ['8863887a34f34e7fa9823639dc81153f'], ['69a0a3919a41407298d0d3f00a20e622'], []]
+  - 证据：EDL clips[i] 声明进入转场 -> 草稿应落在 segment[i-1]；期望 [1, 1, 1, 0] 实得 [1, 1, 1, 0]；逐 segment 命中 material id=[['e6c3627578c9411481ff95e149e2adc4'], ['444ea351735541d1a118dcfaaee12220'], ['0da4ee06ae594c628e7373a0b295df68'], []]
 - [PASS] 转场与切口的对应顺序与 EDL 一致
   - 证据：EDL 顺序 ['闪白', '闪白', '闪白'] vs 草稿顺序 ['闪白', '闪白', '闪白']
 - [PASS] 草稿位于 projects/game-001/draft-out 内
@@ -148,7 +148,7 @@
 - [PASS] CUT-02 切点密度 10-16 切/分
   - 证据：12.00 切/分
 - [PASS] CAP-01 无字幕中心落入游戏画面区（vertical，禁止区 656-1264px）
-  - 证据：ba04aa4fa6464c8cb8619931b20fc111: 300.0px; 44d03e5bc8004dbd914dc7fc861b9cfa: 1450.0px; c72e24aad35f466cb9d08adbbfec4b79: 1450.0px; e1339df037bf4f49b1bed47fd685f7eb: 1450.0px; be5c4cc81e9e4ee9ad518a8c3f5ab6f7: 1450.0px || 全部在安全带
+  - 证据：622e661f8691488483f6950fff4d2c8f: 300.0px; 1add69bdab03409bb97b23a6b3028342: 1450.0px; e534ba1ae68749f3b50d73aef93db8b3: 1450.0px; 7731e1850d9b40d7bde74171e1b0d6e8: 1450.0px; 5114a964060e40fca7dc91baa51a0728: 1450.0px || 全部在安全带
 - [PASS] CAP-01x VT 字幕中心未越过规格 §4.2 的 y<=1620 上限（信息项，不作失败）
   - 证据：越过 1620 的条目: 无。此项恒通过：规格 §4.1（下部信息区1264–1920）与 §4.2 note（上限 1620）对 1620–1920 的口径互相冲突，t4 不擅自裁决上游口径，已登记为 OPEN ISSUE 交 t5 复核
 
@@ -167,7 +167,7 @@
 ## files
 
 - [PASS] 所有 draft_content.json 均在工作区内
-  - 证据：draft-out 下共 2 个草稿，工作区外: 无
+  - 证据：draft-out 下共 6 个草稿，工作区外: 无
 
 ## upstream
 

@@ -38,8 +38,13 @@ WORK = OUT_DIR / "_work"
 FONT_PATH = r"C:\Windows\Fonts\msyhbd.ttc"      # 微软雅黑 Bold
 FONT_PATH_FALLBACK = r"C:\Windows\Fonts\msyh.ttc"
 
-# 字号映射：EDL 的 style.size（剪映内部值）→ 规格 §4.2 的设计像素
-SIZE_PX = {6.0: 72, 5.0: 56}
+# 字号映射：剪映 `size` → 渲染像素。**实测换算，不是设计值**。
+#   em_px ≈ 5.55 × size
+#   依据：剪映自己渲染的草稿封面里，pyJianYingDraft 默认字号 8.0 的文案
+#   `DSH SPIKE 测试字幕` 测得 ink 高 43px、总宽 456px，两个独立量都收敛到 em≈44.4px。
+#   同时证伪了 `size/100×画布高` 的假设（那样字符串要有 1470px 宽，画面放不下）。
+#   旧代码用 {6.0:72, 5.0:56}（隐含 size×12），把字号高估了约 2.2 倍。
+EM_PER_SIZE = 5.55
 
 
 def ff() -> str:
@@ -246,7 +251,7 @@ def main() -> int:
     # ---- 4. 字幕叠加 ----
     cap_inputs, cap_filters, cap_meta = [], [], []
     for t in edl["texts"]:
-        size_px = SIZE_PX.get(float(t.get("style", {}).get("size", 5.0)), 56)
+        size_px = round(EM_PER_SIZE * float(t.get("style", {}).get("size", 8.0)))
         center = px_from_y(float(t["style"]["transform_y"]), H)
         png = WORK / f"cap_{t['id']}.png"
         make_caption_png(t["content"], size_px, W, H, center, png)

@@ -9,13 +9,13 @@
   "rows": [
     {
       "draft": "GAME_EP01_VT",
-      "segment": "ba04aa4fa6464c8cb8619931b20fc111",
+      "segment": "622e661f8691488483f6950fff4d2c8f",
       "transform_y": 0.6875,
       "center_px": 300.0,
-      "half_px": 36.0,
+      "half_px": 66.6,
       "box_px": [
-        264.0,
-        336.0
+        233.4,
+        366.6
       ],
       "in_allow_zone": true,
       "overlaps_forbid_zone": false,
@@ -24,13 +24,13 @@
     },
     {
       "draft": "GAME_EP01_VT",
-      "segment": "44d03e5bc8004dbd914dc7fc861b9cfa",
+      "segment": "1add69bdab03409bb97b23a6b3028342",
       "transform_y": -0.5104,
       "center_px": 1450.0,
-      "half_px": 28.0,
+      "half_px": 47.175,
       "box_px": [
-        1422.0,
-        1478.0
+        1402.8,
+        1497.2
       ],
       "in_allow_zone": true,
       "overlaps_forbid_zone": false,
@@ -39,13 +39,13 @@
     },
     {
       "draft": "GAME_EP01_VT",
-      "segment": "c72e24aad35f466cb9d08adbbfec4b79",
+      "segment": "e534ba1ae68749f3b50d73aef93db8b3",
       "transform_y": -0.5104,
       "center_px": 1450.0,
-      "half_px": 28.0,
+      "half_px": 55.5,
       "box_px": [
-        1422.0,
-        1478.0
+        1394.5,
+        1505.5
       ],
       "in_allow_zone": true,
       "overlaps_forbid_zone": false,
@@ -54,13 +54,13 @@
     },
     {
       "draft": "GAME_EP01_VT",
-      "segment": "e1339df037bf4f49b1bed47fd685f7eb",
+      "segment": "7731e1850d9b40d7bde74171e1b0d6e8",
       "transform_y": -0.5104,
       "center_px": 1450.0,
-      "half_px": 28.0,
+      "half_px": 49.949999999999996,
       "box_px": [
-        1422.0,
-        1478.0
+        1400.0,
+        1499.9
       ],
       "in_allow_zone": true,
       "overlaps_forbid_zone": false,
@@ -69,13 +69,13 @@
     },
     {
       "draft": "GAME_EP01_VT",
-      "segment": "be5c4cc81e9e4ee9ad518a8c3f5ab6f7",
+      "segment": "5114a964060e40fca7dc91baa51a0728",
       "transform_y": -0.5104,
       "center_px": 1450.0,
-      "half_px": 36.0,
+      "half_px": 47.175,
       "box_px": [
-        1414.0,
-        1486.0
+        1402.8,
+        1497.2
       ],
       "in_allow_zone": true,
       "overlaps_forbid_zone": false,
@@ -84,13 +84,13 @@
     },
     {
       "draft": "GAME_EP01_LS",
-      "segment": "e14e8de5bfcd4980b2b4408ca7050899",
+      "segment": "c95c0acd2efa4f3e81b5b13d811a014a",
       "transform_y": -0.7407,
       "center_px": 940.0,
-      "half_px": 36.0,
+      "half_px": 33.3,
       "box_px": [
-        904.0,
-        976.0
+        906.7,
+        973.3
       ],
       "in_allow_zone": true,
       "overlaps_forbid_zone": false,
@@ -99,13 +99,13 @@
     },
     {
       "draft": "GAME_EP01_LS",
-      "segment": "9258b85d2c984ae9b51a2c1c09d29b4b",
+      "segment": "fc240a399f8644e18e6f4a5fb043973b",
       "transform_y": -0.79,
       "center_px": 966.6,
-      "half_px": 28.0,
+      "half_px": 24.974999999999998,
       "box_px": [
-        938.6,
-        994.6
+        941.6,
+        991.6
       ],
       "in_allow_zone": true,
       "overlaps_forbid_zone": false,
@@ -114,13 +114,13 @@
     },
     {
       "draft": "GAME_EP01_LS",
-      "segment": "5270602f66cf497492fa066a7e352792",
+      "segment": "fa475f9331c14f42b695a811b2cb306b",
       "transform_y": -0.79,
       "center_px": 966.6,
-      "half_px": 28.0,
+      "half_px": 27.75,
       "box_px": [
-        938.6,
-        994.6
+        938.9,
+        994.4
       ],
       "in_allow_zone": true,
       "overlaps_forbid_zone": false,
@@ -129,13 +129,13 @@
     },
     {
       "draft": "GAME_EP01_LS",
-      "segment": "e58c204e22b04aad985434007b0afadd",
+      "segment": "41393e81e0ef47478a87f549e52ce45b",
       "transform_y": -0.79,
       "center_px": 966.6,
-      "half_px": 28.0,
+      "half_px": 24.974999999999998,
       "box_px": [
-        938.6,
-        994.6
+        941.6,
+        991.6
       ],
       "in_allow_zone": true,
       "overlaps_forbid_zone": false,
@@ -144,13 +144,13 @@
     },
     {
       "draft": "GAME_EP01_LS",
-      "segment": "134d9f6244a7446db5e120c5a5f443ae",
+      "segment": "4f8dd66f94bc4e99a117d1bd4202ebde",
       "transform_y": -0.7407,
       "center_px": 940.0,
-      "half_px": 36.0,
+      "half_px": 24.974999999999998,
       "box_px": [
-        904.0,
-        976.0
+        915.0,
+        965.0
       ],
       "in_allow_zone": true,
       "overlaps_forbid_zone": false,

@@ -92,7 +92,7 @@
       "start": 0.2,
       "duration": 1.85,
       "style": {
-        "size": 6.0,
+        "size": 12.0,
         "bold": true,
         "color": [
           1.0,
@@ -100,7 +100,8 @@
           1.0
         ],
         "transform_x": 0.0,
-        "transform_y": -0.7407
+        "transform_y": -0.7407,
+        "font": "得意黑"
       }
     },
     {
@@ -110,7 +111,7 @@
       "start": 2.35,
       "duration": 2.3,
       "style": {
-        "size": 5.0,
+        "size": 9.0,
         "bold": true,
         "color": [
           1.0,
@@ -118,7 +119,8 @@
           1.0
         ],
         "transform_x": 0.0,
-        "transform_y": -0.79
+        "transform_y": -0.79,
+        "font": "未来黑"
       }
     },
     {
@@ -128,7 +130,7 @@
       "start": 4.9,
       "duration": 1.7,
       "style": {
-        "size": 5.0,
+        "size": 10.0,
         "bold": true,
         "color": [
           1.0,
@@ -136,7 +138,8 @@
           1.0
         ],
         "transform_x": 0.0,
-        "transform_y": -0.79
+        "transform_y": -0.79,
+        "font": "未来黑"
       }
     },
     {
@@ -146,7 +149,7 @@
       "start": 6.8,
       "duration": 3.4,
       "style": {
-        "size": 5.0,
+        "size": 9.0,
         "bold": true,
         "color": [
           1.0,
@@ -154,7 +157,8 @@
           1.0
         ],
         "transform_x": 0.0,
-        "transform_y": -0.79
+        "transform_y": -0.79,
+        "font": "未来黑"
       }
     },
     {
@@ -164,7 +168,7 @@
       "start": 12.1,
       "duration": 2.65,
       "style": {
-        "size": 6.0,
+        "size": 9.0,
         "bold": true,
         "color": [
           1.0,
@@ -172,7 +176,8 @@
           0.2
         ],
         "transform_x": 0.0,
-        "transform_y": -0.7407
+        "transform_y": -0.7407,
+        "font": "得意黑"
       }
     }
   ],
@@ -187,5 +192,6 @@
       "audio-present",
       "loudness-aligned"
     ]
-  }
+  },
+  "_caption_note": "横屏字幕重标定：目标字高取画布高的 4.5-5.5%（≈49-66px）。横屏没有信息区可放字，字幕叠在画面上，故比竖屏小一档。"
 }

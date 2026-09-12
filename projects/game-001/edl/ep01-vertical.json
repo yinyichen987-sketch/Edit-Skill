@@ -92,7 +92,7 @@
       "start": 0.2,
       "duration": 1.85,
       "style": {
-        "size": 6.0,
+        "size": 24.0,
         "bold": true,
         "color": [
           1.0,
@@ -100,7 +100,8 @@
           1.0
         ],
         "transform_x": 0.0,
-        "transform_y": 0.6875
+        "transform_y": 0.6875,
+        "font": "得意黑"
       }
     },
     {
@@ -110,7 +111,7 @@
       "start": 2.35,
       "duration": 2.3,
       "style": {
-        "size": 5.0,
+        "size": 17.0,
         "bold": true,
         "color": [
           1.0,
@@ -118,7 +119,8 @@
           1.0
         ],
         "transform_x": 0.0,
-        "transform_y": -0.5104
+        "transform_y": -0.5104,
+        "font": "未来黑"
       }
     },
     {
@@ -128,7 +130,7 @@
       "start": 4.9,
       "duration": 1.7,
       "style": {
-        "size": 5.0,
+        "size": 20.0,
         "bold": true,
         "color": [
           1.0,
@@ -136,7 +138,8 @@
           1.0
         ],
         "transform_x": 0.0,
-        "transform_y": -0.5104
+        "transform_y": -0.5104,
+        "font": "未来黑"
       }
     },
     {
@@ -146,7 +149,7 @@
       "start": 6.8,
       "duration": 3.4,
       "style": {
-        "size": 5.0,
+        "size": 18.0,
         "bold": true,
         "color": [
           1.0,
@@ -154,7 +157,8 @@
           1.0
         ],
         "transform_x": 0.0,
-        "transform_y": -0.5104
+        "transform_y": -0.5104,
+        "font": "未来黑"
       }
     },
     {
@@ -164,7 +168,7 @@
       "start": 12.1,
       "duration": 2.65,
       "style": {
-        "size": 6.0,
+        "size": 17.0,
         "bold": true,
         "color": [
           1.0,
@@ -172,7 +176,8 @@
           0.2
         ],
         "transform_x": 0.0,
-        "transform_y": -0.5104
+        "transform_y": -0.5104,
+        "font": "得意黑"
       }
     }
   ],
@@ -187,5 +192,6 @@
       "audio-present",
       "loudness-aligned"
     ]
-  }
+  },
+  "_caption_note": "竖屏字幕重标定：em≈5.55×size（剪映封面实测）。t1/t5 用得意黑（标题向），t2-t4 用未来黑（正文耐读）。字号按目标字高 94-133px 反推，并逐条校核单行不超画布宽 92%。"
 }
