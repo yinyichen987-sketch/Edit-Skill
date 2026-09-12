@@ -55,3 +55,8 @@ assets/raw/
 assets/final/
 projects/**/media/
 projects/**/draft-out/
+
+# ---- 本轮派生的批量素材（体积大且可重生；被文档引用的证据帧不在此列）----
+projects/**/analysis/frames/
+projects/**/analysis/sheets/
+.agent-teams/

@@ -1,0 +1,222 @@
+{
+  "source": "C:\\Users\\18930\\Desktop\\Edit skill\\原始素材\\6b2eea343eee7595c3c0ede10d21d028.mp4",
+  "media": {
+    "duration": 26.017,
+    "width": 1280,
+    "height": 720,
+    "fps": 30.0,
+    "video_codec": "AVC",
+    "has_audio": true,
+    "audio_codec": "AAC",
+    "audio_sample_rate": 48000,
+    "audio_channels": 2,
+    "aspect_ratio": "16:9",
+    "orientation": "landscape"
+  },
+  "shots": [
+    {
+      "index": 0,
+      "start": 0.0,
+      "end": 5.08,
+      "duration": 5.08,
+      "cut_score": null
+    },
+    {
+      "index": 1,
+      "start": 5.08,
+      "end": 6.446,
+      "duration": 1.366,
+      "cut_score": 3.84
+    },
+    {
+      "index": 2,
+      "start": 6.446,
+      "end": 8.18,
+      "duration": 1.734,
+      "cut_score": 3.37
+    },
+    {
+      "index": 3,
+      "start": 8.18,
+      "end": 9.213,
+      "duration": 1.033,
+      "cut_score": 5.69
+    },
+    {
+      "index": 4,
+      "start": 9.213,
+      "end": 9.48,
+      "duration": 0.267,
+      "cut_score": 5.9
+    },
+    {
+      "index": 5,
+      "start": 9.48,
+      "end": 11.045,
+      "duration": 1.565,
+      "cut_score": 3.56
+    },
+    {
+      "index": 6,
+      "start": 11.045,
+      "end": 11.479,
+      "duration": 0.434,
+      "cut_score": 13.89
+    },
+    {
+      "index": 7,
+      "start": 11.479,
+      "end": 12.612,
+      "duration": 1.133,
+      "cut_score": 3.1
+    },
+    {
+      "index": 8,
+      "start": 12.612,
+      "end": 13.012,
+      "duration": 0.4,
+      "cut_score": 9.21
+    },
+    {
+      "index": 9,
+      "start": 13.012,
+      "end": 15.545,
+      "duration": 2.533,
+      "cut_score": 16.18
+    },
+    {
+      "index": 10,
+      "start": 15.545,
+      "end": 16.012,
+      "duration": 0.467,
+      "cut_score": 4.08
+    },
+    {
+      "index": 11,
+      "start": 16.012,
+      "end": 17.412,
+      "duration": 1.4,
+      "cut_score": 4.66
+    },
+    {
+      "index": 12,
+      "start": 17.412,
+      "end": 22.879,
+      "duration": 5.467,
+      "cut_score": 3.01
+    },
+    {
+      "index": 13,
+      "start": 22.879,
+      "end": 24.812,
+      "duration": 1.933,
+      "cut_score": 4.44
+    },
+    {
+      "index": 14,
+      "start": 24.812,
+      "end": 25.245,
+      "duration": 0.433,
+      "cut_score": 3.24
+    },
+    {
+      "index": 15,
+      "start": 25.245,
+      "end": 26.017,
+      "duration": 0.772,
+      "cut_score": 5.86
+    }
+  ],
+  "pacing": {
+    "shot_count": 16,
+    "cut_count": 15,
+    "total_duration": 26.017,
+    "avg_shot_duration": 1.626,
+    "median_shot_duration": 1.25,
+    "min_shot_duration": 0.267,
+    "max_shot_duration": 5.467,
+    "stdev_shot_duration": 1.512,
+    "cuts_per_minute": 34.59,
+    "duration_histogram": {
+      "<1s": 6,
+      "1-2s": 7,
+      "2-3s": 1,
+      "3-5s": 0,
+      "5-10s": 2,
+      ">=10s": 0
+    }
+  },
+  "candidate_cuts": [
+    {
+      "time": 5.08,
+      "score": 3.84
+    },
+    {
+      "time": 6.446,
+      "score": 3.37
+    },
+    {
+      "time": 8.18,
+      "score": 5.69
+    },
+    {
+      "time": 9.213,
+      "score": 5.9
+    },
+    {
+      "time": 9.48,
+      "score": 3.56
+    },
+    {
+      "time": 11.045,
+      "score": 13.89
+    },
+    {
+      "time": 11.479,
+      "score": 3.1
+    },
+    {
+      "time": 12.612,
+      "score": 9.21
+    },
+    {
+      "time": 13.012,
+      "score": 16.18
+    },
+    {
+      "time": 15.545,
+      "score": 4.08
+    },
+    {
+      "time": 16.012,
+      "score": 4.66
+    },
+    {
+      "time": 17.412,
+      "score": 3.01
+    },
+    {
+      "time": 22.879,
+      "score": 4.44
+    },
+    {
+      "time": 24.812,
+      "score": 3.24
+    },
+    {
+      "time": 25.245,
+      "score": 5.86
+    }
+  ],
+  "audio": {
+    "has_audio": true,
+    "integrated_loudness_lufs": -14.6,
+    "true_peak_dbfs": 0.8,
+    "loudness_range_lu": 12.8
+  },
+  "analysis_meta": {
+    "scene_score_samples": 780,
+    "detector": "ffmpeg scdet(threshold=0) + adaptive peak detection",
+    "note": "scdet 以亮度差为主，等亮度换色得分偏低；已用自适应基线补偿"
+  }
+}

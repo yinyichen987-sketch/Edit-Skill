@@ -1,0 +1,112 @@
+﻿==============================================================================
+projects\game-001\draft-out\GAME_EP01_LS\draft_content.json
+--- materials.transitions (raw) ---
+[
+  {
+    "category_id": "",
+    "category_name": "",
+    "duration": 130000,
+    "effect_id": "322575",
+    "id": "4e899ca339ae49a99f179ba28d45ab6a",
+    "is_overlap": false,
+    "name": "����",
+    "platform": "all",
+    "resource_id": "6724845376098013708",
+    "type": "transition"
+  },
+  {
+    "category_id": "",
+    "category_name": "",
+    "duration": 130000,
+    "effect_id": "322575",
+    "id": "c0ad47f4e483472991d906cc5defd154",
+    "is_overlap": false,
+    "name": "����",
+    "platform": "all",
+    "resource_id": "6724845376098013708",
+    "type": "transition"
+  },
+  {
+    "category_id": "",
+    "category_name": "",
+    "duration": 130000,
+    "effect_id": "322575",
+    "id": "a99ae1a73262434a8245cd2d6e4208a3",
+    "is_overlap": false,
+    "name": "����",
+    "platform": "all",
+    "resource_id": "6724845376098013708",
+    "type": "transition"
+  }
+]
+--- top-level keys ---
+['canvas_config', 'color_space', 'config', 'cover', 'create_time', 'duration', 'extra_info', 'fps', 'free_render_index_mode_on', 'group_container', 'id', 'keyframe_graph_list', 'keyframes', 'last_modified_platform', 'materials', 'mutable_config', 'name', 'new_version', 'platform', 'relationships', 'render_index_track_mode_on', 'retouch_cover', 'source', 'static_cover_image_path', 'time_marks', 'tracks', 'update_time', 'version']
+  duration = 15000000
+  fps = 30
+  canvas_config = {"width": 1920, "height": 1080, "ratio": "original"}
+  version = 360000
+  new_version = "110.0.0"
+  config = {"adjust_max_index": 1, "attachment_info": [], "combination_max_index": 1, "export_range": null, "extract_audio_last_index": 1, "lyrics_recognition_id": "", "lyrics_sync": true, "lyrics_taskinfo": [], "maintrack_adsorb": true, "material_save_mode": 0, "multi_language_current": "none", "multi_language_list": [], "multi_language_main": "none", "multi_language_mode": "none", "original_sound_last_index": 1, "record_audio_last_index": 1, "sticker_max_index": 1, "subtitle_keywords_config": null, "subtitle_recognition_id": "", "subtitle_sync": true, "subtitle_taskinfo": [], "system_font_list": [], "video_mute": false, "zoom_info_params": null}
+  mutable_config = null
+  extra_info = null
+  platform = {"app_id": 3704, "app_source": "lv", "app_version": "5.9.0", "os": "windows"}
+--- any key mentioning overlap/transition ---
+  /materials/transitions[0]/is_overlap = False
+  /materials/transitions[1]/is_overlap = False
+  /materials/transitions[2]/is_overlap = False
+==============================================================================
+projects\game-001\draft-out\GAME_EP01_VT\draft_content.json
+--- materials.transitions (raw) ---
+[
+  {
+    "category_id": "",
+    "category_name": "",
+    "duration": 130000,
+    "effect_id": "322575",
+    "id": "f87fc85fcc5142bd9ef95428bb6bef03",
+    "is_overlap": false,
+    "name": "����",
+    "platform": "all",
+    "resource_id": "6724845376098013708",
+    "type": "transition"
+  },
+  {
+    "category_id": "",
+    "category_name": "",
+    "duration": 130000,
+    "effect_id": "322575",
+    "id": "a4eb67c4ad994f2392c8d21e6187a1a1",
+    "is_overlap": false,
+    "name": "����",
+    "platform": "all",
+    "resource_id": "6724845376098013708",
+    "type": "transition"
+  },
+  {
+    "category_id": "",
+    "category_name": "",
+    "duration": 130000,
+    "effect_id": "322575",
+    "id": "aa7cad1355c041db8b0eccb441895e97",
+    "is_overlap": false,
+    "name": "����",
+    "platform": "all",
+    "resource_id": "6724845376098013708",
+    "type": "transition"
+  }
+]
+--- top-level keys ---
+['canvas_config', 'color_space', 'config', 'cover', 'create_time', 'duration', 'extra_info', 'fps', 'free_render_index_mode_on', 'group_container', 'id', 'keyframe_graph_list', 'keyframes', 'last_modified_platform', 'materials', 'mutable_config', 'name', 'new_version', 'platform', 'relationships', 'render_index_track_mode_on', 'retouch_cover', 'source', 'static_cover_image_path', 'time_marks', 'tracks', 'update_time', 'version']
+  duration = 15000000
+  fps = 30
+  canvas_config = {"width": 1080, "height": 1920, "ratio": "original"}
+  version = 360000
+  new_version = "110.0.0"
+  config = {"adjust_max_index": 1, "attachment_info": [], "combination_max_index": 1, "export_range": null, "extract_audio_last_index": 1, "lyrics_recognition_id": "", "lyrics_sync": true, "lyrics_taskinfo": [], "maintrack_adsorb": true, "material_save_mode": 0, "multi_language_current": "none", "multi_language_list": [], "multi_language_main": "none", "multi_language_mode": "none", "original_sound_last_index": 1, "record_audio_last_index": 1, "sticker_max_index": 1, "subtitle_keywords_config": null, "subtitle_recognition_id": "", "subtitle_sync": true, "subtitle_taskinfo": [], "system_font_list": [], "video_mute": false, "zoom_info_params": null}
+  mutable_config = null
+  extra_info = null
+  platform = {"app_id": 3704, "app_source": "lv", "app_version": "5.9.0", "os": "windows"}
+--- any key mentioning overlap/transition ---
+  /materials/transitions[0]/is_overlap = False
+  /materials/transitions[1]/is_overlap = False
+  /materials/transitions[2]/is_overlap = False

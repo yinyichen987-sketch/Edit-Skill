@@ -52,6 +52,33 @@ def tsec(value) -> str:
 
 # ---------------------------------------------------------------- 校验
 
+def _material_duration(path: str, kind: str = "video") -> tuple[float | None, str]:
+    """返回 (可用时长秒, 依据说明)。
+
+    kind='video' 时以**视频流**为准。实测本机素材容器/音频时长比视频流长约 13–46ms
+    （如 19.030s vs 18.984s）；沿用容器时长会让贴着容器卡点的片段通过校验，
+    但剪映里取不到对应画面，表现为末帧滞留或黑尾。
+    """
+    try:
+        from pymediainfo import MediaInfo
+    except ImportError:
+        return None, "pymediainfo 不可用"
+    try:
+        tracks = MediaInfo.parse(path).tracks
+    except Exception as exc:  # noqa: BLE001
+        return None, f"解析失败: {exc}"
+
+    want = "Video" if kind == "video" else "Audio"
+    for t in tracks:
+        if t.track_type == want and getattr(t, "duration", None):
+            return float(t.duration) / 1000.0, f"{want} 轨 duration"
+
+    durations = [float(t.duration) / 1000.0 for t in tracks if getattr(t, "duration", None)]
+    if durations:
+        return max(durations), "所有轨道最长者（回退：未找到目标轨道）"
+    return None, "无可用时长信息"
+
+
 def validate(edl: dict, base_dir: str) -> list[str]:
     """返回问题列表（空列表表示通过）。"""
     problems: list[str] = []
@@ -65,6 +92,8 @@ def validate(edl: dict, base_dir: str) -> list[str]:
     if not tracks:
         problems.append("tracks 为空，至少要定义一条轨道")
     names = [t.get("name") for t in tracks]
+    kind_of = {t.get("name"): ("audio" if t.get("type") == "audio" else "video")
+               for t in tracks}
     for t in tracks:
         if t.get("type") not in TRACK_TYPES:
             problems.append(f"轨道 '{t.get('name')}' 的类型 '{t.get('type')}' 不支持")
@@ -88,6 +117,33 @@ def validate(edl: dict, base_dir: str) -> list[str]:
                 problems.append(f"片段 {tid} 的 {key} 缺失或不是数字")
         if isinstance(item.get("duration"), (int, float)) and item["duration"] <= 0:
             problems.append(f"片段 {tid} 的 duration 必须为正数")
+
+        # 时间码越界校验：source_in + duration 不得超出素材**对应流**的可用时长。
+        # 缺失这一步时，越界 EDL 也能通过 dry-run，直到剪映里才发现画面不够。
+        # 容差取 1ms（仅吸收浮点噪声）：视频流上界已按真实末帧收紧，不再需要额外余量。
+        dur = item.get("duration")
+        src_in = item.get("source_in", 0) or 0
+        if (src and os.path.exists(resolve(src))
+                and isinstance(dur, (int, float)) and dur > 0
+                and isinstance(src_in, (int, float))):
+            kind = kind_of.get(item.get("track"), "video")
+            total, basis = _material_duration(resolve(src), kind)
+            if total is None:
+                problems.append(
+                    f"片段 {tid} 无法读取素材时长（{basis}），时间码越界未校验: {src}")
+            elif float(src_in) + float(dur) > total + 0.001:
+                problems.append(
+                    f"片段 {tid} 时间码越界: source_in={src_in} + duration={dur} "
+                    f"= {float(src_in) + float(dur):.4f}s 超出{kind}流可用时长 "
+                    f"{total:.4f}s（依据: {basis}, {os.path.basename(src)}）")
+
+        # 转场名校验：名字写错时 _transition() 只会 WARN 然后静默跳过，
+        # 草稿表面正常却没有转场。这里在 dry-run 阶段就拦下。
+        tname = (item.get("transition") or {}).get("type")
+        if tname and getattr(d.TransitionType, str(tname), None) is None:
+            problems.append(
+                f"片段 {tid} 的转场名 '{tname}' 不存在于 TransitionType 枚举"
+                f"（写错会被静默跳过，草稿里不会有转场）")
 
     for item in list(edl.get("texts") or []):
         tid = item.get("id", "<无 id>")

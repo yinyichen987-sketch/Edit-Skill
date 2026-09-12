@@ -1,0 +1,73 @@
+﻿checks=72 passed=72 failed=0
+  [PASSED]      style | 风格规则集可解析且规则 ID 非空
+  [PASSED]      files | ep01.json 存在
+  [PASSED]      files | GAME_EP01_LS/draft_content.json 存在
+  [PASSED] ep01.json -> GAME_EP01_LS | 每片段 source_in+duration 不越过素材 Video 流上界
+  [PASSED] ep01.json -> GAME_EP01_LS | 越界余量均 >= 1 帧(0.034s)
+  [PASSED] ep01.json -> GAME_EP01_LS | 每片段都有 rule_id 与 reason
+  [PASSED] ep01.json -> GAME_EP01_LS | 每个 rule_id 都存在于风格规则集
+  [PASSED] ep01.json -> GAME_EP01_LS | 相邻片段零间隙（TRN-02）
+  [PASSED] ep01.json -> GAME_EP01_LS | Σ duration == timeline end
+  [PASSED] ep01.json -> GAME_EP01_LS | 总长 15.0s (±0.2)
+  [PASSED] ep01.json -> GAME_EP01_LS | 单集内素材区间互不重叠（SEL-02 无重复画面）
+  [PASSED] ep01.json -> GAME_EP01_LS | 草稿画布与 EDL canvas 一致
+  [PASSED] ep01.json -> GAME_EP01_LS | 草稿 fps 与 EDL 一致
+  [PASSED] ep01.json -> GAME_EP01_LS | 草稿轨道数与 EDL 一致
+  [PASSED] ep01.json -> GAME_EP01_LS | 草稿视频片段数 == EDL clips 数
+  [PASSED] ep01.json -> GAME_EP01_LS | 草稿文本片段数 == EDL texts 数
+  [PASSED] ep01.json -> GAME_EP01_LS | 草稿逐片段时间码(微秒->秒)/音量 与 EDL 完全一致
+  [PASSED] ep01.json -> GAME_EP01_LS | 草稿时间为真实秒值（非被当成微秒的裸数字）
+  [PASSED] ep01.json -> GAME_EP01_LS | materials.transitions 数量 == EDL 声明的转场数
+  [PASSED] ep01.json -> GAME_EP01_LS | 转场 duration 换算后 == EDL 声明值
+  [PASSED] ep01.json -> GAME_EP01_LS | 转场名与 EDL 声明一致
+  [PASSED] ep01.json -> GAME_EP01_LS | 转场挂在『前序片段』上（剪映 outgoing 约定）
+  [PASSED] ep01.json -> GAME_EP01_LS | 转场与切口的对应顺序与 EDL 一致
+  [PASSED] ep01.json -> GAME_EP01_LS | 草稿位于 projects/game-001/draft-out 内
+  [PASSED] ep01.json -> GAME_EP01_LS | 草稿引用的素材路径指向工作区内的 原始素材/
+  [PASSED] ep01.json -> GAME_EP01_LS | TRN-03 首个片段无『进入转场』
+  [PASSED] ep01.json -> GAME_EP01_LS | TRN-03 最后一个 segment 不承载转场（其后无片段）
+  [PASSED] ep01.json -> GAME_EP01_LS | CAP-02 字幕 5±1 条
+  [PASSED] ep01.json -> GAME_EP01_LS | CAP-02 每行 <=12 字、<=2 行
+  [PASSED] ep01.json -> GAME_EP01_LS | CAP-03 每条字幕 >=1.2s
+  [PASSED] ep01.json -> GAME_EP01_LS | CUT-02 单片段 0.5-6.5s
+  [PASSED] ep01.json -> GAME_EP01_LS | CUT-02 切点密度 10-16 切/分
+  [PASSED] ep01.json -> GAME_EP01_LS | CAP-01 无字幕中心落入游戏画面区（landscape，禁止区 700-900px）
+  [PASSED]      files | ep01-vertical.json 存在
+  [PASSED]      files | GAME_EP01_VT/draft_content.json 存在
+  [PASSED] ep01-vertical.json -> GAME_EP01_VT | 每片段 source_in+duration 不越过素材 Video 流上界
+  [PASSED] ep01-vertical.json -> GAME_EP01_VT | 越界余量均 >= 1 帧(0.034s)
+  [PASSED] ep01-vertical.json -> GAME_EP01_VT | 每片段都有 rule_id 与 reason
+  [PASSED] ep01-vertical.json -> GAME_EP01_VT | 每个 rule_id 都存在于风格规则集
+  [PASSED] ep01-vertical.json -> GAME_EP01_VT | 相邻片段零间隙（TRN-02）
+  [PASSED] ep01-vertical.json -> GAME_EP01_VT | Σ duration == timeline end
+  [PASSED] ep01-vertical.json -> GAME_EP01_VT | 总长 15.0s (±0.2)
+  [PASSED] ep01-vertical.json -> GAME_EP01_VT | 单集内素材区间互不重叠（SEL-02 无重复画面）
+  [PASSED] ep01-vertical.json -> GAME_EP01_VT | 草稿画布与 EDL canvas 一致
+  [PASSED] ep01-vertical.json -> GAME_EP01_VT | 草稿 fps 与 EDL 一致
+  [PASSED] ep01-vertical.json -> GAME_EP01_VT | 草稿轨道数与 EDL 一致
+  [PASSED] ep01-vertical.json -> GAME_EP01_VT | 草稿视频片段数 == EDL clips 数
+  [PASSED] ep01-vertical.json -> GAME_EP01_VT | 草稿文本片段数 == EDL texts 数
+  [PASSED] ep01-vertical.json -> GAME_EP01_VT | 草稿逐片段时间码(微秒->秒)/音量 与 EDL 完全一致
+  [PASSED] ep01-vertical.json -> GAME_EP01_VT | 草稿时间为真实秒值（非被当成微秒的裸数字）
+  [PASSED] ep01-vertical.json -> GAME_EP01_VT | materials.transitions 数量 == EDL 声明的转场数
+  [PASSED] ep01-vertical.json -> GAME_EP01_VT | 转场 duration 换算后 == EDL 声明值
+  [PASSED] ep01-vertical.json -> GAME_EP01_VT | 转场名与 EDL 声明一致
+  [PASSED] ep01-vertical.json -> GAME_EP01_VT | 转场挂在『前序片段』上（剪映 outgoing 约定）
+  [PASSED] ep01-vertical.json -> GAME_EP01_VT | 转场与切口的对应顺序与 EDL 一致
+  [PASSED] ep01-vertical.json -> GAME_EP01_VT | 草稿位于 projects/game-001/draft-out 内
+  [PASSED] ep01-vertical.json -> GAME_EP01_VT | 草稿引用的素材路径指向工作区内的 原始素材/
+  [PASSED] ep01-vertical.json -> GAME_EP01_VT | TRN-03 首个片段无『进入转场』
+  [PASSED] ep01-vertical.json -> GAME_EP01_VT | TRN-03 最后一个 segment 不承载转场（其后无片段）
+  [PASSED] ep01-vertical.json -> GAME_EP01_VT | CAP-02 字幕 5±1 条
+  [PASSED] ep01-vertical.json -> GAME_EP01_VT | CAP-02 每行 <=12 字、<=2 行
+  [PASSED] ep01-vertical.json -> GAME_EP01_VT | CAP-03 每条字幕 >=1.2s
+  [PASSED] ep01-vertical.json -> GAME_EP01_VT | CUT-02 单片段 0.5-6.5s
+  [PASSED] ep01-vertical.json -> GAME_EP01_VT | CUT-02 切点密度 10-16 切/分
+  [PASSED] ep01-vertical.json -> GAME_EP01_VT | CAP-01 无字幕中心落入游戏画面区（vertical，禁止区 656-1264px）
+  [PASSED] ep01-vertical.json -> GAME_EP01_VT | CAP-01x VT 字幕中心未越过规格 §4.2 的 y<=1620 上限（信息项，不作失败）
+  [PASSED]      cross | CUT-03 LS 与 VT 的 clips 逐字段相等
+  [PASSED]      cross | CUT-03 只有 canvas 与 texts 允许多版本差异
+  [PASSED]      scope | ep02.json 不存在（t3 v3.0 已把范围收缩为单集）
+  [PASSED]      files | 所有 draft_content.json 均在工作区内
+  [PASSED]   upstream | CUT-04『落地』栏余量数字与 EDL 实测一致（信息项）
+  [PASSED]   upstream | 格式规格 §4.1 与 §4.2 note 的 VT 底部区间口径一致性（信息项）

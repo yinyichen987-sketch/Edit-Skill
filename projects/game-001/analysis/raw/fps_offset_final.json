@@ -1,0 +1,29 @@
+{
+  "a": {
+    "container_frames": 570,
+    "passthrough_showinfo_frames": 570,
+    "passthrough_raw_frames": 570,
+    "duplicate_pts_positions": [],
+    "fps4_frames": 76,
+    "fps4_timestamp_deviation_min": 0.0,
+    "fps4_timestamp_deviation_max": 0.0
+  },
+  "b": {
+    "container_frames": 780,
+    "passthrough_showinfo_frames": 780,
+    "passthrough_raw_frames": 781,
+    "duplicate_pts_positions": [],
+    "fps4_frames": 104,
+    "fps4_timestamp_deviation_min": 0.0,
+    "fps4_timestamp_deviation_max": 0.0
+  },
+  "c": {
+    "container_frames": 750,
+    "passthrough_showinfo_frames": 750,
+    "passthrough_raw_frames": 751,
+    "duplicate_pts_positions": [],
+    "fps4_frames": 100,
+    "fps4_timestamp_deviation_min": 0.0,
+    "fps4_timestamp_deviation_max": 0.0
+  }
+}

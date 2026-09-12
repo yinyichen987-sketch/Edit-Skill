@@ -1,0 +1,150 @@
+{
+  "docs": [
+    "projects/game-001/spec/format-spec.md",
+    "projects/game-001/spec/episode-plan.md"
+  ],
+  "claim_count": 4,
+  "claims": [
+    {
+      "doc": "projects/game-001/spec/format-spec.md",
+      "line": 382,
+      "level": "info",
+      "kind": "claim",
+      "msg": "> - `projects/game-001/tools/verify_spec_numbers.py`：`start` 递进、素材上界余量、Σ duration == end、零间隙、duration∈[0.5,6.5]、切点密度、SEL-02 三元组、volume 系数、响度残差、推荐池覆盖率、**rule_id ",
+      "cited_scripts": [
+        "projects/game-001/tools/verify_spec_numbers.py",
+        "projects/game-001/tools/verify_cut_margins.py"
+      ],
+      "claimed_numbers": [
+        "0.1"
+      ]
+    },
+    {
+      "doc": "projects/game-001/spec/format-spec.md",
+      "line": 383,
+      "level": "info",
+      "kind": "claim",
+      "msg": "> - `projects/game-001/tools/verify_cut_margins.py`：CUT-04 上界余量 + CUT-05 切点距跳变/丢帧 ≥0.1s + 零间隙 + 总长 → **ALL PASS**",
+      "cited_scripts": [
+        "projects/game-001/tools/verify_spec_numbers.py",
+        "projects/game-001/tools/verify_cut_margins.py"
+      ],
+      "claimed_numbers": [
+        "0.1"
+      ]
+    },
+    {
+      "doc": "projects/game-001/spec/format-spec.md",
+      "line": 436,
+      "level": "info",
+      "kind": "claim",
+      "msg": "**本集的实际影响**：4 个片段的 8 个切点**全部达标**（逐点核算见 `episode-plan.md §4`，脚本 `projects/game-001/tools/_check_cutmargins.py`）。",
+      "cited_scripts": [
+        "projects/game-001/tools/_check_cutmargins.py"
+      ],
+      "claimed_numbers": []
+    },
+    {
+      "doc": "projects/game-001/spec/episode-plan.md",
+      "line": 154,
+      "level": "info",
+      "kind": "claim",
+      "msg": "**旧方案违规 2 处，新方案违规 0 处**（脚本判定 `RESULT: ALL PASS`）。",
+      "cited_scripts": [],
+      "claimed_numbers": []
+    }
+  ],
+  "all_script_refs": {
+    "analyze_film.py": [
+      "projects/game-001/spec/format-spec.md:206",
+      "projects/game-001/spec/episode-plan.md:26"
+    ],
+    "edl_to_draft.py": [
+      "projects/game-001/spec/format-spec.md:241",
+      "projects/game-001/spec/format-spec.md:326",
+      "projects/game-001/spec/format-spec.md:393"
+    ],
+    "projects/game-001/tools/_check_cutmargins.py": [
+      "projects/game-001/spec/format-spec.md:436"
+    ],
+    "projects/game-001/tools/verify_cut_margins.py": [
+      "projects/game-001/spec/format-spec.md:383",
+      "projects/game-001/spec/episode-plan.md:143"
+    ],
+    "projects/game-001/tools/verify_spec_numbers.py": [
+      "projects/game-001/spec/format-spec.md:230",
+      "projects/game-001/spec/format-spec.md:382"
+    ],
+    "tools/verify_cut_margins.py": [
+      "projects/game-001/spec/format-spec.md:368",
+      "projects/game-001/spec/episode-plan.md:84"
+    ]
+  },
+  "missing_scripts": [
+    {
+      "ref": "projects/game-001/tools/_check_cutmargins.py",
+      "cited_at": [
+        "projects/game-001/spec/format-spec.md:436"
+      ]
+    }
+  ],
+  "unimplemented_claims": [
+    {
+      "doc": "projects/game-001/spec/format-spec.md",
+      "line": 70,
+      "number": "0.3",
+      "declared_as": "3. **切点精度上限是 ±0.1 s（CUT-05）。** 高光前后各留 **≥0.3 s** 余量，不贴边切；**距任何已知跳变点/丢帧点 ≥0.1 s**。需要逐帧精确的片段，**在剪映里目视微调，而不是按时间码硬切**（详见 §12",
+      "implemented_by": [],
+      "number_only_in_prose_of": [
+        "projects\\game-001\\tools\\verify_cut_margins.py"
+      ],
+      "msg": "阈值 0.3 在文档里被声明为判据，但**全仓任何脚本的可执行代码里都找不到它**（仅出现在 ['projects\\\\game-001\\\\tools\\\\verify_cut_margins.py'] 的注释/字符串里）"
+    },
+    {
+      "doc": "projects/game-001/spec/format-spec.md",
+      "line": 432,
+      "number": "0.3",
+      "declared_as": "| 2 | **高光前后留余量** | b 段有 1 处丢帧（10.979688 s，≈1.97 帧）、c 段 1 处（13.971680 s，≈1.63 帧）；另有 ≥4 处真实视点跳变 | **高光前后各留 ≥0.3 s 余量，不要贴边",
+      "implemented_by": [],
+      "number_only_in_prose_of": [
+        "projects\\game-001\\tools\\verify_cut_margins.py"
+      ],
+      "msg": "阈值 0.3 在文档里被声明为判据，但**全仓任何脚本的可执行代码里都找不到它**（仅出现在 ['projects\\\\game-001\\\\tools\\\\verify_cut_margins.py'] 的注释/字符串里）"
+    },
+    {
+      "doc": "projects/game-001/spec/episode-plan.md",
+      "line": 28,
+      "number": "0.3",
+      "declared_as": "| 新增约束 | **切点按 ±0.1s 容差处理**；**高光前后各留 ≥0.3s 余量**；需要逐帧精确的片段应在剪映里目视微调而非按时间码硬切 | 固化为 **CUT-05**；§4 逐点核算 |",
+      "implemented_by": [],
+      "number_only_in_prose_of": [
+        "projects\\game-001\\tools\\verify_cut_margins.py"
+      ],
+      "msg": "阈值 0.3 在文档里被声明为判据，但**全仓任何脚本的可执行代码里都找不到它**（仅出现在 ['projects\\\\game-001\\\\tools\\\\verify_cut_margins.py'] 的注释/字符串里）"
+    },
+    {
+      "doc": "projects/game-001/spec/episode-plan.md",
+      "line": 57,
+      "number": "0.3",
+      "declared_as": "> 这是**下界**（判据只抓孤立跳变，运动中的硬切会漏）。本集的做法是：**不假设素材内部没有其它硬切**，因此每个片段的入点/出点都按 CUT-05 留 ≥0.1s 容差 + 高光前后 ≥0.3s 余量（§4 逐点核算），而不是靠\"没有",
+      "implemented_by": [],
+      "number_only_in_prose_of": [
+        "projects\\game-001\\tools\\verify_cut_margins.py"
+      ],
+      "msg": "阈值 0.3 在文档里被声明为判据，但**全仓任何脚本的可执行代码里都找不到它**（仅出现在 ['projects\\\\game-001\\\\tools\\\\verify_cut_margins.py'] 的注释/字符串里）"
+    },
+    {
+      "doc": "projects/game-001/spec/episode-plan.md",
+      "line": 141,
+      "number": "0.3",
+      "declared_as": "| **CUT-05（切点容差）** | 切点落在 VFR 丢帧/视点跳变处 → 并轨时漂移 | 距任何已知跳变/丢帧点 **≥0.1s**；高光前后各留 **≥0.3s** |",
+      "implemented_by": [],
+      "number_only_in_prose_of": [
+        "projects\\game-001\\tools\\verify_cut_margins.py"
+      ],
+      "msg": "阈值 0.3 在文档里被声明为判据，但**全仓任何脚本的可执行代码里都找不到它**（仅出现在 ['projects\\\\game-001\\\\tools\\\\verify_cut_margins.py'] 的注释/字符串里）"
+    }
+  ],
+  "runs": [],
+  "verdict": "FAIL"
+}
