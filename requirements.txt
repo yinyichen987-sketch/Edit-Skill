@@ -1,0 +1,13 @@
+# 直接依赖（版本为已验证的实测组合）
+pyJianYingDraft==0.3.0
+imageio-ffmpeg==0.6.0
+pymediainfo==7.0.1
+
+# 说明：
+#   - 无 ffprobe，媒体信息读取出 pymediainfo 负责
+#   - ffmpeg 二进制由 imageio-ffmpeg 提供，无需系统安装
+#   - pillow / numpy / comtypes / uiautomation 由 pyJianYingDraft 传递引入
+#
+# 安装：
+#   python -m venv .venv
+#   .venv\Scripts\python.exe -m pip install -r requirements.txt

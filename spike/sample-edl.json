@@ -1,0 +1,54 @@
+{
+  "version": "1.0",
+  "project": "DSH_EDL_TEST",
+  "canvas": { "width": 1080, "height": 1920, "fps": 30 },
+  "style_ref": "default",
+  "target_duration_s": 6,
+  "tracks": [
+    { "type": "video", "name": "main" },
+    { "type": "text", "name": "caption" }
+  ],
+  "clips": [
+    {
+      "id": "c1",
+      "track": "main",
+      "source": "media/test_a.mp4",
+      "source_in": 0.0,
+      "start": 0.0,
+      "duration": 3.0,
+      "role": "hook",
+      "rule_id": "HOOK-01",
+      "reason": "结果前置，3 秒内给出冲突",
+      "confidence": 0.94
+    },
+    {
+      "id": "c2",
+      "track": "main",
+      "source": "media/test_b.mp4",
+      "source_in": 1.0,
+      "start": 3.0,
+      "duration": 3.0,
+      "role": "body",
+      "rule_id": "BODY-01",
+      "reason": "切入过程展示",
+      "confidence": 0.81,
+      "transition": { "type": "信号故障", "duration": 0.5 }
+    }
+  ],
+  "texts": [
+    {
+      "id": "t1",
+      "track": "caption",
+      "content": "EDL 转换测试",
+      "start": 0.5,
+      "duration": 2.5,
+      "style": {
+        "size": 10.0,
+        "bold": true,
+        "color": [1.0, 0.9, 0.2],
+        "transform_y": -0.8
+      }
+    }
+  ],
+  "audio": { "voice_priority": "high", "bgm_volume": 0.25 }
+}

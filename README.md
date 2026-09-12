@@ -1,29 +1,96 @@
-# Edit Skill
+# Edit Skill — 剪映剪辑 Skill
 
-一个技能（skill）项目仓库。
+把原始素材剪成符合既定手法的**剪映（JianYing）草稿工程**的 DeepSeek Harness Skill。
 
-## 说明
+## 这个 skill 做什么
 
-> 待补充：请在这里填写这个 skill 的用途、触发场景和典型用法。
+```
+原始素材 ──[探查]──→ 素材结构
+参考成片 ──[分析]──→ 量化指标 ──[归纳]──→ 规则库 (references/editing-rules.md)
+                                            │
+                                    [决策] ─┘
+                                            ↓
+                                    EDL 剪辑决策 JSON   ← 核心资产
+                                            ↓
+                                    [edl_to_draft]
+                                            ↓
+                                    剪映草稿 → 人工审阅 → 人工导出
+```
+
+**定位是「自动生成粗剪草稿 + 可解释的决策记录」，不是「全自动出片」。**
+剪映 7+ 没有可供自动化的导出控件，导出必须由人完成。
+
+## 当前状态
+
+| 部分 | 状态 |
+|---|---|
+| 环境与兼容性验证 | ✅ 完成，结论见 `references/environment.md` |
+| EDL 协议规范 | ✅ 完成，见 `references/edl-schema.md` |
+| 成片分析工具 | ✅ 可用并已验证 |
+| EDL → 草稿工具 | ✅ 可用并已验证 |
+| **剪辑规则库** | ⬜ **未填充** —— 需要用户提供有代表性的成片后才能归纳 |
+
+> 规则不能凭空编造。在拿到参考成片之前，`editing-rules.md` 保持为空。
+
+## 环境要求
+
+已验证组合：剪映专业版 **11.4.2.14459** + Python 3.13 + pyJianYingDraft 0.3.0。
+
+```powershell
+python -m venv .venv
+.venv\Scripts\python.exe -m pip install -r requirements.txt
+```
+
+ffmpeg 由 `imageio-ffmpeg` 自带，**无需系统安装**；也没有 ffprobe，媒体信息走 `pymediainfo`。
+
+## 用法
+
+```powershell
+# 分析一条素材或成片
+.venv\Scripts\python.exe .dsh\skills\jianying-edit\scripts\analyze_film.py <视频> --summary
+
+# 校验 EDL（不生成草稿）
+.venv\Scripts\python.exe .dsh\skills\jianying-edit\scripts\edl_to_draft.py edl.json --dry-run
+
+# 生成剪映草稿（生成前请完全退出剪映）
+.venv\Scripts\python.exe .dsh\skills\jianying-edit\scripts\edl_to_draft.py edl.json --name "项目名"
+```
+
+生成后需**重启剪映或切换草稿**才会在列表中看到（剪映有缓存）。
 
 ## 目录结构
 
 ```
 .
+├── .dsh/skills/jianying-edit/     # ← Skill 本体（DSH 自动发现）
+│   ├── SKILL.md
+│   ├── references/
+│   │   ├── edl-schema.md          # EDL 协议（核心）
+│   │   ├── environment.md         # 实测环境事实与已知陷阱
+│   │   └── editing-rules.md       # 规则库（待填充）
+│   └── scripts/
+│       ├── analyze_film.py
+│       └── edl_to_draft.py
+├── spike/                          # 兼容性验证过程记录
+├── requirements.txt
 └── README.md
 ```
 
-## 使用方式
+## 关键限制（重要）
 
-> 待补充：安装 / 引入 / 调用方式。
+1. **读不了已有草稿** —— 剪映 11.x 的 `draft_content.json` 是加密的，上游库出于合规不提供解密。
+   风格反推改走「分析成片」路线。
+2. **不能自动导出** —— 剪映 7+ 的限制，导出必须人工完成。
+3. **固定阈值切点检测不可靠** —— ffmpeg `scdet` 以亮度差为主，等亮度换色会漏判（实测 5.47 vs 23.05）。
+   分析器改用自适应峰值检测。
 
-## 开发
+详见 `references/environment.md`。
 
-```bash
-git clone <repo-url>
-cd "Edit skill"
-```
+## 已知陷阱
 
-## License
+都是实际踩过的，会导致**草稿表面正常但内容全错**：
 
-> 待补充。
+- **时间必须带单位后缀**：`tim(0.5)` 被当作 0.5 微秒取整成 0，必须写 `"0.5s"`。
+- **转场必须在入轨前挂好**：`add_segment()` 只在入轨那一刻登记 `materials.transitions`。
+
+详见 `references/edl-schema.md` 末尾。
