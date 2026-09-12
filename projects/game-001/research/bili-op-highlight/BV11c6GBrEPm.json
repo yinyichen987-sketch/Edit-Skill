@@ -1,0 +1,486 @@
+{
+  "source": "C:\\Users\\18930\\Desktop\\Edit skill\\.cache\\excerpt\\BV11c6GBrEPm.mp4",
+  "media": {
+    "duration": 90.398,
+    "width": 1920,
+    "height": 1080,
+    "fps": 29.97,
+    "video_codec": "HEVC",
+    "has_audio": true,
+    "audio_codec": "AAC",
+    "audio_sample_rate": 48000,
+    "audio_channels": 2,
+    "aspect_ratio": "16:9",
+    "orientation": "landscape"
+  },
+  "shots": [
+    {
+      "index": 0,
+      "start": 0.0,
+      "end": 7.608,
+      "duration": 7.608,
+      "cut_score": null
+    },
+    {
+      "index": 1,
+      "start": 7.608,
+      "end": 11.946,
+      "duration": 4.338,
+      "cut_score": 20.29
+    },
+    {
+      "index": 2,
+      "start": 11.946,
+      "end": 12.346,
+      "duration": 0.4,
+      "cut_score": 14.62
+    },
+    {
+      "index": 3,
+      "start": 12.346,
+      "end": 13.914,
+      "duration": 1.568,
+      "cut_score": 8.58
+    },
+    {
+      "index": 4,
+      "start": 13.914,
+      "end": 14.548,
+      "duration": 0.634,
+      "cut_score": 9.58
+    },
+    {
+      "index": 5,
+      "start": 14.548,
+      "end": 16.25,
+      "duration": 1.702,
+      "cut_score": 16.02
+    },
+    {
+      "index": 6,
+      "start": 16.25,
+      "end": 18.118,
+      "duration": 1.868,
+      "cut_score": 13.49
+    },
+    {
+      "index": 7,
+      "start": 18.118,
+      "end": 18.686,
+      "duration": 0.568,
+      "cut_score": 11.18
+    },
+    {
+      "index": 8,
+      "start": 18.686,
+      "end": 19.453,
+      "duration": 0.767,
+      "cut_score": 7.38
+    },
+    {
+      "index": 9,
+      "start": 19.453,
+      "end": 22.323,
+      "duration": 2.87,
+      "cut_score": 13.53
+    },
+    {
+      "index": 10,
+      "start": 22.323,
+      "end": 22.79,
+      "duration": 0.467,
+      "cut_score": 6.54
+    },
+    {
+      "index": 11,
+      "start": 22.79,
+      "end": 23.424,
+      "duration": 0.634,
+      "cut_score": 4.71
+    },
+    {
+      "index": 12,
+      "start": 23.424,
+      "end": 24.358,
+      "duration": 0.934,
+      "cut_score": 9.71
+    },
+    {
+      "index": 13,
+      "start": 24.358,
+      "end": 25.526,
+      "duration": 1.168,
+      "cut_score": 5.41
+    },
+    {
+      "index": 14,
+      "start": 25.526,
+      "end": 27.027,
+      "duration": 1.501,
+      "cut_score": 5.27
+    },
+    {
+      "index": 15,
+      "start": 27.027,
+      "end": 29.33,
+      "duration": 2.303,
+      "cut_score": 7.59
+    },
+    {
+      "index": 16,
+      "start": 29.33,
+      "end": 31.632,
+      "duration": 2.302,
+      "cut_score": 13.78
+    },
+    {
+      "index": 17,
+      "start": 31.632,
+      "end": 31.999,
+      "duration": 0.367,
+      "cut_score": 16.12
+    },
+    {
+      "index": 18,
+      "start": 31.999,
+      "end": 33.951,
+      "duration": 1.952,
+      "cut_score": 15.5
+    },
+    {
+      "index": 19,
+      "start": 33.951,
+      "end": 34.618,
+      "duration": 0.667,
+      "cut_score": 5.43
+    },
+    {
+      "index": 20,
+      "start": 34.618,
+      "end": 36.52,
+      "duration": 1.902,
+      "cut_score": 12.19
+    },
+    {
+      "index": 21,
+      "start": 36.52,
+      "end": 37.621,
+      "duration": 1.101,
+      "cut_score": 11.15
+    },
+    {
+      "index": 22,
+      "start": 37.621,
+      "end": 38.355,
+      "duration": 0.734,
+      "cut_score": 6.04
+    },
+    {
+      "index": 23,
+      "start": 38.355,
+      "end": 40.157,
+      "duration": 1.802,
+      "cut_score": 15.08
+    },
+    {
+      "index": 24,
+      "start": 40.157,
+      "end": 43.961,
+      "duration": 3.804,
+      "cut_score": 31.12
+    },
+    {
+      "index": 25,
+      "start": 43.961,
+      "end": 44.228,
+      "duration": 0.267,
+      "cut_score": 20.42
+    },
+    {
+      "index": 26,
+      "start": 44.228,
+      "end": 44.662,
+      "duration": 0.434,
+      "cut_score": 8.07
+    },
+    {
+      "index": 27,
+      "start": 44.662,
+      "end": 52.369,
+      "duration": 7.707,
+      "cut_score": 6.71
+    },
+    {
+      "index": 28,
+      "start": 52.369,
+      "end": 53.404,
+      "duration": 1.035,
+      "cut_score": 9.67
+    },
+    {
+      "index": 29,
+      "start": 53.404,
+      "end": 54.705,
+      "duration": 1.301,
+      "cut_score": 5.28
+    },
+    {
+      "index": 30,
+      "start": 54.705,
+      "end": 55.105,
+      "duration": 0.4,
+      "cut_score": 6.7
+    },
+    {
+      "index": 31,
+      "start": 55.105,
+      "end": 57.207,
+      "duration": 2.102,
+      "cut_score": 8.3
+    },
+    {
+      "index": 32,
+      "start": 57.207,
+      "end": 59.109,
+      "duration": 1.902,
+      "cut_score": 7.7
+    },
+    {
+      "index": 33,
+      "start": 59.109,
+      "end": 70.054,
+      "duration": 10.945,
+      "cut_score": 8.37
+    },
+    {
+      "index": 34,
+      "start": 70.054,
+      "end": 75.759,
+      "duration": 5.705,
+      "cut_score": 24.41
+    },
+    {
+      "index": 35,
+      "start": 75.759,
+      "end": 76.026,
+      "duration": 0.267,
+      "cut_score": 14.43
+    },
+    {
+      "index": 36,
+      "start": 76.026,
+      "end": 85.469,
+      "duration": 9.443,
+      "cut_score": 7.23
+    },
+    {
+      "index": 37,
+      "start": 85.469,
+      "end": 87.438,
+      "duration": 1.969,
+      "cut_score": 7.78
+    },
+    {
+      "index": 38,
+      "start": 87.438,
+      "end": 90.341,
+      "duration": 2.903,
+      "cut_score": 13.03
+    },
+    {
+      "index": 39,
+      "start": 90.341,
+      "end": 90.398,
+      "duration": 0.057,
+      "cut_score": 8.25
+    }
+  ],
+  "pacing": {
+    "shot_count": 40,
+    "cut_count": 39,
+    "total_duration": 90.398,
+    "avg_shot_duration": 2.26,
+    "median_shot_duration": 1.534,
+    "min_shot_duration": 0.057,
+    "max_shot_duration": 10.945,
+    "stdev_shot_duration": 2.543,
+    "cuts_per_minute": 25.89,
+    "duration_histogram": {
+      "<1s": 15,
+      "1-2s": 13,
+      "2-3s": 5,
+      "3-5s": 2,
+      "5-10s": 4,
+      ">=10s": 1
+    }
+  },
+  "candidate_cuts": [
+    {
+      "time": 7.608,
+      "score": 20.29
+    },
+    {
+      "time": 11.946,
+      "score": 14.62
+    },
+    {
+      "time": 12.346,
+      "score": 8.58
+    },
+    {
+      "time": 13.914,
+      "score": 9.58
+    },
+    {
+      "time": 14.548,
+      "score": 16.02
+    },
+    {
+      "time": 16.25,
+      "score": 13.49
+    },
+    {
+      "time": 18.118,
+      "score": 11.18
+    },
+    {
+      "time": 18.686,
+      "score": 7.38
+    },
+    {
+      "time": 19.453,
+      "score": 13.53
+    },
+    {
+      "time": 22.323,
+      "score": 6.54
+    },
+    {
+      "time": 22.79,
+      "score": 4.71
+    },
+    {
+      "time": 23.424,
+      "score": 9.71
+    },
+    {
+      "time": 24.358,
+      "score": 5.41
+    },
+    {
+      "time": 25.526,
+      "score": 5.27
+    },
+    {
+      "time": 27.027,
+      "score": 7.59
+    },
+    {
+      "time": 29.33,
+      "score": 13.78
+    },
+    {
+      "time": 31.632,
+      "score": 16.12
+    },
+    {
+      "time": 31.999,
+      "score": 15.5
+    },
+    {
+      "time": 33.951,
+      "score": 5.43
+    },
+    {
+      "time": 34.618,
+      "score": 12.19
+    },
+    {
+      "time": 36.52,
+      "score": 11.15
+    },
+    {
+      "time": 37.621,
+      "score": 6.04
+    },
+    {
+      "time": 38.355,
+      "score": 15.08
+    },
+    {
+      "time": 40.157,
+      "score": 31.12
+    },
+    {
+      "time": 43.961,
+      "score": 20.42
+    },
+    {
+      "time": 44.228,
+      "score": 8.07
+    },
+    {
+      "time": 44.662,
+      "score": 6.71
+    },
+    {
+      "time": 52.369,
+      "score": 9.67
+    },
+    {
+      "time": 53.404,
+      "score": 5.28
+    },
+    {
+      "time": 54.705,
+      "score": 6.7
+    },
+    {
+      "time": 55.105,
+      "score": 8.3
+    },
+    {
+      "time": 57.207,
+      "score": 7.7
+    },
+    {
+      "time": 59.109,
+      "score": 8.37
+    },
+    {
+      "time": 70.054,
+      "score": 24.41
+    },
+    {
+      "time": 75.759,
+      "score": 14.43
+    },
+    {
+      "time": 76.026,
+      "score": 7.23
+    },
+    {
+      "time": 85.469,
+      "score": 7.78
+    },
+    {
+      "time": 87.438,
+      "score": 13.03
+    },
+    {
+      "time": 90.341,
+      "score": 8.25
+    }
+  ],
+  "audio": {
+    "has_audio": true,
+    "integrated_loudness_lufs": -16.7,
+    "true_peak_dbfs": 0.1,
+    "loudness_range_lu": 10.4
+  },
+  "analysis_meta": {
+    "scene_score_samples": 2701,
+    "detector": "ffmpeg scdet(threshold=0) + adaptive peak detection",
+    "note": "scdet 以亮度差为主，等亮度换色得分偏低；已用自适应基线补偿"
+  }
+}
