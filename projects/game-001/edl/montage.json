@@ -39,12 +39,12 @@
       "id": "m01",
       "track": "main",
       "source": "../../../原始素材/dcc871b1791e7796fadac842593f10f7.mp4",
-      "source_in": 6.4,
+      "source_in": 3.55,
       "start": 0.0,
       "duration": 7.5,
       "role": "run_c",
       "rule_id": "MONT-01",
-      "reason": "集锦第 1 镜 / 16 拍（7.5000s）@128BPM；拍点 0.0–16.0；速度 1.0×（吃素材 7.5000s）。c 段连续长镜 7.5s：C-H5(击杀播报同帧) → C-H7 → C-H8；开场即冷开峰值。",
+      "reason": "集锦第 1 镜 / 16 拍（7.5000s）@128BPM；拍点 0.0–16.0；速度 1.0×（吃素材 7.5000s）。c 段连续长镜 7.5s：C-H5(击杀播报同帧，信息量最高) → C-H7 → C-H8；开场即冷开峰值。",
       "volume": 0.766,
       "filter": {
         "type": "青橙",
@@ -59,7 +59,7 @@
         {
           "property": "uniform_scale",
           "time": 7.5,
-          "value": 1.1
+          "value": 1.09
         }
       ]
     },
@@ -67,13 +67,45 @@
       "id": "m02",
       "track": "main",
       "source": "../../../原始素材/4b0460c400bbb5320acb6063b4f59358.mp4",
-      "source_in": 5.6,
+      "source_in": 5.0,
       "start": 7.5,
-      "duration": 3.75,
+      "duration": 7.5,
       "role": "run_a",
       "rule_id": "MONT-01",
-      "reason": "集锦第 2 镜 / 8 拍（3.7500s）@128BPM；拍点 16.0–24.0；速度 1.0×（吃素材 3.7500s）。a 段连续长镜 3.75s：A-H2(拾取) → A-H3(**实测 2 HP**，conf 0.95) → A-H4。",
+      "reason": "集锦第 2 镜 / 16 拍（7.5000s）@128BPM；拍点 16.0–32.0；速度 1.0×（吃素材 7.5000s）。a 段连续长镜 7.5s：A-H2(拾取) → A-H3(**实测 2 HP**) → A-H4 → A-H5(**两条击杀播报**)。",
       "volume": 0.63,
+      "filter": {
+        "type": "青橙",
+        "intensity": 65.0
+      },
+      "transition": {
+        "type": "信号故障",
+        "duration": 0.12
+      },
+      "keyframes": [
+        {
+          "property": "uniform_scale",
+          "time": 0.0,
+          "value": 1.0
+        },
+        {
+          "property": "uniform_scale",
+          "time": 7.5,
+          "value": 1.09
+        }
+      ]
+    },
+    {
+      "id": "m03",
+      "track": "main",
+      "source": "../../../原始素材/6b2eea343eee7595c3c0ede10d21d028.mp4",
+      "source_in": 5.4,
+      "start": 15.0,
+      "duration": 3.75,
+      "role": "run_b1",
+      "rule_id": "MONT-01",
+      "reason": "集锦第 3 镜 / 8 拍（3.7500s）@128BPM；拍点 32.0–40.0；速度 1.0×（吃素材 3.7500s）。b 段第一段 3.75s：B-H1(**全 70 秒音频能量最强**) → B-H2(击杀确认)；止于 9.15，距 10.98 跳变窗 1.83s。",
+      "volume": 0.766,
       "filter": {
         "type": "青橙",
         "intensity": 65.0
@@ -91,20 +123,20 @@
         {
           "property": "uniform_scale",
           "time": 3.75,
-          "value": 1.08
+          "value": 1.06
         }
       ]
     },
     {
-      "id": "m03",
+      "id": "m04",
       "track": "main",
       "source": "../../../原始素材/6b2eea343eee7595c3c0ede10d21d028.mp4",
-      "source_in": 20.86,
-      "start": 11.25,
-      "duration": 3.75,
-      "role": "run_b",
+      "source_in": 13.5,
+      "start": 18.75,
+      "duration": 11.25,
+      "role": "run_b2",
       "rule_id": "MONT-01",
-      "reason": "集锦第 3 镜 / 8 拍（3.7500s）@128BPM；拍点 24.0–32.0；速度 1.0×（吃素材 3.7500s）。b 段连续长镜 3.75s：B-H7「**获胜**」横幅；出点 24.61 距 b 上界 26.017 余 1.41s。",
+      "reason": "集锦第 4 镜 / 24 拍（11.2500s）@128BPM；拍点 40.0–64.0；速度 1.0×（吃素材 11.2500s）。b 段第二段 11.25s：B-H5(爆能器已部署横幅) → B-H7(**「获胜」横幅**)；起于 13.50（跳变窗之后 0.49s）。",
       "volume": 0.766,
       "filter": {
         "type": "青橙",
@@ -122,8 +154,8 @@
         },
         {
           "property": "uniform_scale",
-          "time": 3.75,
-          "value": 1.07
+          "time": 11.25,
+          "value": 1.11
         }
       ]
     }
@@ -134,7 +166,7 @@
       "track": "cap_top",
       "content": "别眨眼",
       "start": 0.0,
-      "duration": 1.2,
+      "duration": 1.6,
       "style": {
         "size": 13.5,
         "bold": true,
@@ -180,8 +212,8 @@
       "id": "t2",
       "track": "cap_body",
       "content": "一枪一个",
-      "start": 1.2,
-      "duration": 2.4,
+      "start": 1.6,
+      "duration": 3.0,
       "style": {
         "size": 12.38,
         "bold": true,
@@ -227,8 +259,8 @@
       "id": "t3",
       "track": "cap_body",
       "content": "2 HP",
-      "start": 8.2,
-      "duration": 2.0,
+      "start": 8.4,
+      "duration": 2.1,
       "style": {
         "size": 13.5,
         "bold": true,
@@ -272,12 +304,151 @@
     },
     {
       "id": "t4",
+      "track": "cap_body",
+      "content": "播报两连",
+      "start": 13.5,
+      "duration": 1.5,
+      "style": {
+        "size": 11.25,
+        "bold": true,
+        "font": "未来黑",
+        "color": [
+          1.0,
+          0.9,
+          0.2
+        ],
+        "transform_x": 0.0,
+        "transform_y": 0.611111
+      },
+      "animation": {
+        "intro": "向上滑动",
+        "intro_duration": 0.4
+      },
+      "border": {
+        "color": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "width": 58.0
+      },
+      "shadow": {
+        "color": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "diffuse": 18.0,
+        "distance": 6.0,
+        "angle": -45.0
+      },
+      "background": {
+        "color": "#00000073",
+        "style": 1,
+        "round_radius": 0.08
+      }
+    },
+    {
+      "id": "t5",
+      "track": "cap_body",
+      "content": "听声辨位",
+      "start": 15.0,
+      "duration": 2.5,
+      "style": {
+        "size": 12.38,
+        "bold": true,
+        "font": "未来黑",
+        "color": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "transform_x": 0.0,
+        "transform_y": 0.611111
+      },
+      "animation": {
+        "intro": "弹入",
+        "intro_duration": 0.4,
+        "loop": "颤抖"
+      },
+      "border": {
+        "color": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "width": 58.0
+      },
+      "shadow": {
+        "color": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "diffuse": 18.0,
+        "distance": 6.0,
+        "angle": -45.0
+      },
+      "background": {
+        "color": "#00000073",
+        "style": 1,
+        "round_radius": 0.08
+      }
+    },
+    {
+      "id": "t6",
+      "track": "cap_body",
+      "content": "已部署",
+      "start": 20.4,
+      "duration": 2.4,
+      "style": {
+        "size": 11.25,
+        "bold": true,
+        "font": "未来黑",
+        "color": [
+          1.0,
+          0.9,
+          0.2
+        ],
+        "transform_x": 0.0,
+        "transform_y": 0.611111
+      },
+      "animation": {
+        "intro": "弹入",
+        "intro_duration": 0.4
+      },
+      "border": {
+        "color": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "width": 58.0
+      },
+      "shadow": {
+        "color": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "diffuse": 18.0,
+        "distance": 6.0,
+        "angle": -45.0
+      },
+      "background": {
+        "color": "#00000073",
+        "style": 1,
+        "round_radius": 0.08
+      }
+    },
+    {
+      "id": "t7",
       "track": "cap_top",
       "content": "这枪换你，敢不敢上？",
-      "start": 11.4,
-      "duration": 3.2,
+      "start": 25.6,
+      "duration": 3.8,
       "style": {
-        "size": 9.56,
+        "size": 10.12,
         "bold": true,
         "font": "得意黑",
         "color": [
@@ -319,10 +490,10 @@
   ],
   "audio_overlays": [
     {
-      "source": "../bgm/bgm_128_15s.wav",
+      "source": "../bgm/bgm_128_16bars.wav",
       "track": "bgm",
       "start": 0.0,
-      "duration": 15.0,
+      "duration": 30.0,
       "volume": 0.46,
       "fade": {
         "in": 0.0,
@@ -332,7 +503,7 @@
     {
       "source": "../sfx/riser.wav",
       "track": "sfx1",
-      "start": 5.625,
+      "start": 11.25,
       "duration": 1.8,
       "volume": 0.65,
       "fade": {
@@ -343,7 +514,7 @@
     {
       "source": "../sfx/impact_b.wav",
       "track": "sfx1",
-      "start": 7.5,
+      "start": 15.0,
       "duration": 0.14,
       "volume": 1.0,
       "fade": {
@@ -354,7 +525,7 @@
     {
       "source": "../sfx/whoosh.wav",
       "track": "sfx1",
-      "start": 11.25,
+      "start": 18.75,
       "duration": 0.35,
       "volume": 0.7499999999999999,
       "fade": {
@@ -365,7 +536,7 @@
     {
       "source": "../sfx/sub_drop.wav",
       "track": "sfx2",
-      "start": 7.5,
+      "start": 15.0,
       "duration": 0.9,
       "volume": 0.95,
       "fade": {
@@ -376,7 +547,7 @@
     {
       "source": "../sfx/impact_a.wav",
       "track": "sfx2",
-      "start": 11.25,
+      "start": 18.75,
       "duration": 0.16,
       "volume": 0.9,
       "fade": {
@@ -387,9 +558,20 @@
     {
       "source": "../sfx/win.wav",
       "track": "sfx2",
-      "start": 11.52,
+      "start": 25.8,
       "duration": 0.45,
-      "volume": 0.7999999999999999,
+      "volume": 0.85,
+      "fade": {
+        "in": 0.005,
+        "out": 0.06
+      }
+    },
+    {
+      "source": "../sfx/whoosh.wav",
+      "track": "sfx2",
+      "start": 7.5,
+      "duration": 0.35,
+      "volume": 0.7,
       "fade": {
         "in": 0.005,
         "out": 0.06
@@ -402,8 +584,13 @@
       "effects": [
         {
           "type": "像素故障",
+          "start": 15.0,
+          "duration": 0.35
+        },
+        {
+          "type": "幻彩故障",
           "start": 7.5,
-          "duration": 0.3
+          "duration": 0.25
         }
       ]
     },
@@ -412,8 +599,8 @@
       "effects": [
         {
           "type": "花屏故障",
-          "start": 11.25,
-          "duration": 0.35
+          "start": 18.75,
+          "duration": 0.3
         }
       ]
     }

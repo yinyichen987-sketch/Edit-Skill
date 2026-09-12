@@ -53,11 +53,15 @@ SR = 48000
 BPM = 128.0
 BEAT = 60.0 / BPM              # 0.46875 s
 BAR = 4 * BEAT                 # 1.875 s
-BARS = 8
-DURATION = BARS * BAR          # 15.0 s
+# 小节数与 drop 位置可由命令行给：成片不设时长上限之后，BGM 要跟着成片长度走。
+#   `python make_bgm.py 16 9`  → 16 小节（30.000s），第 9 小节落 drop
+BARS = int(sys.argv[1]) if len(sys.argv) > 1 else 8
+DROP_BAR = int(sys.argv[2]) if len(sys.argv) > 2 else 5      # 1-based
+DROP_BAR = max(2, min(DROP_BAR, BARS))
+DURATION = BARS * BAR
 N = int(round(DURATION * SR))
 
-# 和弦根音（Hz）：Am / F / C / G，每个和弦占 2 小节
+# 和弦根音（Hz）：Am / F / C / G，每个和弦占 2 小节，8 小节一循环
 CHORDS = [
     ("Am", [220.00, 261.63, 329.63]),   # A3 C4 E4
     ("F",  [174.61, 220.00, 261.63]),   # F3 A3 C4
@@ -70,7 +74,8 @@ BASS = {"Am": 55.00, "F": 43.65, "C": 65.41, "G": 49.00}
 
 
 def chord_at(bar: int) -> str:
-    return CHORDS[min(bar, BARS - 1) // 2][0]
+    """8 小节一循环（0-based bar）。"""
+    return CHORDS[(bar // 2) % len(CHORDS)][0]
 
 
 # --------------------------------------------------------------------------
@@ -209,11 +214,11 @@ def build() -> tuple[np.ndarray, np.ndarray]:
                 c = clap()
                 add(L, t0, c, 0.9)
                 add(R, t0, c, 0.9)
-        # 闭镲：前四小节八分，后四小节十六分（推进感）
-        div = 2 if bar < 4 else 4
+        # 闭镲：drop 之前八分，drop 之后十六分（推进感）
+        div = 2 if bar < DROP_BAR - 1 else 4
         for s in range(4 * div):
             t0 = bar * BAR + s * BEAT / div
-            h = hat(open_=(s % 4 == 3 and bar >= 4))
+            h = hat(open_=(s % 4 == 3 and bar >= DROP_BAR - 1))
             pan = 0.5 + 0.25 * (1 if s % 2 else -1)
             add(L, t0, h, 1.4 * (1 - pan))
             add(R, t0, h, 1.4 * pan)
@@ -224,14 +229,14 @@ def build() -> tuple[np.ndarray, np.ndarray]:
         for s, (off, dur, oct_) in enumerate((
                 (0.0, 0.5, 1.0), (0.5, 0.25, 1.0), (1.0, 0.5, 1.0),
                 (1.5, 0.5, 2.0), (2.5, 0.5, 1.0), (3.0, 0.5, 1.0), (3.5, 0.5, 1.5))):
-            if bar < 2 and s > 4:
-                continue                              # 前两小节留白，别一上来就满
+            if bar < 1 and s > 4:
+                continue                              # 第一小节留白，别一上来就满
             add(L, bar * BAR + off * BEAT, bass_note(r * oct_, dur * BEAT), 1.0)
             add(R, bar * BAR + off * BEAT, bass_note(r * oct_, dur * BEAT), 1.0)
 
-    # ---- 琶音：第 5-8 小节 ----
-    for bar in range(4, BARS):
-        notes = CHORDS[bar // 2][1]
+    # ---- 琶音：drop 之后才进（drop 前留白，让 drop 有"打开"的感觉）----
+    for bar in range(DROP_BAR - 1, BARS):
+        notes = CHORDS[(bar // 2) % len(CHORDS)][1]
         for s in range(16):
             t0 = bar * BAR + s * BEAT / 4
             f = notes[s % len(notes)] * (2.0 if s >= 8 else 1.0)
@@ -241,16 +246,17 @@ def build() -> tuple[np.ndarray, np.ndarray]:
             add(L, t0, lowpass(sig, 4200.0), 1.0 * pan * 2)
             add(R, t0, lowpass(sig, 4200.0), 1.0 * (1 - pan) * 2)
 
-    # ---- 过渡与重音 ----
-    add(L, 2 * BAR, riser(BAR), 1.0)                  # 第 3 小节起 riser
-    add(R, 2 * BAR, riser(BAR), 1.0)
-    for t0 in (4 * BAR, 6 * BAR):                     # 第 5、7 小节落 crash
+    # ---- 过渡与重音：一条 riser 推进到 drop，drop 处 crash + 低频冲击 ----
+    add(L, (DROP_BAR - 3) * BAR, riser(BAR), 1.0)
+    add(R, (DROP_BAR - 3) * BAR, riser(BAR), 1.0)
+    crashes = [DROP_BAR - 1] + [b for b in range(DROP_BAR + 1, BARS, 2)]
+    for b in crashes:
         c = crash()
-        add(L, t0, c, 0.9)
-        add(R, t0, c, 0.9)
-    si = sub_impact()                                 # 第 5 小节低频冲击
-    add(L, 4 * BAR, si, 1.0)
-    add(R, 4 * BAR, si, 1.0)
+        add(L, b * BAR, c, 0.9)
+        add(R, b * BAR, c, 0.9)
+    si = sub_impact()
+    add(L, (DROP_BAR - 1) * BAR, si, 1.0)
+    add(R, (DROP_BAR - 1) * BAR, si, 1.0)
 
     # ---- 总线：软削 + 收尾淡出（避免硬切尾巴）----
     def finish(x: np.ndarray) -> np.ndarray:
@@ -277,11 +283,11 @@ def write_wav(path: Path, L: np.ndarray, R: np.ndarray) -> None:
 
 
 def main() -> int:
-    print(f"=== 合成 BGM：{BPM:.0f} BPM / {BARS} 小节 / {DURATION:.3f} s ===")
+    print(f"=== 合成 BGM：{BPM:.0f} BPM / {BARS} 小节 / {DURATION:.3f} s / drop 在第 {DROP_BAR} 小节 ===")
     print(f"    1 拍 = {BEAT:.5f} s   1 小节 = {BAR:.4f} s   "
           f"{DURATION:.3f} / {BEAT:.5f} = {DURATION/BEAT:.1f} 拍")
     L, R = build()
-    out = OUT_DIR / "bgm_128_15s.wav"
+    out = OUT_DIR / f"bgm_128_{BARS}bars.wav"
     write_wav(out, L, R)
     peak_db = 20 * np.log10(max(float(np.max(np.abs(L))), 1e-9))
     print(f"[OK] 已写出 {out.relative_to(ROOT)}  "
@@ -289,6 +295,7 @@ def main() -> int:
 
     grid = {
         "bpm": BPM,
+        "drop_bar": DROP_BAR,
         "beat_s": BEAT,
         "bar_s": BAR,
         "bars": BARS,
@@ -296,14 +303,13 @@ def main() -> int:
         "beats": [round(i * BEAT, 6) for i in range(int(DURATION / BEAT) + 1)],
         "downbeats": [round(b * BAR, 6) for b in range(BARS + 1)],
         "chords_per_2bars": [c[0] for c in CHORDS],
-        "note": ("剪切点应落在 beats 上；重音（crash / drop）在 "
-                 "downbeats[4]=7.5s 与 downbeats[6]=11.25s。"),
+        "note": f"剪切点应落在 beats 上；drop 在第 {DROP_BAR} 小节 = {(DROP_BAR-1)*BAR:.4f}s。",
     }
     gp = OUT_DIR / "beat-grid.json"
     gp.write_text(json.dumps(grid, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"[OK] 已写出 {gp.relative_to(ROOT)}（拍点表，供剪切点对齐）")
     print(f"     拍点: {grid['beats'][:8]} ...")
-    print(f"     重音: 7.500s（drop）、11.250s")
+    print(f"     重音: {(DROP_BAR-1)*BAR:.3f}s（drop）")
     return 0
 
 

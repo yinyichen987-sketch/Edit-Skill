@@ -189,7 +189,7 @@
     },
     {
       "draft": "GAME_MONT_LS",
-      "segment": "035e5b2526654b8a8cad8730d95a9cea",
+      "segment": "b20e24912ad14291a93217432153119a",
       "transform_y": 0.611111,
       "center_px": 210.0,
       "half_px": 35.7075,
@@ -204,13 +204,13 @@
     },
     {
       "draft": "GAME_MONT_LS",
-      "segment": "9bc85c2df0ab4540af17c94f2d9ef37d",
+      "segment": "20b7e965813f4602a2c074450eb8f6ef",
       "transform_y": 0.611111,
       "center_px": 210.0,
-      "half_px": 25.2862,
+      "half_px": 26.7674,
       "box_px": [
-        184.7,
-        235.3
+        183.2,
+        236.8
       ],
       "in_allow_zone": true,
       "overlaps_forbid_zone": false,
