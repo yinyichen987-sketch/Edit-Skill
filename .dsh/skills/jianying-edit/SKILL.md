@@ -118,11 +118,20 @@ python scripts/edl_to_draft.py <edl.json> --name "项目名"
 ├── references/
 │   ├── edl-schema.md      # ★ EDL 决策对象规范（核心协议）
 │   ├── environment.md     # 环境与兼容性实测事实、已知陷阱
-│   └── editing-rules.md   # 规则库（待素材到位后按真实风格填充）
+│   ├── editing-rules.md   # 通用规则库
+│   └── styles/
+│       ├── game-valorant.md  # 「叙事型」高光短片规则（30 条）
+│       └── game-montage.md   # 「集锦」形式定义 —— 每段素材一整段连续、不要切碎
 └── scripts/
     ├── analyze_film.py    # 成片/素材 → 结构分析
     └── edl_to_draft.py    # EDL → 剪映草稿
 ```
+
+> **⚠️ 先分清形式再套规则。** `game-valorant.md` 的 30 条是**叙事型**短片的
+> （固定四段、≈12 切/分、保留因果）；`game-montage.md` 是**集锦**的
+> （每段素材一整段连续、个位数切/分、不叙事）。**两者规则互相冲突，别混用** ——
+> 本项目的 `make_montage_edl.py` 与 `montage*.json` 走的是集锦形式，
+> 它会**有意**违反叙事型的 `CUT-01`/`CUT-02`。
 
 ## 运行环境
 
