@@ -7,7 +7,7 @@
     "fps": 30
   },
   "style_ref": "game-montage",
-  "target_duration_s": 15.0,
+  "target_duration_s": 30.0,
   "tracks": [
     {
       "type": "video",
@@ -616,6 +616,6 @@
       "no-black-frame"
     ]
   },
-  "_form_note": "集锦形式（不做叙事）：14 镜 / 13 切 / 32 拍 @128BPM / 15.000s。有意偏离 CUT-01（固定四段）与 CUT-02（≈12 切/分）—— 依据是素材分析（可用高光中位 1.0s）与外部调研（单镜头 ≥3.5s 判失败、切点目标 8–14/15s），两条独立证据都指向碎片化。CUT-04（不越素材上界）仍强制满足。",
+  "_form_note": "集锦形式（不做叙事）：4 镜 / 3 切 / 64 拍 @128BPM / 30.000s。每段原始素材各取**一整段连续画面**（用户确认的集锦定义），有意偏离叙事型的 CUT-01（固定四段）与 CUT-02（≈12 切/分）。CUT-04（不越素材上界）与 CUT-05（避开 VFR 跳变窗）仍强制满足。",
   "_audio_note": "BGM 为本地合成（128BPM，与剪切点同格，见 tools/make_bgm.py）；whoosh/riser/sub_drop 亦为合成（tools/make_sfx.py）；impact_*/win 从原素材裁出。剪映音效库无法程序化引用。"
 }

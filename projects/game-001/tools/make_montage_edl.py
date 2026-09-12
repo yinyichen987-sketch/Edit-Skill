@@ -270,7 +270,10 @@ def build(vertical: bool) -> dict:
         "project": f"GAME_MONT_{'VT' if vertical else 'LS'}",
         "canvas": {"width": W, "height": H, "fps": 30},
         "style_ref": "game-montage",
-        "target_duration_s": 15.0,
+        # ⚠️ **从片段实算**，不写死。曾写死 15.0，取消时长限制后没跟着改，
+        #    于是 EDL 里躺着一个和实际（30.0s）矛盾的旧值 —— 这类"元数据与实际不一致"
+        #    最容易在排查"为什么还是 15 秒"时把人带偏。
+        "target_duration_s": round(sum(c["duration"] for c in clips), 6),
         "tracks": [
             {"type": "video", "name": "main"},
             {"type": "text", "name": "cap_top"},
@@ -300,10 +303,13 @@ def build(vertical: bool) -> dict:
         ],
         "audio": {"voice_priority": "low", "bgm_volume": BGM_VOLUME},
         "qa": {"required": ["duration-valid", "audio-present", "no-black-frame"]},
-        "_form_note": ("集锦形式（不做叙事）：14 镜 / 13 切 / 32 拍 @128BPM / 15.000s。"
-                       "有意偏离 CUT-01（固定四段）与 CUT-02（≈12 切/分）—— 依据是素材分析"
-                       "（可用高光中位 1.0s）与外部调研（单镜头 ≥3.5s 判失败、切点目标 8–14/15s），"
-                       "两条独立证据都指向碎片化。CUT-04（不越素材上界）仍强制满足。"),
+        "_form_note": (
+            f"集锦形式（不做叙事）：{len(clips)} 镜 / {len(clips)-1} 切 / "
+            f"{sum(c['duration'] for c in clips)/BEAT:.0f} 拍 @128BPM / "
+            f"{sum(c['duration'] for c in clips):.3f}s。"
+            "每段原始素材各取**一整段连续画面**（用户确认的集锦定义），"
+            "有意偏离叙事型的 CUT-01（固定四段）与 CUT-02（≈12 切/分）。"
+            "CUT-04（不越素材上界）与 CUT-05（避开 VFR 跳变窗）仍强制满足。"),
         "_audio_note": ("BGM 为本地合成（128BPM，与剪切点同格，见 tools/make_bgm.py）；"
                         "whoosh/riser/sub_drop 亦为合成（tools/make_sfx.py）；"
                         "impact_*/win 从原素材裁出。剪映音效库无法程序化引用。"),

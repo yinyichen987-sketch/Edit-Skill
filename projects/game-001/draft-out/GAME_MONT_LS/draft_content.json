@@ -68,56 +68,56 @@
         "audio_effects": [],
         "audio_fades": [
             {
-                "id": "7d231432deeb4f87b1681d3891d5d1cd",
+                "id": "7e886547786c47c98619c5ffca7c36a5",
                 "fade_in_duration": 0,
                 "fade_out_duration": 250000,
                 "fade_type": 0,
                 "type": "audio_fade"
             },
             {
-                "id": "af415de9c03d4ce9a9b112353aabb8d2",
+                "id": "536aed0897ae431d9e83f3c3c9754006",
                 "fade_in_duration": 5000,
                 "fade_out_duration": 60000,
                 "fade_type": 0,
                 "type": "audio_fade"
             },
             {
-                "id": "b4eaec00f972488187c41128cd8a6e75",
+                "id": "8fdc5161ae8e414ea207281b3bba7731",
                 "fade_in_duration": 5000,
                 "fade_out_duration": 35000,
                 "fade_type": 0,
                 "type": "audio_fade"
             },
             {
-                "id": "e88317a41cf3479f82a7108de133a9d3",
+                "id": "76de52b22554418e8fd5a0dfde0a15e0",
                 "fade_in_duration": 5000,
                 "fade_out_duration": 60000,
                 "fade_type": 0,
                 "type": "audio_fade"
             },
             {
-                "id": "e89a9f41d39b47b594b3baefd115def5",
+                "id": "14e334f28d564465afbf5b5a83a7c1f9",
                 "fade_in_duration": 5000,
                 "fade_out_duration": 60000,
                 "fade_type": 0,
                 "type": "audio_fade"
             },
             {
-                "id": "19103f3c4c3c42c3a8982e01fabe1bb5",
+                "id": "39fa5052ba314282b79b9be9f9844f39",
                 "fade_in_duration": 5000,
                 "fade_out_duration": 40000,
                 "fade_type": 0,
                 "type": "audio_fade"
             },
             {
-                "id": "0d6de1d82b144d13b0927d8a21a14831",
+                "id": "604fe3d1d69e4bf2bfda185625f73ad4",
                 "fade_in_duration": 5000,
                 "fade_out_duration": 60000,
                 "fade_type": 0,
                 "type": "audio_fade"
             },
             {
-                "id": "c65e595088664e7fbfcc0b261bc9acbd",
+                "id": "bfe807e82654422eb9b4c5d60048dbd9",
                 "fade_in_duration": 5000,
                 "fade_out_duration": 60000,
                 "fade_type": 0,
@@ -135,9 +135,9 @@
                 "duration": 30000000,
                 "effect_id": "",
                 "formula_id": "",
-                "id": "4e18c141e72e439ca6ef1db77e4516d0",
-                "local_material_id": "4e18c141e72e439ca6ef1db77e4516d0",
-                "music_id": "4e18c141e72e439ca6ef1db77e4516d0",
+                "id": "d4189347c0d5400cb306f151cb6bb59f",
+                "local_material_id": "d4189347c0d5400cb306f151cb6bb59f",
+                "music_id": "d4189347c0d5400cb306f151cb6bb59f",
                 "name": "bgm_128_16bars.wav",
                 "path": "C:\\Users\\18930\\Desktop\\Edit skill\\projects\\game-001\\bgm\\bgm_128_16bars.wav",
                 "source_platform": 0,
@@ -153,9 +153,9 @@
                 "duration": 1800000,
                 "effect_id": "",
                 "formula_id": "",
-                "id": "48042da4d687410fa275aa828b40e04f",
-                "local_material_id": "48042da4d687410fa275aa828b40e04f",
-                "music_id": "48042da4d687410fa275aa828b40e04f",
+                "id": "138c45911d2145e3bb71707c842fab59",
+                "local_material_id": "138c45911d2145e3bb71707c842fab59",
+                "music_id": "138c45911d2145e3bb71707c842fab59",
                 "name": "riser.wav",
                 "path": "C:\\Users\\18930\\Desktop\\Edit skill\\projects\\game-001\\sfx\\riser.wav",
                 "source_platform": 0,
@@ -171,9 +171,9 @@
                 "duration": 160000,
                 "effect_id": "",
                 "formula_id": "",
-                "id": "0debc02e768f4747ac507bd804e38726",
-                "local_material_id": "0debc02e768f4747ac507bd804e38726",
-                "music_id": "0debc02e768f4747ac507bd804e38726",
+                "id": "0895619fb5044e6e93a62b40e38fb634",
+                "local_material_id": "0895619fb5044e6e93a62b40e38fb634",
+                "music_id": "0895619fb5044e6e93a62b40e38fb634",
                 "name": "impact_b.wav",
                 "path": "C:\\Users\\18930\\Desktop\\Edit skill\\projects\\game-001\\sfx\\impact_b.wav",
                 "source_platform": 0,
@@ -189,9 +189,9 @@
                 "duration": 350000,
                 "effect_id": "",
                 "formula_id": "",
-                "id": "2b17bc030e0e4bd18bc8ecef8d82f603",
-                "local_material_id": "2b17bc030e0e4bd18bc8ecef8d82f603",
-                "music_id": "2b17bc030e0e4bd18bc8ecef8d82f603",
+                "id": "b7b9ed856d27482faa3501d2c8e91325",
+                "local_material_id": "b7b9ed856d27482faa3501d2c8e91325",
+                "music_id": "b7b9ed856d27482faa3501d2c8e91325",
                 "name": "whoosh.wav",
                 "path": "C:\\Users\\18930\\Desktop\\Edit skill\\projects\\game-001\\sfx\\whoosh.wav",
                 "source_platform": 0,
@@ -207,9 +207,9 @@
                 "duration": 900000,
                 "effect_id": "",
                 "formula_id": "",
-                "id": "6fecf71b34374f7ba505872e07a2f99f",
-                "local_material_id": "6fecf71b34374f7ba505872e07a2f99f",
-                "music_id": "6fecf71b34374f7ba505872e07a2f99f",
+                "id": "c110f767f6cc4c11b098ad745bff9c03",
+                "local_material_id": "c110f767f6cc4c11b098ad745bff9c03",
+                "music_id": "c110f767f6cc4c11b098ad745bff9c03",
                 "name": "sub_drop.wav",
                 "path": "C:\\Users\\18930\\Desktop\\Edit skill\\projects\\game-001\\sfx\\sub_drop.wav",
                 "source_platform": 0,
@@ -225,9 +225,9 @@
                 "duration": 160000,
                 "effect_id": "",
                 "formula_id": "",
-                "id": "391c39cb951043b29ef1a2b355b81247",
-                "local_material_id": "391c39cb951043b29ef1a2b355b81247",
-                "music_id": "391c39cb951043b29ef1a2b355b81247",
+                "id": "14ce21085b5d48e1a0f0dabc9ea6c3fc",
+                "local_material_id": "14ce21085b5d48e1a0f0dabc9ea6c3fc",
+                "music_id": "14ce21085b5d48e1a0f0dabc9ea6c3fc",
                 "name": "impact_a.wav",
                 "path": "C:\\Users\\18930\\Desktop\\Edit skill\\projects\\game-001\\sfx\\impact_a.wav",
                 "source_platform": 0,
@@ -243,9 +243,9 @@
                 "duration": 450000,
                 "effect_id": "",
                 "formula_id": "",
-                "id": "a942f3e0f883476ab3b318aceb99744f",
-                "local_material_id": "a942f3e0f883476ab3b318aceb99744f",
-                "music_id": "a942f3e0f883476ab3b318aceb99744f",
+                "id": "d440cfcd139f4605a559d0814c6df55c",
+                "local_material_id": "d440cfcd139f4605a559d0814c6df55c",
+                "music_id": "d440cfcd139f4605a559d0814c6df55c",
                 "name": "win.wav",
                 "path": "C:\\Users\\18930\\Desktop\\Edit skill\\projects\\game-001\\sfx\\win.wav",
                 "source_platform": 0,
@@ -261,9 +261,9 @@
                 "duration": 350000,
                 "effect_id": "",
                 "formula_id": "",
-                "id": "750fd9b11fad4f0fa9ff1f36201b67a7",
-                "local_material_id": "750fd9b11fad4f0fa9ff1f36201b67a7",
-                "music_id": "750fd9b11fad4f0fa9ff1f36201b67a7",
+                "id": "cf12a128653b464784bc564882be0430",
+                "local_material_id": "cf12a128653b464784bc564882be0430",
+                "music_id": "cf12a128653b464784bc564882be0430",
                 "name": "whoosh.wav",
                 "path": "C:\\Users\\18930\\Desktop\\Edit skill\\projects\\game-001\\sfx\\whoosh.wav",
                 "source_platform": 0,
@@ -295,7 +295,7 @@
                 "exclusion_group": [],
                 "face_adjust_params": [],
                 "formula_id": "",
-                "id": "7fa6e44424ce4712bebb078680ae243c",
+                "id": "c4d46c8246d942aa8eaf6361ce7dc6bd",
                 "intensity_key": "",
                 "multi_language_current": "",
                 "name": "青橙",
@@ -326,7 +326,7 @@
                 "exclusion_group": [],
                 "face_adjust_params": [],
                 "formula_id": "",
-                "id": "5728b84d78ca40bfbaa1e0d1a53f796b",
+                "id": "ea757c8676b74abcb2cc1644aeca58ae",
                 "intensity_key": "",
                 "multi_language_current": "",
                 "name": "青橙",
@@ -357,7 +357,7 @@
                 "exclusion_group": [],
                 "face_adjust_params": [],
                 "formula_id": "",
-                "id": "e35590cdae0f4596a26ecc4b057c459e",
+                "id": "3fb814a127284e68a53ae0c05c449806",
                 "intensity_key": "",
                 "multi_language_current": "",
                 "name": "青橙",
@@ -388,7 +388,7 @@
                 "exclusion_group": [],
                 "face_adjust_params": [],
                 "formula_id": "",
-                "id": "589e8d640b904d78872da58fe89fe691",
+                "id": "95738881a2924923993b880985c11b44",
                 "intensity_key": "",
                 "multi_language_current": "",
                 "name": "青橙",
@@ -414,7 +414,7 @@
         "masks": [],
         "material_animations": [
             {
-                "id": "be0f82acea544b229a96341d43386698",
+                "id": "5a7d116ba43b48d58f3d18420dbfc740",
                 "type": "sticker_animation",
                 "multi_language_current": "none",
                 "animations": [
@@ -445,7 +445,7 @@
                 ]
             },
             {
-                "id": "f63321988c80471ba8a3c236c03d363b",
+                "id": "1e3fb2528cc74f7cbfa7f1b673ce58de",
                 "type": "sticker_animation",
                 "multi_language_current": "none",
                 "animations": [
@@ -476,7 +476,7 @@
                 ]
             },
             {
-                "id": "426e23eaa1804d9fbc7680d2bf800fdf",
+                "id": "1ce8b409efeb44feb65b8d0013c8363e",
                 "type": "sticker_animation",
                 "multi_language_current": "none",
                 "animations": [
@@ -507,7 +507,7 @@
                 ]
             },
             {
-                "id": "bb2d9777310c415c8256993be27588e8",
+                "id": "b1edd1e03db749fe841088c3faf70916",
                 "type": "sticker_animation",
                 "multi_language_current": "none",
                 "animations": [
@@ -526,7 +526,7 @@
                 ]
             },
             {
-                "id": "851db417a97b47d6995546a2fed62a50",
+                "id": "e9e2409f43124810a316f1e3e90fd7a9",
                 "type": "sticker_animation",
                 "multi_language_current": "none",
                 "animations": [
@@ -557,7 +557,7 @@
                 ]
             },
             {
-                "id": "1e97e8b0b373426eb538f1df32a8c532",
+                "id": "ff69705cefa64056993812eebd82a49a",
                 "type": "sticker_animation",
                 "multi_language_current": "none",
                 "animations": [
@@ -576,7 +576,7 @@
                 ]
             },
             {
-                "id": "407666ee96604d90819e7201face22ca",
+                "id": "7ba5cefa214c416e8f38c8decdd63701",
                 "type": "sticker_animation",
                 "multi_language_current": "none",
                 "animations": [
@@ -608,84 +608,84 @@
         "speeds": [
             {
                 "curve_speed": null,
-                "id": "56825caf88f548739d2d446a61d40b7e",
+                "id": "65dfd754f4fb42758a4877090470e258",
                 "mode": 0,
                 "speed": 1.0,
                 "type": "speed"
             },
             {
                 "curve_speed": null,
-                "id": "69fc363ac23b4fc8b2aa5ad10eaa5db0",
+                "id": "ca1d92bd118240438dde8de7bbf7dc07",
                 "mode": 0,
                 "speed": 1.0,
                 "type": "speed"
             },
             {
                 "curve_speed": null,
-                "id": "7d8bfb4dacf64d0a9729c3109f1ca33a",
+                "id": "eae3194fc1984bf895018f183488fefd",
                 "mode": 0,
                 "speed": 1.0,
                 "type": "speed"
             },
             {
                 "curve_speed": null,
-                "id": "b8207216f1944c3a92249cbd8a30d45c",
+                "id": "7da8b0582ef84998891bb3822c28e19b",
                 "mode": 0,
                 "speed": 1.0,
                 "type": "speed"
             },
             {
                 "curve_speed": null,
-                "id": "9680d8fbaa9e40c6ae2c3f62e85b1d88",
+                "id": "e6d7d1b67de14270bdc59eeba6a4865c",
                 "mode": 0,
                 "speed": 1.0,
                 "type": "speed"
             },
             {
                 "curve_speed": null,
-                "id": "a641aeaaacf6443d8483bcb06675fae2",
+                "id": "cf0540801075483b9e409002f292c2f3",
                 "mode": 0,
                 "speed": 1.0,
                 "type": "speed"
             },
             {
                 "curve_speed": null,
-                "id": "499110f6600c43ec97a7d0d4f9bb4a11",
+                "id": "ed99e5a1ce154a7f839516ae02bd8b09",
                 "mode": 0,
                 "speed": 1.0,
                 "type": "speed"
             },
             {
                 "curve_speed": null,
-                "id": "fad83999218743a9a823b1a250b3a488",
+                "id": "2ff1b51012a64c6d977013247003ba6e",
                 "mode": 0,
                 "speed": 1.0,
                 "type": "speed"
             },
             {
                 "curve_speed": null,
-                "id": "a9afe4e69a294db58d3d3d675c1d7f1e",
+                "id": "c22ca3927cd8442b8673b001b3b59d3f",
                 "mode": 0,
                 "speed": 1.0,
                 "type": "speed"
             },
             {
                 "curve_speed": null,
-                "id": "42bccb59db8a42be8f7ed2c0c3da887d",
+                "id": "3de35af6213c4af09165635309d3b331",
                 "mode": 0,
                 "speed": 1.0,
                 "type": "speed"
             },
             {
                 "curve_speed": null,
-                "id": "14930b2f9a424459b35e12622bcc5192",
+                "id": "0102ce15bd87418898873c98743e1745",
                 "mode": 0,
                 "speed": 1.0,
                 "type": "speed"
             },
             {
                 "curve_speed": null,
-                "id": "e6ee2b48043b44e6ad6f8cef2a496d8c",
+                "id": "69be1388c6734f3995fb123a352c74c1",
                 "mode": 0,
                 "speed": 1.0,
                 "type": "speed"
@@ -696,7 +696,7 @@
         "text_templates": [],
         "texts": [
             {
-                "id": "44e2f26ec968435986f04d97127cc832",
+                "id": "5b734cd39fe542df82982c8f6a4eaa54",
                 "content": "{\"styles\": [{\"fill\": {\"alpha\": 1.0, \"content\": {\"render_type\": \"solid\", \"solid\": {\"alpha\": 1.0, \"color\": [1.0, 1.0, 1.0]}}}, \"range\": [0, 3], \"size\": 13.5, \"bold\": true, \"italic\": false, \"underline\": false, \"strokes\": [{\"content\": {\"solid\": {\"alpha\": 1.0, \"color\": [0.0, 0.0, 0.0]}}, \"width\": 0.13999999999999999}], \"font\": {\"id\": \"7399865900821647935\", \"path\": \"D:\"}, \"shadows\": [{\"diffuse\": 0.03, \"alpha\": 1.0, \"distance\": 6.0, \"content\": {\"solid\": {\"color\": [0.0, 0.0, 0.0]}}, \"angle\": -45.0}]}], \"text\": \"别眨眼\"}",
                 "typesetting": 0,
                 "alignment": 0,
@@ -718,7 +718,7 @@
                 "background_vertical_offset": 0.0
             },
             {
-                "id": "0f03813948884053b7db6d05f27bdbbd",
+                "id": "55095fcfb7a54ad9b7879290fc128e1b",
                 "content": "{\"styles\": [{\"fill\": {\"alpha\": 1.0, \"content\": {\"render_type\": \"solid\", \"solid\": {\"alpha\": 1.0, \"color\": [1.0, 0.9, 0.2]}}}, \"range\": [0, 4], \"size\": 12.38, \"bold\": true, \"italic\": false, \"underline\": false, \"strokes\": [{\"content\": {\"solid\": {\"alpha\": 1.0, \"color\": [0.0, 0.0, 0.0]}}, \"width\": 0.11599999999999999}], \"font\": {\"id\": \"7081925520866152997\", \"path\": \"D:\"}, \"shadows\": [{\"diffuse\": 0.03, \"alpha\": 1.0, \"distance\": 6.0, \"content\": {\"solid\": {\"color\": [0.0, 0.0, 0.0]}}, \"angle\": -45.0}]}], \"text\": \"一枪一个\"}",
                 "typesetting": 0,
                 "alignment": 0,
@@ -740,7 +740,7 @@
                 "background_vertical_offset": 0.0
             },
             {
-                "id": "9b0454f2100f47c5906df524d7eceb2b",
+                "id": "141286a2b5f34434a63184c0b441b787",
                 "content": "{\"styles\": [{\"fill\": {\"alpha\": 1.0, \"content\": {\"render_type\": \"solid\", \"solid\": {\"alpha\": 1.0, \"color\": [1.0, 0.35, 0.35]}}}, \"range\": [0, 4], \"size\": 13.5, \"bold\": true, \"italic\": false, \"underline\": false, \"strokes\": [{\"content\": {\"solid\": {\"alpha\": 1.0, \"color\": [0.0, 0.0, 0.0]}}, \"width\": 0.11599999999999999}], \"font\": {\"id\": \"7081925520866152997\", \"path\": \"D:\"}, \"shadows\": [{\"diffuse\": 0.03, \"alpha\": 1.0, \"distance\": 6.0, \"content\": {\"solid\": {\"color\": [0.0, 0.0, 0.0]}}, \"angle\": -45.0}]}], \"text\": \"2 HP\"}",
                 "typesetting": 0,
                 "alignment": 0,
@@ -762,7 +762,7 @@
                 "background_vertical_offset": 0.0
             },
             {
-                "id": "b3a8b743181c4c98ac2a5a42598a84ad",
+                "id": "92513fbada934466b008c618f09cbd90",
                 "content": "{\"styles\": [{\"fill\": {\"alpha\": 1.0, \"content\": {\"render_type\": \"solid\", \"solid\": {\"alpha\": 1.0, \"color\": [1.0, 0.9, 0.2]}}}, \"range\": [0, 4], \"size\": 11.25, \"bold\": true, \"italic\": false, \"underline\": false, \"strokes\": [{\"content\": {\"solid\": {\"alpha\": 1.0, \"color\": [0.0, 0.0, 0.0]}}, \"width\": 0.11599999999999999}], \"font\": {\"id\": \"7081925520866152997\", \"path\": \"D:\"}, \"shadows\": [{\"diffuse\": 0.03, \"alpha\": 1.0, \"distance\": 6.0, \"content\": {\"solid\": {\"color\": [0.0, 0.0, 0.0]}}, \"angle\": -45.0}]}], \"text\": \"播报两连\"}",
                 "typesetting": 0,
                 "alignment": 0,
@@ -784,7 +784,7 @@
                 "background_vertical_offset": 0.0
             },
             {
-                "id": "b0f6b94598fb48d5a4d71504b2d0b17b",
+                "id": "801233d4b4c84472b134c6ab848130e7",
                 "content": "{\"styles\": [{\"fill\": {\"alpha\": 1.0, \"content\": {\"render_type\": \"solid\", \"solid\": {\"alpha\": 1.0, \"color\": [1.0, 1.0, 1.0]}}}, \"range\": [0, 4], \"size\": 12.38, \"bold\": true, \"italic\": false, \"underline\": false, \"strokes\": [{\"content\": {\"solid\": {\"alpha\": 1.0, \"color\": [0.0, 0.0, 0.0]}}, \"width\": 0.11599999999999999}], \"font\": {\"id\": \"7081925520866152997\", \"path\": \"D:\"}, \"shadows\": [{\"diffuse\": 0.03, \"alpha\": 1.0, \"distance\": 6.0, \"content\": {\"solid\": {\"color\": [0.0, 0.0, 0.0]}}, \"angle\": -45.0}]}], \"text\": \"听声辨位\"}",
                 "typesetting": 0,
                 "alignment": 0,
@@ -806,7 +806,7 @@
                 "background_vertical_offset": 0.0
             },
             {
-                "id": "5c13ea7bfd8e42e88af6aba8cc40d8d8",
+                "id": "10ef809b28734acc92a88ddfb147e1e4",
                 "content": "{\"styles\": [{\"fill\": {\"alpha\": 1.0, \"content\": {\"render_type\": \"solid\", \"solid\": {\"alpha\": 1.0, \"color\": [1.0, 0.9, 0.2]}}}, \"range\": [0, 3], \"size\": 11.25, \"bold\": true, \"italic\": false, \"underline\": false, \"strokes\": [{\"content\": {\"solid\": {\"alpha\": 1.0, \"color\": [0.0, 0.0, 0.0]}}, \"width\": 0.11599999999999999}], \"font\": {\"id\": \"7081925520866152997\", \"path\": \"D:\"}, \"shadows\": [{\"diffuse\": 0.03, \"alpha\": 1.0, \"distance\": 6.0, \"content\": {\"solid\": {\"color\": [0.0, 0.0, 0.0]}}, \"angle\": -45.0}]}], \"text\": \"已部署\"}",
                 "typesetting": 0,
                 "alignment": 0,
@@ -828,7 +828,7 @@
                 "background_vertical_offset": 0.0
             },
             {
-                "id": "7298039bcf4e4c03a420f8a374b1fbb8",
+                "id": "9463365863794741a5f741338b1720a8",
                 "content": "{\"styles\": [{\"fill\": {\"alpha\": 1.0, \"content\": {\"render_type\": \"solid\", \"solid\": {\"alpha\": 1.0, \"color\": [1.0, 0.9, 0.2]}}}, \"range\": [0, 10], \"size\": 10.12, \"bold\": true, \"italic\": false, \"underline\": false, \"strokes\": [{\"content\": {\"solid\": {\"alpha\": 1.0, \"color\": [0.0, 0.0, 0.0]}}, \"width\": 0.13999999999999999}], \"font\": {\"id\": \"7399865900821647935\", \"path\": \"D:\"}, \"shadows\": [{\"diffuse\": 0.03, \"alpha\": 1.0, \"distance\": 6.0, \"content\": {\"solid\": {\"color\": [0.0, 0.0, 0.0]}}, \"angle\": -45.0}]}], \"text\": \"这枪换你，敢不敢上？\"}",
                 "typesetting": 0,
                 "alignment": 0,
@@ -857,7 +857,7 @@
                 "category_name": "",
                 "duration": 120000,
                 "effect_id": "25265947",
-                "id": "10fea2bcade34a239d38f22099501cbd",
+                "id": "1b798172a5f445f096bea7137e70a597",
                 "is_overlap": true,
                 "name": "信号故障",
                 "platform": "all",
@@ -869,7 +869,7 @@
                 "category_name": "",
                 "duration": 200000,
                 "effect_id": "25265947",
-                "id": "78d5abf1ec234149abc30c9e4d56d73e",
+                "id": "9e1754cd52f64edf984bbcdd180bda2c",
                 "is_overlap": true,
                 "name": "信号故障",
                 "platform": "all",
@@ -881,7 +881,7 @@
                 "category_name": "",
                 "duration": 120000,
                 "effect_id": "25265947",
-                "id": "9cbb6264956549149fcc511f1e2c665b",
+                "id": "3166eb8b84114823bbdbdabcf7c670b0",
                 "is_overlap": true,
                 "name": "信号故障",
                 "platform": "all",
@@ -946,7 +946,7 @@
                 "disable_effect_faces": [],
                 "effect_id": "14523597",
                 "formula_id": "",
-                "id": "a2ecac15058942a1ae04ed33b5f33150",
+                "id": "1297a692d9594083bad7a7ae42c67046",
                 "name": "像素故障",
                 "platform": "all",
                 "render_index": 11000,
@@ -978,7 +978,7 @@
                 "disable_effect_faces": [],
                 "effect_id": "1005744",
                 "formula_id": "",
-                "id": "44db84a45e7f484db95db1bf0b477e23",
+                "id": "836a8b36e30a4e518b3860cdeb18ca57",
                 "name": "幻彩故障",
                 "platform": "all",
                 "render_index": 11000,
@@ -1046,7 +1046,7 @@
                 "disable_effect_faces": [],
                 "effect_id": "86397374",
                 "formula_id": "",
-                "id": "c8510b0b830d4dc4b9a3f7f037bcf711",
+                "id": "02add6b07d994fd2a8672718f7e4abb7",
                 "name": "花屏故障",
                 "platform": "all",
                 "render_index": 11000,
@@ -1080,9 +1080,9 @@
                 "crop_scale": 1.0,
                 "duration": 25012000,
                 "height": 720,
-                "id": "789f37cdce5e422699e84732f2acb719",
+                "id": "c3b2317ea95c44ecbd78f1af9447b4b7",
                 "local_material_id": "",
-                "material_id": "789f37cdce5e422699e84732f2acb719",
+                "material_id": "c3b2317ea95c44ecbd78f1af9447b4b7",
                 "material_name": "dcc871b1791e7796fadac842593f10f7.mp4",
                 "media_path": "",
                 "path": "C:\\Users\\18930\\Desktop\\Edit skill\\原始素材\\dcc871b1791e7796fadac842593f10f7.mp4",
@@ -1108,9 +1108,9 @@
                 "crop_scale": 1.0,
                 "duration": 18984000,
                 "height": 720,
-                "id": "1f6d94c41cd3430786e055411feba877",
+                "id": "012c6a7928c944a3b50a0ef317a872c0",
                 "local_material_id": "",
-                "material_id": "1f6d94c41cd3430786e055411feba877",
+                "material_id": "012c6a7928c944a3b50a0ef317a872c0",
                 "material_name": "4b0460c400bbb5320acb6063b4f59358.mp4",
                 "media_path": "",
                 "path": "C:\\Users\\18930\\Desktop\\Edit skill\\原始素材\\4b0460c400bbb5320acb6063b4f59358.mp4",
@@ -1136,9 +1136,9 @@
                 "crop_scale": 1.0,
                 "duration": 26017000,
                 "height": 720,
-                "id": "990e127e12a542d690eb9061d54b91f9",
+                "id": "112e0f70d9ad47b3a1d732cd37cfd7e1",
                 "local_material_id": "",
-                "material_id": "990e127e12a542d690eb9061d54b91f9",
+                "material_id": "112e0f70d9ad47b3a1d732cd37cfd7e1",
                 "material_name": "6b2eea343eee7595c3c0ede10d21d028.mp4",
                 "media_path": "",
                 "path": "C:\\Users\\18930\\Desktop\\Edit skill\\原始素材\\6b2eea343eee7595c3c0ede10d21d028.mp4",
@@ -1164,9 +1164,9 @@
                 "crop_scale": 1.0,
                 "duration": 26017000,
                 "height": 720,
-                "id": "d96d7713da544fae98059346c80890ea",
+                "id": "f983287a4c864470a21c132289232501",
                 "local_material_id": "",
-                "material_id": "d96d7713da544fae98059346c80890ea",
+                "material_id": "f983287a4c864470a21c132289232501",
                 "material_name": "6b2eea343eee7595c3c0ede10d21d028.mp4",
                 "media_path": "",
                 "path": "C:\\Users\\18930\\Desktop\\Edit skill\\原始素材\\6b2eea343eee7595c3c0ede10d21d028.mp4",
@@ -1190,7 +1190,7 @@
         {
             "attribute": 0,
             "flag": 0,
-            "id": "9fd79322f2504a01affc7c73dea6a896",
+            "id": "ca78942584e746f6a8e571a502aa9486",
             "is_default_name": false,
             "name": "main",
             "segments": [
@@ -1207,15 +1207,15 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "c9a16d7907bd4d4e8fe98ac30233d9ac",
-                    "material_id": "789f37cdce5e422699e84732f2acb719",
+                    "id": "7bc8a9d3a58e4d7dbf2e813f96d1c298",
+                    "material_id": "c3b2317ea95c44ecbd78f1af9447b4b7",
                     "target_timerange": {
                         "start": 0,
                         "duration": 7500000
                     },
                     "common_keyframes": [
                         {
-                            "id": "eaab41c00f734cb8b320eadecc174d16",
+                            "id": "98ffc2a56bff43e1bb8b7654aadfc819",
                             "keyframe_list": [
                                 {
                                     "curveType": "Line",
@@ -1228,7 +1228,7 @@
                                         "x": 0.0,
                                         "y": 0.0
                                     },
-                                    "id": "8644746f10a64819a9ecce6e37700def",
+                                    "id": "609c4de8760b46268376ecdb6d88716e",
                                     "time_offset": 0,
                                     "values": [
                                         1.0
@@ -1245,7 +1245,7 @@
                                         "x": 0.0,
                                         "y": 0.0
                                     },
-                                    "id": "5b137e7312944735a3d1c4445e1f7b0a",
+                                    "id": "195bc8a5019f43ed9013620646a2a3c4",
                                     "time_offset": 7500000,
                                     "values": [
                                         1.09
@@ -1264,9 +1264,9 @@
                     "speed": 1.0,
                     "volume": 0.766,
                     "extra_material_refs": [
-                        "56825caf88f548739d2d446a61d40b7e",
-                        "7fa6e44424ce4712bebb078680ae243c",
-                        "10fea2bcade34a239d38f22099501cbd"
+                        "65dfd754f4fb42758a4877090470e258",
+                        "c4d46c8246d942aa8eaf6361ce7dc6bd",
+                        "1b798172a5f445f096bea7137e70a597"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -1309,15 +1309,15 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "9d341c9eb8ee48e7b00aab833e7430ab",
-                    "material_id": "1f6d94c41cd3430786e055411feba877",
+                    "id": "bd074fa54b064df9a4dd980ec3c71532",
+                    "material_id": "012c6a7928c944a3b50a0ef317a872c0",
                     "target_timerange": {
                         "start": 7500000,
                         "duration": 7500000
                     },
                     "common_keyframes": [
                         {
-                            "id": "070454d370f5443f8a8fcb43eb118490",
+                            "id": "6bf8c7604bbd4f759d5880f3a4b1219c",
                             "keyframe_list": [
                                 {
                                     "curveType": "Line",
@@ -1330,7 +1330,7 @@
                                         "x": 0.0,
                                         "y": 0.0
                                     },
-                                    "id": "f0858ad461b94ac685798c1a264faca5",
+                                    "id": "b5d7561503da4eb3a0b3cc51f5fde069",
                                     "time_offset": 0,
                                     "values": [
                                         1.0
@@ -1347,7 +1347,7 @@
                                         "x": 0.0,
                                         "y": 0.0
                                     },
-                                    "id": "f84543ce0a00457d9336acd175ecb012",
+                                    "id": "32758b27b25549a19b25e17e401fecb6",
                                     "time_offset": 7500000,
                                     "values": [
                                         1.09
@@ -1366,9 +1366,9 @@
                     "speed": 1.0,
                     "volume": 0.63,
                     "extra_material_refs": [
-                        "69fc363ac23b4fc8b2aa5ad10eaa5db0",
-                        "5728b84d78ca40bfbaa1e0d1a53f796b",
-                        "78d5abf1ec234149abc30c9e4d56d73e"
+                        "ca1d92bd118240438dde8de7bbf7dc07",
+                        "ea757c8676b74abcb2cc1644aeca58ae",
+                        "9e1754cd52f64edf984bbcdd180bda2c"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -1411,15 +1411,15 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "9b689468638f44c68dc0f07a283a8a76",
-                    "material_id": "990e127e12a542d690eb9061d54b91f9",
+                    "id": "13458cdaa5374516b4936f4b1bcc2f58",
+                    "material_id": "112e0f70d9ad47b3a1d732cd37cfd7e1",
                     "target_timerange": {
                         "start": 15000000,
                         "duration": 3750000
                     },
                     "common_keyframes": [
                         {
-                            "id": "77e30e548d9a4998958962f34ce707b2",
+                            "id": "2d21563ee75845b585ce19a824da474b",
                             "keyframe_list": [
                                 {
                                     "curveType": "Line",
@@ -1432,7 +1432,7 @@
                                         "x": 0.0,
                                         "y": 0.0
                                     },
-                                    "id": "ac6d1118e1344a15b9350ddc6beb5eb6",
+                                    "id": "027c63d31f564dff844a9ff75f6b51cb",
                                     "time_offset": 0,
                                     "values": [
                                         1.0
@@ -1449,7 +1449,7 @@
                                         "x": 0.0,
                                         "y": 0.0
                                     },
-                                    "id": "10408d618d124086bfe6e268685c1df0",
+                                    "id": "e971ff2e5d2f4a0c909470935e90896f",
                                     "time_offset": 3750000,
                                     "values": [
                                         1.06
@@ -1468,9 +1468,9 @@
                     "speed": 1.0,
                     "volume": 0.766,
                     "extra_material_refs": [
-                        "7d8bfb4dacf64d0a9729c3109f1ca33a",
-                        "e35590cdae0f4596a26ecc4b057c459e",
-                        "9cbb6264956549149fcc511f1e2c665b"
+                        "eae3194fc1984bf895018f183488fefd",
+                        "3fb814a127284e68a53ae0c05c449806",
+                        "3166eb8b84114823bbdbdabcf7c670b0"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -1513,15 +1513,15 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "e3c7065f1c8143d4ad3e8b78f40a6478",
-                    "material_id": "d96d7713da544fae98059346c80890ea",
+                    "id": "ac8742e4a17b4341affb9ad5d484239f",
+                    "material_id": "f983287a4c864470a21c132289232501",
                     "target_timerange": {
                         "start": 18750000,
                         "duration": 11250000
                     },
                     "common_keyframes": [
                         {
-                            "id": "1f4e7fa315034b1d8a685eaef4d4de3b",
+                            "id": "7deaabd535dc4d958cef4415c6533ea5",
                             "keyframe_list": [
                                 {
                                     "curveType": "Line",
@@ -1534,7 +1534,7 @@
                                         "x": 0.0,
                                         "y": 0.0
                                     },
-                                    "id": "cdbc547c67b14dcabe3f0a614f820d1f",
+                                    "id": "35930109a1964dddb68ce4c19541a4cd",
                                     "time_offset": 0,
                                     "values": [
                                         1.0
@@ -1551,7 +1551,7 @@
                                         "x": 0.0,
                                         "y": 0.0
                                     },
-                                    "id": "420b1e2625074a24b31bdf47ac9c1989",
+                                    "id": "47019384ca3f43ada2e56cac2180cd23",
                                     "time_offset": 11250000,
                                     "values": [
                                         1.11
@@ -1570,8 +1570,8 @@
                     "speed": 1.0,
                     "volume": 0.766,
                     "extra_material_refs": [
-                        "b8207216f1944c3a92249cbd8a30d45c",
-                        "589e8d640b904d78872da58fe89fe691"
+                        "7da8b0582ef84998891bb3822c28e19b",
+                        "95738881a2924923993b880985c11b44"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -1607,7 +1607,7 @@
         {
             "attribute": 0,
             "flag": 0,
-            "id": "a63decada966477283e00754874be475",
+            "id": "4fb14ade03bb46169f1c5d0cc0fb3558",
             "is_default_name": false,
             "name": "cap_top",
             "segments": [
@@ -1624,8 +1624,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "b20e24912ad14291a93217432153119a",
-                    "material_id": "44e2f26ec968435986f04d97127cc832",
+                    "id": "4564fe612209494fa2d2a9feb21815ad",
+                    "material_id": "5b734cd39fe542df82982c8f6a4eaa54",
                     "target_timerange": {
                         "start": 0,
                         "duration": 1600000
@@ -1636,8 +1636,8 @@
                     "speed": 1.0,
                     "volume": 1.0,
                     "extra_material_refs": [
-                        "d032da9e111b464084730e0403eb323a",
-                        "be0f82acea544b229a96341d43386698"
+                        "2e907286c1bd41d0b9431f45d51da75b",
+                        "5a7d116ba43b48d58f3d18420dbfc740"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -1675,8 +1675,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "20b7e965813f4602a2c074450eb8f6ef",
-                    "material_id": "7298039bcf4e4c03a420f8a374b1fbb8",
+                    "id": "23c0266d5d904386844860f6a6c054a5",
+                    "material_id": "9463365863794741a5f741338b1720a8",
                     "target_timerange": {
                         "start": 25600000,
                         "duration": 3800000
@@ -1687,8 +1687,8 @@
                     "speed": 1.0,
                     "volume": 1.0,
                     "extra_material_refs": [
-                        "48cd47c8fb5e4970b8211d18ada8aa53",
-                        "407666ee96604d90819e7201face22ca"
+                        "26956f606424407498af8da08111c8a9",
+                        "7ba5cefa214c416e8f38c8decdd63701"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -1719,7 +1719,7 @@
         {
             "attribute": 0,
             "flag": 0,
-            "id": "8744ee3beef44ccc89db2afb8a498cd4",
+            "id": "8d38285b0904452c8978b3df4ff6287f",
             "is_default_name": false,
             "name": "cap_body",
             "segments": [
@@ -1736,8 +1736,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "0d5c3ac07e494df38f54eb7f0f46086e",
-                    "material_id": "0f03813948884053b7db6d05f27bdbbd",
+                    "id": "aa0557ceb6dd4a69a7061bf20d15d2ae",
+                    "material_id": "55095fcfb7a54ad9b7879290fc128e1b",
                     "target_timerange": {
                         "start": 1600000,
                         "duration": 3000000
@@ -1748,8 +1748,8 @@
                     "speed": 1.0,
                     "volume": 1.0,
                     "extra_material_refs": [
-                        "d0ac5a561fc44c8abd8bbaf47e8b27bb",
-                        "f63321988c80471ba8a3c236c03d363b"
+                        "32322f9dc045499b843105f84bd77828",
+                        "1e3fb2528cc74f7cbfa7f1b673ce58de"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -1787,8 +1787,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "6c7ec786173d4e2ba4f070d73f740e89",
-                    "material_id": "9b0454f2100f47c5906df524d7eceb2b",
+                    "id": "b87ff1dcc99a447eb04bbe59bc7cb3b3",
+                    "material_id": "141286a2b5f34434a63184c0b441b787",
                     "target_timerange": {
                         "start": 8400000,
                         "duration": 2100000
@@ -1799,8 +1799,8 @@
                     "speed": 1.0,
                     "volume": 1.0,
                     "extra_material_refs": [
-                        "712ca1ed77b4477fa599c6d258bc330d",
-                        "426e23eaa1804d9fbc7680d2bf800fdf"
+                        "ed210462c88040769caa9c56a02c2781",
+                        "1ce8b409efeb44feb65b8d0013c8363e"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -1838,8 +1838,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "007538ec8d4a47f38e31c48d94b87581",
-                    "material_id": "b3a8b743181c4c98ac2a5a42598a84ad",
+                    "id": "a92c9552b6094c5ab81b8408c247746d",
+                    "material_id": "92513fbada934466b008c618f09cbd90",
                     "target_timerange": {
                         "start": 13500000,
                         "duration": 1500000
@@ -1850,8 +1850,8 @@
                     "speed": 1.0,
                     "volume": 1.0,
                     "extra_material_refs": [
-                        "e550926f97114fab89b04a360ad535e5",
-                        "bb2d9777310c415c8256993be27588e8"
+                        "de2e3b80293d4c6987dd5cad4c5557b7",
+                        "b1edd1e03db749fe841088c3faf70916"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -1889,8 +1889,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "5cd79da8e7d54bd296d7ec2aba362cb5",
-                    "material_id": "b0f6b94598fb48d5a4d71504b2d0b17b",
+                    "id": "828d2aeb29574cbcbc749b44e15df258",
+                    "material_id": "801233d4b4c84472b134c6ab848130e7",
                     "target_timerange": {
                         "start": 15000000,
                         "duration": 2500000
@@ -1901,8 +1901,8 @@
                     "speed": 1.0,
                     "volume": 1.0,
                     "extra_material_refs": [
-                        "5e020e16ffe847919a770991721136d0",
-                        "851db417a97b47d6995546a2fed62a50"
+                        "6b9192458fb843be8638a6d28fbd61e3",
+                        "e9e2409f43124810a316f1e3e90fd7a9"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -1940,8 +1940,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "9c1ceea572324a099a9821ee4d69eba6",
-                    "material_id": "5c13ea7bfd8e42e88af6aba8cc40d8d8",
+                    "id": "73f37ae7abbe4ae7b26e1964488c4777",
+                    "material_id": "10ef809b28734acc92a88ddfb147e1e4",
                     "target_timerange": {
                         "start": 20400000,
                         "duration": 2400000
@@ -1952,8 +1952,8 @@
                     "speed": 1.0,
                     "volume": 1.0,
                     "extra_material_refs": [
-                        "a459524aa16e41109a1df6efc10b34e2",
-                        "1e97e8b0b373426eb538f1df32a8c532"
+                        "bb213b3b22d245ad9ddb894e39ac9f38",
+                        "ff69705cefa64056993812eebd82a49a"
                     ],
                     "is_tone_modify": false,
                     "clip": {
@@ -1984,7 +1984,7 @@
         {
             "attribute": 0,
             "flag": 0,
-            "id": "831673ea88f44baebb79f03ddd8bcdb8",
+            "id": "63bd66344deb4b0aba38cb308d94740d",
             "is_default_name": false,
             "name": "bgm",
             "segments": [
@@ -2001,8 +2001,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "7e0e01de25bd46029896420370ee0929",
-                    "material_id": "4e18c141e72e439ca6ef1db77e4516d0",
+                    "id": "463f008bd4844d9f9b1e55b1494837c6",
+                    "material_id": "d4189347c0d5400cb306f151cb6bb59f",
                     "target_timerange": {
                         "start": 0,
                         "duration": 30000000
@@ -2016,8 +2016,8 @@
                     "speed": 1.0,
                     "volume": 0.46,
                     "extra_material_refs": [
-                        "9680d8fbaa9e40c6ae2c3f62e85b1d88",
-                        "7d231432deeb4f87b1681d3891d5d1cd"
+                        "e6d7d1b67de14270bdc59eeba6a4865c",
+                        "7e886547786c47c98619c5ffca7c36a5"
                     ],
                     "is_tone_modify": false,
                     "clip": null,
@@ -2030,7 +2030,7 @@
         {
             "attribute": 0,
             "flag": 0,
-            "id": "2d8f9cf322754eee8ba65172c885d93e",
+            "id": "065f48b98e1d41a9a4787031a1e1c3a8",
             "is_default_name": false,
             "name": "sfx1",
             "segments": [
@@ -2047,8 +2047,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "efe59de8ca544843a340b6971e12f893",
-                    "material_id": "48042da4d687410fa275aa828b40e04f",
+                    "id": "8a058cf9645d42698cc8f03b44299634",
+                    "material_id": "138c45911d2145e3bb71707c842fab59",
                     "target_timerange": {
                         "start": 11250000,
                         "duration": 1800000
@@ -2062,8 +2062,8 @@
                     "speed": 1.0,
                     "volume": 0.65,
                     "extra_material_refs": [
-                        "a641aeaaacf6443d8483bcb06675fae2",
-                        "af415de9c03d4ce9a9b112353aabb8d2"
+                        "cf0540801075483b9e409002f292c2f3",
+                        "536aed0897ae431d9e83f3c3c9754006"
                     ],
                     "is_tone_modify": false,
                     "clip": null,
@@ -2083,8 +2083,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "0a54fd10727d4848aab7b875f7955a51",
-                    "material_id": "0debc02e768f4747ac507bd804e38726",
+                    "id": "1a1ffedd79bb4b699644c7d21bda8084",
+                    "material_id": "0895619fb5044e6e93a62b40e38fb634",
                     "target_timerange": {
                         "start": 15000000,
                         "duration": 140000
@@ -2098,8 +2098,8 @@
                     "speed": 1.0,
                     "volume": 1.0,
                     "extra_material_refs": [
-                        "499110f6600c43ec97a7d0d4f9bb4a11",
-                        "b4eaec00f972488187c41128cd8a6e75"
+                        "ed99e5a1ce154a7f839516ae02bd8b09",
+                        "8fdc5161ae8e414ea207281b3bba7731"
                     ],
                     "is_tone_modify": false,
                     "clip": null,
@@ -2119,8 +2119,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "ae2ae750beba432eb9963f3be246f072",
-                    "material_id": "2b17bc030e0e4bd18bc8ecef8d82f603",
+                    "id": "f7827d0e2aaa4912afa5a4afd1241284",
+                    "material_id": "b7b9ed856d27482faa3501d2c8e91325",
                     "target_timerange": {
                         "start": 18750000,
                         "duration": 350000
@@ -2134,8 +2134,8 @@
                     "speed": 1.0,
                     "volume": 0.7499999999999999,
                     "extra_material_refs": [
-                        "fad83999218743a9a823b1a250b3a488",
-                        "e88317a41cf3479f82a7108de133a9d3"
+                        "2ff1b51012a64c6d977013247003ba6e",
+                        "76de52b22554418e8fd5a0dfde0a15e0"
                     ],
                     "is_tone_modify": false,
                     "clip": null,
@@ -2148,7 +2148,7 @@
         {
             "attribute": 0,
             "flag": 0,
-            "id": "ce8ae2c10a7a4e048b52a9a32396bb73",
+            "id": "619ed46b78d84ac39e0a4755c65aacca",
             "is_default_name": false,
             "name": "sfx2",
             "segments": [
@@ -2165,8 +2165,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "2ff3a8770a35439bbadc52afaa4182bb",
-                    "material_id": "6fecf71b34374f7ba505872e07a2f99f",
+                    "id": "ccd935cf85e948d883c59126529e2701",
+                    "material_id": "c110f767f6cc4c11b098ad745bff9c03",
                     "target_timerange": {
                         "start": 15000000,
                         "duration": 900000
@@ -2180,8 +2180,8 @@
                     "speed": 1.0,
                     "volume": 0.95,
                     "extra_material_refs": [
-                        "a9afe4e69a294db58d3d3d675c1d7f1e",
-                        "e89a9f41d39b47b594b3baefd115def5"
+                        "c22ca3927cd8442b8673b001b3b59d3f",
+                        "14e334f28d564465afbf5b5a83a7c1f9"
                     ],
                     "is_tone_modify": false,
                     "clip": null,
@@ -2201,8 +2201,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "97769a6efc134cddb8d1ec74233a1aac",
-                    "material_id": "391c39cb951043b29ef1a2b355b81247",
+                    "id": "1e4669b91bfa486f837b101bd21707a7",
+                    "material_id": "14ce21085b5d48e1a0f0dabc9ea6c3fc",
                     "target_timerange": {
                         "start": 18750000,
                         "duration": 160000
@@ -2216,8 +2216,8 @@
                     "speed": 1.0,
                     "volume": 0.9,
                     "extra_material_refs": [
-                        "42bccb59db8a42be8f7ed2c0c3da887d",
-                        "19103f3c4c3c42c3a8982e01fabe1bb5"
+                        "3de35af6213c4af09165635309d3b331",
+                        "39fa5052ba314282b79b9be9f9844f39"
                     ],
                     "is_tone_modify": false,
                     "clip": null,
@@ -2237,8 +2237,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "55ef93fab2344f95b59dae482e7f8b8b",
-                    "material_id": "a942f3e0f883476ab3b318aceb99744f",
+                    "id": "05bf5ad7eece4398a58042fa3344f1d9",
+                    "material_id": "d440cfcd139f4605a559d0814c6df55c",
                     "target_timerange": {
                         "start": 25800000,
                         "duration": 450000
@@ -2252,8 +2252,8 @@
                     "speed": 1.0,
                     "volume": 0.85,
                     "extra_material_refs": [
-                        "14930b2f9a424459b35e12622bcc5192",
-                        "0d6de1d82b144d13b0927d8a21a14831"
+                        "0102ce15bd87418898873c98743e1745",
+                        "604fe3d1d69e4bf2bfda185625f73ad4"
                     ],
                     "is_tone_modify": false,
                     "clip": null,
@@ -2273,8 +2273,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "0feb9810fc2c4eb582b4d4e331d9ab0c",
-                    "material_id": "750fd9b11fad4f0fa9ff1f36201b67a7",
+                    "id": "2653e68590aa4873b21855464b801383",
+                    "material_id": "cf12a128653b464784bc564882be0430",
                     "target_timerange": {
                         "start": 7500000,
                         "duration": 350000
@@ -2288,8 +2288,8 @@
                     "speed": 1.0,
                     "volume": 0.7,
                     "extra_material_refs": [
-                        "e6ee2b48043b44e6ad6f8cef2a496d8c",
-                        "c65e595088664e7fbfcc0b261bc9acbd"
+                        "69be1388c6734f3995fb123a352c74c1",
+                        "bfe807e82654422eb9b4c5d60048dbd9"
                     ],
                     "is_tone_modify": false,
                     "clip": null,
@@ -2302,7 +2302,7 @@
         {
             "attribute": 0,
             "flag": 0,
-            "id": "633fde412f61407eb5b45cdd690b6fb5",
+            "id": "b2feac311284459ea9ce2c86f640efd0",
             "is_default_name": false,
             "name": "fx",
             "segments": [
@@ -2319,8 +2319,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "aea4af9c32af4203a005cd2650aebcbc",
-                    "material_id": "a2ecac15058942a1ae04ed33b5f33150",
+                    "id": "e82bfdc2de764141a40467f425dfbff5",
+                    "material_id": "1297a692d9594083bad7a7ae42c67046",
                     "target_timerange": {
                         "start": 15000000,
                         "duration": 350000
@@ -2342,8 +2342,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "d3f02b23c7c5422687a7d19cae3ddd8c",
-                    "material_id": "44db84a45e7f484db95db1bf0b477e23",
+                    "id": "57917ced2958472790f10ea1b939684c",
+                    "material_id": "836a8b36e30a4e518b3860cdeb18ca57",
                     "target_timerange": {
                         "start": 7500000,
                         "duration": 250000
@@ -2358,7 +2358,7 @@
         {
             "attribute": 0,
             "flag": 0,
-            "id": "2d0c18b0f2674c11b7bf42471ac60a96",
+            "id": "9827c03d61e6429d99683af5c7183a57",
             "is_default_name": false,
             "name": "fx2",
             "segments": [
@@ -2375,8 +2375,8 @@
                     "track_attribute": 0,
                     "track_render_index": 0,
                     "visible": true,
-                    "id": "726efdb5fff94d61829c26a08ab47531",
-                    "material_id": "c8510b0b830d4dc4b9a3f7f037bcf711",
+                    "id": "15ea25f9dbab4a248a7a94d94f398408",
+                    "material_id": "02add6b07d994fd2a8672718f7e4abb7",
                     "target_timerange": {
                         "start": 18750000,
                         "duration": 300000
