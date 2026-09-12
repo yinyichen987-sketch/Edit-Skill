@@ -74,4 +74,7 @@ projects/**/verification/frame-probe/*.png
 
 
 # ---- 抽帧脚本的临时落盘（保留成体系的 frames/ 与证据图）----
-projects/**/film-analysis/_*.png
+# 抽帧脚本的中间帧（以 _ 开头）：体积大、可由参考视频一条命令重生。
+# 保留 *_sheet.png（拼图证据）与 *.json（实测数据）。
+projects/**/*-analysis/frames/_*.png
+projects/**/*_analysis/frames/_*.png
