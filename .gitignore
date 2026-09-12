@@ -47,6 +47,11 @@ temp/
 # ---- 本项目的验证夹具（体积大且可再生，见 spike/README.md）----
 spike/media/
 
-# ---- 用户素材（体积大，不纳入版本控制）----
+# ---- 用户媒体素材（体积大，不纳入版本控制）----
+原始素材/
+参考成片/
+成品/
 assets/raw/
 assets/final/
+projects/**/media/
+projects/**/draft-out/
