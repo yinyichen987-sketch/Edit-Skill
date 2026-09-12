@@ -94,3 +94,29 @@ ffmpeg 由 `imageio-ffmpeg` 自带，**无需系统安装**；也没有 ffprobe�
 - **转场必须在入轨前挂好**：`add_segment()` 只在入轨那一刻登记 `materials.transitions`。
 
 详见 `references/edl-schema.md` 末尾。
+
+## 迭代约定：每轮训练后推送经验
+
+**每完成一轮训练/迭代，把有价值的经验追加到 `docs/lessons.md`，然后提交并推送到 GitHub。**
+
+做法：
+
+```powershell
+# 1. 把本轮经验写进 docs/lessons.md（模板在该文件末尾）
+# 2. 同步到 GitHub
+.\tools\sync.ps1 -Message "第 N 轮：<主题>"
+```
+
+`tools/sync.ps1` 会自动检查代理、暂存、提交并推送。
+
+**什么算「有价值的经验」**（写进 `docs/lessons.md`）：
+
+- 会重复踩的坑
+- 改变了后续做法的判断
+- 实测推翻了原本假设的结论
+
+**什么不算**：流水账、一次性的调试过程、已经固化进 `references/` 的技术细节正文
+（后者只留一句索引即可，避免两处维护）。
+
+> 环境注意：本机访问 GitHub 的 HTTPS 需要代理（FlClash，`127.0.0.1:10910`），
+> 已配置在本仓库的 `.git/config`。关掉代理后 `git push` 会失败，重开即可。
