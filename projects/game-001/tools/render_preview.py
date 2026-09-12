@@ -277,10 +277,35 @@ def main() -> int:
     total = sum(float(c["duration"]) for c in edl["clips"])
     cur = joined
     trans = [c for c in edl["clips"] if c.get("transition")]
-    if trans:
+    # 按类型分开近似：**不能用一种近似冒充所有转场**。
+    #   闪白类 → 白色叠加层 + alpha 包络
+    #   信号故障/故障类 → RGB 通道错位 + 噪声爆发（时间窗用 enable 门控），
+    #     否则预览会把它显示成"白闪"，让人误判成上一版那种基础转场。
+    FLASHY = {"闪白", "闪白_II", "闪黑", "闪屏", "曝光"}
+    glitch = [c for c in trans if c["transition"].get("type") not in FLASHY]
+    flashy = [c for c in trans if c["transition"].get("type") in FLASHY]
+    if glitch:
         args = ["-y", "-i", str(joined)]
+        chain, prev = [], "0:v"
+        for i, c in enumerate(glitch):
+            T = float(c["start"])
+            d = float(c["transition"].get("duration", 0.13))
+            a, b = max(0.0, T - d / 2), T + d / 2
+            lab = f"g{i}"
+            chain.append(
+                f"[{prev}]rgbashift=rh=16:bh=-16:enable='between(t,{a:.3f},{b:.3f})',"
+                f"noise=alls=32:allf=t:enable='between(t,{a:.3f},{b:.3f})'[{lab}]")
+            prev = lab
+        glitched = WORK / "glitched.mp4"
+        args += ["-filter_complex", ";".join(chain), "-map", f"[{prev}]", "-map", "0:a?",
+                 "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p",
+                 "-c:a", "copy", str(glitched)]
+        run(args, f"转场故障 ×{len(glitch)}（RGB 错位 + 噪声窗近似；剪映实际是 信号故障）")
+        cur = glitched
+    if flashy:
+        args = ["-y", "-i", str(cur)]
         chain, prev, inp = [], "0:v", 1
-        for c in trans:
+        for c in flashy:
             T = float(c["start"])
             d = float(c["transition"].get("duration", 0.13))
             args += ["-f", "lavfi", "-i", f"color=white:s={W}x{H}:d={total}:r={FPS}"]
@@ -295,7 +320,7 @@ def main() -> int:
         args += ["-filter_complex", ";".join(chain), "-map", f"[{prev}]", "-map", "0:a?",
                  "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p",
                  "-c:a", "copy", str(flashed)]
-        run(args, f"转场闪白 ×{len(trans)}（白色叠加层 + alpha 包络）")
+        run(args, f"转场闪白 ×{len(flashy)}（白色叠加层 + alpha 包络）")
         cur = flashed
     # ---- 4. 字幕叠加 ----
     cap_inputs, cap_filters, cap_meta = [], [], []
@@ -402,7 +427,9 @@ def main() -> int:
     print(f"输出: {out_file}")
     print(f"  分辨率 {W}x{H}  时长 {dur:.2f}s  大小 {out_file.stat().st_size/1024/1024:.1f} MB")
     print(f"  字幕 {len(cap_meta)} 条 | 音频叠加 {len(audio_inputs)} 条（含 −1 dBTP 限幅）")
-    print(f"  转场 {len(edl['clips'])-1} 处（闪白近似）")
+    tt = sorted({c["transition"]["type"] for c in edl["clips"] if c.get("transition")})
+    print(f"  转场 {len([c for c in edl['clips'] if c.get('transition')])} 处"
+          f"{('：' + '/'.join(tt) + '（近似渲染）') if tt else ''}")
     print("  ⚠️ 这是 ffmpeg 预览，不是剪映成片；正式导出仍须在剪映里人工完成")
     print("=" * 60)
     for t, png, size_px, center in cap_meta:
