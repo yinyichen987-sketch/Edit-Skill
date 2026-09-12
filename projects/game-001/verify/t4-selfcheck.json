@@ -458,7 +458,7 @@
       "group": "files",
       "check": "所有 draft_content.json 均在工作区内",
       "status": "passed",
-      "evidence": "draft-out 下共 9 个草稿，工作区外: 无"
+      "evidence": "draft-out 下共 11 个草稿，工作区外: 无"
     },
     {
       "group": "upstream",
