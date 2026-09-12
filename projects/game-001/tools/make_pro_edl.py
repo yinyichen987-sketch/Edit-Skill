@@ -244,13 +244,30 @@ CANVAS_BLUR = 0.75
 
 def apply_vertical_framing(edl: dict, band_scale: float = BAND_SCALE,
                            blur: float = CANVAS_BLUR) -> None:
-    """给竖屏 EDL 的所有视频片段补上模糊背景填充与画面带放大。"""
+    """给竖屏 EDL 的所有视频片段补上模糊背景填充与画面带放大。
+
+    ⚠️ **关键：缩放关键帧的值必须一起乘 band_scale。**
+    `clip.scale` 与 `KeyframeProperty.scale_x/scale_y` 控制的是**同一个量**（都是绝对缩放
+    比例，库里两者都注为"1.0 为不缩放"）。所以一旦片段带缩放关键帧，**关键帧的值会取代
+    `clip.scale`** —— 只把 `clip.scale` 设成 1.18 而关键帧仍写 1.00，剪映里就会在关键帧
+    区间被拉回 1.0，**构图修正被悄悄吃掉**（而在只看 JSON 的检查里完全看不出来）。
+    因此这里把关键帧里的缩放值也一并放大，两处保持一致。
+
+    另外 `uniform_scale` 保持库导出的形态不动：EDL 里用 `uniform_scale` 属性写关键帧时，
+    库会把它落成 `property_type: KFTypeScaleX` 而 `uniform_scale.on` 仍为 true ——
+    这是库的设计（on=true 表示等比，X 轴关键帧同时作用于两轴），不是缺陷。
+    """
+    scale_props = {"scale_x", "scale_y", "uniform_scale"}
     for c in edl.get("clips") or []:
         if c.get("track") == "audio":
             continue
         c["background_filling"] = {"type": "blur", "blur": blur}
         c["clip"] = {**({"scale": band_scale} if band_scale != 1.0 else {}),
                      **(c.get("clip") or {})}
+        if band_scale != 1.0:
+            for kf in c.get("keyframes") or []:
+                if kf.get("property") in scale_props:
+                    kf["value"] = round(float(kf["value"]) * band_scale, 6)
 
 
 def main() -> int:

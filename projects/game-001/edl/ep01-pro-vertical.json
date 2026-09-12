@@ -35,12 +35,12 @@
         {
           "property": "uniform_scale",
           "time": 0.0,
-          "value": 1.0
+          "value": 1.18
         },
         {
           "property": "uniform_scale",
           "time": 2.05,
-          "value": 1.12
+          "value": 1.3216
         }
       ],
       "background_filling": {
@@ -71,12 +71,12 @@
         {
           "property": "uniform_scale",
           "time": 0.0,
-          "value": 1.1
+          "value": 1.298
         },
         {
           "property": "uniform_scale",
           "time": 4.4,
-          "value": 1.0
+          "value": 1.18
         }
       ],
       "background_filling": {
@@ -107,27 +107,27 @@
         {
           "property": "uniform_scale",
           "time": 0.0,
-          "value": 1.0
+          "value": 1.18
         },
         {
           "property": "uniform_scale",
           "time": 3.3,
-          "value": 1.04
+          "value": 1.2272
         },
         {
           "property": "uniform_scale",
           "time": 3.5,
-          "value": 1.14
+          "value": 1.3452
         },
         {
           "property": "uniform_scale",
           "time": 3.9,
-          "value": 1.02
+          "value": 1.2036
         },
         {
           "property": "uniform_scale",
           "time": 5.6,
-          "value": 1.06
+          "value": 1.2508
         },
         {
           "property": "brightness",
@@ -173,12 +173,12 @@
         {
           "property": "uniform_scale",
           "time": 0.0,
-          "value": 1.0
+          "value": 1.18
         },
         {
           "property": "uniform_scale",
           "time": 2.95,
-          "value": 1.12
+          "value": 1.3216
         }
       ],
       "background_filling": {

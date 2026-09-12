@@ -12,10 +12,10 @@
       "segment": "622e661f8691488483f6950fff4d2c8f",
       "transform_y": 0.6875,
       "center_px": 300.0,
-      "half_px": 66.6,
+      "half_px": 63.480000000000004,
       "box_px": [
-        233.4,
-        366.6
+        236.5,
+        363.5
       ],
       "in_allow_zone": true,
       "overlaps_forbid_zone": false,
@@ -27,10 +27,10 @@
       "segment": "1add69bdab03409bb97b23a6b3028342",
       "transform_y": -0.5104,
       "center_px": 1450.0,
-      "half_px": 47.175,
+      "half_px": 44.965,
       "box_px": [
-        1402.8,
-        1497.2
+        1405.0,
+        1494.9
       ],
       "in_allow_zone": true,
       "overlaps_forbid_zone": false,
@@ -42,10 +42,10 @@
       "segment": "e534ba1ae68749f3b50d73aef93db8b3",
       "transform_y": -0.5104,
       "center_px": 1450.0,
-      "half_px": 55.5,
+      "half_px": 52.9,
       "box_px": [
-        1394.5,
-        1505.5
+        1397.1,
+        1502.9
       ],
       "in_allow_zone": true,
       "overlaps_forbid_zone": false,
@@ -57,10 +57,10 @@
       "segment": "7731e1850d9b40d7bde74171e1b0d6e8",
       "transform_y": -0.5104,
       "center_px": 1450.0,
-      "half_px": 49.949999999999996,
+      "half_px": 47.61,
       "box_px": [
-        1400.0,
-        1499.9
+        1402.4,
+        1497.6
       ],
       "in_allow_zone": true,
       "overlaps_forbid_zone": false,
@@ -72,10 +72,10 @@
       "segment": "5114a964060e40fca7dc91baa51a0728",
       "transform_y": -0.5104,
       "center_px": 1450.0,
-      "half_px": 47.175,
+      "half_px": 44.965,
       "box_px": [
-        1402.8,
-        1497.2
+        1405.0,
+        1494.9
       ],
       "in_allow_zone": true,
       "overlaps_forbid_zone": false,
@@ -87,10 +87,10 @@
       "segment": "c95c0acd2efa4f3e81b5b13d811a014a",
       "transform_y": -0.7407,
       "center_px": 940.0,
-      "half_px": 33.3,
+      "half_px": 31.740000000000002,
       "box_px": [
-        906.7,
-        973.3
+        908.2,
+        971.7
       ],
       "in_allow_zone": true,
       "overlaps_forbid_zone": false,
@@ -102,10 +102,10 @@
       "segment": "fc240a399f8644e18e6f4a5fb043973b",
       "transform_y": -0.79,
       "center_px": 966.6,
-      "half_px": 24.974999999999998,
+      "half_px": 23.805,
       "box_px": [
-        941.6,
-        991.6
+        942.8,
+        990.4
       ],
       "in_allow_zone": true,
       "overlaps_forbid_zone": false,
@@ -117,10 +117,10 @@
       "segment": "fa475f9331c14f42b695a811b2cb306b",
       "transform_y": -0.79,
       "center_px": 966.6,
-      "half_px": 27.75,
+      "half_px": 26.45,
       "box_px": [
-        938.9,
-        994.4
+        940.1,
+        993.1
       ],
       "in_allow_zone": true,
       "overlaps_forbid_zone": false,
@@ -132,10 +132,10 @@
       "segment": "41393e81e0ef47478a87f549e52ce45b",
       "transform_y": -0.79,
       "center_px": 966.6,
-      "half_px": 24.974999999999998,
+      "half_px": 23.805,
       "box_px": [
-        941.6,
-        991.6
+        942.8,
+        990.4
       ],
       "in_allow_zone": true,
       "overlaps_forbid_zone": false,
@@ -147,10 +147,10 @@
       "segment": "4f8dd66f94bc4e99a117d1bd4202ebde",
       "transform_y": -0.7407,
       "center_px": 940.0,
-      "half_px": 24.974999999999998,
+      "half_px": 23.805,
       "box_px": [
-        915.0,
-        965.0
+        916.2,
+        963.8
       ],
       "in_allow_zone": true,
       "overlaps_forbid_zone": false,

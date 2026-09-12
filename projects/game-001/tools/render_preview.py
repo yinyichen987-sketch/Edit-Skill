@@ -39,12 +39,12 @@ FONT_PATH = r"C:\Windows\Fonts\msyhbd.ttc"      # 微软雅黑 Bold
 FONT_PATH_FALLBACK = r"C:\Windows\Fonts\msyh.ttc"
 
 # 字号映射：剪映 `size` → 渲染像素。**实测换算，不是设计值**。
-#   em_px ≈ 5.55 × size
+#   em_px ≈ 5.29 × size（**4 点标定实测**：8/14/20/26 四档反算均为 5.28–5.30，极差 0.02 线性成立；单点估计曾为 5.55，偏差 5%）
 #   依据：剪映自己渲染的草稿封面里，pyJianYingDraft 默认字号 8.0 的文案
 #   `DSH SPIKE 测试字幕` 测得 ink 高 43px、总宽 456px，两个独立量都收敛到 em≈44.4px。
 #   同时证伪了 `size/100×画布高` 的假设（那样字符串要有 1470px 宽，画面放不下）。
 #   旧代码用 {6.0:72, 5.0:56}（隐含 size×12），把字号高估了约 2.2 倍。
-EM_PER_SIZE = 5.55
+EM_PER_SIZE = 5.29
 
 
 def ff() -> str:
@@ -55,7 +55,9 @@ def run(args: list[str], desc: str) -> None:
     proc = subprocess.run([ff(), "-hide_banner", "-loglevel", "error", *args],
                           capture_output=True, text=True, encoding="utf-8", errors="replace")
     if proc.returncode != 0:
-        print(f"[FAIL] {desc}\n{(proc.stderr or '').strip()[-800:]}")
+        err = (proc.stderr or "").strip()
+        # 报错重点常在**开头**（"matches no streams" 之类），尾部反而是滤镜串 —— 故打印头部
+        print(f"[FAIL] {desc}\n{err[:2000]}")
         raise SystemExit(1)
     print(f"  [OK] {desc}")
 
@@ -112,6 +114,23 @@ def contain_size(sw: int, sh: int, W: int, H: int) -> tuple[int, int]:
     return max(2, round(H * sw / sh)), H
 
 
+def seg_audio_filter(volume: float, speed: float, duration: float) -> str:
+    """片段音频滤镜：音量 + 变速 + **裁/补齐到精确时长**。
+
+    为什么要 apad：每段独立编码后拼接时，容器时长 = max(视频, 音频)。
+    ffmpeg 的 `fps` 滤镜会把帧数**向上取整**，于是每段都比 EDL 时长多一点；
+    15 段累积出 +0.18s 的偏移 —— 对卡点片来说，末尾的画面会比 BGM 晚近 0.2s，
+    正好把"卡点"演示坏掉。音频补齐到精确时长（视频用 -frames:v 向下取整）
+    可让容器时长严格等于 EDL 时长。
+    """
+    parts = [f"volume={volume}"]
+    if speed != 1.0:
+        parts.append(f"atempo={speed:.6f}")
+    parts.append(f"atrim=0:{duration:.6f}")
+    parts.append(f"apad=whole_dur={duration:.6f}")
+    return ",".join(parts)
+
+
 def make_caption_png(text: str, size_px: int, W: int, H: int, center_px: float, out: Path) -> None:
     """渲染一条字幕为透明 PNG（白字 + 黑描边），水平居中，中心位于 center_px。"""
     font = ImageFont.truetype(FONT_PATH if os.path.exists(FONT_PATH) else FONT_PATH_FALLBACK, size_px)
@@ -152,6 +171,22 @@ def main() -> int:
         bf = c.get("background_filling") or {}
         blur_bg = bf.get("type") == "blur"
 
+        # 变速：**素材窗口 = 时间线长度 × 速度**（timeline = source / speed）。
+        # 预览里用 setpts 放慢/加快视频、atempo 同步音频，使预览与 EDL 时间线一致。
+        speed = float(c.get("speed", 1.0)) or 1.0
+        src_window = float(c["duration"]) * speed
+        speed_v = [f"setpts=PTS/{speed:.6f}", f"fps={FPS}"] if speed != 1.0 else []
+        # 视频帧数**向下取整**，音频补齐到精确时长 → 容器时长严格等于 EDL 时长
+        n_frames = max(1, int(float(c["duration"]) * FPS + 1e-6))
+        afilter = seg_audio_filter(float(c.get("volume", 1.0)), speed, float(c["duration"]))
+
+        # 调色：EDL 给了 filter 就近似成调研给出的廉价等价式
+        # （对比 +5% / 饱和 +9% / 暗角 / 轻噪点）—— 让预览反映"全片同一个 grade"。
+        grade = []
+        if c.get("filter"):
+            grade = ["eq=contrast=1.05:saturation=1.09", "vignette=PI/4.6",
+                     "noise=alls=5:allf=t+u"]
+
         # 关键帧推拉（uniform_scale / scale_x）→ 先裁再放大，等价于「画面变大」
         sc = kf_series(c, "uniform_scale") or kf_series(c, "scale_x")
         # 关键帧亮度 → eq（需 eval=frame 才逐帧求值）
@@ -185,15 +220,25 @@ def main() -> int:
                 last = "vout"
             else:
                 last = "ov"
-            run(["-y", "-ss", f"{c.get('source_in', 0)}", "-t", f"{c['duration']}", "-i", str(src),
+            if grade or speed_v:
+                tail = grade + speed_v
+                fc += f";[{last}]{','.join(tail)}[vfin]"
+                last = "vfin"
+            run(["-y", "-ss", f"{c.get('source_in', 0)}", "-t", f"{src_window}", "-i", str(src),
                  "-filter_complex", fc, "-map", f"[{last}]",
-                 "-af", f"volume={c.get('volume', 1.0)}",
+                 # ⚠️ 用了 -map 就**只**输出被映射的流：这里必须显式再映射音频，
+                 # 否则片段文件里**根本没有音轨**（实测 seg0.mp4 只有一条 Video 流），
+                 # 后面 amix 时 [0:a] 找不到流 → "matches no streams"。
+                 "-an",   # 片段只出视频：音频在最后一次 pass 里统一构建，避免逐段 AAC padding
+                 "-frames:v", str(n_frames),
                  "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p",
                  "-c:a", "aac", "-ar", "48000", "-ac", "2", str(out)],
                 f"clip {c['id']}  {src.name}  in={c.get('source_in',0)}  dur={c['duration']}  "
                 f"竖屏构图 画面带{band_w}x{band_h}({band_scale}x) + 模糊底 sigma={sigma:.0f}"
                 + (f"  推拉关键帧{len(sc)}个" if sc else "")
-                + (f"  亮度关键帧{len(br)}个" if br else ""))
+                + (f"  亮度关键帧{len(br)}个" if br else "")
+                + (f"  grade" if grade else "")
+                + (f"  变速{speed}x(吃素材{src_window:.4f}s)" if speed != 1.0 else ""))
             seg_files.append(out)
             continue
 
@@ -204,10 +249,13 @@ def main() -> int:
             vf.append(f"scale={W}:{H}:flags=bicubic")
         if br:
             vf.append(f"eq=brightness='{piecewise(br)}':eval=frame")
+        vf.extend(grade)
+        vf.extend(speed_v)
 
-        run(["-y", "-ss", f"{c.get('source_in', 0)}", "-t", f"{c['duration']}", "-i", str(src),
+        run(["-y", "-ss", f"{c.get('source_in', 0)}", "-t", f"{src_window}", "-i", str(src),
              "-vf", ",".join(vf),
-             "-af", f"volume={c.get('volume', 1.0)}",
+             "-an",
+             "-frames:v", str(n_frames),
              "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p",
              "-c:a", "aac", "-ar", "48000", "-ac", "2", str(out)],
             f"clip {c['id']}  {src.name}  in={c.get('source_in',0)}  dur={c['duration']}  vol={c.get('volume',1.0)}"
@@ -218,7 +266,8 @@ def main() -> int:
     lst = WORK / "concat.txt"
     lst.write_text("".join(f"file '{p.as_posix()}'\n" for p in seg_files), encoding="utf-8")
     joined = WORK / "joined.mp4"
-    run(["-y", "-f", "concat", "-safe", "0", "-i", str(lst), "-c", "copy", str(joined)], "拼接 4 片段")
+    run(["-y", "-f", "concat", "-safe", "0", "-i", str(lst), "-c", "copy", str(joined)],
+        f"拼接 {len(seg_files)} 片段")
 
     # ---- 3. 转场：闪白 ----
     # 实现要点（踩过的坑）：不能用 video 层的 `fade=t=in:st=X` 来做局部白闪——
@@ -260,6 +309,30 @@ def main() -> int:
     args = ["-y", "-i", str(cur)]
     for _, png, _, _ in cap_meta:
         args += ["-i", str(png)]
+    # 音频叠加（BGM + 音效）：此前预览**完全没渲染** audio_overlays —— 于是
+    # 预览里既听不到 BGM 也听不到音效，"卡点"根本无从判断。这里补上。
+    audio_inputs = []
+    for ao in edl.get("audio_overlays") or []:
+        ap = Path(ao["source"]) if os.path.isabs(ao["source"]) else (base / ao["source"]).resolve()
+        if not ap.exists():
+            print(f"  [WARN] 音频叠加素材缺失，已跳过: {ap}")
+            continue
+        audio_inputs.append((len(cap_meta) + 1 + len(audio_inputs), ao))
+        args += ["-i", str(ap)]
+
+    # 游戏原声：**在这里**从素材直接取，逐片段 adelay 定位。
+    #   为什么不复用片段文件里的音轨：每段独立 AAC 编码都会把音频补齐到 1024 采样的整数倍
+    #   （≈21ms），15 段累积出 +0.13s 偏移，末尾画面比 BGM 晚 4 帧 —— 对卡点片是硬伤。
+    #   从这里统一构建，时间线就严格由 EDL 决定。
+    base_n = len(cap_meta) + 1 + len(audio_inputs)
+    clip_audio = []
+    for j, c in enumerate(edl["clips"]):
+        src = Path(c["source"]) if os.path.isabs(c["source"]) else (base / c["source"]).resolve()
+        sp = float(c.get("speed", 1.0)) or 1.0
+        args += ["-ss", f"{c.get('source_in', 0)}", "-t", f"{float(c['duration']) * sp}",
+                 "-i", str(src)]
+        clip_audio.append((base_n + j, c))
+
     chain = []
     prev = "0:v"
     for idx, (t, png, size_px, center) in enumerate(cap_meta):
@@ -267,12 +340,56 @@ def main() -> int:
         lab = f"v{idx}"
         chain.append(f"[{prev}][{idx+1}:v]overlay=0:0:enable='between(t,{st:.3f},{en:.3f})'[{lab}]")
         prev = lab
+
+    alabels = []
+    for k, (i_off, c) in enumerate(clip_audio):
+        st = float(c["start"]); du = float(c["duration"]); sp = float(c.get("speed", 1.0)) or 1.0
+        parts = [f"volume={float(c.get('volume', 1.0))}"]
+        if sp != 1.0:
+            parts.append(f"atempo={sp:.6f}")
+        parts.append(f"atrim=0:{du:.6f}")
+        parts.append(f"adelay={int(round(st * 1000))}:all=1")
+        chain.append(f"[{i_off}:a]" + ",".join(parts) + f"[ga{k}]")
+        alabels.append(f"ga{k}")
+
+    for k, (i_off, ao) in enumerate(audio_inputs):
+        st = float(ao["start"]); du = float(ao["duration"]); vol = float(ao.get("volume", 1.0))
+        fade = ao.get("fade") or {}
+        fi, fo = float(fade.get("in", 0.0)), float(fade.get("out", 0.0))
+        parts = [f"atrim=start=0:end={du:.4f}", f"volume={vol}"]
+        if fi > 0:
+            parts.append(f"afade=t=in:st=0:d={fi:.3f}")
+        if fo > 0:
+            parts.append(f"afade=t=out:st={max(0.0, du - fo):.4f}:d={fo:.3f}")
+        # 位置靠 adelay 落在时间线上（不是 -ss：-ss 是文件内定位，不是时间线定位）
+        parts.append(f"adelay={int(round(st * 1000))}:all=1")
+        lab = f"ao{k}"
+        chain.append(f"[{i_off}:a]" + ",".join(parts) + f"[{lab}]")
+        alabels.append(lab)
+
+    # normalize=0 很关键：amix 默认会按 1/N 衰减，把所有音轨都压没
+    total = sum(float(c["duration"]) for c in edl["clips"])
+    chain.append("[" + "][".join(alabels) +
+                 f"]amix=inputs={len(alabels)}:duration=longest:normalize=0[mixed]")
+    # 实测教训（两处，都不是"调个参数"级别的坑）：
+    #   ① alimiter 的 limit 是线性值，且 **AAC 编码后还有 intersample 过冲** ——
+    #      第一版 limit=0.891（−1 dBFS）实测真峰值 **+1.1 dBFS，仍在削顶**。
+    #   ② **alimiter 默认 level=1（auto level），它会把限幅结果再拉回去** ——
+    #      同一素材：level 默认时 I=−10.5 LUFS / Peak=+0.6 dBFS（削顶）；
+    #      加 level=0 后 I=−13.4 LUFS / Peak=−1.7 dBFS（正常）。
+    #      也就是说"加了限幅器"和"限幅生效"是两件事，必须量真峰值才算数。
+    chain.append("[mixed]alimiter=limit=0.70:attack=5:release=60:level=0[afinal]")
+    amap = "[afinal]"
+
     fc = ";".join(chain)
     out_file = OUT_DIR / f"{name}_preview.mp4"
-    args += ["-filter_complex", fc, "-map", f"[{prev}]", "-map", "0:a?",
+    args += ["-filter_complex", fc, "-map", f"[{prev}]", "-map", amap,
+             # -t 强制成片长度严格等于 EDL 总长（差一点点也算错，卡点片对时间很敏感）
+             "-t", f"{total:.6f}",
              "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p",
              "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", str(out_file)]
-    run(args, f"叠加 {len(cap_meta)} 条字幕")
+    run(args, f"叠加 {len(cap_meta)} 条字幕 + {len(clip_audio)} 条游戏原声 + "
+              f"{len(audio_inputs)} 条音频叠加（含限幅器 −1 dBTP）")
 
     # ---- 5. 校验 ----
     probe = subprocess.run([ff(), "-hide_banner", "-i", str(out_file)],
@@ -284,7 +401,8 @@ def main() -> int:
     print("=" * 60)
     print(f"输出: {out_file}")
     print(f"  分辨率 {W}x{H}  时长 {dur:.2f}s  大小 {out_file.stat().st_size/1024/1024:.1f} MB")
-    print(f"  字幕 {len(cap_meta)} 条 | 转场 {len(edl['clips'])-1} 处（闪白近似）")
+    print(f"  字幕 {len(cap_meta)} 条 | 音频叠加 {len(audio_inputs)} 条（含 −1 dBTP 限幅）")
+    print(f"  转场 {len(edl['clips'])-1} 处（闪白近似）")
     print("  ⚠️ 这是 ffmpeg 预览，不是剪映成片；正式导出仍须在剪映里人工完成")
     print("=" * 60)
     for t, png, size_px, center in cap_meta:

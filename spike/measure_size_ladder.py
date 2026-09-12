@@ -27,7 +27,7 @@ DRAFT_NAME = "DSH_SIZE_LADDER"
 LADDER = [(8.0, 240), (14.0, 720), (20.0, 1200), (26.0, 1680)]
 SAMPLE = "测试字 AB"
 WINDOW = 200          # 在每个落点上下各取多少 px 作为搜索窗
-EM_ASSUMED = 5.55     # 当前在用的常数，仅用于打印对比
+EM_ASSUMED = 5.29     # 当前在用的常数，仅用于打印对比
 
 
 def main() -> int:

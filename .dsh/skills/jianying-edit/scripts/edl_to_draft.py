@@ -376,11 +376,17 @@ def build(edl: dict, draft_root: str, name: str | None, dry_run: bool) -> dict:
         src = resolve(item["source"])
         start = float(item["start"])
         duration = float(item["duration"])
+        speed = float(item.get("speed", 1.0)) or 1.0
         kwargs: dict = {"volume": float(item.get("volume", 1.0))}
         if item.get("source_in") is not None:
-            kwargs["source_timerange"] = d.trange(tsec(item["source_in"]), tsec(duration))
+            # ⚠️ 变速时**素材窗口 ≠ 时间线长度**：剪映里 target_duration = source_duration / speed，
+            # 所以 source_duration = target_duration × speed。
+            # 旧代码一律按 `duration` 取素材窗口，速度≠1 时取多/取少了，
+            # 而且这条错误只在 speed≠1 时才显形（本集此前全是 1.0，所以一直没暴露）。
+            kwargs["source_timerange"] = d.trange(tsec(item["source_in"]),
+                                                  tsec(duration * speed))
         if item.get("speed") is not None:
-            kwargs["speed"] = float(item["speed"])
+            kwargs["speed"] = speed
 
         if track_type_of.get(item["track"]) == "audio":
             seg = d.AudioSegment(src, d.trange(tsec(start), tsec(duration)), **kwargs)
