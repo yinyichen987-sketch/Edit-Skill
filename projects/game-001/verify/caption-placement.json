@@ -4,7 +4,7 @@
   "direction_basis": "pyJianYingDraft/keyframe.py: 『上移为正 … 单位是半个画布高』",
   "size_to_px": "UNDETERMINED —— 字框半高按 EDL style.size 分档取设计字号：6.0→72px(±36)、5.0→56px(±28)",
   "vt_ui_cap_px": 1620,
-  "hard_fail_by_glyph_box": 2,
+  "hard_fail_by_glyph_box": 0,
   "box_bottom_over_ui_cap_count": 0,
   "rows": [
     {

@@ -70,13 +70,19 @@ ZONES = {
     "GAME_EP01_VT": ("vertical", 1920, [(0, 656), (1264, 1620)], (656, 1264)),
     "GAME_EP01_LS": ("landscape", 1080, [(900, 1080)], (700, 900)),
     # ---- 卡点集锦：此前**根本没被这个门禁覆盖**（ZONES 里只有 EP01 两条），
-    #      是覆盖面缺口，本轮补上。----
+    #      是覆盖面缺口，后来补上。----
+    # ⚠️ 但 `GAME_MONT_VT` / `GAME_MONT_LS` 这两个草稿在**第七版已按用户要求丢弃**
+    #    （"把之前的草稿全都丢弃不要"）。**不要把它们从 ZONES 里删掉** ——
+    #    留着，让脚本走下面的「缺草稿 -> SKIP」分支并打印出来；
+    #    删掉反而会让"某天草稿没生成"这件事彻底静默。
     # 竖屏集锦：钩子仍在 0–656、过程仍在 1264–1620，与 EP01 同口径。
     "GAME_MONT_VT": ("vertical", 1920, [(0, 656), (1264, 1620)], (656, 1264)),
     # 横屏集锦：**按用户参考成片（瓦参考素材）实测重定** —— 参考成片的标签在
     # 上部居中约 200px。故允许区改成「准星以上的上部带」+ 原来的底部安全带，
     # 禁止区是准星附近（约 540px）那一段。
     "GAME_MONT_LS": ("landscape", 1080, [(0, 470), (900, 1080)], (470, 900)),
+    # 第七版实际交付的击杀卡点集锦（**0 条字幕**，故此表对它恒为空、不会有违反项）
+    "瓦击杀卡点_H2H": ("landscape", 1080, [(0, 470), (900, 1080)], (470, 900)),
 }
 # 抖音 UI 覆盖带（底部约 300px）；见 format-spec §4.1/§4.2
 VT_UI_CAP = 1620
@@ -99,15 +105,25 @@ def main() -> int:
     print("-" * 124)
     hard_fail = 0
     over_ui = 0
+    skipped = []
     rows = []
     for name, (kind, H, allow, forbid) in ZONES.items():
         draft = DRAFT_ROOT / name / "draft_content.json"
         if not draft.exists():
-            print(f"{name:<14} !! 缺 draft_content.json")
-            hard_fail += 1
+            # ⚠️ **缺草稿不算硬失败**。草稿会被用户主动丢弃（第七版就是
+            #    "把之前的草稿全都丢弃不要"），把它计成失败会让门禁从此永远红着，
+            #    久而久之就没人看这个门禁了 —— 那才是真正的风险。
+            #    但**必须打印出来并计数**，否则"某天草稿没生成"会彻底静默。
+            print(f"{name:<14} -- 跳过：没有 draft_content.json（草稿未生成或已被丢弃）")
+            skipped.append(name)
             continue
         j = json.loads(draft.read_text(encoding="utf-8"))
-        ttrack = next(t for t in j["tracks"] if t["type"] == "text")
+        ttrack = next((t for t in j["tracks"] if t["type"] == "text"), None)
+        if ttrack is None:
+            # 该集锦是**零字幕**版（用户要求删掉所有文字）⇒ 没有可违反的字幕
+            print(f"{name:<14} -- 跳过：该草稿没有文本轨（零字幕版）")
+            skipped.append(name)
+            continue
         # 取每条文本的 style.size（在 materials.texts[].content 的 JSON 字符串里）
         size_by_id = {}
         for m in j["materials"].get("texts", []):
