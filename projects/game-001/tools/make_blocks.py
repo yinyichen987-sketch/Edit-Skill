@@ -58,6 +58,17 @@ GRADE_LAYERS = [
 TRANSITION_TYPE = "信号故障"
 TRANSITION_DUR = 0.12     # 每个**块边界**（换素材）放一个，标明"换片源"
 
+# ---- B. 假第二机位：同一素材块内相邻片段的缩放交替 ----
+#   来自 Premiere Gal《Hide Jump Cuts Like a PRO》：
+#   "把其中一个片段放大，跳切就明显不那么显眼"。
+#   幅度只取 12%，且**交替而非累加** —— 教程同时警告"别做过头让观众晕"。
+REFRAME_SCALES = (1.00, 1.12)
+
+# ---- C. 音频胶合：每个"被剔除空档"的接缝加一条 whoosh ----
+#   同一教程："音频是把所有东西粘起来的东西……在切点加一个 whoosh 音效。"
+WHOOSH = "../sfx/whoosh.wav"
+WHOOSH_VOLUME = 0.55
+
 COMPACT = {"g_vig": (1,), "g_grain": (1,)}
 PARAM_ORDER = {"g_sharp": ("effects_adjust_blur", "effects_adjust_sharpen",
                            "effects_adjust_size", "effects_adjust_range",
@@ -97,6 +108,7 @@ def build() -> dict:
     blocks.sort(key=lambda b: (b["short"] == CLOSER, b["n_kills"], b["short"]))
 
     clips = []
+    whooshes: list[float] = []
     t_us = 0
     for bi, b in enumerate(blocks, 1):
         short = b["short"]
@@ -121,6 +133,8 @@ def build() -> dict:
                            f"**同素材段落必须连在一起、按时序排列**（用户要求：符合从一杀到多杀的过程）；"
                            f"只剔除了 >4.5s 无击杀的空档；**不卡点**，连续性优先。"),
                 "volume": GAME_VOLUME,
+                # B：同一块内相邻段交替缩放 ⇒ 切口看起来像换了机位
+                "clip": {"scale": REFRAME_SCALES[(si - 1) % len(REFRAME_SCALES)]},
                 # 每个**块边界**（换素材）放一个转场，块内的段间是"剔除空档"的接缝，也放一个
                 "transition": ({"type": TRANSITION_TYPE, "duration": TRANSITION_DUR}
                                if first else None),
@@ -128,6 +142,8 @@ def build() -> dict:
             # 段之间的接缝（同一素材内被剔除空档处）不加转场：那是同一素材的连续推进
             if not first:
                 clips[-1].pop("transition", None)
+                # C：块内"被剔除空档"的接缝 ⇒ 加一条 whoosh 把跳变带过去
+                whooshes.append(round(t_us / 1e6, 6))
             t_us += dur_us
 
     total = t_us / 1e6
@@ -144,14 +160,19 @@ def build() -> dict:
         "tracks": [
             {"type": "video", "name": "main"},
             {"type": "audio", "name": "bgm"},
+            {"type": "audio", "name": "sfx"},
         ],
         "clips": clips,
         "texts": [],
-        "audio_overlays": [
-            {"source": BGM, "track": "bgm", "start": 0.0,
-             "duration": round(total, 6), "volume": BGM_VOLUME,
-             "fade": {"in": 0.0, "out": 0.6}},
-        ],
+        "audio_overlays": (
+            [{"source": BGM, "track": "bgm", "start": 0.0,
+              "duration": round(total, 6), "volume": BGM_VOLUME,
+              "fade": {"in": 0.0, "out": 0.6}}]
+            + [{"source": WHOOSH, "track": "sfx", "start": t,
+                "duration": 0.35, "volume": WHOOSH_VOLUME,
+                "fade": {"in": 0.005, "out": 0.09}}
+               for t in whooshes]
+        ),
         "effect_tracks": [
             {"name": trk, "effects": [
                 {"type": ty, "start": 0.0, "duration": round(total, 6),

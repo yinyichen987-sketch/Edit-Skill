@@ -36,6 +36,8 @@ from pymediainfo import MediaInfo
 ROOT = pathlib.Path(__file__).resolve().parents[3]
 KM = ROOT / "projects/game-001/analysis2/kills_mine.json"
 OUT = ROOT / "projects/game-001/analysis2/source_blocks.json"
+MOTION = ROOT / "projects/game-001/analysis2/motion.json"
+SNAP = 0.35   # 切点在 ±该秒数内寻找"动作间隙"（运动量局部极小）
 
 GAP = 3.0     # 无击杀超过这么多秒 = "过长"，删。
               # ⚠️ 由 5.0 收紧到 3.0：用户指出后者留下了"太多没用的镜头"。
@@ -55,6 +57,27 @@ def dur(p: pathlib.Path) -> float:
 
 
 km = json.loads(KM.read_text(encoding="utf-8"))
+_motion = (json.loads(MOTION.read_text(encoding="utf-8"))
+           if MOTION.exists() else {})
+
+
+def snap_to_calm(short: str, t: float) -> float:
+    """在 t 附近 ±SNAP 秒内找运动量最低的一帧。
+
+    这是"不要切在动作中间"的可计算版本：动作间隙 = 逐帧运动量的局部极小。
+    找不到运动量数据时原样返回（不因为缺数据就报错）。
+    """
+    m = _motion.get(short)
+    if not m or not m.get("motion"):
+        return t
+    fps = m.get("fps", 30.0)
+    sig = m["motion"]
+    lo = max(0, int((t - SNAP) * fps))
+    hi = min(len(sig) - 1, int((t + SNAP) * fps))
+    if hi <= lo:
+        return t
+    best = min(range(lo, hi + 1), key=lambda i: sig[i])
+    return best / fps
 D = {s: dur(ROOT / "原始素材" / r["file"]) for s, r in km.items()}
 
 blocks = []
@@ -69,16 +92,16 @@ for short, r in sorted(km.items()):
     keep, pos = [], 0.0
     # 片头：首杀之前若超过 GAP，才裁
     if ks[0] - 0.0 > GAP:
-        pos = max(0.0, ks[0] - PRE)
+        pos = max(0.0, snap_to_calm(short, ks[0] - PRE))
     # 内部：相邻击杀间隔 > GAP 才裁
     for a, b in zip(ks, ks[1:]):
         # 只有当"真正能删掉的净长度"够大时才切
         if (b - a) > GAP and (b - a) - PRE - POST >= MIN_CUT:
-            keep.append([pos, a + POST])
-            pos = max(0.0, b - PRE)
+            keep.append([pos, snap_to_calm(short, a + POST)])
+            pos = max(0.0, snap_to_calm(short, b - PRE))
     # 片尾：末杀之后若超过 GAP，才裁
     if d - ks[-1] > GAP:
-        keep.append([pos, ks[-1] + POST])
+        keep.append([pos, snap_to_calm(short, ks[-1] + POST)])
     else:
         keep.append([pos, d])
 
