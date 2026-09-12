@@ -159,7 +159,7 @@
     },
     {
       "draft": "GAME_MONT_VT",
-      "segment": "848ef66904304b4f815a0ce56b04b5fb",
+      "segment": "71fe7399cd8f47379cbd67558b739658",
       "transform_y": 0.6875,
       "center_px": 300.0,
       "half_px": 63.480000000000004,
@@ -174,7 +174,7 @@
     },
     {
       "draft": "GAME_MONT_VT",
-      "segment": "9dc9e6852eb444aba927aceff306e41e",
+      "segment": "9933a21a18994440ba1924d6946d356a",
       "transform_y": 0.6875,
       "center_px": 300.0,
       "half_px": 44.965,
@@ -189,7 +189,7 @@
     },
     {
       "draft": "GAME_MONT_LS",
-      "segment": "3de31194b993410580927a24373d8cfc",
+      "segment": "035e5b2526654b8a8cad8730d95a9cea",
       "transform_y": 0.611111,
       "center_px": 210.0,
       "half_px": 35.7075,
@@ -204,7 +204,7 @@
     },
     {
       "draft": "GAME_MONT_LS",
-      "segment": "c4174e95715b4f028ff0dced7ae5101f",
+      "segment": "9bc85c2df0ab4540af17c94f2d9ef37d",
       "transform_y": 0.611111,
       "center_px": 210.0,
       "half_px": 25.2862,
