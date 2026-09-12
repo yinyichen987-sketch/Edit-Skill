@@ -85,32 +85,65 @@ CANVAS_BLUR = 0.75
 #     m3 b 15.000–18.750（2 小节）  ← **起点 15.000s 正是 BGM 的 drop（第 9 小节）**
 #     m4 b 18.750–30.000（6 小节）
 SHOTS = [
-    # 第 1 镜：c 段一整段 7.5s = **16 拍**（16 拍 = 4 小节）
-    (16, "c", 3.55,  "run_c",  "c 段连续长镜 7.5s：C-H5(击杀播报同帧，信息量最高) → C-H7 → C-H8；开场即冷开峰值", 1.0),
-    # 第 2 镜：a 段一整段 7.5s = **16 拍**
-    (16, "a", 5.00,  "run_a",  "a 段连续长镜 7.5s：A-H2(拾取) → A-H3(**实测 2 HP**) → A-H4 → A-H5(**两条击杀播报**)", 1.0),
-    # 第 3 镜：b 段第一段 3.75s = **8 拍**；起点 = drop
-    (8,  "b", 5.40,  "run_b1", "b 段第一段 3.75s：B-H1(**全 70 秒音频能量最强**) → B-H2(击杀确认)；止于 9.15，距 10.98 跳变窗 1.83s", 1.0),
-    # 第 4 镜：b 段第二段 11.25s = **24 拍**
-    (24, "b", 13.50, "run_b2", "b 段第二段 11.25s：B-H5(爆能器已部署横幅) → B-H7(**「获胜」横幅**)；起于 13.50（跳变窗之后 0.49s）", 1.0),
+    # 每个"镜"是 **(素材, 入点, [(拍数, 速度), …], 角色, 依据)** —— 一个镜可由**若干变速子段**组成。
+    # 本轮从教学文里学到的核心手法（来源 https://diantuoyi.com/article/8990.html
+    # 「三、素材类型 1：游戏录屏」）：**击杀瞬间放慢到 0.7×、前后保持快放，形成节奏反差**。
+    #
+    # ⚠️ 变速子段**不是"切割"**：只要相邻子段在**时间线与素材上都首尾相接**，画面就是连续的
+    #    （同一场景、推进速度不同而已），因此不违反用户"不要切割太碎"的要求。
+    #    素材消耗 = 时间线长度 × 速度 ⇒ source_in 必须**按子段消耗量累加**。
+    # ⚠️ 文章写 1.2×，这里用 **1.15×**：素材 30fps，1.2× 会丢掉约 17% 的帧、产生可见顿挫；
+    #    放慢（0.7×）只是重复帧，不受影响。
+    # 第 1 镜：c 段一整段 7.5s，常速（冷开峰值，不加速以免第一印象发飘）
+    ("c", 3.55, [(16, 1.00)], "run_c",
+     "c 段连续长镜 7.5s：C-H5(击杀播报同帧，信息量最高) → C-H7 → C-H8；开场即冷开峰值"),
+    # 第 2 镜：a 段 7.5s —— **前 4 拍 0.7× 放慢**（正好压住 A-H3 实测 2 HP 的 6.35–6.95s），后 12 拍 1.15× 提回
+    ("a", 5.60, [(4, 0.70), (12, 1.15)], "run_a",
+     "a 段 7.5s：A-H2(拾取) → **A-H3 实测 2 HP 处放慢到 0.7×** → A-H4 → A-H5(两条击杀播报，1.15× 提回)"),
+    # 第 3 镜：b 段第一段 3.75s —— 前 4 拍 1.15×，**后 4 拍 0.7× 放慢**（压住 B-H2 击杀确认 8.5s）
+    ("b", 5.40, [(4, 1.15), (4, 0.70)], "run_b1",
+     "b 段第一段 3.75s：B-H1(**全 70 秒音频能量最强**) → **B-H2 击杀确认处放慢到 0.7×**"),
+    # 第 4 镜：b 段第二段 11.25s，常速（收尾「获胜」，不需要速度反差）
+    ("b", 13.50, [(24, 1.00)], "run_b2",
+     "b 段第二段 11.25s：B-H5(爆能器已部署横幅) → B-H7(**「获胜」横幅**)"),
 ]
-# 拍数合计 = 16+16+8+24 = **64 拍 = 16 小节 = 30.000s**（128BPM，1 小节 = 1.875s）。
-# ⚠️ 第一项的单位是**拍**不是小节：本轮曾把 4/4/2/6（小节数）误填进去，
-#    结果总长只有 7.5s、镜长缩到 0.94–2.81s。改完必须复核总长。
-# 各段的素材窗口（两端都避开 VFR 真实跳变窗口，且留足 CUT-04 余量）：
-#   c  3.55 → 11.05  （c 跳变窗 [2.0717,2.1050]/[3.3717,3.4050]：入点距后者 0.145s；c 上界 25.012）
-#   a  5.00 → 12.50  （a 为 CFR 无跳变；a 上界 18.984）
-#   b  5.40 →  9.15  （b 跳变窗 [10.9797,11.0454]：出点距其 1.83s）
-#   b 13.50 → 24.75  （b 跳变窗 [12.9787,13.0120]：入点距其 0.488s；b 上界 26.017，余量 1.267s）
+# 拍数合计 = 16 +（4+12）+（4+4）+ 24 = **64 拍 = 16 小节 = 30.000s**（128BPM，1 小节 = 1.875s）。
+# ⚠️ 单位是**拍**不是小节：曾把 4/4/2/6（小节数）误填进去，总长只剩 7.5s。改完必须复核总长。
+#
+# 素材窗口（按"时间线 × 速度"逐段累加，两端都避开 VFR 真实跳变窗口）：
+#   c  3.550 → 11.050  （跳变窗 [3.3717,3.4050] 距入点 0.145s；上界 25.012）
+#   a  5.600 → 13.381  （4 拍 0.7× 吃 1.313 + 12 拍 1.15× 吃 6.469；a 为 CFR；上界 18.984）
+#   b  5.400 →  8.869  （4 拍 1.15× 吃 2.156 + 4 拍 0.7× 吃 1.313；距 10.9797 跳变窗 2.11s）
+#   b 13.500 → 24.750  （上界 26.017，余量 1.267s）
 # 四段互不重叠（SEL-02）。
+
+# 推镜倍率（按**镜号**，不是片段号）：整镜从 1.0 推到该倍率，子段按时间线占比插值。
+#   第 4 镜最长（11.25s）故推得最多；有变速反差的两镜推得少一些，避免和变速抢戏。
+SHOT_PUSH = {1: 1.09, 2: 1.07, 3: 1.05, 4: 1.11}
 
 # 调色：**全片同一个 grade**（调研：craft layer 必须每一镜完全一致 ——
 # 「这才是让 13+ 个镜头读成一部片子的原因」；且"纯克制"会被读成 washed out）。
+#   滤镜给出色调基调；下面三层的**颗粒/暗角/锐化**来自教学文的调色公式
+#   （来源 https://diantuoyi.com/article/8990.html 「技巧 2：色调统一成游戏内质感」：
+#    颗粒 5% + 暗角 10% + 锐化 8%）。文章里的「对比度 +15 / 阴影 -10 / 色调 +5」属**调节**面板，
+#   而 pyJianYingDraft **不写调节**（materials.adjusts 等数组它从不写），故这三档
+#   列进导出清单让人工在剪映里补 —— 不要假装已经做进去了。
 GRADE = {"type": "青橙", "intensity": 65.0}
+# (轨名, 特效名, 目标强度 0-100, **目标参数名**, 需要输出的参数名列表)
+GRADE_LAYERS = [
+    ("g_vig",   "暗角",     10.0, "effects_adjust_texture",
+     ["effects_adjust_texture"]),                                   # 暗角 10%
+    ("g_grain", "噪点",      5.0, "effects_adjust_noise",
+     ["effects_adjust_noise"]),                                     # 颗粒 5%
+    ("g_sharp", "精细锐化", 10.0, "effects_adjust_sharpen",
+     ["effects_adjust_blur", "effects_adjust_sharpen", "effects_adjust_size",
+      "effects_adjust_range", "effects_adjust_filter"]),            # 锐化 10%
+]
 
 # 转场：只一种高级故障转场。选 信号故障 的硬理由 —— 调研实测本机
 # `Cache\effect\` 里**只有它已缓存**，是唯一**零下载风险**的 VIP 转场。
-# 3 个切点都给转场；drop 那一下（15.000s）给到 0.20s。
+# **只在场景切换处**（7.5 / 15.0 / 18.75）；变速子段的交界处（9.375 / 16.875）**必须是硬切** ——
+# 那是同一场景内的速度变化，加转场反而会把它切成两段。
 TRANSITION_TYPE = "信号故障"
 TRANSITION_AT = {7.5, 15.0, 18.75}
 TRANSITION_LONG_AT = {15.0}
@@ -118,11 +151,11 @@ TRANSITION_SHORT = 0.12
 TRANSITION_LONG = 0.20
 
 # 特效：用户要求"低级反馈特效不用了，直接用高级特效"。
-#   只在**切点 / 能量峰值**上，且同一套故障语言。调研：「flashes/punches on energy PEAKS only」。
+#   只在**场景切换 / 能量峰值**上，且同一套故障语言。调研：「flashes/punches on energy PEAKS only」。
 EFFECTS = [
-    ("fx",  "像素故障", 15.00, 0.35),   # DROP 落点（第 3 镜起点）
-    ("fx2", "花屏故障", 18.75, 0.30),   # 第 4 镜起点
-    ("fx",  "幻彩故障",  7.50, 0.25),   # 第 2 镜起点
+    ("fx",  "幻彩故障",  7.50, 0.25, None),   # 第 2 镜起点
+    ("fx",  "像素故障", 15.00, 0.35, None),   # DROP 落点（第 3 镜起点）
+    ("fx2", "花屏故障", 18.75, 0.30, None),   # 第 4 镜起点
 ]
 
 # 音效：两条轨以便同一时刻叠加。
@@ -148,22 +181,31 @@ SFX = [
 # ⚠️ 时间必须写**精确的拍值**（0.9375 而不是 0.938）。曾用四舍五入到 3 位小数的
 #    0.938+0.938=1.876，比下一个字幕的入点 1.875 多了 1ms → add_segment 的重叠校验直接拒绝。
 #
-# 时长放宽到 30s 之后字幕变成 **7 条**，而且**时间上互不重叠**：
+# 时长放宽到 30s 之后字幕 **7 条**，而且**时间上互不重叠**：
 # 横屏字幕统一放在上部 210px（对齐参考成片），同位置的字幕不能同时出现，
 # 所以必须**首尾相接而不是叠着**。
-# (id, 文本, 起, 时长, 字号, 颜色, 入场, 循环)
+#
+# 本轮从教学文学到两条新的排版手法（来源 https://diantuoyi.com/article/8990.html
+# 「技巧 3：文字排版贴游戏 UI」）：
+#   ① **数据类文字（"2 KILLS"）放画面右上角，用游戏内计分板样式（黑底白字）**；
+#   ② 技能/事件名紧跟对应镜头出现。
+#   故 t4 从居中的"播报两连"改成**右上角计分板式 `2 KILLS`**（`place="right"`）——
+#   它对应 a 段 A-H5 画面里**真的同时刷出两条击杀播报**（可证，符合 SEL-04）。
+#
+# (id, 文本, 起, 时长, 字号, 颜色, 入场, 循环, 位置)
 CAPTIONS = [
     # m1（c 段 0–7.5s）：c 6.75 的击杀播报落在此段 3.20s 处
-    ("t1", "别眨眼",       0.0000,  1.6000, 24.0, (1.0, 1.0, 1.0), "弹簧",     "爆闪"),
-    ("t2", "一枪一个",     1.6000,  3.0000, 22.0, (1.0, 0.9, 0.2),  "复古打字机", "爆闪"),
-    # m2（a 段 7.5–15.0s）：A-H3 的 2HP 落在 9.05s；A-H5 的两条播报落在 14.10s
-    ("t3", "2 HP",         8.4000,  2.1000, 24.0, (1.0, 0.35, 0.35), "弹入",   "跳动"),
-    ("t4", "播报两连",    13.5000,  1.5000, 20.0, (1.0, 0.9, 0.2),  "向上滑动", None),
-    # m3（b 段第一段 15.0–18.75s）：B-H1 最强音频 + B-H2 击杀确认
-    ("t5", "听声辨位",    15.0000,  2.5000, 22.0, (1.0, 1.0, 1.0),  "弹入",     "颤抖"),
-    # m4（b 段第二段 18.75–30.0s）：B-H5 已部署 → B-H7「获胜」
-    ("t6", "已部署",      20.4000,  2.4000, 20.0, (1.0, 0.9, 0.2),  "弹入",     None),
-    ("t7", "这枪换你，敢不敢上？", 25.6000, 3.8000, 18.0, (1.0, 0.9, 0.2), "渐显", None),
+    ("t1", "别眨眼",       0.0000,  1.6000, 24.0, (1.0, 1.0, 1.0), "弹簧",     "爆闪", "center"),
+    ("t2", "一枪一个",     1.6000,  3.0000, 22.0, (1.0, 0.9, 0.2),  "复古打字机", "爆闪", "center"),
+    # m2（a 段 7.5–15.0s）：前 4 拍 0.7× 放慢 ⇒ A-H3 的 2HP(素材 6.55) 落在 **8.86s**；
+    #                          A-H5 的两条播报(素材 11.6) 落在 **13.45s**
+    ("t3", "2 HP",         8.5000,  2.1000, 24.0, (1.0, 0.35, 0.35), "弹入",   "跳动", "center"),
+    ("t4", "2 KILLS",     13.4000,  1.6000, 20.0, (1.0, 1.0, 1.0),  "弹入",     None,   "right"),
+    # m3（b 段第一段 15.0–18.75s）：B-H1 最强音频；B-H2 击杀确认(素材 8.5) 落在 **18.22s**
+    ("t5", "听声辨位",    15.0000,  2.4000, 22.0, (1.0, 1.0, 1.0),  "弹入",     "颤抖", "center"),
+    # m4（b 段第二段 18.75–30.0s）：B-H5 已部署(素材 17.0→约 22.2s) → B-H7「获胜」
+    ("t6", "已部署",      20.4000,  2.4000, 20.0, (1.0, 0.9, 0.2),  "弹入",     None,   "center"),
+    ("t7", "这枪换你，敢不敢上？", 25.6000, 3.8000, 18.0, (1.0, 0.9, 0.2), "渐显", None, "center"),
 ]
 
 # 字幕位置。**横屏一版按用户参考成片（`瓦参考素材/`）实测重定**：
@@ -182,62 +224,114 @@ CAPTION_BG = {"color": "#00000073", "style": 1, "round_radius": 0.08}
 LS_SIZE = 1080 / 1920
 
 
+def _fx_tracks(effects: list) -> list:
+    """把 (轨名, 特效名, 起, 时长, 参数) 按轨名分组。参数为 None 时交给库用默认值。"""
+    out: dict = {}
+    for trk, ty, st, du, params in effects:
+        out.setdefault(trk, []).append(
+            {k: v for k, v in (("type", ty), ("start", st), ("duration", du),
+                               ("params", params)) if v is not None})
+    return [{"name": k, "effects": v} for k, v in out.items()]
+
+
+def _grade_params(effect_name: str, target_name: str, value: float,
+                  param_names: list) -> list:
+    """调色层参数：把目标强度（0–100）写进**指定那一个**参数，其余按默认值补齐。
+
+    库的 `parse_params` 语义：传入数字是 **0–100**，映射到 `min + (max-min)*v/100`；
+    传 `None` 会被写成**默认值**（不是 100）。故这里显式给出每个参数的值：
+    目标参数用 `value`，其余按"默认值折回 0–100 刻度"。
+    （**必须显式给值**：曾想靠 `None` 走默认，但库对 `None` 的处理是写默认值、
+      结果是"看起来设了、其实等于没调"。）
+    """
+    from pyJianYingDraft import VideoSceneEffectType
+    meta = getattr(VideoSceneEffectType, effect_name).value
+    pmeta = {p.name: p for p in (getattr(meta, "params", None) or [])}
+    out = []
+    for n in param_names:
+        p = pmeta.get(n)
+        if p is None:
+            out.append(None)
+            continue
+        if n == target_name:
+            out.append(value)
+            continue
+        lo, hi, dv = float(p.min_value), float(p.max_value), float(p.default_value)
+        out.append(round((dv - lo) / (hi - lo) * 100.0, 3) if hi > lo else 0.0)
+    return out
+
+
 def build(vertical: bool) -> dict:
     W, H = (1080, 1920) if vertical else (1920, 1080)
     clips, t = [], 0.0
-    for i, (beats, key, src_in, role, why, speed) in enumerate(SHOTS, 1):
-        dur = beats * BEAT
-        c = {
-            "id": f"m{i:02d}",
-            "track": "main",
-            "source": SRC[key],
-            "source_in": round(src_in, 4),
-            "start": round(t, 6),
-            "duration": round(dur, 6),
-            "role": role,
-            "rule_id": "MONT-01",
-            "reason": (f"集锦第 {i} 镜 / {beats} 拍（{dur:.4f}s）@128BPM；拍点 {t/BEAT:.1f}–"
-                       f"{(t+dur)/BEAT:.1f}；速度 {speed}×（吃素材 "
-                       f"{dur*speed:.4f}s）。{why}。"),
-            "volume": VOL[key],
-            "filter": dict(GRADE),      # 全片同一个 grade
-        }
-        if speed != 1.0:
-            c["speed"] = speed
-        if t in TRANSITION_AT:
-            c["transition"] = {
-                "type": TRANSITION_TYPE,
-                "duration": TRANSITION_LONG if t in TRANSITION_LONG_AT else TRANSITION_SHORT,
+    # 一个"镜"可含若干**变速子段**。子段之间**素材首尾相接**（source_in 按 时间线×速度 累加），
+    # 所以画面连续、只是推进速度不同 —— 这是"变速"而不是"切割"。
+    seg_no = 0
+    for shot_i, (key, src_in, parts, role, why) in enumerate(SHOTS, 1):
+        cursor = float(src_in)              # 该镜的素材游标
+        total_beats = sum(b for b, _ in parts)
+        # 推镜：整镜给一个总倍率，子段按**时间线占比**插值，避免子段交界处缩放跳变
+        push_total = SHOT_PUSH.get(shot_i, 1.0)
+        base = BAND_SCALE if vertical else 1.0
+        elapsed = 0.0
+        for part_i, (beats, speed) in enumerate(parts, 1):
+            dur = beats * BEAT
+            src_used = dur * speed       # ★ 素材消耗 = 时间线长度 × 速度
+            seg_no += 1
+            c = {
+                "id": f"m{seg_no:02d}",
+                "track": "main",
+                "source": SRC[key],
+                "source_in": round(cursor, 6),
+                "start": round(t, 6),
+                "duration": round(dur, 6),
+                "role": role,
+                "rule_id": "MONT-01",
+                "reason": (f"第 {shot_i} 镜第 {part_i}/{len(parts)} 段 / {beats} 拍（{dur:.4f}s）"
+                           f"@128BPM；时间线 {t/BEAT:.0f}–{(t+dur)/BEAT:.0f} 拍；"
+                           f"速度 {speed}×（吃素材 {src_used:.4f}s，素材 {cursor:.3f}→"
+                           f"{cursor+src_used:.3f}）。{why}"),
+                "volume": VOL[key],
+                "filter": dict(GRADE),      # 全片同一个 grade
             }
-        clips.append(c)
-        t += dur
+            if speed != 1.0:
+                c["speed"] = speed
+            if t in TRANSITION_AT:
+                c["transition"] = {
+                    "type": TRANSITION_TYPE,
+                    "duration": TRANSITION_LONG if t in TRANSITION_LONG_AT else TRANSITION_SHORT,
+                }
+            # 推镜关键帧：按整镜时间线占比插值 → 子段交界处数值连续
+            if push_total != 1.0:
+                f0, f1 = elapsed / (total_beats * BEAT), (elapsed + dur) / (total_beats * BEAT)
+                c["keyframes"] = [
+                    {"property": "uniform_scale", "time": 0.0,
+                     "value": round(base * (1 + (push_total - 1) * f0), 5)},
+                    {"property": "uniform_scale", "time": round(dur, 6),
+                     "value": round(base * (1 + (push_total - 1) * f1), 5)},
+                ]
+            clips.append(c)
+            cursor += src_used
+            elapsed += dur
+            t += dur
 
-    # ---- 关键帧：给 4 拍长镜做轻微推近（镜头变长后更需要内部运动）----
-    #   ⚠️ 推近量写成**相对倍率**，再乘各自的基准（竖屏 1.18 / 横屏 1.0）。
-    #   上一版直接写死绝对终点值，结果竖屏只推 8.5%、横屏推 28% —— 两版手感不一致。
-    #   4 个长镜（7.5 / 7.5 / 3.75 / 11.25s）都需要内部运动；第 4 镜最长故推得最多
-    push = {"m01": 1.09, "m02": 1.09, "m03": 1.06, "m04": 1.11}
-    for c in clips:
-        mult = push.get(c["id"])
-        if mult:
-            base = BAND_SCALE if vertical else 1.0
-            c["keyframes"] = [
-                {"property": "uniform_scale", "time": 0.0, "value": round(base, 4)},
-                {"property": "uniform_scale", "time": c["duration"],
-                 "value": round(base * mult, 4)},
-            ]
-
+    # ---- 推镜已在上面的子段循环里按"整镜时间线占比"插值写入（避免交界处缩放跳变）----
     if vertical:
         for c in clips:
             c["background_filling"] = {"type": "blur", "blur": CANVAS_BLUR}
             c["clip"] = {"scale": BAND_SCALE}
 
     texts = []
-    for cid, txt, start, dur, size, color, intro, loop in CAPTIONS:
+    for cid, txt, start, dur, size, color, intro, loop, place in CAPTIONS:
         is_title = cid in ("t1", "t7")
         # 竖屏：钩子在上部 300px、过程在下部 1450px（信息区）
         # 横屏：**统一放上部 210px**（对齐参考成片实测的标签位置）
         ty = (TY_TITLE if is_title else TY_BODY) if vertical else TY_LS_ALL
+        # place="right" → 计分板式数据条，贴右上（但仍在上部 210px 那条带里，
+        # 避开游戏自身在右上角的击杀播报；transform_x 正方向为**左**，故取负值往右）
+        tx = 0.0
+        if place == "right":
+            tx = 1.0 - 2 * (1600 / 1920)          # ≈ -0.667 → 中心约在 x=1600
         # 入场时长 ≈ 一拍（128BPM → 0.469s）。调研：「动画比你想象的短，一拍不是两拍」。
         anim = {"intro": intro, "intro_duration": 0.40}
         if loop:
@@ -253,7 +347,7 @@ def build(vertical: bool) -> dict:
                 "bold": True,
                 "font": "得意黑" if is_title else "未来黑",
                 "color": list(color),
-                "transform_x": 0.0,
+                "transform_x": round(tx, 6),
                 "transform_y": round(ty, 6),
             },
             "animation": anim,
@@ -262,7 +356,9 @@ def build(vertical: bool) -> dict:
             "shadow": {"color": (0.0, 0.0, 0.0), "diffuse": 18.0, "distance": 6.0, "angle": -45.0},
             # 底板：**照参考成片**（它的标签是"白粗字 + 半透明底板"）。
             # 横屏尤其需要 —— 标签直接压在亮画面上，没有底板白字会糊。
-            "background": dict(CAPTION_BG),
+            # place="right" 时用**更实的黑底**，贴教学文里"计分板 = 黑底白字"的样子。
+            "background": ({**CAPTION_BG, "color": "#000000B3"} if place == "right"
+                           else dict(CAPTION_BG)),
         })
 
     return {
@@ -293,14 +389,15 @@ def build(vertical: bool) -> dict:
                 "fade": {"in": 0.005, "out": min(0.06, du * 0.25)}}
                for (trk, name, st, du, vol) in SFX]
         ),
-        "effect_tracks": [
-            {"name": "fx", "effects": [
-                {"type": ty, "start": st, "duration": du}
-                for (trk, ty, st, du) in EFFECTS if trk == "fx"]},
-            {"name": "fx2", "effects": [
-                {"type": ty, "start": st, "duration": du}
-                for (trk, ty, st, du) in EFFECTS if trk == "fx2"]},
-        ],
+        "effect_tracks": (
+            _fx_tracks(EFFECTS)
+            # 全片调色层：三条轨各一个覆盖 0→总长的特效（同轨会与命中特效重叠而被拒）
+            + [{"name": trk, "effects": [
+                {"type": ty, "start": 0.0,
+                 "duration": round(sum(c["duration"] for c in clips), 6),
+                 "params": _grade_params(ty, pname, val, names)}]}
+               for (trk, ty, val, pname, names) in GRADE_LAYERS]
+        ),
         "audio": {"voice_priority": "low", "bgm_volume": BGM_VOLUME},
         "qa": {"required": ["duration-valid", "audio-present", "no-black-frame"]},
         "_form_note": (

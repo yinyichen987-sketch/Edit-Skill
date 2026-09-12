@@ -44,7 +44,7 @@
       "duration": 7.5,
       "role": "run_c",
       "rule_id": "MONT-01",
-      "reason": "集锦第 1 镜 / 16 拍（7.5000s）@128BPM；拍点 0.0–16.0；速度 1.0×（吃素材 7.5000s）。c 段连续长镜 7.5s：C-H5(击杀播报同帧，信息量最高) → C-H7 → C-H8；开场即冷开峰值。",
+      "reason": "第 1 镜第 1/1 段 / 16 拍（7.5000s）@128BPM；时间线 0–16 拍；速度 1.0×（吃素材 7.5000s，素材 3.550→11.050）。c 段连续长镜 7.5s：C-H5(击杀播报同帧，信息量最高) → C-H7 → C-H8；开场即冷开峰值",
       "volume": 0.766,
       "filter": {
         "type": "青橙",
@@ -67,17 +67,18 @@
       "id": "m02",
       "track": "main",
       "source": "../../../原始素材/4b0460c400bbb5320acb6063b4f59358.mp4",
-      "source_in": 5.0,
+      "source_in": 5.6,
       "start": 7.5,
-      "duration": 7.5,
+      "duration": 1.875,
       "role": "run_a",
       "rule_id": "MONT-01",
-      "reason": "集锦第 2 镜 / 16 拍（7.5000s）@128BPM；拍点 16.0–32.0；速度 1.0×（吃素材 7.5000s）。a 段连续长镜 7.5s：A-H2(拾取) → A-H3(**实测 2 HP**) → A-H4 → A-H5(**两条击杀播报**)。",
+      "reason": "第 2 镜第 1/2 段 / 4 拍（1.8750s）@128BPM；时间线 16–20 拍；速度 0.7×（吃素材 1.3125s，素材 5.600→6.912）。a 段 7.5s：A-H2(拾取) → **A-H3 实测 2 HP 处放慢到 0.7×** → A-H4 → A-H5(两条击杀播报，1.15× 提回)",
       "volume": 0.63,
       "filter": {
         "type": "青橙",
         "intensity": 65.0
       },
+      "speed": 0.7,
       "transition": {
         "type": "信号故障",
         "duration": 0.12
@@ -90,26 +91,56 @@
         },
         {
           "property": "uniform_scale",
-          "time": 7.5,
-          "value": 1.09
+          "time": 1.875,
+          "value": 1.0175
         }
       ]
     },
     {
       "id": "m03",
       "track": "main",
+      "source": "../../../原始素材/4b0460c400bbb5320acb6063b4f59358.mp4",
+      "source_in": 6.9125,
+      "start": 9.375,
+      "duration": 5.625,
+      "role": "run_a",
+      "rule_id": "MONT-01",
+      "reason": "第 2 镜第 2/2 段 / 12 拍（5.6250s）@128BPM；时间线 20–32 拍；速度 1.15×（吃素材 6.4687s，素材 6.912→13.381）。a 段 7.5s：A-H2(拾取) → **A-H3 实测 2 HP 处放慢到 0.7×** → A-H4 → A-H5(两条击杀播报，1.15× 提回)",
+      "volume": 0.63,
+      "filter": {
+        "type": "青橙",
+        "intensity": 65.0
+      },
+      "speed": 1.15,
+      "keyframes": [
+        {
+          "property": "uniform_scale",
+          "time": 0.0,
+          "value": 1.0175
+        },
+        {
+          "property": "uniform_scale",
+          "time": 5.625,
+          "value": 1.07
+        }
+      ]
+    },
+    {
+      "id": "m04",
+      "track": "main",
       "source": "../../../原始素材/6b2eea343eee7595c3c0ede10d21d028.mp4",
       "source_in": 5.4,
       "start": 15.0,
-      "duration": 3.75,
+      "duration": 1.875,
       "role": "run_b1",
       "rule_id": "MONT-01",
-      "reason": "集锦第 3 镜 / 8 拍（3.7500s）@128BPM；拍点 32.0–40.0；速度 1.0×（吃素材 3.7500s）。b 段第一段 3.75s：B-H1(**全 70 秒音频能量最强**) → B-H2(击杀确认)；止于 9.15，距 10.98 跳变窗 1.83s。",
+      "reason": "第 3 镜第 1/2 段 / 4 拍（1.8750s）@128BPM；时间线 32–36 拍；速度 1.15×（吃素材 2.1562s，素材 5.400→7.556）。b 段第一段 3.75s：B-H1(**全 70 秒音频能量最强**) → **B-H2 击杀确认处放慢到 0.7×**",
       "volume": 0.766,
       "filter": {
         "type": "青橙",
         "intensity": 65.0
       },
+      "speed": 1.15,
       "transition": {
         "type": "信号故障",
         "duration": 0.2
@@ -122,13 +153,42 @@
         },
         {
           "property": "uniform_scale",
-          "time": 3.75,
-          "value": 1.06
+          "time": 1.875,
+          "value": 1.025
         }
       ]
     },
     {
-      "id": "m04",
+      "id": "m05",
+      "track": "main",
+      "source": "../../../原始素材/6b2eea343eee7595c3c0ede10d21d028.mp4",
+      "source_in": 7.55625,
+      "start": 16.875,
+      "duration": 1.875,
+      "role": "run_b1",
+      "rule_id": "MONT-01",
+      "reason": "第 3 镜第 2/2 段 / 4 拍（1.8750s）@128BPM；时间线 36–40 拍；速度 0.7×（吃素材 1.3125s，素材 7.556→8.869）。b 段第一段 3.75s：B-H1(**全 70 秒音频能量最强**) → **B-H2 击杀确认处放慢到 0.7×**",
+      "volume": 0.766,
+      "filter": {
+        "type": "青橙",
+        "intensity": 65.0
+      },
+      "speed": 0.7,
+      "keyframes": [
+        {
+          "property": "uniform_scale",
+          "time": 0.0,
+          "value": 1.025
+        },
+        {
+          "property": "uniform_scale",
+          "time": 1.875,
+          "value": 1.05
+        }
+      ]
+    },
+    {
+      "id": "m06",
       "track": "main",
       "source": "../../../原始素材/6b2eea343eee7595c3c0ede10d21d028.mp4",
       "source_in": 13.5,
@@ -136,7 +196,7 @@
       "duration": 11.25,
       "role": "run_b2",
       "rule_id": "MONT-01",
-      "reason": "集锦第 4 镜 / 24 拍（11.2500s）@128BPM；拍点 40.0–64.0；速度 1.0×（吃素材 11.2500s）。b 段第二段 11.25s：B-H5(爆能器已部署横幅) → B-H7(**「获胜」横幅**)；起于 13.50（跳变窗之后 0.49s）。",
+      "reason": "第 4 镜第 1/1 段 / 24 拍（11.2500s）@128BPM；时间线 40–64 拍；速度 1.0×（吃素材 11.2500s，素材 13.500→24.750）。b 段第二段 11.25s：B-H5(爆能器已部署横幅) → B-H7(**「获胜」横幅**)",
       "volume": 0.766,
       "filter": {
         "type": "青橙",
@@ -259,7 +319,7 @@
       "id": "t3",
       "track": "cap_body",
       "content": "2 HP",
-      "start": 8.4,
+      "start": 8.5,
       "duration": 2.1,
       "style": {
         "size": 13.5,
@@ -305,23 +365,23 @@
     {
       "id": "t4",
       "track": "cap_body",
-      "content": "播报两连",
-      "start": 13.5,
-      "duration": 1.5,
+      "content": "2 KILLS",
+      "start": 13.4,
+      "duration": 1.6,
       "style": {
         "size": 11.25,
         "bold": true,
         "font": "未来黑",
         "color": [
           1.0,
-          0.9,
-          0.2
+          1.0,
+          1.0
         ],
-        "transform_x": 0.0,
+        "transform_x": -0.666667,
         "transform_y": 0.611111
       },
       "animation": {
-        "intro": "向上滑动",
+        "intro": "弹入",
         "intro_duration": 0.4
       },
       "border": {
@@ -343,7 +403,7 @@
         "angle": -45.0
       },
       "background": {
-        "color": "#00000073",
+        "color": "#000000B3",
         "style": 1,
         "round_radius": 0.08
       }
@@ -353,7 +413,7 @@
       "track": "cap_body",
       "content": "听声辨位",
       "start": 15.0,
-      "duration": 2.5,
+      "duration": 2.4,
       "style": {
         "size": 12.38,
         "bold": true,
@@ -583,14 +643,14 @@
       "name": "fx",
       "effects": [
         {
-          "type": "像素故障",
-          "start": 15.0,
-          "duration": 0.35
-        },
-        {
           "type": "幻彩故障",
           "start": 7.5,
           "duration": 0.25
+        },
+        {
+          "type": "像素故障",
+          "start": 15.0,
+          "duration": 0.35
         }
       ]
     },
@@ -601,6 +661,49 @@
           "type": "花屏故障",
           "start": 18.75,
           "duration": 0.3
+        }
+      ]
+    },
+    {
+      "name": "g_vig",
+      "effects": [
+        {
+          "type": "暗角",
+          "start": 0.0,
+          "duration": 30.0,
+          "params": [
+            10.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "g_grain",
+      "effects": [
+        {
+          "type": "噪点",
+          "start": 0.0,
+          "duration": 30.0,
+          "params": [
+            5.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "g_sharp",
+      "effects": [
+        {
+          "type": "精细锐化",
+          "start": 0.0,
+          "duration": 30.0,
+          "params": [
+            12.0,
+            10.0,
+            8.0,
+            100.0,
+            70.0
+          ]
         }
       ]
     }
@@ -616,6 +719,6 @@
       "no-black-frame"
     ]
   },
-  "_form_note": "集锦形式（不做叙事）：4 镜 / 3 切 / 64 拍 @128BPM / 30.000s。每段原始素材各取**一整段连续画面**（用户确认的集锦定义），有意偏离叙事型的 CUT-01（固定四段）与 CUT-02（≈12 切/分）。CUT-04（不越素材上界）与 CUT-05（避开 VFR 跳变窗）仍强制满足。",
+  "_form_note": "集锦形式（不做叙事）：6 镜 / 5 切 / 64 拍 @128BPM / 30.000s。每段原始素材各取**一整段连续画面**（用户确认的集锦定义），有意偏离叙事型的 CUT-01（固定四段）与 CUT-02（≈12 切/分）。CUT-04（不越素材上界）与 CUT-05（避开 VFR 跳变窗）仍强制满足。",
   "_audio_note": "BGM 为本地合成（128BPM，与剪切点同格，见 tools/make_bgm.py）；whoosh/riser/sub_drop 亦为合成（tools/make_sfx.py）；impact_*/win 从原素材裁出。剪映音效库无法程序化引用。"
 }

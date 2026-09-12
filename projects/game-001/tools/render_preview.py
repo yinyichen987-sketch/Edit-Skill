@@ -132,7 +132,7 @@ def seg_audio_filter(volume: float, speed: float, duration: float) -> str:
 
 
 def make_caption_png(text: str, size_px: int, W: int, H: int, center_px: float, out: Path,
-                     panel: bool = False) -> None:
+                     panel: bool = False, center_x: float | None = None) -> None:
     """渲染一条字幕为透明 PNG（白字 + 黑描边），水平居中，中心位于 center_px。
 
     `panel=True` 时额外画一块**半透明深色底板** —— 这是用户参考成片（瓦参考素材）的标签形态：
@@ -144,7 +144,8 @@ def make_caption_png(text: str, size_px: int, W: int, H: int, center_px: float, 
     stroke = max(2, size_px // 18)
     box = d.textbbox((0, 0), text, font=font, stroke_width=stroke)
     tw, th = box[2] - box[0], box[3] - box[1]
-    x = (W - tw) / 2 - box[0]
+    cx = (W / 2) if center_x is None else center_x      # transform_x 支持（计分板式贴右）
+    x = cx - tw / 2 - box[0]
     y = center_px - th / 2 - box[1]
     if panel:
         padx, pady = round(size_px * 0.55), round(size_px * 0.22)
@@ -196,8 +197,12 @@ def main() -> int:
         # （对比 +5% / 饱和 +9% / 暗角 / 轻噪点）—— 让预览反映"全片同一个 grade"。
         grade = []
         if c.get("filter"):
-            grade = ["eq=contrast=1.05:saturation=1.09", "vignette=PI/4.6",
-                     "noise=alls=5:allf=t+u"]
+            # 近似教学文（diantuoyi 8990 技巧2）的调色公式：
+            #   对比度 +15 / 颗粒 5% / 暗角 10% / 锐化 —— 滤镜本身由 剪映 的 青橙 提供
+            grade = ["eq=contrast=1.15:saturation=1.09",
+                     "unsharp=5:5:0.6:5:5:0.0",
+                     "vignette=PI/4.4",
+                     "noise=alls=8:allf=t+u"]
 
         # 关键帧推拉（uniform_scale / scale_x）→ 先裁再放大，等价于「画面变大」
         sc = kf_series(c, "uniform_scale") or kf_series(c, "scale_x")
@@ -339,9 +344,10 @@ def main() -> int:
     for t in edl["texts"]:
         size_px = round(EM_PER_SIZE * float(t.get("style", {}).get("size", 8.0)))
         center = px_from_y(float(t["style"]["transform_y"]), H)
+        cx = (1.0 - float(t["style"].get("transform_x", 0.0))) / 2.0 * W
         png = WORK / f"cap_{t['id']}.png"
         make_caption_png(t["content"], size_px, W, H, center, png,
-                         panel=bool(t.get("background")))
+                         panel=bool(t.get("background")), center_x=cx)
         cap_meta.append((t, png, size_px, center))
 
     args = ["-y", "-i", str(cur)]
