@@ -475,3 +475,23 @@ Failed to connect to 127.0.0.1 port 10910（本项目已发生一次）。
 （本项目已发生一次）。
 
 ---
+
+## Windows PowerShell 脚本：**含中文的 .ps1 必须带 UTF-8 BOM**
+
+Windows PowerShell 5.1 读取**无 BOM** 的 .ps1 时按 **ANSI(GBK)** 解码，
+于是文件里的中文注释/字符串全变乱码，并引发一堆莫名其妙的解析错误：
+
+`
+Write-Host "[i] 鍒嗘敮 "
+Missing closing '}' in statement block ...
+`
+
+**约定**：本仓库新增任何含中文的 .ps1，一律用 encoding="utf-8-sig" 写入（带 BOM）。
+	ools/push.ps1、	ools/sync.ps1 都已带 BOM；自检一行：
+
+`powershell
+[System.IO.File]::ReadAllBytes('tools/push.ps1')[0..2] -join ','   # 应为 239,187,191
+`
+
+**另一条**：在这个 harness 里 pwsh 命令**不在 PATH 上**（当前 shell 本身就是 PowerShell），
+所以要直接调用脚本本体 & .\tools\push.ps1 ...，不要写 pwsh -File ...。
