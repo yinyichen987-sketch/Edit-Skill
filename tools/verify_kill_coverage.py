@@ -1,20 +1,24 @@
-"""复查 EDL 是否满足用户定的**素材选取标准**。
+"""复查 EDL 是否满足**排除法**的选取标准（用户换思路后的新标准）。
 
-## 用户的四条标准（逐条对应一个检查项）
+## 思路变化
+- **旧标准（选择）**：从素材里挑窗口 ⇒ 检查"每段 ≥2 杀""开场必见杀"。
+- **新标准（排除）**：素材整条拿来，只删掉过长的无击杀段 ⇒
+  检查"11 条素材是不是都用上了""过长的无击杀删干净了没有""有没有留下碎段"。
 
-| # | 用户原话 | 检查项 |
+判据完全变了，所以这个脚本重写。
+
+## 五条判据
+| # | 用户原话 | 判据 |
 |---|---|---|
-| 1 | "每个击杀留的窗口时间更长一点" | 每段 **≥2 次击杀**、段长 ≥2s |
-| 2 | "第一个画面没有出现任何一个击杀那么它的意义是什么" | **段起点距首杀 ≤0.5s**（开场必须马上见杀） |
-| 3 | "不要把一个素材的击杀切分之后和别的素材混起来……要连在一起" | 每条素材**只能出现一个连续块**，块内**不得被别的素材打断** |
-| 4 | "先后顺序不对" | 块内 `source_in` **严格递增**（一杀→多杀的过程） |
+| 1 | "直接用原始素材" | **11 条素材全部出现在成片里**（一条都不许丢） |
+| 2 | "不要把一个素材的击杀切分之后和别的素材混起来" | 每条素材**只出现一个连续块** |
+| 3 | "先后顺序" | 块内 `source_in` **严格递增** |
+| 4 | "把过长的无击杀的画面删除去除" | 保留下来的任何**无击杀空档都 ≤ GAP** |
+| 5 | （裁剪产物不该是碎渣） | 每段 ≥ `MIN_SEG`（含 10% 容差） |
 
 ## 用法
-
     .venv\\Scripts\\python.exe tools/verify_kill_coverage.py [edl.json]
-
-退出码 0 = 全部通过；1 = 有不满足项（会逐条列出是哪个镜头、差多少）。
-**这四个判据是本项目最容易反复犯的错**，所以做成门禁而不是"看一眼"。
+退出码 0 = 全过；1 = 有违反项（逐条指出是哪个镜头、超了多少）。
 """
 from __future__ import annotations
 
@@ -32,10 +36,8 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 DEFAULT_EDL = ROOT / "projects/game-001/edl/bili-montage.json"
 KILLS = ROOT / "projects/game-001/analysis2/kills_mine.json"
 
-MIN_KILLS = 2        # 每段至少几次击杀
-MAX_HEAD = 0.5       # 段起点距首杀最多几秒（开场必须见杀）
-MIN_SEG_S = 2.0      # 段最短时长
-MAX_INNER_GAP = 6.0  # 段内两杀之间允许的最大无击杀空档（秒）
+GAP = 5.0        # 无击杀超过这么多秒就应被删掉（与 build_by_exclusion.py 一致）
+MIN_SEG = 1.35   # 每段最短时长（MIN_SEG=1.5 的 90% 容差）
 
 
 def main() -> int:
@@ -47,90 +49,83 @@ def main() -> int:
     mine = {s: sorted(r["mine"]) for s, r in km.items()}
 
     clips = edl["clips"]
+    total = sum(c["duration"] for c in clips)
     fails: list[str] = []
+    print(f"=== 排除法标准复查：{edl_path.name} ===")
+    print(f"    {len(clips)} 段 / {total:.2f}s\n")
 
-    print(f"=== 素材选取标准复查：{edl_path.name} ===")
-    print(f"    {len(clips)} 段 / {sum(c['duration'] for c in clips):.2f}s\n")
+    # ---- 1. 所有素材都要用上 ----
+    used = {pathlib.Path(c["source"]).stem[:8] for c in clips}
+    missing = sorted(set(mine) - used)
+    print("【1】11 条原始素材全部用上")
+    if missing:
+        for s in missing:
+            print(f"  ✗ {s} 完全没被使用（排除法不该丢掉任何素材）")
+            fails.append(f"{s} 未被使用")
+    else:
+        print(f"  ✓ {len(used)}/{len(mine)} 条全部用上")
 
-    # ---- 检查 1 & 2：每段击杀数与开场延迟 ----
-    print("【1+2】每段 ≥%d 杀、开场 ≤%.1fs 必见杀" % (MIN_KILLS, MAX_HEAD))
-    for i, c in enumerate(clips, 1):
-        short = pathlib.Path(c["source"]).stem[:8]
-        a, b = c["source_in"], c["source_in"] + c["duration"]
-        ks = [k for k in mine.get(short, []) if a - 0.05 <= k <= b + 0.05]
-        head = (ks[0] - a) if ks else None
-        tag = ""
-        if len(ks) < MIN_KILLS:
-            tag = f"✗ 只有 {len(ks)} 杀（要求 ≥{MIN_KILLS}）"
-            fails.append(f"{c['id']} 击杀不足")
-        elif head is not None and head > MAX_HEAD:
-            tag = f"✗ 开场 {head:.2f}s 无击杀（要求 ≤{MAX_HEAD}s）"
-            fails.append(f"{c['id']} 开场无击杀")
-        elif c["duration"] < MIN_SEG_S:
-            tag = f"✗ 段长 {c['duration']:.2f}s 过短"
-            fails.append(f"{c['id']} 段过短")
-        else:
-            tag = "✓"
-        print(f"  {i:3} {short:10} {a:6.2f}→{b:6.2f} {c['duration']:6.2f}s "
-              f"{len(ks)}杀 首杀+{head:.2f}s {tag}" if head is not None else
-              f"  {i:3} {short:10} {a:6.2f}→{b:6.2f} {c['duration']:6.2f}s 0杀  {tag}")
-
-    # ---- 检查 3：每条素材只能有一个连续块 ----
-    print("\n【3】同一素材必须连在一起（不得被别的素材打断）")
-    seq = []
+    # ---- 2/3. 同素材连续 + 块内递增 ----
+    seq, prev, last_in, jump = [], None, None, 0
     for c in clips:
         s = pathlib.Path(c["source"]).stem[:8]
         if not seq or seq[-1] != s:
             seq.append(s)
+        if s == prev and c["source_in"] <= last_in:
+            print(f"  ✗ {c['id']} ({s}) source_in {c['source_in']:.2f} ≤ 上一段 {last_in:.2f}")
+            fails.append(f"{c['id']} 顺序回跳")
+            jump += 1
+        prev, last_in = s, c["source_in"]
     cnt = Counter(seq)
-    multi = {s: n for s, n in cnt.items() if n > 1}
-    if multi:
-        for s, n in multi.items():
+    split = {s: n for s, n in cnt.items() if n > 1}
+    print("\n【2】每条素材只出现一个连续块")
+    if split:
+        for s, n in split.items():
             print(f"  ✗ {s} 被拆成 {n} 处（中间插了别的素材）")
             fails.append(f"{s} 被拆成 {n} 处")
     else:
-        print(f"  ✓ {len(seq)} 个块: {' → '.join(seq)}")
+        print(f"  ✓ {len(seq)} 个块: {' -> '.join(seq)}")
+    print("\n【3】块内 source_in 严格递增")
+    print("  ✓ 全部递增" if jump == 0 else f"  ✗ {jump} 处回跳")
 
-    # ---- 检查 4：块内 source_in 递增 ----
-    print("\n【4】块内 source_in 严格递增（一杀 → 多杀 的过程）")
-    prev = None
-    bad = 0
-    for c in clips:
-        s = pathlib.Path(c["source"]).stem[:8]
-        if s == prev:
-            if c["source_in"] <= last_in:
-                print(f"  ✗ {c['id']} ({s}) {c['source_in']:.2f} ≤ 上一段 {last_in:.2f}")
-                fails.append(f"{c['id']} 顺序回跳")
-                bad += 1
-        prev, last_in = s, c["source_in"]
-    if bad == 0:
-        print("  ✓ 全部递增")
-
-    # ---- 检查 5：段内不得有 >MAX_INNER_GAP 的无击杀空档 ----
-    # 这条直接对应"很多和击杀无关的画面被剪辑进入" —— 段内两杀之间隔太久，
-    # 中间那段就是与击杀无关的画面。合并"单杀组"时最容易把它并进来
-    # （实测第一段曾因此变成 27.28s 只有 3 杀）。
-    print(f"\n【5】段内无击杀空档 ≤ {MAX_INNER_GAP:.1f}s")
+    # ---- 4. 保留段内不得有无击杀空档 > GAP ----
+    print(f"\n【4】保留段内的无击杀空档 <= {GAP:.1f}s（过长的无击杀画面应已删除）")
+    over = 0
     worst = 0.0
     for c in clips:
         short = pathlib.Path(c["source"]).stem[:8]
         a, b = c["source_in"], c["source_in"] + c["duration"]
         ks = [k for k in mine.get(short, []) if a - 0.05 <= k <= b + 0.05]
+        if not ks:
+            print(f"  ✗ {c['id']} ({short}) 段内 0 杀")
+            fails.append(f"{c['id']} 无击杀")
+            over += 1
+            continue
         inner = [ks[0] - a] + [y - x for x, y in zip(ks, ks[1:])] + [b - ks[-1]]
-        m = max(inner) if inner else 0.0
+        m = max(inner)
         worst = max(worst, m)
-        if m > MAX_INNER_GAP:
-            print(f"  ✗ {c['id']} ({short}) 段内最大无击杀空档 {m:.2f}s "
-                  f"（要求 ≤{MAX_INNER_GAP:.1f}s）")
-            fails.append(f"{c['id']} 段内空档 {m:.2f}s")
-    if not any("段内空档" in f for f in fails):
+        if m > GAP + 0.05:
+            print(f"  ✗ {c['id']} ({short}) 段内最大空档 {m:.2f}s > {GAP:.1f}s")
+            fails.append(f"{c['id']} 空档 {m:.2f}s")
+            over += 1
+    if over == 0:
         print(f"  ✓ 全部通过（最大空档 {worst:.2f}s）")
+
+    # ---- 5. 不留碎段 ----
+    print(f"\n【5】每段 >= {MIN_SEG:.2f}s（裁剪不该留下碎渣）")
+    short_segs = [(c["id"], c["duration"]) for c in clips if c["duration"] < MIN_SEG]
+    if short_segs:
+        for i, d in short_segs:
+            print(f"  ✗ {i} 只有 {d:.2f}s")
+            fails.append(f"{i} 段过短 {d:.2f}s")
+    else:
+        print(f"  ✓ 最短段 {min(c['duration'] for c in clips):.2f}s")
 
     print()
     if fails:
         print(f"[FAIL] {len(fails)} 项不满足：{fails}")
         return 1
-    print("[OK] 五条标准全部通过。")
+    print("[OK] 五条判据全部通过。")
     return 0
 
 
