@@ -4,7 +4,7 @@
   "direction_basis": "pyJianYingDraft/keyframe.py: 『上移为正 … 单位是半个画布高』",
   "size_to_px": "UNDETERMINED —— 字框半高按 EDL style.size 分档取设计字号：6.0→72px(±36)、5.0→56px(±28)",
   "vt_ui_cap_px": 1620,
-  "hard_fail_by_glyph_box": 0,
+  "hard_fail_by_glyph_box": 2,
   "box_bottom_over_ui_cap_count": 0,
   "rows": [
     {
@@ -151,66 +151,6 @@
       "box_px": [
         916.2,
         963.8
-      ],
-      "in_allow_zone": true,
-      "overlaps_forbid_zone": false,
-      "box_bottom_over_ui_cap": false,
-      "verdict": "OK"
-    },
-    {
-      "draft": "GAME_MONT_VT",
-      "segment": "71fe7399cd8f47379cbd67558b739658",
-      "transform_y": 0.6875,
-      "center_px": 300.0,
-      "half_px": 63.480000000000004,
-      "box_px": [
-        236.5,
-        363.5
-      ],
-      "in_allow_zone": true,
-      "overlaps_forbid_zone": false,
-      "box_bottom_over_ui_cap": false,
-      "verdict": "OK"
-    },
-    {
-      "draft": "GAME_MONT_VT",
-      "segment": "9933a21a18994440ba1924d6946d356a",
-      "transform_y": 0.6875,
-      "center_px": 300.0,
-      "half_px": 44.965,
-      "box_px": [
-        255.0,
-        345.0
-      ],
-      "in_allow_zone": true,
-      "overlaps_forbid_zone": false,
-      "box_bottom_over_ui_cap": false,
-      "verdict": "OK"
-    },
-    {
-      "draft": "GAME_MONT_LS",
-      "segment": "4564fe612209494fa2d2a9feb21815ad",
-      "transform_y": 0.611111,
-      "center_px": 210.0,
-      "half_px": 35.7075,
-      "box_px": [
-        174.3,
-        245.7
-      ],
-      "in_allow_zone": true,
-      "overlaps_forbid_zone": false,
-      "box_bottom_over_ui_cap": false,
-      "verdict": "OK"
-    },
-    {
-      "draft": "GAME_MONT_LS",
-      "segment": "23c0266d5d904386844860f6a6c054a5",
-      "transform_y": 0.611111,
-      "center_px": 210.0,
-      "half_px": 26.7674,
-      "box_px": [
-        183.2,
-        236.8
       ],
       "in_allow_zone": true,
       "overlaps_forbid_zone": false,
