@@ -1,0 +1,224 @@
+{
+ "version": "1.0",
+ "project": "SINGLE_4c58efb4",
+ "canvas": {
+  "width": 1920,
+  "height": 1080,
+  "fps": 30
+ },
+ "style_ref": "single-clip-advanced",
+ "target_duration_s": 15.266667,
+ "tracks": [
+  {
+   "type": "video",
+   "name": "main"
+  },
+  {
+   "type": "audio",
+   "name": "bgm"
+  }
+ ],
+ "clips": [
+  {
+   "id": "s1",
+   "track": "main",
+   "source": "../../../原始素材/4c58efb455faef8b4795ba6d6538b54b.mp4",
+   "source_in": 0.3,
+   "start": 0.0,
+   "duration": 8.3,
+   "role": "opening_4kills",
+   "rule_id": "SINGLE-ADV-01",
+   "reason": "第 1 段：素材 0.30→8.60（8.30s），速度 1.0× ⇒ 时间线 8.300s。常速，保留完整击杀过程。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   },
+   "animation": {
+    "intro": "动感放大",
+    "intro_duration": 0.5
+   }
+  },
+  {
+   "id": "s2",
+   "track": "main",
+   "source": "../../../原始素材/4c58efb455faef8b4795ba6d6538b54b.mp4",
+   "source_in": 8.6,
+   "start": 8.3,
+   "duration": 3.466667,
+   "role": "deadtime_ramp",
+   "rule_id": "SINGLE-ADV-01",
+   "reason": "第 2 段：素材 8.60→19.00（10.40s），速度 3.0× ⇒ 时间线 3.467s。**零剪切跳过无击杀空档**，而不是把它剪掉 —— 保连贯。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   },
+   "animation": {
+    "intro": "轻微抖动",
+    "intro_duration": 0.25
+   },
+   "speed": 3.0,
+   "transition": {
+    "type": "闪白",
+    "duration": 0.1
+   }
+  },
+  {
+   "id": "s3",
+   "track": "main",
+   "source": "../../../原始素材/4c58efb455faef8b4795ba6d6538b54b.mp4",
+   "source_in": 19.0,
+   "start": 11.766667,
+   "duration": 3.5,
+   "role": "closing_2kills",
+   "rule_id": "SINGLE-ADV-01",
+   "reason": "第 3 段：素材 19.00→22.50（3.50s），速度 1.0× ⇒ 时间线 3.500s。常速，保留完整击杀过程。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   },
+   "animation": {
+    "outro": "渐隐",
+    "outro_duration": 0.6
+   },
+   "transition": {
+    "type": "闪白",
+    "duration": 0.1
+   }
+  }
+ ],
+ "texts": [],
+ "audio_overlays": [
+  {
+   "source": "../bgm/h2h_style_single.wav",
+   "track": "bgm",
+   "start": 0.0,
+   "duration": 15.266667,
+   "volume": 0.8,
+   "fade": {
+    "in": 0.0,
+    "out": 0.5
+   }
+  }
+ ],
+ "effect_tracks": [
+  {
+   "name": "fx_flash",
+   "effects": [
+    {
+     "type": "曝光",
+     "start": 1.133,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 1.8,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 4.367,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 7.033,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 12.666667,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 13.533667,
+     "duration": 0.07
+    }
+   ]
+  },
+  {
+   "name": "fx_shake",
+   "effects": [
+    {
+     "type": "震动",
+     "start": 4.367,
+     "duration": 0.15
+    },
+    {
+     "type": "震动",
+     "start": 7.033,
+     "duration": 0.15
+    },
+    {
+     "type": "震动",
+     "start": 12.666667,
+     "duration": 0.15
+    },
+    {
+     "type": "震动",
+     "start": 13.533667,
+     "duration": 0.15
+    }
+   ]
+  },
+  {
+   "name": "g_vig",
+   "effects": [
+    {
+     "type": "暗角",
+     "start": 0.0,
+     "duration": 15.266667,
+     "params": [
+      10.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "g_grain",
+   "effects": [
+    {
+     "type": "噪点",
+     "start": 0.0,
+     "duration": 15.266667,
+     "params": [
+      5.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "g_sharp",
+   "effects": [
+    {
+     "type": "精细锐化",
+     "start": 0.0,
+     "duration": 15.266667,
+     "params": [
+      12.0,
+      10.0,
+      8.0,
+      100.0,
+      70.0
+     ]
+    }
+   ]
+  }
+ ],
+ "audio": {
+  "voice_priority": "low",
+  "bgm_volume": 0.8
+ },
+ "qa": {
+  "required": [
+   "duration-valid",
+   "audio-present",
+   "no-black-frame"
+  ]
+ },
+ "_form_note": "**单条素材**短片：4c58efb4，3 段 / 零剪切 / 15.267s。用 3.0× 变速跳过无击杀空档，而非剪掉它。",
+ "_advanced_note": "剪映进阶技巧：开场动画 动感放大 / 结尾动画 渐隐 / 转场 闪白 ×2 / 击杀反馈 曝光 ×6 + 震动 ×4 / 变速 3.0×"
+}
