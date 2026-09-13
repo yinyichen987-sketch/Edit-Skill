@@ -25,7 +25,7 @@ def crop(stem: str, t: float, box, out: str, scale=1.0):
     if scale != 1.0:
         c = c.resize((int(c.width * scale), int(c.height * scale)))
     dst = FR / out
-    dst.save(dst)
+    c.save(dst)
     print(f"{dst}  {im.size} -> {c.size}  box={box}")
 
 

@@ -15,7 +15,12 @@ param(
     [switch]$SkipPush
 )
 
-$ErrorActionPreference = 'Stop'
+# ⚠️ 这里刻意**不能**用 'Stop'。
+#    git 会把 `warning: in the working copy of ..., LF will be replaced by CRLF` 写到 **stderr**，
+#    而 PowerShell 在 Stop 模式下把原生命令的 stderr 升级成**终止性错误** ——
+#    于是 `git add -A` 会在**有新文本文件时**直接中断整个脚本（本项目第 5 轮实际踩到）。
+#    本脚本对关键步骤都显式检查 $LASTEXITCODE，所以用 Continue 反而更可靠。
+$ErrorActionPreference = 'Continue'
 
 # 切到仓库根目录（脚本位于 tools/ 下）
 $root = Split-Path -Parent $PSScriptRoot
