@@ -336,6 +336,37 @@ pyJianYingDraft 只生成 2 个文件，剪映原生草稿有 24+ 个条目。�
 给子 agent 的任务书里写清「主工具挂了就换哪个、哪些 URL 可直接试」，
 它才没有在第一个错误上停住（它改走 Bing RSS + 特定站点爬取，把 16 条 claim 核完了）。
 
+**11. 「每轮必须推送」是硬要求，而本 harness 里推送需要更宽权限**
+
+用户明确要求：**每次训练都要上传到 GitHub**（<https://github.com/yinyichen987-sketch/Edit-Skill>）。
+本轮第一次 `sync.ps1` 推送失败，报的是
+
+```
+schannel: AcquireCredentialsHandle failed: SEC_E_NO_CREDENTIALS (0x8009030E)
+```
+
+**我一开始差点把它当成凭据/网络问题** —— 实际是沙箱限制了 schannel/SSPI 的 TLS 初始化：
+默认模式下连 `git ls-remote` 都挂，而代理端口明明是开着的；换成 `danger-full-access` 重跑，
+同一条命令立刻成功。已经把这个情况写进 README（退出码 3）和 `environment.md`。
+
+顺带修掉一个**会让诊断永远打不出来**的坑：两个同步脚本开头是 `$ErrorActionPreference='Stop'`，
+而 git 把 SSL 错误写到 stderr，用 `2>&1` 捕获时 PowerShell 把它升级成终止性错误，
+脚本在诊断代码之前就挂了（实测：补丁打了但不生效）。捕获原生命令输出前必须临时切回 `Continue`。
+
+并且把脚本改成**先提交再推送**：推送被挡时本轮成果仍在本地，不会因为网络/权限丢掉成果。
+
+> 下次：这个环境里所有「像网络问题」的失败，**先怀疑沙箱**（pip 的 %TEMP%、Python 的 TLS、
+> git 的 HTTPS 是同一类）。
+
+**12. `edit` 工具会吃掉 .ps1 的 BOM（本轮第二次踩同一个坑）**
+
+`environment.md` 早就写了「含中文的 .ps1 必须带 BOM」，我也确实遵守了——但用 `edit` 工具打补丁后
+**BOM 被静默删除**，脚本立刻报一串和 BOM 毫无关系的 `Missing closing '}' in statement block`。
+第一反应是「补丁写错了」，查了三轮才发现是编码问题。
+
+> 下次：**凡是改 `tools/*.ps1`，改完立刻复检 BOM 并跑一遍 `Parser::ParseFile`**，
+> 别相信肉眼，也别先怀疑逻辑。
+
 ### 本轮产生的资产
 
 | 资产 | 位置 |

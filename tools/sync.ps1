@@ -47,14 +47,13 @@ if (-not $SkipPush) {
     }
 
     if (-not $alive) {
-        Write-Host "!! 未发现可用代理，探测端口: $($probePorts -join ', ')" -ForegroundColor Red
-        Write-Host "   请先启动 FlClash（或其它代理），或用 -SkipPush 只提交。" -ForegroundColor Yellow
-        exit 1
+        Write-Host "!! 未发现可用代理（探测端口: $($probePorts -join ', ')）。" -ForegroundColor Yellow
+        Write-Host "   仍继续提交；推送阶段会自行诊断是被沙箱还是被网络挡住。" -ForegroundColor Yellow
+    } else {
+        git config --local http.proxy  "http://127.0.0.1:$alive"
+        git config --local https.proxy "http://127.0.0.1:$alive"
+        Write-Host "==> 代理: 127.0.0.1:$alive" -ForegroundColor Cyan
     }
-
-    git config --local http.proxy  "http://127.0.0.1:$alive"
-    git config --local https.proxy "http://127.0.0.1:$alive"
-    Write-Host "==> 代理: 127.0.0.1:$alive" -ForegroundColor Cyan
 }
 
 # ---- 2. 提醒更新经验日志 ----
@@ -88,8 +87,22 @@ if ($SkipPush) {
     exit 0
 }
 
-git push
-if ($LASTEXITCODE -ne 0) {
+# ⚠️ 本脚本开头是 $ErrorActionPreference = 'Stop'，而 git 把 SSL 错误写到 stderr：
+#    用 `2>&1` 捕获时，PowerShell 会把它变成**终止性错误**，脚本会在下面的判断之前就挂掉，
+#    诊断信息根本来不及打印（实测踩过）。所以这里必须临时切回 Continue。
+$prevEap = $ErrorActionPreference
+$ErrorActionPreference = 'Continue'
+$pushOut = & git push 2>&1
+$pushCode = $LASTEXITCODE
+$ErrorActionPreference = $prevEap
+
+if ($pushCode -ne 0) {
+    $pushOut | ForEach-Object { Write-Host $_ }
+    if (($pushOut -join ' ') -match 'SEC_E_NO_CREDENTIALS|AcquireCredentialsHandle') {
+        Write-Host "!! 推送失败：**不是网络问题**，是执行环境限制了 schannel/SSPI 的 TLS 凭据初始化。" -ForegroundColor Red
+        Write-Host "   本轮提交已在本地完成（未丢）。修法：以更宽权限重跑本脚本，或人工 git push。" -ForegroundColor Yellow
+        exit 3
+    }
     Write-Host "!! 推送失败。检查代理是否运行、凭据是否有效。" -ForegroundColor Red
     exit 1
 }

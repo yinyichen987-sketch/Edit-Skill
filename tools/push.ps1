@@ -142,6 +142,9 @@ $env:GIT_HTTP_LOW_SPEED_LIMIT = '1000'
 
 $env:GIT_HTTP_LOW_SPEED_TIME  = '20'
 
+# 记录是否撞上『沙箱挡住 schannel/SSPI』——它长得像网络问题，但不是。
+$sandboxBlocked = $false
+
 
 
 foreach ($round in 1..2) {
@@ -151,6 +154,10 @@ foreach ($round in 1..2) {
         Write-Host ("[..] 第 {0} 轮 · 尝试 {1}…" -f $round, $a.Name)
 
         $out = & git @($a.Args) push origin $Branch 2>&1
+
+        if (($out -join ' ') -match 'SEC_E_NO_CREDENTIALS|AcquireCredentialsHandle') {
+            $sandboxBlocked = $true
+        }
 
         if ($LASTEXITCODE -eq 0) {
 
@@ -171,6 +178,19 @@ foreach ($round in 1..2) {
 }
 
 
+
+# 先判沙箱：这种情况两路都会挂，且 `git ls-remote` 也一样挂，跟代理/网络无关。
+if ($sandboxBlocked) {
+
+    Write-Host "[!] 诊断：**不是网络问题** —— 是执行环境限制了 schannel/SSPI 的 TLS 凭据初始化。" -ForegroundColor Red
+
+    Write-Host "    判据：git ls-remote 也会报同样的 SEC_E_NO_CREDENTIALS。"
+
+    Write-Host "    修法：以更宽权限重跑本脚本，或人工在终端执行 git push。"
+
+    exit 3
+
+}
 
 Write-Host "[i] 诊断提示（本机实测）："
 

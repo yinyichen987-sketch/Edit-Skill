@@ -489,6 +489,25 @@ Missing closing '}' in statement block ...
 `
 
 **约定**：本仓库新增任何含中文的 .ps1，一律用 encoding="utf-8-sig" 写入（带 BOM）。
+
+**⚠️ 而 `edit` 工具会把 BOM 吃掉**（2026-09-13 实测）：用通用文本编辑器改完这两个脚本后，
+BOM 就没了，脚本随即报一串看似无关的 `Missing closing '}' in statement block`
+（UTF-8 中文被按 ANSI 解码后吃掉了引号/花括号）。**所以改完 .ps1 必须复检 BOM，缺了就补：**
+
+```powershell
+$b = [System.IO.File]::ReadAllBytes($f)
+if (-not ($b[0] -eq 0xEF -and $b[1] -eq 0xBB -and $b[2] -eq 0xBF)) {
+    [System.IO.File]::WriteAllBytes($f, [byte[]](0xEF,0xBB,0xBF) + $b)
+}
+```
+
+改完再过一遍解析器（比肉眼可靠）：
+
+```powershell
+$err = $null
+[void][System.Management.Automation.Language.Parser]::ParseFile($path, [ref]$null, [ref]$err)
+if ($err) { $err | ForEach-Object { $_.Message } }   # 有输出就是有语法错误
+```
 	ools/push.ps1、	ools/sync.ps1 都已带 BOM；自检一行：
 
 `powershell
@@ -520,6 +539,31 @@ urllib 报 ssl.SSLEOFError: UNEXPECTED_EOF_WHILE_READING。安装与下载都需
 
 **⚠️ yt-dlp 的 --print 隐含 --simulate**：加了 --print 就**只打印不下载**，
 必须同时给 --no-simulate。本项目第一次用就踩了 —— 元数据打印得很漂亮，磁盘上却一个文件都没有。
+
+### 4. `git` 的 HTTPS 在默认沙箱下**一律失败**（不是网络问题）
+
+默认沙箱模式下，**连只读的 `git ls-remote` 都会挂**：
+
+```
+fatal: unable to access 'https://github.com/...': schannel: AcquireCredentialsHandle
+failed: SEC_E_NO_CREDENTIALS (0x8009030E)
+```
+
+这是执行环境限制了 schannel/SSPI 的 TLS 凭据初始化，**与代理、与 GitHub 可达性无关** ——
+实测代理端口 `127.0.0.1:10910` 明明开着，照样报这个错；而以 `danger-full-access` 重跑，
+同一条命令立刻推送成功。
+
+**约定**：
+
+- `tools/sync.ps1` / `tools/push.ps1` 都要能**认出这个错误**（退出码 **3**），
+  不要把 `SEC_E_NO_CREDENTIALS` 误报成「检查代理/凭据」——那会把排查方向带偏一轮。
+- 脚本必须**先提交再推送**：推送被沙箱挡住时，本轮成果仍留在本地。
+- ⚠️ 这两个脚本开头都是 `$ErrorActionPreference = 'Stop'`，而 git 把 SSL 错误写到 **stderr**；
+  用 `2>&1` 捕获时 PowerShell 会把它升级成**终止性错误**，脚本在诊断代码之前就挂了。
+  捕获原生命令输出前必须临时切回 `Continue`（本项目实测踩过）。
+
+> 与推送无关但也属于同一类：`pip` 的 `%TEMP%` 与 Python 自己的 TLS 请求同样被沙箱拦，
+> 见上面 1、2 两条。**遇到「像网络问题」的失败，先想到沙箱。**
 
 ---
 

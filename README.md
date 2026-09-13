@@ -95,19 +95,45 @@ ffmpeg 由 `imageio-ffmpeg` 自带，**无需系统安装**；也没有 ffprobe�
 
 详见 `references/edl-schema.md` 末尾。
 
-## 迭代约定：每轮训练后推送经验
+## 迭代约定：**每轮训练后必须推送**（硬性要求）
 
-**每完成一轮训练/迭代，把有价值的经验追加到 `docs/lessons.md`，然后提交并推送到 GitHub。**
+**每完成一轮训练/迭代，把有价值的经验追加到 `docs/lessons.md`，然后提交并推送到 GitHub。
+没推上去 = 这一轮没结束。**
 
-做法：
+远程仓库：<https://github.com/yinyichen987-sketch/Edit-Skill>（分支 `game-video`）
 
 ```powershell
 # 1. 把本轮经验写进 docs/lessons.md（模板在该文件末尾）
-# 2. 同步到 GitHub
+# 2. 同步到 GitHub（提交 + 推送）
 .\tools\sync.ps1 -Message "第 N 轮：<主题>"
 ```
 
-`tools/sync.ps1` 会自动检查代理、暂存、提交并推送。
+`tools/sync.ps1` 会自动探测代理、暂存、提交、推送。它**先提交再推送** ——
+推送失败时本轮成果仍留在本地，不会丢。
+
+### 推送失败时的退出码
+
+| 码 | 含义 | 怎么办 |
+|---|---|---|
+| `0` | 已推送 | 本轮结束 |
+| `1` | 网络/代理问题 | 检查 FlClash 是否在跑（`127.0.0.1:10910`） |
+| `3` | **被执行沙箱挡住**了 TLS（`SEC_E_NO_CREDENTIALS`） | **不是网络问题**，见下 |
+
+### ⚠️ 本机实测：在 DSH 沙箱里 `git` 的 HTTPS 一律失败
+
+默认沙箱下，**连 `git ls-remote` 都会挂**，报：
+
+```
+fatal: unable to access 'https://github.com/...': schannel: AcquireCredentialsHandle
+failed: SEC_E_NO_CREDENTIALS (0x8009030E)
+```
+
+这是执行环境限制了 schannel/SSPI 的 TLS 凭据初始化，**跟代理、跟 GitHub 通不通无关**
+（代理端口开着也照样挂）。所以在这一轮里跑推送，需要**以更宽权限（`danger-full-access`）重跑**，
+或者人工在终端执行 `git push`。脚本现在会把这个情况单独认出来（退出码 3），不再误报成网络问题。
+
+> 环境注意：本机访问 GitHub 的 HTTPS 需要代理（FlClash，`127.0.0.1:10910`），
+> 已配置在本仓库的 `.git/config`。关掉代理后 `git push` 会失败，重开即可。
 
 **什么算「有价值的经验」**（写进 `docs/lessons.md`）：
 
