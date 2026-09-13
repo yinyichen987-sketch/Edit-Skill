@@ -11,7 +11,9 @@
 | 项目 | 实测值 |
 |---|---|
 | 剪映专业版 | **11.4.2.14459** |
+| 安装位置 | `E:\JianyingPro\`（**不在 C 盘**；`JianyingProPacket.xml` 可直接读出完整版本号） |
 | 草稿根目录 | `%LOCALAPPDATA%\JianyingPro\User Data\Projects\com.lveditor.draft` |
+| 键位方案文件 | `%LOCALAPPDATA%\JianyingPro\User Data\Config\Shortcut\*.json`（实测 5 套） |
 | Python | 3.13.14（venv 于 `<repo>/.venv`） |
 | pyJianYingDraft | 0.3.0 |
 | ffmpeg | 由 `imageio-ffmpeg` 0.6.0 提供（7.1），**无 ffprobe** |
@@ -518,3 +520,48 @@ urllib 报 ssl.SSLEOFError: UNEXPECTED_EOF_WHILE_READING。安装与下载都需
 
 **⚠️ yt-dlp 的 --print 隐含 --simulate**：加了 --print 就**只打印不下载**，
 必须同时给 --no-simulate。本项目第一次用就踩了 —— 元数据打印得很漂亮，磁盘上却一个文件都没有。
+
+---
+
+## 关键位方案：**剪映的快捷键不是唯一值**（2026-09-13 实测）
+
+这条推翻了「剪映的 XX 快捷键是什么」这类问题的**提问方式**。
+
+`…\User Data\Config\Shortcut\` 下有 **5 个键位方案 JSON**，本机首次运行
+（2026-09-12 21:39:11）一次性写入，mtime 精确到同一秒：
+
+```
+Custom1.json  Custom2.json  Custom3.json  Final Cut Pro X.json  Premiere Pro.json
+```
+
+实测结果：
+
+1. **Custom1/2/3 三份内容完全相同**，且与 `Premiere Pro.json` **只差 `name` 字段**
+   （5750 vs 5755 字节，差值恰为两个 `name` 字符串的长度差）。→ 自定义槽位是从 Premiere 风格播种的。
+2. 两套内置方案共 **93 条** 命令，其中 **18 条**键位不同。最要命的差异：
+
+   | 命令 | Final Cut Pro X | Premiere Pro / Custom1-3 |
+   |---|---|---|
+   | 分割 `cutoff` | **Ctrl+B** | **Ctrl+K** |
+   | 导出 `exportVideo` | **Ctrl+E** | **Ctrl+M** |
+   | 主轨磁吸 `mainTrackAdsorb` | P | Shift+Backspace |
+   | 自动吸附 `adsorb` | N | S |
+   | 联动 `linkage` | `` ` `` | Ctrl+L |
+
+3. `Config\keymapSettings` 只写了 `currentKeymapIndex=0`，**「索引→方案名」没有任何可读文件**。
+   两条线索还互相矛盾（`VECreator.dll` 的字符串表顺序是 FCPX 在前；
+   但按「自定义槽位从当前方案播种」推断当前应当是 Premiere 风格）。
+   **结论：不要推断，去界面确认一次。**
+4. 与本项目强相关的**稳定**键位（所有方案一致，可放心写进文档）：
+   `Q`/`W` = 向左/向右裁剪、`Del`/`Backspace` = 删除、`Ctrl+Z` = 撤销、
+   `J`/`K`/`L` = 反向/暂停/正向、`Ctrl+滚轮` = 时间线缩放、`Space` = 播放暂停、
+   `I`/`O` = 入点/出点、`M` = 标记、`Ctrl+J` = 手动踩点。
+   （**定格** `storeSingelFrame` 在所有方案里都是空 —— 它没有默认快捷键。）
+
+**约定**：以后凡是要写「剪映快捷键」，必须写成「功能名（方案名：键）」，
+或者干脆只写功能名。核查工具：`scripts/keymap_report.py`。
+
+> 取证手法：判断「某功能在这个版本里存不存在」，**不要搜网页**，去读剪映自己的文件 ——
+> `Resources\po\zh-Hans.po`（界面文案表）、`VECreator.dll`（命令 ID 与内置键位表）、
+> `Config\Shortcut\*.json`。第一方证据能直接推翻二手教程。
+> 本轮就是靠这个方法查出了知识卡片里一条**标着 high 置信度的错误**（见 `operations.md` §6.1）。

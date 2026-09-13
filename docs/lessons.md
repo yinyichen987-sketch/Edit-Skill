@@ -253,6 +253,109 @@ pyJianYingDraft 只生成 2 个文件，剪映原生草稿有 24+ 个条目。�
 
 ---
 
+## 第 3 轮 · 2026-09-13 · 剪映操作知识内化（外部知识卡片 + 第一方实测）
+
+**本轮目标**：把别的 AI 整理的 53 张剪映知识卡片学进来，补上「操作层」知识。
+
+**结论**：卡片只能当**功能清单**用，不能当事实源。真正可信的操作事实全部来自剪映自己的文件。
+本轮产出了 `references/operations.md`（操作知识库）+ `scripts/keymap_report.py`（键位核查工具）。
+
+### 方法层经验
+
+**1. 「知识卡片」是学习材料，不是可信源 —— 必须逐条回到第一方**
+
+53 张卡片结构完整（意图/步骤/禁忌/验证/来源），看起来很可依赖。实际核查：
+
+- 它的「证据来源」栏 **基本不可核查**：核心来源 `blog.iflux.art` 域名已解析不了（NXDOMAIN），
+  引用它的卡片有 7 张；其余是 B 站付费课程页和抖音客户端内容。
+- 实测查出一条**标着 high 置信度的错误**：卡片说「分割 = Ctrl+B」，而 Ctrl+B 只是
+  **Final Cut Pro X 方案**下的绑定，另一套内置方案里分割是 Ctrl+K。（见 `operations.md` §6.1）
+
+> 下次：拿到「别人整理好的知识库」时，先抽查它的**证据链能不能走通**，再决定信几分。
+> 结构完整 ≠ 内容正确；**confidence 标注是作者的主观，不是验证结果**。
+
+**2. 判断「某功能在这个版本存不存在」，去读软件自己的文件**
+
+本轮验证功能名/键位的三条第一方通路，比搜网页快且硬：
+
+| 想知道 | 去哪读 |
+|---|---|
+| 功能叫不叫这个名字 | `Resources\po\zh-Hans.po`（界面文案表，1.4 MB） |
+| 这个功能存不存在、命令 ID 叫什么 | `VECreator.dll` 里的命令 ID 字符串表 |
+| 快捷键到底是什么 | `User Data\Config\Shortcut\*.json` |
+
+一次 grep 就把 20+ 个功能名全部证实了，比几十个网页可靠。
+
+> 下次：**软件本地的资源文件是最高优先级的证据源**，先找它，再考虑上网。
+
+**3. 有些问题本身就问错了，要先修问题**
+
+用户（和卡片）都在问「剪映的快捷键是什么」。这个问题**没有唯一答案**——剪映内置多套键位方案，
+同一功能就是不同的键（93 条命令里 18 条冲突）。正确答案不是某个键，而是
+「功能名 + 方案名」。**发现前提错误时，交付的是修好的问题，不是硬凑的答案。**
+
+**4. 交叉验证要用独立来源，别用同一篇二手文的转载**
+
+网络核查找到的「Q = 插入剪辑 / W = 覆盖剪辑」是 Premiere 的概念被误搬到剪映上；
+而本地键位文件里 `cutLeft/cutRight = Q/W` 在所有 5 套方案里完全一致。
+**二手来源之间会互相抄，本地文件不会。**
+
+### 技术层踩坑
+
+**5. 剪映的键位方案是文件，不是注册表**
+
+`…\Config\Shortcut\` 下 5 个 JSON（Custom1/2/3 + Final Cut Pro X + Premiere Pro），
+首次运行一次性写入；`Config\keymapSettings` 只有 `currentKeymapIndex=0`，
+**「索引→方案名」没有任何可读文件** → 不要推断，去界面确认。
+工具：`.venv\Scripts\python.exe .dsh\skills\jianying-edit\scripts\keymap_report.py --compare`
+
+**6. 定格没有默认快捷键**
+
+两套方案里 `storeSingelFrame` 都是空数组。之前如果想「按个键再等等看」，永远等不到。
+
+**7. 联动的默认范围会咬人**
+
+本机 `Config\globalSetting` → `linkageEnableTypes=text, effect, sticker, filter, adjust, sound, tts`。
+即**字幕默认在被联动清单里，但效果/贴纸/滤镜也在**——「全选后整体移动」时要想到这些会一起动。
+
+**8. Windows 上 `ConvertFrom-Json` 读剪映的 UTF-8 键位 JSON 会直接失败**
+
+键位值里有全角字符（`Ctrl+；`、`Ctrl+，`），PowerShell 用 ANSI 解码后变成非法 JSON 并报
+`Invalid array passed in, ',' expected`。**读这类文件一律走 Python（显式 `encoding="utf-8"`）。**
+
+**9. 别对 `Program Files` 做递归扫描**
+
+一次 `Get-ChildItem -Recurse -Depth 4` 扫三个 Program Files 目录直接 120 秒超时。
+**先解析快捷方式的 TargetPath**（`WScript.Shell` COM）就能秒定位安装目录 —— 本轮 5 秒拿到 `E:\JianyingPro`。
+
+### 流程层经验
+
+**10. 网络工具会整片挂掉，委派时要给「替代路径」**
+
+本轮 `web_search` / `read_page` 全程 firecrawl 429，且 DNS 解析失败；但 `web_fetch` 一直可用。
+给子 agent 的任务书里写清「主工具挂了就换哪个、哪些 URL 可直接试」，
+它才没有在第一个错误上停住（它改走 Bing RSS + 特定站点爬取，把 16 条 claim 核完了）。
+
+### 本轮产生的资产
+
+| 资产 | 位置 |
+|---|---|
+| 操作知识库（意图→功能→验证→**能否自动化**，含键位方案实测） | `references/operations.md` |
+| 键位核查工具（概览 / 差异 / 单命令追踪 / JSON） | `scripts/keymap_report.py` |
+| 外部知识卡片原件（53 张，二手，已标注非可信源） | `references/knowledge-cards/jianying-agent-rag-cards-2026-09.md` |
+| 第一方实测事实（键位方案、联动范围、版本证据手法） | `references/environment.md` 新增「关键位方案」节 |
+
+### 遗留
+
+- **需要人工确认一次**：本机当前生效的到底是哪套键位方案（打开剪映快捷键面板看一眼即可）。
+  在此之前 `operations.md` 里所有快捷键都带方案名。
+- `operations.md` §3 标「未表达」的能力（定格/倒放/抠像/跟踪/降噪/分离/多机位/复合片段）
+  要不要扩进 `edl_to_draft.py` —— 属于下一步的取舍，本轮不动。
+- `references/editing-rules.md` **仍然为空**：本轮拿到的是**操作**知识，不是**风格**规则，
+  规则依旧必须等真实成片。
+
+---
+
 ## 模板（下轮复制）
 
 ```markdown
