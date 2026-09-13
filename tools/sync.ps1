@@ -48,7 +48,13 @@ if (-not $SkipPush) {
 
     if (-not $alive) {
         Write-Host "!! 未发现可用代理（探测端口: $($probePorts -join ', ')）。" -ForegroundColor Yellow
-        Write-Host "   仍继续提交；推送阶段会自行诊断是被沙箱还是被网络挡住。" -ForegroundColor Yellow
+        Write-Host "   仍继续提交；同时清掉仓库里**残留的代理配置**，让 git 走直连。" -ForegroundColor Yellow
+        Write-Host "   （不清掉的话 git 会对着已关闭的代理重试，报错还指向 127.0.0.1 —— 本项目踩过）" -ForegroundColor Yellow
+        $eap = $ErrorActionPreference
+        $ErrorActionPreference = 'Continue'
+        git config --local --unset http.proxy 2>$null | Out-Null
+        git config --local --unset https.proxy 2>$null | Out-Null
+        $ErrorActionPreference = $eap
     } else {
         git config --local http.proxy  "http://127.0.0.1:$alive"
         git config --local https.proxy "http://127.0.0.1:$alive"

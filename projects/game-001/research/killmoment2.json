@@ -1,0 +1,419 @@
+{
+ "BV19m3uzhECJ": {
+  "fps": 30.0,
+  "analysed_s": 49.95,
+  "frames": 1498,
+  "freeze_runs": [
+   {
+    "t": 49.667,
+    "frames": 8,
+    "ms": 267
+   }
+  ],
+  "white_flash_events": [
+   {
+    "t": 3.133,
+    "frames": 1,
+    "ms": 33
+   },
+   {
+    "t": 6.9,
+    "frames": 2,
+    "ms": 67
+   },
+   {
+    "t": 15.633,
+    "frames": 4,
+    "ms": 133
+   },
+   {
+    "t": 16.1,
+    "frames": 4,
+    "ms": 133
+   },
+   {
+    "t": 16.6,
+    "frames": 4,
+    "ms": 133
+   },
+   {
+    "t": 17.1,
+    "frames": 4,
+    "ms": 133
+   },
+   {
+    "t": 17.6,
+    "frames": 4,
+    "ms": 133
+   },
+   {
+    "t": 18.1,
+    "frames": 4,
+    "ms": 133
+   },
+   {
+    "t": 19.433,
+    "frames": 11,
+    "ms": 367
+   },
+   {
+    "t": 28.067,
+    "frames": 10,
+    "ms": 333
+   },
+   {
+    "t": 30.467,
+    "frames": 6,
+    "ms": 200
+   },
+   {
+    "t": 34.067,
+    "frames": 1,
+    "ms": 33
+   },
+   {
+    "t": 36.267,
+    "frames": 2,
+    "ms": 67
+   },
+   {
+    "t": 36.433,
+    "frames": 4,
+    "ms": 133
+   },
+   {
+    "t": 41.7,
+    "frames": 11,
+    "ms": 367
+   }
+  ],
+  "black_events": [
+   {
+    "t": 6.967,
+    "frames": 10,
+    "ms": 333
+   },
+   {
+    "t": 23.333,
+    "frames": 18,
+    "ms": 600
+   }
+  ],
+  "max_luma_ratio": 3.0
+ },
+ "BV1mbPsz5EeK": {
+  "fps": 26.42,
+  "analysed_s": 37.22,
+  "frames": 983,
+  "freeze_runs": [
+   {
+    "t": 3.217,
+    "frames": 33,
+    "ms": 1249
+   },
+   {
+    "t": 20.893,
+    "frames": 25,
+    "ms": 946
+   },
+   {
+    "t": 22.256,
+    "frames": 4,
+    "ms": 151
+   },
+   {
+    "t": 22.407,
+    "frames": 5,
+    "ms": 189
+   },
+   {
+    "t": 33.952,
+    "frames": 3,
+    "ms": 114
+   },
+   {
+    "t": 34.065,
+    "frames": 4,
+    "ms": 151
+   },
+   {
+    "t": 34.254,
+    "frames": 4,
+    "ms": 151
+   },
+   {
+    "t": 34.406,
+    "frames": 3,
+    "ms": 114
+   },
+   {
+    "t": 34.557,
+    "frames": 7,
+    "ms": 265
+   },
+   {
+    "t": 34.822,
+    "frames": 4,
+    "ms": 151
+   },
+   {
+    "t": 35.011,
+    "frames": 15,
+    "ms": 568
+   },
+   {
+    "t": 35.579,
+    "frames": 43,
+    "ms": 1628
+   }
+  ],
+  "white_flash_events": [],
+  "black_events": [],
+  "max_luma_ratio": 1.48
+ },
+ "BV1U1kJBrEd7": {
+  "fps": 30.0,
+  "analysed_s": 29.61,
+  "frames": 888,
+  "freeze_runs": [
+   {
+    "t": 7.967,
+    "frames": 4,
+    "ms": 133
+   },
+   {
+    "t": 9.067,
+    "frames": 3,
+    "ms": 100
+   },
+   {
+    "t": 9.3,
+    "frames": 3,
+    "ms": 100
+   },
+   {
+    "t": 9.4,
+    "frames": 3,
+    "ms": 100
+   },
+   {
+    "t": 10.667,
+    "frames": 4,
+    "ms": 133
+   },
+   {
+    "t": 10.8,
+    "frames": 8,
+    "ms": 267
+   },
+   {
+    "t": 11.067,
+    "frames": 18,
+    "ms": 600
+   },
+   {
+    "t": 11.867,
+    "frames": 9,
+    "ms": 300
+   },
+   {
+    "t": 12.167,
+    "frames": 7,
+    "ms": 233
+   },
+   {
+    "t": 13.333,
+    "frames": 12,
+    "ms": 400
+   },
+   {
+    "t": 13.767,
+    "frames": 6,
+    "ms": 200
+   },
+   {
+    "t": 29.467,
+    "frames": 3,
+    "ms": 100
+   }
+  ],
+  "white_flash_events": [],
+  "black_events": [],
+  "max_luma_ratio": 1.27
+ },
+ "BV1C9826mEZ8": {
+  "fps": 29.97,
+  "analysed_s": 180.0,
+  "frames": 5395,
+  "freeze_runs": [
+   {
+    "t": 0.0,
+    "frames": 9,
+    "ms": 300
+   },
+   {
+    "t": 3.003,
+    "frames": 10,
+    "ms": 334
+   },
+   {
+    "t": 85.085,
+    "frames": 3,
+    "ms": 100
+   }
+  ],
+  "white_flash_events": [
+   {
+    "t": 53.487,
+    "frames": 1,
+    "ms": 33
+   },
+   {
+    "t": 59.66,
+    "frames": 2,
+    "ms": 67
+   },
+   {
+    "t": 60.027,
+    "frames": 1,
+    "ms": 33
+   },
+   {
+    "t": 60.961,
+    "frames": 3,
+    "ms": 100
+   },
+   {
+    "t": 61.428,
+    "frames": 1,
+    "ms": 33
+   },
+   {
+    "t": 80.781,
+    "frames": 1,
+    "ms": 33
+   },
+   {
+    "t": 86.286,
+    "frames": 2,
+    "ms": 67
+   },
+   {
+    "t": 160.661,
+    "frames": 7,
+    "ms": 234
+   }
+  ],
+  "black_events": [],
+  "max_luma_ratio": 2.25
+ },
+ "BV1hzKn6ZEBD": {
+  "fps": 29.97,
+  "analysed_s": 180.0,
+  "frames": 5395,
+  "freeze_runs": [
+   {
+    "t": 0.0,
+    "frames": 9,
+    "ms": 300
+   },
+   {
+    "t": 3.003,
+    "frames": 10,
+    "ms": 334
+   },
+   {
+    "t": 97.231,
+    "frames": 3,
+    "ms": 100
+   }
+  ],
+  "white_flash_events": [
+   {
+    "t": 126.56,
+    "frames": 4,
+    "ms": 133
+   },
+   {
+    "t": 149.216,
+    "frames": 6,
+    "ms": 200
+   },
+   {
+    "t": 177.945,
+    "frames": 1,
+    "ms": 33
+   }
+  ],
+  "black_events": [
+   {
+    "t": 32.833,
+    "frames": 1,
+    "ms": 33
+   },
+   {
+    "t": 82.549,
+    "frames": 1,
+    "ms": 33
+   }
+  ],
+  "max_luma_ratio": 2.07
+ },
+ "BV11c6GBrEPm": {
+  "fps": 29.97,
+  "analysed_s": 180.0,
+  "frames": 5395,
+  "freeze_runs": [
+   {
+    "t": 0.0,
+    "frames": 9,
+    "ms": 300
+   },
+   {
+    "t": 3.003,
+    "frames": 10,
+    "ms": 334
+   },
+   {
+    "t": 34.635,
+    "frames": 3,
+    "ms": 100
+   }
+  ],
+  "white_flash_events": [
+   {
+    "t": 34.601,
+    "frames": 5,
+    "ms": 167
+   },
+   {
+    "t": 69.236,
+    "frames": 5,
+    "ms": 167
+   },
+   {
+    "t": 126.527,
+    "frames": 3,
+    "ms": 100
+   },
+   {
+    "t": 134.001,
+    "frames": 8,
+    "ms": 267
+   },
+   {
+    "t": 165.832,
+    "frames": 8,
+    "ms": 267
+   }
+  ],
+  "black_events": [
+   {
+    "t": 97.631,
+    "frames": 3,
+    "ms": 100
+   }
+  ],
+  "max_luma_ratio": 3.46
+ }
+}

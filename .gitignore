@@ -87,3 +87,9 @@ bgm-license-check/
 projects/**/preview/*.mp4
 # BGM 音频：由 tools/make_bgm.py（合成）或 ffmpeg 裁切（H2H）重生成
 projects/**/bgm/*.wav
+
+# ---- 研究期的抽帧 / HUD 截图 / 叠图（体积大，可用 tools/verify_kill_frames.py 或 ffmpeg 重生）----
+projects/**/research/_frames/
+projects/**/research/_hud/
+projects/**/research/_scratch/frames/
+projects/**/ref-analysis/**/*.png

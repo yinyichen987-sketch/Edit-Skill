@@ -562,6 +562,30 @@ failed: SEC_E_NO_CREDENTIALS (0x8009030E)
   用 `2>&1` 捕获时 PowerShell 会把它升级成**终止性错误**，脚本在诊断代码之前就挂了。
   捕获原生命令输出前必须临时切回 `Continue`（本项目实测踩过）。
 
+### 5. 本机唯一能过 HTTPS 的通道是 **Node.js**
+
+2026-09-13 实测，同一台机器同一时刻：
+
+| 通道 | 结果 |
+|---|---|
+| PowerShell `Invoke-WebRequest` / `curl.exe` / .NET `HttpClient` | ❌ `schannel: SEC_E_NO_CREDENTIALS` |
+| Python `urllib` / `requests` | ❌ `SSL: UNEXPECTED_EOF_WHILE_READING` |
+| 明文 **HTTP** | ✅ 能过 |
+| **Node.js v24** | ✅ **能过**（自带 OpenSSL，不走 schannel） |
+
+所以本仓库留了一组兜底脚本在 **`tools/web/`**（`_fetch.mjs` / `_search.mjs` / `_probe.mjs` /
+`_bili.mjs`），用法与可达主机清单见 `tools/web/README.md`。
+
+**可达性**：bilibili / zhihu / baidu / capcut.cn / liquipedia / riotgames ✅；
+**youtube / reddit / google / wikipedia ❌ 连接超时**。
+并且**没有可用的通用搜索引擎**（Bing 只回导航类头部结果，DDG/SearX 不可达）。
+
+> **结论：本机「上网查资料」≈「搜 B站 + 直接猜 URL」。**
+> 视频素材反而是最稳的一条路：`yt-dlp` 不需要浏览器，
+> `tools/dl_reference.py` 在**默认沙箱**下就能搜 B站 并下载（实测通过）。
+
+参考：视频侧的完整链路口径见 `references/kill-extraction.md` §8。
+
 > 与推送无关但也属于同一类：`pip` 的 `%TEMP%` 与 Python 自己的 TLS 请求同样被沙箱拦，
 > 见上面 1、2 两条。**遇到「像网络问题」的失败，先想到沙箱。**
 
