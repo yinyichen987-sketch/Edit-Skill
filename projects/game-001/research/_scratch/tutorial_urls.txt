@@ -1,0 +1,20 @@
+# 第二轮：补齐「手法」空白（转场 / 卡点 / 调色 / 关键帧 / 字幕 / 蒙版 / 开场）
+# 来源：bilisearch 检索（projects/game-001/research/_scratch/gap_search.json）
+# ---- 瓦专用 ----
+https://www.bilibili.com/video/av117229068879245
+https://www.bilibili.com/video/av114811555808530
+https://www.bilibili.com/video/av116555094562481
+https://www.bilibili.com/video/av117136810837245
+https://www.bilibili.com/video/av238804449
+https://www.bilibili.com/video/av364019187
+# ---- 通用核心 ----
+https://www.bilibili.com/video/av114855495404329
+https://www.bilibili.com/video/av577911243
+https://www.bilibili.com/video/av115109368176020
+https://www.bilibili.com/video/av923240662
+https://www.bilibili.com/video/av116946339105388
+https://www.bilibili.com/video/av113976889312129
+https://www.bilibili.com/video/av911777502
+https://www.bilibili.com/video/av115637531778041
+https://www.bilibili.com/video/av1505660004
+https://www.bilibili.com/video/av116946540436872
