@@ -2,10 +2,12 @@
 from __future__ import annotations
 
 import pathlib
+import subprocess
 import sys
 
 import numpy as np
 from PIL import Image, ImageDraw
+import imageio_ffmpeg
 
 try:
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -14,10 +16,17 @@ except Exception:
 
 ROOT = pathlib.Path(__file__).resolve().parents[4]
 FRM = ROOT / "projects" / "game-001" / "research" / "_frames"
+VID = ROOT / "参考视频" / "教学"
+FF = imageio_ffmpeg.get_ffmpeg_exe()
 
 
 def load(stem: str, t: float) -> Image.Image:
-    return Image.open(FRM / f"f_{stem}_{t:07.2f}.png").convert("RGB")
+    f = FRM / f"f_{stem}_{t:07.2f}.png"
+    if not f.exists():
+        subprocess.run([FF, "-hide_banner", "-loglevel", "error", "-ss", f"{t:.3f}",
+                        "-i", str(VID / f"{stem}.mp4"), "-frames:v", "1", "-y", str(f)],
+                       capture_output=True)
+    return Image.open(f).convert("RGB")
 
 
 def crop(stem: str, t: float, box, name: str, scale: float = 3.0):

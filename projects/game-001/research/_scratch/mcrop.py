@@ -5,17 +5,26 @@ import sys
 import pathlib
 
 from PIL import Image
+import subprocess
+import imageio_ffmpeg
 
 try:
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 except Exception:
     pass
 
-FR = pathlib.Path(__file__).resolve().parent.parent / "_frames"
+ROOT = pathlib.Path(r"C:\Users\18930\Desktop\Edit skill")
+VID = ROOT / "参考视频" / "教学"
+FR = ROOT / "projects" / "game-001" / "research" / "_frames"
+FF = imageio_ffmpeg.get_ffmpeg_exe()
 
 
 def crop(stem: str, t: float, box, out: str, scale=1.0):
     src = FR / f"{stem}_{t:07.2f}.png"
+    if not src.exists():
+        subprocess.run([FF, "-hide_banner", "-loglevel", "error", "-ss", f"{t:.3f}",
+                        "-i", str(VID / f"{stem}.mp4"), "-frames:v", "1", "-y", str(src)],
+                       capture_output=True)
     if not src.exists():
         print(f"!! missing {src}")
         return
