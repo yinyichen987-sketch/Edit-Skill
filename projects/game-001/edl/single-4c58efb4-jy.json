@@ -1,0 +1,278 @@
+{
+ "version": "1.0",
+ "project": "SINGLE_4c58efb4_JY",
+ "canvas": {
+  "width": 1920,
+  "height": 1080,
+  "fps": 30
+ },
+ "style_ref": "single-clip-jianying-bgm",
+ "target_duration_s": 15.37,
+ "tracks": [
+  {
+   "type": "video",
+   "name": "main"
+  },
+  {
+   "type": "video",
+   "name": "ovl_black"
+  },
+  {
+   "type": "video",
+   "name": "ovl_white"
+  },
+  {
+   "type": "audio",
+   "name": "bgm"
+  }
+ ],
+ "clips": [
+  {
+   "id": "s1",
+   "track": "main",
+   "source": "../../../原始素材/4c58efb455faef8b4795ba6d6538b54b.mp4",
+   "source_in": 0.3,
+   "start": 0.0,
+   "duration": 8.6,
+   "role": "opening_multikill",
+   "rule_id": "SINGLE-JY-01",
+   "reason": "第 1 段：素材 0.30→8.90（8.600s），速度 1.0× ⇒ 时间线 8.600s。本段是**开场连杀**：素材 1.43/2.10/4.67 三杀落在 1.2 秒内，直接当钩子，不做片头。 接缝用**硬切**（L1：110s 瓦成片唯一贯穿全片的手法就是硬切）。",
+   "volume": 0.16,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   },
+   "animation": {
+    "intro": "动感放大",
+    "intro_duration": 0.5
+   }
+  },
+  {
+   "id": "s2",
+   "track": "main",
+   "source": "../../../原始素材/4c58efb455faef8b4795ba6d6538b54b.mp4",
+   "source_in": 8.9,
+   "start": 8.6,
+   "duration": 6.77,
+   "role": "deadtime_ramp_to_final",
+   "rule_id": "SINGLE-JY-01",
+   "reason": "第 2 段：素材 8.90→19.05（10.155s），速度 1.5× ⇒ 时间线 6.770s。本段是**空档**：不剪掉（剪掉会破坏「同一素材时间单调」的不变量），改为 1.5× 掠过 ⇒ 时间线从 10.155s 压到 6.770s，并让末尾 19.900s 的击杀落在 BGM 第 43 个拍点上。 接缝用**硬切**（L1：110s 瓦成片唯一贯穿全片的手法就是硬切）。",
+   "volume": 0.16,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   },
+   "animation": {
+    "outro": "渐隐",
+    "outro_duration": 0.6
+   },
+   "speed": 1.5
+  },
+  {
+   "id": "w1",
+   "track": "ovl_white",
+   "source": "../assets/white_2f.mp4",
+   "source_in": 0.0,
+   "start": 1.76665,
+   "duration": 0.0667,
+   "role": "flash_white",
+   "rule_id": "SINGLE-JY-01",
+   "reason": "击杀反馈：**2 帧白场素材**压在素材 2.100s（时间线 1.800s）。时长 2 帧(67ms) —— kill-moment.md Q5 实测白闪中位 50–167ms、最常见 33/67/133ms，§3 明确「要引用时长优先引用这一档」；做法是**素材**而非调亮度（§1：媒体→官方素材→白场）。",
+   "volume": 0.0
+  },
+  {
+   "id": "w2",
+   "track": "ovl_white",
+   "source": "../assets/white_2f.mp4",
+   "source_in": 0.0,
+   "start": 4.33365,
+   "duration": 0.0667,
+   "role": "flash_white",
+   "rule_id": "SINGLE-JY-01",
+   "reason": "击杀反馈：**2 帧白场素材**压在素材 4.667s（时间线 4.367s）。时长 2 帧(67ms) —— kill-moment.md Q5 实测白闪中位 50–167ms、最常见 33/67/133ms，§3 明确「要引用时长优先引用这一档」；做法是**素材**而非调亮度（§1：媒体→官方素材→白场）。",
+   "volume": 0.0
+  },
+  {
+   "id": "b1",
+   "track": "ovl_black",
+   "source": "../assets/black_2f.mp4",
+   "source_in": 0.0,
+   "start": 8.56665,
+   "duration": 0.0667,
+   "role": "hide_cut_black",
+   "rule_id": "SINGLE-JY-01",
+   "reason": "藏接缝：**2 帧黑场素材**压在 s1→s2 接缝 8.600s 上（该时刻正好落在 BGM 的第 15 个拍点 = 第 5 小节起点上）。transitions.md §3.3 实测黑场三档 33/167/667ms，「想要隐形就取 1 帧」；这里取 2 帧(67ms) 仍在藏切点档内。",
+   "volume": 0.0
+  }
+ ],
+ "texts": [],
+ "audio_overlays": [
+  {
+   "source": "../bgm/jy_4fdd1e59_drop.wav",
+   "track": "bgm",
+   "start": 0.0,
+   "duration": 15.37,
+   "volume": 0.7,
+   "fade": {
+    "in": 0.0,
+    "out": 0.0
+   }
+  }
+ ],
+ "effect_tracks": [
+  {
+   "name": "fx_flash",
+   "effects": [
+    {
+     "type": "曝光",
+     "start": 1.133,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 1.8,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 4.367,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 7.033,
+     "duration": 0.07
+    }
+   ]
+  },
+  {
+   "name": "fx_blur",
+   "effects": [
+    {
+     "type": "瞬间模糊",
+     "start": 1.8,
+     "duration": 0.13
+    },
+    {
+     "type": "瞬间模糊",
+     "start": 4.367,
+     "duration": 0.13
+    }
+   ]
+  },
+  {
+   "name": "fx_shake",
+   "effects": [
+    {
+     "type": "回弹摇摆",
+     "start": 1.8,
+     "duration": 0.2
+    },
+    {
+     "type": "回弹摇摆",
+     "start": 4.367,
+     "duration": 0.2
+    }
+   ]
+  },
+  {
+   "name": "g_vig",
+   "effects": [
+    {
+     "type": "暗角",
+     "start": 0.0,
+     "duration": 15.37,
+     "params": [
+      10.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "g_grain",
+   "effects": [
+    {
+     "type": "噪点",
+     "start": 0.0,
+     "duration": 15.37,
+     "params": [
+      5.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "g_sharp",
+   "effects": [
+    {
+     "type": "精细锐化",
+     "start": 0.0,
+     "duration": 15.37,
+     "params": [
+      12.0,
+      10.0,
+      8.0,
+      100.0,
+      70.0
+     ]
+    }
+   ]
+  }
+ ],
+ "audio": {
+  "voice_priority": "low",
+  "bgm_volume": 0.7
+ },
+ "qa": {
+  "required": [
+   "duration-valid",
+   "audio-present",
+   "no-black-frame"
+  ]
+ },
+ "_bgm": {
+  "来源": "剪映曲库（用户在本机剪映面板下载/试听过的曲子）",
+  "缓存文件": "4fdd1e597bbee84e50c338446f38ddca.mp3",
+  "剪映拍点文件": "18f53e55c53d8c446682d17187cddabe.beat",
+  "取段起点": "15.350s（＝剪映拍点，落在该曲第 8 小节的 drop 上）",
+  "段落时长": "15.370s = 8 小节整（1 拍 0.48s ⇒ ≈125 BPM）",
+  "为什么不是整曲": "成片只有 15.37s；整曲 169.7s 会在草稿里留一条超长音轨",
+  "为什么不能直接引用曲库": "AudioSegment 只收本地文件（references/environment.md）"
+ },
+ "_beat_alignment": {
+  "说明": "拍点来自剪映自己的 .beat 文件（第一方产物）。只对**压白闪的击杀**要求落在拍上；未压白闪的击杀不参与统计。",
+  "white_flash_kill_offsets_s": {
+   "2.100(src) → 1.800(tl)": 0.12,
+   "4.667(src) → 4.367(tl)": 0.057
+  },
+  "worst_offset_s": 0.12,
+  "not_scored_kills_timeline_s": [
+   1.133,
+   7.033
+  ],
+  "all_kill_timeline_s": [
+   1.133,
+   1.8,
+   4.367,
+   7.033
+  ],
+  "bar_starts_s": [
+   0.0,
+   1.92,
+   3.83,
+   5.76,
+   7.7,
+   9.6,
+   11.52,
+   13.45,
+   15.37
+  ]
+ },
+ "_form_note": "**单条素材**短片（剪映曲库 BGM 版）：4c58efb4，2 段 / 零剪切（空档用 4× 掠过）/ 15.370s；硬切为主 + 白闪×2（2 帧素材）/ 黑场×1（2 帧素材）。",
+ "_manual": [
+  "曲线变速（闪进 0.1×）—— EDL 未表达，见 operations.md §3.4",
+  "切口两侧 2 帧音频交叉淡化（防咔哒声）",
+  "响度统一到 −14 LUFS / 真峰 ≤ −1 dBTP（源曲母版已削波到 +0.97 dBFS）",
+  "BGM 若与画面气质不合，可在剪映里换同曲其他 8 小节段落（拍点表已给）"
+ ]
+}

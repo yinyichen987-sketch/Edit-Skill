@@ -174,8 +174,13 @@ def main() -> int:
     print(f"=== 渲染预览: {name}  {W}x{H} @{FPS} ===")
 
     # ---- 1. 逐片段裁剪 + 音量 + 关键帧动效 ----
+    # ⚠️ 叠加轨（`ovl_*`：白场/黑场**素材**，见 references/techniques/kill-moment.md §1）
+    #    不是主轨片段。早期版本把它们当主轨顺序拼进去 ⇒ 预览里会整屏变白变黑一大段，
+    #    与剪映里的实际效果**完全不同**。这里单独渲染，最后按 start 叠上去。
+    ovl_clips = [c for c in edl["clips"] if str(c.get("track", "")).startswith("ovl_")]
+    main_clips = [c for c in edl["clips"] if not str(c.get("track", "")).startswith("ovl_")]
     seg_files = []
-    for i, c in enumerate(edl["clips"]):
+    for i, c in enumerate(main_clips):
         src = Path(c["source"]) if os.path.isabs(c["source"]) else (base / c["source"]).resolve()
         out = WORK / f"seg{i}.mp4"
 
@@ -286,6 +291,30 @@ def main() -> int:
     run(["-y", "-f", "concat", "-safe", "0", "-i", str(lst), "-c", "copy", str(joined)],
         f"拼接 {len(seg_files)} 片段")
 
+    # ---- 2b. 叠加轨：白场/黑场素材按各自 start 压到主轨上 ----
+    # 这些是**素材**（媒体 → 官方素材 → 白场/黑场），不是"调亮度"，所以做法就是 overlay。
+    total_main = max(float(c["start"]) + float(c["duration"]) for c in main_clips)
+    if ovl_clips:
+        args = ["-y", "-i", str(joined)]
+        chain, prev, inp = [], "0:v", 1
+        for c in sorted(ovl_clips, key=lambda x: float(x["start"])):
+            src_o = Path(c["source"]) if os.path.isabs(c["source"]) else (base / c["source"]).resolve()
+            args += ["-ss", f"{c.get('source_in', 0)}", "-t", f"{c['duration']}",
+                     "-i", str(src_o)]
+            chain.append(
+                f"[{inp}:v]scale={W}:{H},setsar=1,fps={FPS},format=rgba,"
+                f"colorchannelmixer=aa=1.0,setpts=PTS-STARTPTS+{float(c['start']):.4f}/TB[o{inp}]")
+            chain.append(f"[{prev}][o{inp}]overlay=0:0:eof_action=pass:format=auto[v{inp}]")
+            prev = f"v{inp}"
+            inp += 1
+        ovl_out = WORK / "overlaid.mp4"
+        args += ["-filter_complex", ";".join(chain), "-map", f"[{prev}]", "-map", "0:a?",
+                 "-t", f"{total_main:.4f}",
+                 "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p",
+                 "-c:a", "copy", str(ovl_out)]
+        run(args, f"叠加轨 ×{len(ovl_clips)}（白场/黑场素材，按 start 压在主轨上）")
+        joined = ovl_out
+
     # ---- 3. 转场：闪白 ----
     # 实现要点（踩过的坑）：不能用 video 层的 `fade=t=in:st=X` 来做局部白闪——
     # `fade=in` 会把 X **之前**的所有帧都置为"淡入起始态"（即纯白），
@@ -371,7 +400,7 @@ def main() -> int:
     base_n = len(cap_meta) + 1 + len(audio_inputs)
     clip_audio = []
     _added = 0          # 实际加进去的音频输入数（不能再用 j，跳过之后会错位）
-    for c in edl["clips"]:
+    for c in main_clips:
         # 静音的纯视觉叠加片段（白场/黑场素材）**没有音轨**，不能当音频输入：
         # 引用 [k:a] 会让 ffmpeg 报 "matches no streams"。
         if float(c.get("volume", 1.0)) <= 0:
@@ -425,7 +454,9 @@ def main() -> int:
         alabels.append(lab)
 
     # normalize=0 很关键：amix 默认会按 1/N 衰减，把所有音轨都压没
-    total = sum(float(c["duration"]) for c in edl["clips"])
+    # ⚠️ 成片长度只算**主轨**（叠加的白场/黑场不占时间线，见 §1 的说明）。
+    #    用 sum(所有 clips) 会把白场/黑场算进去，-t 就比真实成片长。
+    total = max(float(c["start"]) + float(c["duration"]) for c in main_clips)
     chain.append("[" + "][".join(alabels) +
                  f"]amix=inputs={len(alabels)}:duration=longest:normalize=0[mixed]")
     # 实测教训（两处，都不是"调个参数"级别的坑）：

@@ -22,6 +22,20 @@
     .venv\\Scripts\\python.exe tools\\verify_shot_order.py projects/game-001/edl/montage.json
 
 退出码 0 = 全部单调；1 = 有回跳（有割裂）。
+
+## ⚠️ 叠加轨（`ovl_*`）不参与这条判据（第 6 轮修正）
+
+白闪/黑场是**同一份素材被反复压在不同时刻**（`white_2f.mp4` 用 N 次，`source_in` 都是 0），
+它们**天然"回跳"**，但它们不是"切点"，而是**叠加在切点上的效果素材**。
+把它们混进"每段素材内部单调"里会得出**假 FAIL**：
+
+    ✗ white_2f: 0.000@15.37s < 0.000@15.44s   ← 两条白闪，本来就该在多个时刻出现
+
+而且它们还会污染节奏统计（镜长中位数被 0.0667s 的白闪拉到 0.067s、
+总长按"各片段时长求和"算成 15.57s，比真实时长多出叠加轨的长度）。
+
+⇒ 本脚本现在**只统计主轨**（`track` 不以 `ovl_` 开头的视频片段），
+并且总长用 `max(start + duration)` 而不是求和（允许片段重叠）。
 """
 from __future__ import annotations
 
@@ -44,17 +58,22 @@ def main() -> int:
     if not path.is_absolute():
         path = pathlib.Path(__file__).resolve().parents[1] / path
     edl = json.loads(path.read_text(encoding="utf-8"))
-    clips = edl["clips"]
+    all_clips = edl["clips"]
+    # 叠加轨（白闪/黑场素材）不是切点，见文件头说明
+    clips = [c for c in all_clips if not str(c.get("track", "")).startswith("ovl_")]
+    skipped = len(all_clips) - len(clips)
 
     per_source: dict[str, list[tuple[float, float, str]]] = defaultdict(list)
-    timeline = 0.0
     for c in clips:
-        per_source[c["source"]].append((float(c["source_in"]), timeline, c.get("id", "?")))
-        timeline += float(c["duration"])
+        per_source[c["source"]].append(
+            (float(c["source_in"]), float(c["start"]), c.get("id", "?")))
+    timeline = max(float(c["start"]) + float(c["duration"]) for c in clips)
 
     print(f"=== {path.name} ===")
-    print(f"  片段 {len(clips)} 个 / 总长 {timeline:.4f}s / "
+    print(f"  主轨片段 {len(clips)} 个 / 总长 {timeline:.4f}s / "
           f"{len(clips) - 1} 切 / {(len(clips) - 1) / timeline * 60:.1f} 切每分")
+    if skipped:
+        print(f"  （已跳过 {skipped} 个叠加轨片段：白闪/黑场是效果素材，不是切点）")
 
     bad = 0
     print("\n=== 各段素材内部顺序（必须严格递增）===")
