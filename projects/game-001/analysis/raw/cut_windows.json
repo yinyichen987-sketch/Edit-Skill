@@ -1,0 +1,58 @@
+[
+  {
+    "clip": "b",
+    "nominal": 11.0,
+    "frame_pair": [
+      329,
+      330
+    ],
+    "unsafe_window_s": [
+      10.9797,
+      11.0454
+    ],
+    "width_ms": 65.7,
+    "nominal_inside": true
+  },
+  {
+    "clip": "b",
+    "nominal": 12.967,
+    "frame_pair": [
+      388,
+      389
+    ],
+    "unsafe_window_s": [
+      12.9787,
+      13.012
+    ],
+    "width_ms": 33.3,
+    "nominal_inside": false
+  },
+  {
+    "clip": "c",
+    "nominal": 2.067,
+    "frame_pair": [
+      62,
+      63
+    ],
+    "unsafe_window_s": [
+      2.0717,
+      2.105
+    ],
+    "width_ms": 33.3,
+    "nominal_inside": false
+  },
+  {
+    "clip": "c",
+    "nominal": 3.367,
+    "frame_pair": [
+      101,
+      102
+    ],
+    "unsafe_window_s": [
+      3.3717,
+      3.405
+    ],
+    "width_ms": 33.3,
+    "nominal_inside": false
+  }
+]

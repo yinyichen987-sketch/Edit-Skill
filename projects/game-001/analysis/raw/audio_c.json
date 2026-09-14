@@ -1,0 +1,1530 @@
+{
+  "source": "C:\\Users\\18930\\Desktop\\Edit skill\\原始素材\\dcc871b1791e7796fadac842593f10f7.mp4",
+  "sample_rate": 48000,
+  "duration_s": 25.0453,
+  "frame_ms": 21.33,
+  "hop_ms": 10.0,
+  "stats": {
+    "rms_db_median": -28.95,
+    "rms_db_p95": -15.68,
+    "band_db_median": -23.52,
+    "band_db_p95": -9.03
+  },
+  "peaks_rms": [
+    {
+      "time": 0.36,
+      "value": -16.65,
+      "key": "rms_db"
+    },
+    {
+      "time": 1.36,
+      "value": -18.84,
+      "key": "rms_db"
+    },
+    {
+      "time": 2.22,
+      "value": -15.0,
+      "key": "rms_db"
+    },
+    {
+      "time": 3.32,
+      "value": -15.99,
+      "key": "rms_db"
+    },
+    {
+      "time": 5.4,
+      "value": -22.68,
+      "key": "rms_db"
+    },
+    {
+      "time": 6.92,
+      "value": -11.11,
+      "key": "rms_db"
+    },
+    {
+      "time": 7.5,
+      "value": -20.13,
+      "key": "rms_db"
+    },
+    {
+      "time": 8.03,
+      "value": -17.46,
+      "key": "rms_db"
+    },
+    {
+      "time": 9.21,
+      "value": -10.57,
+      "key": "rms_db"
+    },
+    {
+      "time": 9.74,
+      "value": -15.2,
+      "key": "rms_db"
+    },
+    {
+      "time": 10.13,
+      "value": -22.52,
+      "key": "rms_db"
+    },
+    {
+      "time": 10.87,
+      "value": -19.6,
+      "key": "rms_db"
+    },
+    {
+      "time": 14.66,
+      "value": -22.7,
+      "key": "rms_db"
+    },
+    {
+      "time": 15.37,
+      "value": -18.15,
+      "key": "rms_db"
+    },
+    {
+      "time": 15.75,
+      "value": -17.45,
+      "key": "rms_db"
+    },
+    {
+      "time": 16.33,
+      "value": -16.66,
+      "key": "rms_db"
+    },
+    {
+      "time": 17.07,
+      "value": -17.26,
+      "key": "rms_db"
+    },
+    {
+      "time": 19.32,
+      "value": -11.31,
+      "key": "rms_db"
+    },
+    {
+      "time": 19.99,
+      "value": -12.12,
+      "key": "rms_db"
+    },
+    {
+      "time": 20.68,
+      "value": -10.44,
+      "key": "rms_db"
+    },
+    {
+      "time": 21.05,
+      "value": -13.02,
+      "key": "rms_db"
+    },
+    {
+      "time": 22.08,
+      "value": -18.08,
+      "key": "rms_db"
+    },
+    {
+      "time": 23.68,
+      "value": -14.7,
+      "key": "rms_db"
+    },
+    {
+      "time": 24.04,
+      "value": -13.82,
+      "key": "rms_db"
+    }
+  ],
+  "peaks_band": [
+    {
+      "time": 0.29,
+      "value": -8.36,
+      "key": "band_db"
+    },
+    {
+      "time": 0.92,
+      "value": -8.38,
+      "key": "band_db"
+    },
+    {
+      "time": 1.29,
+      "value": -7.56,
+      "key": "band_db"
+    },
+    {
+      "time": 2.3,
+      "value": -8.85,
+      "key": "band_db"
+    },
+    {
+      "time": 3.26,
+      "value": -11.26,
+      "key": "band_db"
+    },
+    {
+      "time": 3.81,
+      "value": -14.95,
+      "key": "band_db"
+    },
+    {
+      "time": 4.48,
+      "value": -14.71,
+      "key": "band_db"
+    },
+    {
+      "time": 5.39,
+      "value": -13.97,
+      "key": "band_db"
+    },
+    {
+      "time": 6.79,
+      "value": -1.58,
+      "key": "band_db"
+    },
+    {
+      "time": 7.54,
+      "value": -9.44,
+      "key": "band_db"
+    },
+    {
+      "time": 8.16,
+      "value": -5.03,
+      "key": "band_db"
+    },
+    {
+      "time": 9.2,
+      "value": -4.73,
+      "key": "band_db"
+    },
+    {
+      "time": 9.57,
+      "value": -11.84,
+      "key": "band_db"
+    },
+    {
+      "time": 10.1,
+      "value": -12.0,
+      "key": "band_db"
+    },
+    {
+      "time": 10.82,
+      "value": -4.94,
+      "key": "band_db"
+    },
+    {
+      "time": 14.65,
+      "value": -13.99,
+      "key": "band_db"
+    },
+    {
+      "time": 15.32,
+      "value": -11.48,
+      "key": "band_db"
+    },
+    {
+      "time": 15.75,
+      "value": -15.68,
+      "key": "band_db"
+    },
+    {
+      "time": 16.61,
+      "value": -16.14,
+      "key": "band_db"
+    },
+    {
+      "time": 17.04,
+      "value": -16.09,
+      "key": "band_db"
+    },
+    {
+      "time": 17.58,
+      "value": -11.19,
+      "key": "band_db"
+    },
+    {
+      "time": 18.1,
+      "value": -14.47,
+      "key": "band_db"
+    },
+    {
+      "time": 19.25,
+      "value": -5.8,
+      "key": "band_db"
+    },
+    {
+      "time": 19.92,
+      "value": -2.65,
+      "key": "band_db"
+    },
+    {
+      "time": 20.42,
+      "value": -2.87,
+      "key": "band_db"
+    },
+    {
+      "time": 20.82,
+      "value": -5.28,
+      "key": "band_db"
+    },
+    {
+      "time": 21.19,
+      "value": -8.88,
+      "key": "band_db"
+    },
+    {
+      "time": 21.64,
+      "value": -10.74,
+      "key": "band_db"
+    },
+    {
+      "time": 23.64,
+      "value": -7.29,
+      "key": "band_db"
+    },
+    {
+      "time": 24.11,
+      "value": -10.34,
+      "key": "band_db"
+    }
+  ],
+  "peaks_flux": [
+    {
+      "time": 0.54,
+      "value": 37.6113,
+      "key": "flux"
+    },
+    {
+      "time": 0.78,
+      "value": 14.8354,
+      "key": "flux"
+    },
+    {
+      "time": 1.35,
+      "value": 25.0521,
+      "key": "flux"
+    },
+    {
+      "time": 1.91,
+      "value": 23.0233,
+      "key": "flux"
+    },
+    {
+      "time": 2.42,
+      "value": 22.6215,
+      "key": "flux"
+    },
+    {
+      "time": 2.62,
+      "value": 13.9566,
+      "key": "flux"
+    },
+    {
+      "time": 3.32,
+      "value": 33.3878,
+      "key": "flux"
+    },
+    {
+      "time": 3.72,
+      "value": 13.699,
+      "key": "flux"
+    },
+    {
+      "time": 4.29,
+      "value": 30.0335,
+      "key": "flux"
+    },
+    {
+      "time": 4.67,
+      "value": 12.1008,
+      "key": "flux"
+    },
+    {
+      "time": 5.02,
+      "value": 11.6846,
+      "key": "flux"
+    },
+    {
+      "time": 5.54,
+      "value": 19.8958,
+      "key": "flux"
+    },
+    {
+      "time": 5.86,
+      "value": 19.0815,
+      "key": "flux"
+    },
+    {
+      "time": 6.07,
+      "value": 27.9064,
+      "key": "flux"
+    },
+    {
+      "time": 6.37,
+      "value": 18.663,
+      "key": "flux"
+    },
+    {
+      "time": 6.66,
+      "value": 20.6395,
+      "key": "flux"
+    },
+    {
+      "time": 7.26,
+      "value": 31.3319,
+      "key": "flux"
+    },
+    {
+      "time": 7.76,
+      "value": 18.7097,
+      "key": "flux"
+    },
+    {
+      "time": 8.0,
+      "value": 14.9248,
+      "key": "flux"
+    },
+    {
+      "time": 8.37,
+      "value": 15.102,
+      "key": "flux"
+    },
+    {
+      "time": 8.82,
+      "value": 12.5848,
+      "key": "flux"
+    },
+    {
+      "time": 9.1,
+      "value": 22.8627,
+      "key": "flux"
+    },
+    {
+      "time": 9.56,
+      "value": 22.6557,
+      "key": "flux"
+    },
+    {
+      "time": 9.81,
+      "value": 15.4397,
+      "key": "flux"
+    },
+    {
+      "time": 10.04,
+      "value": 10.5499,
+      "key": "flux"
+    },
+    {
+      "time": 10.62,
+      "value": 28.841,
+      "key": "flux"
+    },
+    {
+      "time": 10.89,
+      "value": 25.6016,
+      "key": "flux"
+    },
+    {
+      "time": 11.45,
+      "value": 24.3354,
+      "key": "flux"
+    },
+    {
+      "time": 11.98,
+      "value": 24.2665,
+      "key": "flux"
+    },
+    {
+      "time": 12.26,
+      "value": 19.1585,
+      "key": "flux"
+    },
+    {
+      "time": 12.49,
+      "value": 20.3028,
+      "key": "flux"
+    },
+    {
+      "time": 12.8,
+      "value": 21.3079,
+      "key": "flux"
+    },
+    {
+      "time": 13.17,
+      "value": 23.7332,
+      "key": "flux"
+    },
+    {
+      "time": 13.44,
+      "value": 28.2355,
+      "key": "flux"
+    },
+    {
+      "time": 13.83,
+      "value": 16.7951,
+      "key": "flux"
+    },
+    {
+      "time": 14.2,
+      "value": 17.8615,
+      "key": "flux"
+    },
+    {
+      "time": 14.58,
+      "value": 24.477,
+      "key": "flux"
+    },
+    {
+      "time": 14.91,
+      "value": 23.8066,
+      "key": "flux"
+    },
+    {
+      "time": 15.14,
+      "value": 24.0165,
+      "key": "flux"
+    },
+    {
+      "time": 15.4,
+      "value": 18.1249,
+      "key": "flux"
+    },
+    {
+      "time": 15.75,
+      "value": 18.9823,
+      "key": "flux"
+    },
+    {
+      "time": 16.33,
+      "value": 32.5404,
+      "key": "flux"
+    },
+    {
+      "time": 16.75,
+      "value": 27.1268,
+      "key": "flux"
+    },
+    {
+      "time": 17.27,
+      "value": 32.2565,
+      "key": "flux"
+    },
+    {
+      "time": 17.53,
+      "value": 21.4207,
+      "key": "flux"
+    },
+    {
+      "time": 17.86,
+      "value": 18.4119,
+      "key": "flux"
+    },
+    {
+      "time": 18.08,
+      "value": 18.9337,
+      "key": "flux"
+    },
+    {
+      "time": 18.29,
+      "value": 11.5476,
+      "key": "flux"
+    },
+    {
+      "time": 18.54,
+      "value": 21.8574,
+      "key": "flux"
+    },
+    {
+      "time": 18.79,
+      "value": 17.3252,
+      "key": "flux"
+    },
+    {
+      "time": 19.41,
+      "value": 23.2757,
+      "key": "flux"
+    },
+    {
+      "time": 19.7,
+      "value": 23.111,
+      "key": "flux"
+    },
+    {
+      "time": 20.46,
+      "value": 21.6125,
+      "key": "flux"
+    },
+    {
+      "time": 20.67,
+      "value": 16.2722,
+      "key": "flux"
+    },
+    {
+      "time": 20.95,
+      "value": 23.9902,
+      "key": "flux"
+    },
+    {
+      "time": 21.44,
+      "value": 19.546,
+      "key": "flux"
+    },
+    {
+      "time": 22.22,
+      "value": 24.0393,
+      "key": "flux"
+    },
+    {
+      "time": 22.46,
+      "value": 22.6995,
+      "key": "flux"
+    },
+    {
+      "time": 22.77,
+      "value": 20.5672,
+      "key": "flux"
+    },
+    {
+      "time": 23.05,
+      "value": 11.197,
+      "key": "flux"
+    },
+    {
+      "time": 23.27,
+      "value": 19.9412,
+      "key": "flux"
+    },
+    {
+      "time": 23.67,
+      "value": 25.0291,
+      "key": "flux"
+    },
+    {
+      "time": 23.88,
+      "value": 13.6748,
+      "key": "flux"
+    },
+    {
+      "time": 24.21,
+      "value": 15.8886,
+      "key": "flux"
+    },
+    {
+      "time": 24.72,
+      "value": 24.3196,
+      "key": "flux"
+    },
+    {
+      "time": 24.98,
+      "value": 11.8982,
+      "key": "flux"
+    }
+  ],
+  "windows_250ms": [
+    {
+      "start": 0.0,
+      "end": 0.25,
+      "rms_db": -17.67,
+      "band_db": -10.85,
+      "sub_db": -0.43,
+      "flux": 19.5791,
+      "centroid": 1089.5
+    },
+    {
+      "start": 0.25,
+      "end": 0.5,
+      "rms_db": -16.65,
+      "band_db": -8.36,
+      "sub_db": 2.04,
+      "flux": 32.8047,
+      "centroid": 980.3
+    },
+    {
+      "start": 0.5,
+      "end": 0.75,
+      "rms_db": -21.1,
+      "band_db": -27.43,
+      "sub_db": -2.84,
+      "flux": 37.6113,
+      "centroid": 676.7
+    },
+    {
+      "start": 0.75,
+      "end": 1.0,
+      "rms_db": -27.35,
+      "band_db": -8.38,
+      "sub_db": -12.93,
+      "flux": 14.8354,
+      "centroid": 1863.3
+    },
+    {
+      "start": 1.0,
+      "end": 1.25,
+      "rms_db": -27.23,
+      "band_db": -9.18,
+      "sub_db": -21.53,
+      "flux": 11.6515,
+      "centroid": 2336.6
+    },
+    {
+      "start": 1.25,
+      "end": 1.5,
+      "rms_db": -18.84,
+      "band_db": -7.56,
+      "sub_db": -2.8,
+      "flux": 25.0521,
+      "centroid": 1896.1
+    },
+    {
+      "start": 1.5,
+      "end": 1.75,
+      "rms_db": -25.62,
+      "band_db": -16.41,
+      "sub_db": -7.52,
+      "flux": 14.5817,
+      "centroid": 1844.6
+    },
+    {
+      "start": 1.75,
+      "end": 2.0,
+      "rms_db": -19.68,
+      "band_db": -19.39,
+      "sub_db": 1.01,
+      "flux": 23.0233,
+      "centroid": 917.5
+    },
+    {
+      "start": 2.0,
+      "end": 2.25,
+      "rms_db": -15.0,
+      "band_db": -9.48,
+      "sub_db": 4.01,
+      "flux": 18.3393,
+      "centroid": 1212.0
+    },
+    {
+      "start": 2.25,
+      "end": 2.5,
+      "rms_db": -17.04,
+      "band_db": -8.85,
+      "sub_db": 3.45,
+      "flux": 22.6215,
+      "centroid": 1088.8
+    },
+    {
+      "start": 2.5,
+      "end": 2.75,
+      "rms_db": -23.21,
+      "band_db": -20.0,
+      "sub_db": -5.13,
+      "flux": 16.1112,
+      "centroid": 1410.9
+    },
+    {
+      "start": 2.75,
+      "end": 3.0,
+      "rms_db": -33.41,
+      "band_db": -21.65,
+      "sub_db": -17.18,
+      "flux": 10.9235,
+      "centroid": 1883.2
+    },
+    {
+      "start": 3.0,
+      "end": 3.25,
+      "rms_db": -26.29,
+      "band_db": -12.64,
+      "sub_db": -16.19,
+      "flux": 20.5128,
+      "centroid": 1612.6
+    },
+    {
+      "start": 3.25,
+      "end": 3.5,
+      "rms_db": -15.99,
+      "band_db": -11.26,
+      "sub_db": -0.28,
+      "flux": 33.3878,
+      "centroid": 1463.0
+    },
+    {
+      "start": 3.5,
+      "end": 3.75,
+      "rms_db": -26.9,
+      "band_db": -16.06,
+      "sub_db": -13.71,
+      "flux": 13.699,
+      "centroid": 1717.3
+    },
+    {
+      "start": 3.75,
+      "end": 4.0,
+      "rms_db": -24.3,
+      "band_db": -14.95,
+      "sub_db": -15.6,
+      "flux": 10.5863,
+      "centroid": 1784.9
+    },
+    {
+      "start": 4.0,
+      "end": 4.25,
+      "rms_db": -30.49,
+      "band_db": -22.08,
+      "sub_db": -10.67,
+      "flux": 12.7795,
+      "centroid": 1482.9
+    },
+    {
+      "start": 4.25,
+      "end": 4.5,
+      "rms_db": -29.41,
+      "band_db": -14.71,
+      "sub_db": -19.2,
+      "flux": 30.0335,
+      "centroid": 1472.6
+    },
+    {
+      "start": 4.5,
+      "end": 4.75,
+      "rms_db": -27.53,
+      "band_db": -15.63,
+      "sub_db": -10.17,
+      "flux": 12.1008,
+      "centroid": 1689.3
+    },
+    {
+      "start": 4.75,
+      "end": 5.0,
+      "rms_db": -27.68,
+      "band_db": -18.21,
+      "sub_db": -8.14,
+      "flux": 8.0741,
+      "centroid": 1642.2
+    },
+    {
+      "start": 5.0,
+      "end": 5.25,
+      "rms_db": -37.19,
+      "band_db": -33.16,
+      "sub_db": -16.69,
+      "flux": 11.6846,
+      "centroid": 1758.8
+    },
+    {
+      "start": 5.25,
+      "end": 5.5,
+      "rms_db": -22.68,
+      "band_db": -13.97,
+      "sub_db": -2.64,
+      "flux": 16.0753,
+      "centroid": 1656.1
+    },
+    {
+      "start": 5.5,
+      "end": 5.75,
+      "rms_db": -24.86,
+      "band_db": -23.12,
+      "sub_db": -4.47,
+      "flux": 19.8958,
+      "centroid": 1353.7
+    },
+    {
+      "start": 5.75,
+      "end": 6.0,
+      "rms_db": -24.14,
+      "band_db": -21.92,
+      "sub_db": -4.23,
+      "flux": 19.0815,
+      "centroid": 1120.8
+    },
+    {
+      "start": 6.0,
+      "end": 6.25,
+      "rms_db": -24.48,
+      "band_db": -24.87,
+      "sub_db": -6.1,
+      "flux": 27.9064,
+      "centroid": 707.4
+    },
+    {
+      "start": 6.25,
+      "end": 6.5,
+      "rms_db": -30.86,
+      "band_db": -35.33,
+      "sub_db": -10.73,
+      "flux": 18.663,
+      "centroid": 997.0
+    },
+    {
+      "start": 6.5,
+      "end": 6.75,
+      "rms_db": -12.82,
+      "band_db": -4.42,
+      "sub_db": 7.45,
+      "flux": 20.6395,
+      "centroid": 1506.8
+    },
+    {
+      "start": 6.75,
+      "end": 7.0,
+      "rms_db": -11.11,
+      "band_db": -1.58,
+      "sub_db": 6.53,
+      "flux": 18.5674,
+      "centroid": 1478.4
+    },
+    {
+      "start": 7.0,
+      "end": 7.25,
+      "rms_db": -13.16,
+      "band_db": -8.75,
+      "sub_db": 5.43,
+      "flux": 24.6011,
+      "centroid": 1281.6
+    },
+    {
+      "start": 7.25,
+      "end": 7.5,
+      "rms_db": -19.49,
+      "band_db": -14.14,
+      "sub_db": -1.89,
+      "flux": 31.3319,
+      "centroid": 1220.8
+    },
+    {
+      "start": 7.5,
+      "end": 7.75,
+      "rms_db": -20.13,
+      "band_db": -9.44,
+      "sub_db": -2.27,
+      "flux": 17.3316,
+      "centroid": 1510.2
+    },
+    {
+      "start": 7.75,
+      "end": 8.0,
+      "rms_db": -21.2,
+      "band_db": -5.41,
+      "sub_db": -0.56,
+      "flux": 18.7097,
+      "centroid": 1506.9
+    },
+    {
+      "start": 8.0,
+      "end": 8.25,
+      "rms_db": -17.46,
+      "band_db": -5.03,
+      "sub_db": 0.2,
+      "flux": 14.9248,
+      "centroid": 1590.5
+    },
+    {
+      "start": 8.25,
+      "end": 8.5,
+      "rms_db": -18.81,
+      "band_db": -15.29,
+      "sub_db": 1.85,
+      "flux": 15.102,
+      "centroid": 1384.1
+    },
+    {
+      "start": 8.5,
+      "end": 8.75,
+      "rms_db": -26.0,
+      "band_db": -13.81,
+      "sub_db": -7.12,
+      "flux": 14.4059,
+      "centroid": 1647.6
+    },
+    {
+      "start": 8.75,
+      "end": 9.0,
+      "rms_db": -24.51,
+      "band_db": -13.61,
+      "sub_db": -7.45,
+      "flux": 12.5848,
+      "centroid": 1580.2
+    },
+    {
+      "start": 9.0,
+      "end": 9.25,
+      "rms_db": -10.57,
+      "band_db": -4.73,
+      "sub_db": 9.1,
+      "flux": 22.8627,
+      "centroid": 1556.3
+    },
+    {
+      "start": 9.25,
+      "end": 9.5,
+      "rms_db": -12.57,
+      "band_db": -5.8,
+      "sub_db": 4.98,
+      "flux": 20.6535,
+      "centroid": 1511.8
+    },
+    {
+      "start": 9.5,
+      "end": 9.75,
+      "rms_db": -12.95,
+      "band_db": -9.97,
+      "sub_db": 3.65,
+      "flux": 22.6557,
+      "centroid": 1304.9
+    },
+    {
+      "start": 9.75,
+      "end": 10.0,
+      "rms_db": -17.06,
+      "band_db": -12.96,
+      "sub_db": -0.58,
+      "flux": 15.4397,
+      "centroid": 1316.1
+    },
+    {
+      "start": 10.0,
+      "end": 10.25,
+      "rms_db": -20.68,
+      "band_db": -12.0,
+      "sub_db": -4.71,
+      "flux": 12.5965,
+      "centroid": 1653.7
+    },
+    {
+      "start": 10.25,
+      "end": 10.5,
+      "rms_db": -22.9,
+      "band_db": -14.14,
+      "sub_db": -2.3,
+      "flux": 12.8499,
+      "centroid": 1412.6
+    },
+    {
+      "start": 10.5,
+      "end": 10.75,
+      "rms_db": -21.15,
+      "band_db": -18.45,
+      "sub_db": -0.74,
+      "flux": 28.841,
+      "centroid": 1292.5
+    },
+    {
+      "start": 10.75,
+      "end": 11.0,
+      "rms_db": -19.6,
+      "band_db": -4.94,
+      "sub_db": 0.62,
+      "flux": 25.6016,
+      "centroid": 1868.9
+    },
+    {
+      "start": 11.0,
+      "end": 11.25,
+      "rms_db": -27.34,
+      "band_db": -7.18,
+      "sub_db": -10.64,
+      "flux": 19.0495,
+      "centroid": 2017.1
+    },
+    {
+      "start": 11.25,
+      "end": 11.5,
+      "rms_db": -27.18,
+      "band_db": -29.75,
+      "sub_db": -9.95,
+      "flux": 24.3354,
+      "centroid": 865.7
+    },
+    {
+      "start": 11.5,
+      "end": 11.75,
+      "rms_db": -28.67,
+      "band_db": -28.4,
+      "sub_db": -10.61,
+      "flux": 18.7412,
+      "centroid": 1229.4
+    },
+    {
+      "start": 11.75,
+      "end": 12.0,
+      "rms_db": -29.33,
+      "band_db": -28.16,
+      "sub_db": -10.06,
+      "flux": 24.2665,
+      "centroid": 882.2
+    },
+    {
+      "start": 12.0,
+      "end": 12.25,
+      "rms_db": -25.57,
+      "band_db": -27.13,
+      "sub_db": -7.09,
+      "flux": 19.6467,
+      "centroid": 840.1
+    },
+    {
+      "start": 12.25,
+      "end": 12.5,
+      "rms_db": -27.29,
+      "band_db": -26.25,
+      "sub_db": -9.59,
+      "flux": 20.3028,
+      "centroid": 932.2
+    },
+    {
+      "start": 12.5,
+      "end": 12.75,
+      "rms_db": -29.91,
+      "band_db": -25.82,
+      "sub_db": -12.04,
+      "flux": 20.1683,
+      "centroid": 1129.9
+    },
+    {
+      "start": 12.75,
+      "end": 13.0,
+      "rms_db": -29.4,
+      "band_db": -23.86,
+      "sub_db": -10.39,
+      "flux": 21.3079,
+      "centroid": 1201.2
+    },
+    {
+      "start": 13.0,
+      "end": 13.25,
+      "rms_db": -28.75,
+      "band_db": -30.16,
+      "sub_db": -14.85,
+      "flux": 23.7332,
+      "centroid": 1422.4
+    },
+    {
+      "start": 13.25,
+      "end": 13.5,
+      "rms_db": -28.06,
+      "band_db": -25.2,
+      "sub_db": -9.24,
+      "flux": 28.2355,
+      "centroid": 805.3
+    },
+    {
+      "start": 13.5,
+      "end": 13.75,
+      "rms_db": -28.75,
+      "band_db": -23.39,
+      "sub_db": -10.25,
+      "flux": 15.383,
+      "centroid": 1344.2
+    },
+    {
+      "start": 13.75,
+      "end": 14.0,
+      "rms_db": -36.67,
+      "band_db": -36.0,
+      "sub_db": -16.66,
+      "flux": 16.7951,
+      "centroid": 1141.4
+    },
+    {
+      "start": 14.0,
+      "end": 14.25,
+      "rms_db": -35.65,
+      "band_db": -36.64,
+      "sub_db": -21.47,
+      "flux": 17.8615,
+      "centroid": 1078.3
+    },
+    {
+      "start": 14.25,
+      "end": 14.5,
+      "rms_db": -38.19,
+      "band_db": -35.83,
+      "sub_db": -21.49,
+      "flux": 15.8058,
+      "centroid": 1435.9
+    },
+    {
+      "start": 14.5,
+      "end": 14.75,
+      "rms_db": -22.7,
+      "band_db": -13.99,
+      "sub_db": -4.86,
+      "flux": 24.477,
+      "centroid": 1599.9
+    },
+    {
+      "start": 14.75,
+      "end": 15.0,
+      "rms_db": -26.53,
+      "band_db": -21.33,
+      "sub_db": -8.06,
+      "flux": 23.8066,
+      "centroid": 1881.9
+    },
+    {
+      "start": 15.0,
+      "end": 15.25,
+      "rms_db": -23.06,
+      "band_db": -17.29,
+      "sub_db": -3.7,
+      "flux": 24.0165,
+      "centroid": 1523.7
+    },
+    {
+      "start": 15.25,
+      "end": 15.5,
+      "rms_db": -18.15,
+      "band_db": -11.48,
+      "sub_db": 2.39,
+      "flux": 18.1249,
+      "centroid": 1286.4
+    },
+    {
+      "start": 15.5,
+      "end": 15.75,
+      "rms_db": -19.58,
+      "band_db": -11.87,
+      "sub_db": -0.22,
+      "flux": 17.1188,
+      "centroid": 1368.5
+    },
+    {
+      "start": 15.75,
+      "end": 16.0,
+      "rms_db": -17.45,
+      "band_db": -15.68,
+      "sub_db": 0.98,
+      "flux": 18.9823,
+      "centroid": 925.5
+    },
+    {
+      "start": 16.0,
+      "end": 16.25,
+      "rms_db": -19.66,
+      "band_db": -16.55,
+      "sub_db": 0.3,
+      "flux": 25.2673,
+      "centroid": 884.0
+    },
+    {
+      "start": 16.25,
+      "end": 16.5,
+      "rms_db": -16.66,
+      "band_db": -17.81,
+      "sub_db": 2.51,
+      "flux": 32.5404,
+      "centroid": 594.4
+    },
+    {
+      "start": 16.5,
+      "end": 16.75,
+      "rms_db": -17.25,
+      "band_db": -16.14,
+      "sub_db": 2.96,
+      "flux": 26.3168,
+      "centroid": 715.2
+    },
+    {
+      "start": 16.75,
+      "end": 17.0,
+      "rms_db": -18.04,
+      "band_db": -17.64,
+      "sub_db": 2.12,
+      "flux": 27.1268,
+      "centroid": 649.4
+    },
+    {
+      "start": 17.0,
+      "end": 17.25,
+      "rms_db": -17.26,
+      "band_db": -16.09,
+      "sub_db": 2.05,
+      "flux": 29.1827,
+      "centroid": 685.2
+    },
+    {
+      "start": 17.25,
+      "end": 17.5,
+      "rms_db": -22.41,
+      "band_db": -19.0,
+      "sub_db": -2.15,
+      "flux": 32.2565,
+      "centroid": 1265.3
+    },
+    {
+      "start": 17.5,
+      "end": 17.75,
+      "rms_db": -23.63,
+      "band_db": -11.19,
+      "sub_db": -16.17,
+      "flux": 21.4207,
+      "centroid": 1735.7
+    },
+    {
+      "start": 17.75,
+      "end": 18.0,
+      "rms_db": -25.59,
+      "band_db": -21.56,
+      "sub_db": -19.36,
+      "flux": 18.4119,
+      "centroid": 1558.3
+    },
+    {
+      "start": 18.0,
+      "end": 18.25,
+      "rms_db": -25.61,
+      "band_db": -14.47,
+      "sub_db": -18.15,
+      "flux": 18.9337,
+      "centroid": 1815.1
+    },
+    {
+      "start": 18.25,
+      "end": 18.5,
+      "rms_db": -31.26,
+      "band_db": -28.73,
+      "sub_db": -23.2,
+      "flux": 15.1586,
+      "centroid": 1598.1
+    },
+    {
+      "start": 18.5,
+      "end": 18.75,
+      "rms_db": -33.61,
+      "band_db": -28.98,
+      "sub_db": -17.08,
+      "flux": 21.8574,
+      "centroid": 1308.2
+    },
+    {
+      "start": 18.75,
+      "end": 19.0,
+      "rms_db": -30.37,
+      "band_db": -17.71,
+      "sub_db": -18.23,
+      "flux": 17.3252,
+      "centroid": 1417.9
+    },
+    {
+      "start": 19.0,
+      "end": 19.25,
+      "rms_db": -20.13,
+      "band_db": -7.5,
+      "sub_db": -8.08,
+      "flux": 12.3751,
+      "centroid": 1494.5
+    },
+    {
+      "start": 19.25,
+      "end": 19.5,
+      "rms_db": -11.31,
+      "band_db": -5.8,
+      "sub_db": 7.8,
+      "flux": 23.2757,
+      "centroid": 1435.8
+    },
+    {
+      "start": 19.5,
+      "end": 19.75,
+      "rms_db": -13.23,
+      "band_db": -8.6,
+      "sub_db": 4.9,
+      "flux": 23.111,
+      "centroid": 1628.8
+    },
+    {
+      "start": 19.75,
+      "end": 20.0,
+      "rms_db": -12.12,
+      "band_db": -2.65,
+      "sub_db": 7.59,
+      "flux": 18.4694,
+      "centroid": 1407.6
+    },
+    {
+      "start": 20.0,
+      "end": 20.25,
+      "rms_db": -13.79,
+      "band_db": -10.21,
+      "sub_db": 6.31,
+      "flux": 19.9113,
+      "centroid": 1384.8
+    },
+    {
+      "start": 20.25,
+      "end": 20.5,
+      "rms_db": -11.81,
+      "band_db": -2.87,
+      "sub_db": 7.61,
+      "flux": 21.6125,
+      "centroid": 1468.0
+    },
+    {
+      "start": 20.5,
+      "end": 20.75,
+      "rms_db": -10.44,
+      "band_db": -4.48,
+      "sub_db": 9.21,
+      "flux": 20.6559,
+      "centroid": 1356.7
+    },
+    {
+      "start": 20.75,
+      "end": 21.0,
+      "rms_db": -12.2,
+      "band_db": -3.08,
+      "sub_db": 6.8,
+      "flux": 23.9902,
+      "centroid": 1395.9
+    },
+    {
+      "start": 21.0,
+      "end": 21.25,
+      "rms_db": -13.02,
+      "band_db": -8.88,
+      "sub_db": 4.15,
+      "flux": 18.0167,
+      "centroid": 1256.1
+    },
+    {
+      "start": 21.25,
+      "end": 21.5,
+      "rms_db": -18.34,
+      "band_db": -15.31,
+      "sub_db": 2.02,
+      "flux": 19.546,
+      "centroid": 1175.4
+    },
+    {
+      "start": 21.5,
+      "end": 21.75,
+      "rms_db": -20.9,
+      "band_db": -10.74,
+      "sub_db": -2.62,
+      "flux": 12.3408,
+      "centroid": 1430.4
+    },
+    {
+      "start": 21.75,
+      "end": 22.0,
+      "rms_db": -20.11,
+      "band_db": -17.49,
+      "sub_db": -2.8,
+      "flux": 19.7964,
+      "centroid": 1356.1
+    },
+    {
+      "start": 22.0,
+      "end": 22.25,
+      "rms_db": -18.08,
+      "band_db": -19.6,
+      "sub_db": -1.9,
+      "flux": 24.0393,
+      "centroid": 1056.9
+    },
+    {
+      "start": 22.25,
+      "end": 22.5,
+      "rms_db": -26.13,
+      "band_db": -20.12,
+      "sub_db": -8.27,
+      "flux": 22.6995,
+      "centroid": 1459.0
+    },
+    {
+      "start": 22.5,
+      "end": 22.75,
+      "rms_db": -27.07,
+      "band_db": -19.47,
+      "sub_db": -16.95,
+      "flux": 21.1362,
+      "centroid": 1630.0
+    },
+    {
+      "start": 22.75,
+      "end": 23.0,
+      "rms_db": -32.21,
+      "band_db": -21.82,
+      "sub_db": -18.05,
+      "flux": 20.5672,
+      "centroid": 1802.1
+    },
+    {
+      "start": 23.0,
+      "end": 23.25,
+      "rms_db": -33.01,
+      "band_db": -19.58,
+      "sub_db": -16.91,
+      "flux": 11.197,
+      "centroid": 2292.6
+    },
+    {
+      "start": 23.25,
+      "end": 23.5,
+      "rms_db": -34.05,
+      "band_db": -29.97,
+      "sub_db": -15.6,
+      "flux": 19.9412,
+      "centroid": 1418.8
+    },
+    {
+      "start": 23.5,
+      "end": 23.75,
+      "rms_db": -14.7,
+      "band_db": -7.29,
+      "sub_db": 3.45,
+      "flux": 25.0291,
+      "centroid": 1592.2
+    },
+    {
+      "start": 23.75,
+      "end": 24.0,
+      "rms_db": -15.29,
+      "band_db": -8.93,
+      "sub_db": 1.46,
+      "flux": 18.6962,
+      "centroid": 1183.0
+    },
+    {
+      "start": 24.0,
+      "end": 24.25,
+      "rms_db": -13.82,
+      "band_db": -10.34,
+      "sub_db": 1.48,
+      "flux": 15.8886,
+      "centroid": 1318.4
+    },
+    {
+      "start": 24.25,
+      "end": 24.5,
+      "rms_db": -24.79,
+      "band_db": -19.24,
+      "sub_db": -5.01,
+      "flux": 14.625,
+      "centroid": 1394.4
+    },
+    {
+      "start": 24.5,
+      "end": 24.75,
+      "rms_db": -28.39,
+      "band_db": -20.73,
+      "sub_db": -12.37,
+      "flux": 24.3196,
+      "centroid": 1298.7
+    },
+    {
+      "start": 24.75,
+      "end": 25.0,
+      "rms_db": -26.5,
+      "band_db": -28.02,
+      "sub_db": -5.74,
+      "flux": 15.3373,
+      "centroid": 936.9
+    },
+    {
+      "start": 25.0,
+      "end": 25.03,
+      "rms_db": -32.47,
+      "band_db": -30.24,
+      "sub_db": -12.08,
+      "flux": 6.9175,
+      "centroid": 1266.1
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+[
+ {
+  "file": "4b0460c400bbb5320acb6063b4f59358.mp4",
+  "w": 1280,
+  "h": 720,
+  "fps": 30.0,
+  "duration": 18.98,
+  "region_strength": {
+   "bottom": 15.086,
+   "topright": 29.006
+  },
+  "hud_suspect": false,
+  "cut_guard": 0.25,
+  "n_bottom": 5,
+  "n_topright": 6,
+  "n_raw": 4,
+  "n_rejected_at_cuts": 0,
+  "rejected": [],
+  "n_kills": 4,
+  "kills": [
+   {
+    "t": 4.6,
+    "d_prev": null,
+    "d_next": null,
+    "offset_in_shot": null,
+    "shot_index": null,
+    "freeze_near": []
+   },
+   {
+    "t": 9.967,
+    "d_prev": null,
+    "d_next": null,
+    "offset_in_shot": null,
+    "shot_index": null,
+    "freeze_near": []
+   },
+   {
+    "t": 14.733,
+    "d_prev": null,
+    "d_next": null,
+    "offset_in_shot": null,
+    "shot_index": null,
+    "freeze_near": []
+   },
+   {
+    "t": 16.733,
+    "d_prev": null,
+    "d_next": null,
+    "offset_in_shot": null,
+    "shot_index": null,
+    "freeze_near": []
+   }
+  ],
+  "freezes": [
+   [
+    2.133,
+    2.233
+   ]
+  ],
+  "cuts": []
+ }
+]

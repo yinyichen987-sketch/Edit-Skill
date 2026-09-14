@@ -47,6 +47,49 @@ temp/
 # ---- 本项目的验证夹具（体积大且可再生，见 spike/README.md）----
 spike/media/
 
-# ---- 用户素材（体积大，不纳入版本控制）----
+# ---- 用户媒体素材（体积大，不纳入版本控制）----
+原始素材/
+瓦参考素材/
+参考视频/
+参考成片/
+成品/
 assets/raw/
 assets/final/
+projects/**/media/
+
+# 注：`projects/**/draft-out/` **不再忽略** —— 剪映草稿是交付物本体（每份约 35 KB），
+# 必须随分支一起交付，否则按 GitHub 链接找不到。此前忽略它是早期为防草稿入库所加，属误设。
+
+# ---- 本轮派生的批量素材（体积大且可重生；被文档引用的证据帧不在此列）----
+projects/**/analysis/frames/
+projects/**/analysis/sheets/
+projects/**/_tmp/
+projects/**/__pycache__/
+projects/**/_peek*.txt
+.agent-teams/
+projects/**/preview/_work/
+
+# ---- 抽帧探针（体积大且可用 ffmpeg 一条命令重生）----
+projects/**/verification/frame-probe/*.png
+
+
+# ---- 抽帧脚本的临时落盘（保留成体系的 frames/ 与证据图）----
+# 抽帧脚本的中间帧（以 _ 开头）：体积大、可由参考视频一条命令重生。
+# 保留 *_sheet.png（拼图证据）与 *.json（实测数据）。
+projects/**/*-analysis/frames/_*.png
+projects/**/*_analysis/frames/_*.png
+
+# ---- 可重生成的派生物 / 有版权的原始音轨：不入库 ----
+# ⚠️ bgm-license-check/ 是**完整的商业歌曲音轨**（为做 BGM 下载的），
+#    提交到公开仓库等于公开分发音轨文件，必须排除。本地文件保留，做 BGM 仍可用。
+bgm-license-check/
+# 预览片：由 projects/game-001/tools/render_preview.py 重生成
+projects/**/preview/*.mp4
+# BGM 音频：由 tools/make_bgm.py（合成）或 ffmpeg 裁切（H2H）重生成
+projects/**/bgm/*.wav
+
+# ---- 研究期的抽帧 / HUD 截图 / 叠图（体积大，可用 tools/verify_kill_frames.py 或 ffmpeg 重生）----
+projects/**/research/_frames/
+projects/**/research/_hud/
+projects/**/research/_scratch/frames/
+projects/**/ref-analysis/**/*.png

@@ -1,0 +1,64 @@
+[
+  {
+    "path": "原始素材\\4b0460c400bbb5320acb6063b4f59358.mp4",
+    "frame_count_parsed": 570,
+    "first_pts_time_s": 0.016016,
+    "last_pts_time_s": 18.982682,
+    "pts_span_s": 18.966666,
+    "nominal_span_if_30fps_s": 19.0,
+    "span_deficit_s": 0.033334,
+    "distinct_delta_values": {
+      "0.033333": 380,
+      "0.033334": 189
+    },
+    "gap_count_gt_1.5frames": 0,
+    "gaps": [],
+    "verdict": "CFR"
+  },
+  {
+    "path": "原始素材\\6b2eea343eee7595c3c0ede10d21d028.mp4",
+    "frame_count_parsed": 780,
+    "first_pts_time_s": 0.013021,
+    "last_pts_time_s": 26.012044,
+    "pts_span_s": 25.999023,
+    "nominal_span_if_30fps_s": 26.0,
+    "span_deficit_s": 0.000977,
+    "distinct_delta_values": {
+      "0.033333": 519,
+      "0.033334": 259,
+      "0.06569": 1
+    },
+    "gap_count_gt_1.5frames": 1,
+    "gaps": [
+      [
+        329,
+        10.979688,
+        0.06569
+      ]
+    ],
+    "verdict": "VFR (3 种间隔)"
+  },
+  {
+    "path": "原始素材\\dcc871b1791e7796fadac842593f10f7.mp4",
+    "frame_count_parsed": 750,
+    "first_pts_time_s": 0.005013,
+    "last_pts_time_s": 24.992708,
+    "pts_span_s": 24.987695,
+    "nominal_span_if_30fps_s": 25.0,
+    "span_deficit_s": 0.012305,
+    "distinct_delta_values": {
+      "0.033333": 500,
+      "0.033334": 248,
+      "0.054362": 1
+    },
+    "gap_count_gt_1.5frames": 1,
+    "gaps": [
+      [
+        419,
+        13.97168,
+        0.054362
+      ]
+    ],
+    "verdict": "VFR (3 种间隔)"
+  }
+]

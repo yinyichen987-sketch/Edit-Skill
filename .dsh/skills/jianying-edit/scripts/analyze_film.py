@@ -199,13 +199,20 @@ def analyze_audio(path: str, has_audio: bool) -> dict:
         return {"has_audio": False}
     out = run_ffmpeg(["-i", path, "-af", "ebur128=peak=true", "-f", "null", "-"])
     result: dict = {"has_audio": True}
-    m = re.search(r"I:\s*(-?[\d.]+)\s*LUFS", out)
+
+    # ebur128 在 Summary 之前会逐帧打印进度行，其中同样含 "I: … LUFS" 与 "LRA: …"，
+    # 但早期帧因样本不足会报 -70.0（静音下限）/ 0.0。若直接对整段输出 re.search，
+    # 抓到的是第一行进度数据而不是摘要，会得到 -70.0 这种自相矛盾的假值
+    # （实测同一文件：真值 -12.9 LUFS，误报 -70.0）。因此只解析 Summary 段。
+    summary = out.rsplit("Summary:", 1)[-1] if "Summary:" in out else out
+
+    m = re.search(r"I:\s*(-?[\d.]+)\s*LUFS", summary)
     if m:
         result["integrated_loudness_lufs"] = float(m.group(1))
-    m = re.search(r"Peak:\s*(-?[\d.]+)\s*dBFS", out)
+    m = re.search(r"Peak:\s*(-?[\d.]+)\s*dBFS", summary)
     if m:
         result["true_peak_dbfs"] = float(m.group(1))
-    m = re.search(r"LRA:\s*(-?[\d.]+)\s*LU", out)
+    m = re.search(r"LRA:\s*(-?[\d.]+)\s*LU", summary)
     if m:
         result["loudness_range_lu"] = float(m.group(1))
     return result

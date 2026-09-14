@@ -1,0 +1,66 @@
+{
+  "results": [
+    {
+      "name": "scene-cuts 自测",
+      "status": "PASS",
+      "detail": "自测",
+      "findings": []
+    },
+    {
+      "name": "draft-audit 正例自测",
+      "status": "PASS",
+      "detail": "自测",
+      "findings": []
+    },
+    {
+      "name": "draft-audit 反例自测",
+      "status": "PASS",
+      "detail": "自测",
+      "findings": []
+    },
+    {
+      "name": "frame-probe 自测",
+      "status": "PASS",
+      "detail": "自测",
+      "findings": []
+    },
+    {
+      "name": "claim-audit 自测",
+      "status": "PASS",
+      "detail": "自测",
+      "findings": []
+    },
+    {
+      "name": "草稿 == EDL（GAME_EP01_LS）",
+      "status": "PASS",
+      "detail": "draft-audit",
+      "findings": []
+    },
+    {
+      "name": "草稿 == EDL（GAME_EP01_VT）",
+      "status": "PASS",
+      "detail": "draft-audit",
+      "findings": []
+    },
+    {
+      "name": "规格声称 ↔ 脚本实现",
+      "status": "PASS",
+      "detail": "claim-audit",
+      "findings": []
+    },
+    {
+      "name": "CUT-05 高光余量",
+      "status": "PASS",
+      "detail": "基准 0.3（审阅侧固定）；规格声明 0.3 @ format-spec.md:73",
+      "findings": []
+    },
+    {
+      "name": "CUT-05 距不安全窗口 ≥0.1s",
+      "status": "PASS",
+      "detail": "窗口见 ../scene-cuts/scene-cuts-result.json（真实 PTS）",
+      "findings": []
+    }
+  ],
+  "fail_count": 0,
+  "verdict": "PASS"
+}

@@ -1,0 +1,172 @@
+{
+  "generated_by": "detect_scene_cuts.py",
+  "generated_at": "2026-09-12T14:50:11",
+  "decode": {
+    "output_params": [
+      "-fps_mode",
+      "passthrough"
+    ],
+    "note": "必须 passthrough。默认解码会对 VFR 素材补帧（6b2eea34 780→781、dcc871b1 750→751），补入帧插在文件中段，导致其后帧号整体偏移 1，帧号→时间换算错一帧。",
+    "downsample": 8
+  },
+  "criterion": {
+    "d": "mean|G[i+1]-G[i]|，G 为 8 倍降采样灰度帧",
+    "mad_thr": 12.0,
+    "pre_ratio": 0.2,
+    "post_ratio": 0.5,
+    "downsample": 8,
+    "width_factor": 3.0,
+    "fps_for_timestamps": 30.0,
+    "timestamps": "每个事件同时给出 `t_sec`（名义帧号 ÷ 30，仅作参考）与 `unsafe_window_s`（内容发生变化的那一对相邻帧的真实 PTS 区间）。b、c 为 VFR 且有起始 PTS 偏移，**应以 unsafe_window_s 为准**；名义帧号换算会系统性偏早（b 段实测最多约 0.045s）。",
+    "formula": "d[i] >= mad_thr AND max(d[i-1],d[i-2]) < pre_ratio*d[i] AND max(d[i+1],d[i+2]) < post_ratio*d[i]",
+    "width_thr": "max(width_factor*median(d), 0.25*d[i], 1.0)"
+  },
+  "self_test": {
+    "all_passed": true,
+    "controls": [
+      {
+        "control": "spike/media/test_film.mp4",
+        "desc": "阳性对照：已知 2 处硬切，均为单帧完成",
+        "mad_thr": 3.0,
+        "expected_events": 2,
+        "actual_events": 2,
+        "event_times": [
+          2.967,
+          4.967
+        ],
+        "event_widths": [
+          1,
+          1
+        ],
+        "expected_width": 1,
+        "frames": 270,
+        "container_frame_count": 270,
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "control": "spike/media/test_a.mp4",
+        "desc": "阴性对照：连续动画、无切点",
+        "mad_thr": 3.0,
+        "expected_events": 0,
+        "actual_events": 0,
+        "event_times": [],
+        "event_widths": [],
+        "expected_width": null,
+        "frames": 180,
+        "container_frame_count": 180,
+        "status": "PASS",
+        "detail": null
+      }
+    ]
+  },
+  "clips": [
+    {
+      "source": "C:\\Users\\18930\\Desktop\\Edit skill\\原始素材\\4b0460c400bbb5320acb6063b4f59358.mp4",
+      "frames": 570,
+      "container_frame_count": 570,
+      "frame_count_ok": true,
+      "d_median": 9.335,
+      "d_max": 42.301,
+      "event_count": 0,
+      "events": []
+    },
+    {
+      "source": "C:\\Users\\18930\\Desktop\\Edit skill\\原始素材\\6b2eea343eee7595c3c0ede10d21d028.mp4",
+      "frames": 780,
+      "container_frame_count": 780,
+      "frame_count_ok": true,
+      "d_median": 8.819,
+      "d_max": 49.41,
+      "event_count": 2,
+      "events": [
+        {
+          "t_sec": 10.967,
+          "frame_index": 329,
+          "t_pts_before_s": 10.979688,
+          "t_pts_after_s": 11.045378,
+          "unsafe_window_s": [
+            10.979688,
+            11.045378
+          ],
+          "window_width_ms": 65.7,
+          "d": 48.958,
+          "prev_neighbor_max": 8.016,
+          "next_neighbor_max": 8.431,
+          "ratio_prev": 6.11,
+          "ratio_next": 5.81,
+          "width_frames": 1,
+          "instant": true
+        },
+        {
+          "t_sec": 12.933,
+          "frame_index": 388,
+          "t_pts_before_s": 12.978711,
+          "t_pts_after_s": 13.012044,
+          "unsafe_window_s": [
+            12.978711,
+            13.012044
+          ],
+          "window_width_ms": 33.3,
+          "d": 49.41,
+          "prev_neighbor_max": 3.021,
+          "next_neighbor_max": 24.206,
+          "ratio_prev": 16.36,
+          "ratio_next": 2.04,
+          "width_frames": 1,
+          "instant": true
+        }
+      ]
+    },
+    {
+      "source": "C:\\Users\\18930\\Desktop\\Edit skill\\原始素材\\dcc871b1791e7796fadac842593f10f7.mp4",
+      "frames": 750,
+      "container_frame_count": 750,
+      "frame_count_ok": true,
+      "d_median": 8.317,
+      "d_max": 55.197,
+      "event_count": 2,
+      "events": [
+        {
+          "t_sec": 2.067,
+          "frame_index": 62,
+          "t_pts_before_s": 2.07168,
+          "t_pts_after_s": 2.105013,
+          "unsafe_window_s": [
+            2.07168,
+            2.105013
+          ],
+          "window_width_ms": 33.3,
+          "d": 40.594,
+          "prev_neighbor_max": 4.697,
+          "next_neighbor_max": 8.285,
+          "ratio_prev": 8.64,
+          "ratio_next": 4.9,
+          "width_frames": 1,
+          "instant": true
+        },
+        {
+          "t_sec": 3.367,
+          "frame_index": 101,
+          "t_pts_before_s": 3.37168,
+          "t_pts_after_s": 3.405013,
+          "unsafe_window_s": [
+            3.37168,
+            3.405013
+          ],
+          "window_width_ms": 33.3,
+          "d": 41.85,
+          "prev_neighbor_max": 0.177,
+          "next_neighbor_max": 1.831,
+          "ratio_prev": 236.67,
+          "ratio_next": 22.86,
+          "width_frames": 1,
+          "instant": true
+        }
+      ]
+    }
+  ],
+  "total_events": 4,
+  "result_kind": "lower_bound",
+  "limitation": "下界：只抓孤立跳变。运动中发生的硬切邻帧同样剧烈变化，会被漏判；枪口焰/特效/快速转视角因邻帧同样变化而被正确排除。本检测只判视觉跳变，不区分编辑镜头切换与观战跳转/死亡回放/回合切换。"
+}

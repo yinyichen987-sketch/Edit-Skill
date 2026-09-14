@@ -1,0 +1,90 @@
+{
+  "source": "C:\\Users\\18930\\Desktop\\Edit skill\\瓦参考素材\\9月12日.mp4",
+  "media": {
+    "duration": 37.2,
+    "width": 1920,
+    "height": 1080,
+    "fps": 30.0,
+    "video_codec": "AVC",
+    "has_audio": true,
+    "audio_codec": "AAC",
+    "audio_sample_rate": 44100,
+    "audio_channels": 2,
+    "aspect_ratio": "16:9",
+    "orientation": "landscape"
+  },
+  "shots": [
+    {
+      "index": 0,
+      "start": 0.0,
+      "end": 23.1,
+      "duration": 23.1,
+      "cut_score": null
+    },
+    {
+      "index": 1,
+      "start": 23.1,
+      "end": 23.433,
+      "duration": 0.333,
+      "cut_score": 3.18
+    },
+    {
+      "index": 2,
+      "start": 23.433,
+      "end": 36.733,
+      "duration": 13.3,
+      "cut_score": 3.43
+    },
+    {
+      "index": 3,
+      "start": 36.733,
+      "end": 37.2,
+      "duration": 0.467,
+      "cut_score": 3.98
+    }
+  ],
+  "pacing": {
+    "shot_count": 4,
+    "cut_count": 3,
+    "total_duration": 37.2,
+    "avg_shot_duration": 9.3,
+    "median_shot_duration": 6.884,
+    "min_shot_duration": 0.333,
+    "max_shot_duration": 23.1,
+    "stdev_shot_duration": 9.551,
+    "cuts_per_minute": 4.84,
+    "duration_histogram": {
+      "<1s": 2,
+      "1-2s": 0,
+      "2-3s": 0,
+      "3-5s": 0,
+      "5-10s": 0,
+      ">=10s": 2
+    }
+  },
+  "candidate_cuts": [
+    {
+      "time": 23.1,
+      "score": 3.18
+    },
+    {
+      "time": 23.433,
+      "score": 3.43
+    },
+    {
+      "time": 36.733,
+      "score": 3.98
+    }
+  ],
+  "audio": {
+    "has_audio": true,
+    "integrated_loudness_lufs": -10.1,
+    "true_peak_dbfs": 0.3,
+    "loudness_range_lu": 0.7
+  },
+  "analysis_meta": {
+    "scene_score_samples": 1116,
+    "detector": "ffmpeg scdet(threshold=0) + adaptive peak detection",
+    "note": "scdet 以亮度差为主，等亮度换色得分偏低；已用自适应基线补偿"
+  }
+}
