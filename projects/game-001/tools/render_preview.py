@@ -370,12 +370,18 @@ def main() -> int:
     #   从这里统一构建，时间线就严格由 EDL 决定。
     base_n = len(cap_meta) + 1 + len(audio_inputs)
     clip_audio = []
-    for j, c in enumerate(edl["clips"]):
+    _added = 0          # 实际加进去的音频输入数（不能再用 j，跳过之后会错位）
+    for c in edl["clips"]:
+        # 静音的纯视觉叠加片段（白场/黑场素材）**没有音轨**，不能当音频输入：
+        # 引用 [k:a] 会让 ffmpeg 报 "matches no streams"。
+        if float(c.get("volume", 1.0)) <= 0:
+            continue
         src = Path(c["source"]) if os.path.isabs(c["source"]) else (base / c["source"]).resolve()
         sp = float(c.get("speed", 1.0)) or 1.0
         args += ["-ss", f"{c.get('source_in', 0)}", "-t", f"{float(c['duration']) * sp}",
                  "-i", str(src)]
-        clip_audio.append((base_n + j, c))
+        clip_audio.append((base_n + _added, c))
+        _added += 1
 
     chain = []
     prev = "0:v"
