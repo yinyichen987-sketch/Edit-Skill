@@ -193,19 +193,22 @@ ffmpeg 由 `imageio-ffmpeg` 自带，**无需系统安装**；也没有 ffprobe�
 远程仓库：<https://github.com/yinyichen987-sketch/Edit-Skill>（分支 `game-video`；
 第 7 轮起的**击杀帧训练**在分支 **`kill-frame-training`**，从 `game-video` 切出）
 
-### 第 7 轮的推送状态（截至写这份文档时）
+### 第 7 轮的推送状态
 
-- ✅ **已提交**：`5d0cdd9`，本地 `kill-frame-training` 比 `origin/game-video` **领先 3 个提交**
-  （含第 6 轮在本机未推的 2 个）。
-- ⚠️ **未推送**：`git push --set-upstream origin kill-frame-training` 两次失败，且**两次原因不同**：
+- ✅ **已提交并推送**：`kill-frame-training` 已推到 GitHub（`origin/kill-frame-training`，
+  含第 6 轮在本机未推的 2 个提交）。
+- 但**本轮把两种「像网络问题」的失败都遇到了**，值得留档 —— 它们现象相似、处置相反：
 
-| 次 | 报错 | 真因 | 处置 |
+| 尝试 | 报错 | 真因 | 处置 |
 |---|---|---|---|
 | 1 | `schannel … SEC_E_NO_CREDENTIALS` | **沙箱挡 TLS** | 加宽权限重跑 |
-| 2 | `Recv failure: Connection was reset` | **TLS 已通，但代理没开、GitHub 直连不通** | **开 FlClash 后重跑 `git push`** |
+| 2 | `Recv failure: Connection was reset` | **TLS 已通，但代理没开、GitHub 直连不通** | **过一会儿 / 开 FlClash 后重跑，成功** |
+| 3 | `fatal: The current branch … has no upstream branch` | **不是网络问题**：新建的分支没设上游 | `git push --set-upstream origin <分支>` |
 
-> 这正是 README 第 4–5 轮记过的那条：**「像网络问题」的失败要先分辨是沙箱还是代理**，
-> 两者现象不同、处置相反。**提交已在本地，不会丢。**
+> 第 3 条是本轮**新踩**的：本项目以前只在 `game-video` 上推过，第一次在**新分支**上推送，
+> `sync.ps1` 里的裸 `git push` 就会因为「没有上游」而失败 —— 它的诊断分支只认 TLS 类错误，
+> 于是把这条报成了「检查代理是否运行」，**指向了错误的方向**。
+> ⇒ 下次在**新分支**上收工时，直接用 `git push --set-upstream origin <分支>`。
 
 ```powershell
 # 1. 把本轮经验写进 docs/lessons.md（模板在该文件末尾）
