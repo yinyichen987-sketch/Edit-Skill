@@ -190,7 +190,22 @@ ffmpeg 由 `imageio-ffmpeg` 自带，**无需系统安装**；也没有 ffprobe�
 **每完成一轮，把有价值的经验追加到 `docs/lessons.md`，然后提交并推送到 GitHub。
 没推上去 = 这一轮没结束。**
 
-远程仓库：<https://github.com/yinyichen987-sketch/Edit-Skill>（分支 `game-video`）
+远程仓库：<https://github.com/yinyichen987-sketch/Edit-Skill>（分支 `game-video`；
+第 7 轮起的**击杀帧训练**在分支 **`kill-frame-training`**，从 `game-video` 切出）
+
+### 第 7 轮的推送状态（截至写这份文档时）
+
+- ✅ **已提交**：`5d0cdd9`，本地 `kill-frame-training` 比 `origin/game-video` **领先 3 个提交**
+  （含第 6 轮在本机未推的 2 个）。
+- ⚠️ **未推送**：`git push --set-upstream origin kill-frame-training` 两次失败，且**两次原因不同**：
+
+| 次 | 报错 | 真因 | 处置 |
+|---|---|---|---|
+| 1 | `schannel … SEC_E_NO_CREDENTIALS` | **沙箱挡 TLS** | 加宽权限重跑 |
+| 2 | `Recv failure: Connection was reset` | **TLS 已通，但代理没开、GitHub 直连不通** | **开 FlClash 后重跑 `git push`** |
+
+> 这正是 README 第 4–5 轮记过的那条：**「像网络问题」的失败要先分辨是沙箱还是代理**，
+> 两者现象不同、处置相反。**提交已在本地，不会丢。**
 
 ```powershell
 # 1. 把本轮经验写进 docs/lessons.md（模板在该文件末尾）
