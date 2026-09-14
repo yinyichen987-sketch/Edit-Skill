@@ -1,0 +1,259 @@
+{
+ "source": "b61cc53d55e6aa28e89031fc5ec5693c.mp4",
+ "fps": 30.0,
+ "n_frames": 870,
+ "duration_s": 29.0,
+ "generated_by": "projects/game-001/tools/make_kill_groundtruth.py",
+ "method": {
+  "hud_band": [
+   0,
+   10,
+   1280,
+   80
+  ],
+  "banner_band": [
+   420,
+   35,
+   860,
+   75
+  ],
+  "diff_threshold": 28.12455345985773,
+  "burst_frames_raw": [
+   196,
+   322,
+   351,
+   419,
+   423,
+   428,
+   479,
+   639,
+   682,
+   757,
+   765
+  ],
+  "burst_frames_merged": [
+   196,
+   322,
+   351,
+   419,
+   428,
+   479,
+   639,
+   682,
+   757,
+   765
+  ],
+  "banner_runs": [
+   [
+    197,
+    204
+   ],
+   [
+    216,
+    220
+   ]
+  ]
+ },
+ "caveats": [
+  "本素材是**观战/直播 HUD 录屏**：顶部回合计时是跳变更新（实测 6.533s 从 1:25 跳 1:24、15.967s 从 1:15 跳 1:09），因此 HUD 突变帧与真实击杀帧之间无法从画面本身证明同帧。",
+  "候选取自「HUD 帧间差 3σ 突变帧」，全部 confidence=medium —— **没有任何一个候选拿到了正面证据**。",
+  "★ 洋红不是击杀横幅：2026-09-14 联网+本机交叉核对（research/kill-frame-criteria-web.md）确认本素材 6.53~7.4s 的整屏洋红是技能/特效；仓库原先记的「底部击杀横幅 y522~613」实为**准星命中标记**。因此洋红信号只用于定位特效，不用于判定击杀。",
+  "旧判据 detect_kills.py（底部带∩右上播报，legacy 标定）在本素材上失效：底部带装的是武器皮肤检视动画/技能图标，不是击杀横幅。",
+  "洋红特效实测区间 [[197,204],[216,220]]，峰值占比 0.808（帧 198）。"
+ ],
+ "comparison_with_old_detector": {
+  "old_candidates_s": [
+   6.2,
+   6.8,
+   9.567,
+   10.7,
+   11.767,
+   13.967,
+   19.1,
+   21.333,
+   22.7,
+   25.333
+  ],
+  "old_false_positives_s": [
+   9.567,
+   19.1
+  ],
+  "new_events_not_in_old_s": [
+   15.967
+  ]
+ },
+ "events": [
+  {
+   "n": 1,
+   "kill_frame_candidate": 196,
+   "kill_time_candidate_s": 6.5333,
+   "anchor": "HUD 帧间差突变帧（顶部 y10..80，3σ）",
+   "anchor_prev_frame": 195,
+   "anchor_delta": 5.8,
+   "confidence": "medium",
+   "magenta_fullscreen_effect_frames": [
+    197,
+    204
+   ],
+   "magenta_ratio_at_burst": 0.0004,
+   "magenta_ratio_peak_near": 0.80756,
+   "magenta_is_kill_banner": false,
+   "old_detect_kills_mine_s": [
+    6.2,
+    6.8
+   ],
+   "old_detect_matched": true
+  },
+  {
+   "n": 2,
+   "kill_frame_candidate": 322,
+   "kill_time_candidate_s": 10.7333,
+   "anchor": "HUD 帧间差突变帧（顶部 y10..80，3σ）",
+   "anchor_prev_frame": 321,
+   "anchor_delta": 17.33,
+   "confidence": "medium",
+   "magenta_fullscreen_effect_frames": null,
+   "magenta_ratio_at_burst": 0.00085,
+   "magenta_ratio_peak_near": 0.00085,
+   "magenta_is_kill_banner": false,
+   "old_detect_kills_mine_s": [
+    10.7
+   ],
+   "old_detect_matched": true
+  },
+  {
+   "n": 3,
+   "kill_frame_candidate": 351,
+   "kill_time_candidate_s": 11.7,
+   "anchor": "HUD 帧间差突变帧（顶部 y10..80，3σ）",
+   "anchor_prev_frame": 350,
+   "anchor_delta": 28.14,
+   "confidence": "medium",
+   "magenta_fullscreen_effect_frames": null,
+   "magenta_ratio_at_burst": 0.0008,
+   "magenta_ratio_peak_near": 0.0008,
+   "magenta_is_kill_banner": false,
+   "old_detect_kills_mine_s": [
+    11.767
+   ],
+   "old_detect_matched": true
+  },
+  {
+   "n": 4,
+   "kill_frame_candidate": 419,
+   "kill_time_candidate_s": 13.9667,
+   "anchor": "HUD 帧间差突变帧（顶部 y10..80，3σ）",
+   "anchor_prev_frame": 418,
+   "anchor_delta": 23.55,
+   "confidence": "medium",
+   "magenta_fullscreen_effect_frames": null,
+   "magenta_ratio_at_burst": 0.00028,
+   "magenta_ratio_peak_near": 0.00028,
+   "magenta_is_kill_banner": false,
+   "old_detect_kills_mine_s": [
+    13.967
+   ],
+   "old_detect_matched": true
+  },
+  {
+   "n": 5,
+   "kill_frame_candidate": 428,
+   "kill_time_candidate_s": 14.2667,
+   "anchor": "HUD 帧间差突变帧（顶部 y10..80，3σ）",
+   "anchor_prev_frame": 427,
+   "anchor_delta": 27.61,
+   "confidence": "medium",
+   "magenta_fullscreen_effect_frames": null,
+   "magenta_ratio_at_burst": 0.0004,
+   "magenta_ratio_peak_near": 0.0004,
+   "magenta_is_kill_banner": false,
+   "old_detect_kills_mine_s": [
+    13.967
+   ],
+   "old_detect_matched": true
+  },
+  {
+   "n": 6,
+   "kill_frame_candidate": 479,
+   "kill_time_candidate_s": 15.9667,
+   "anchor": "HUD 帧间差突变帧（顶部 y10..80，3σ）",
+   "anchor_prev_frame": 478,
+   "anchor_delta": 4.24,
+   "confidence": "medium",
+   "magenta_fullscreen_effect_frames": null,
+   "magenta_ratio_at_burst": 0.00142,
+   "magenta_ratio_peak_near": 0.00142,
+   "magenta_is_kill_banner": false,
+   "old_detect_kills_mine_s": [],
+   "old_detect_matched": false
+  },
+  {
+   "n": 7,
+   "kill_frame_candidate": 639,
+   "kill_time_candidate_s": 21.3,
+   "anchor": "HUD 帧间差突变帧（顶部 y10..80，3σ）",
+   "anchor_prev_frame": 638,
+   "anchor_delta": 18.67,
+   "confidence": "medium",
+   "magenta_fullscreen_effect_frames": null,
+   "magenta_ratio_at_burst": 0.0,
+   "magenta_ratio_peak_near": 0.0,
+   "magenta_is_kill_banner": false,
+   "old_detect_kills_mine_s": [
+    21.333
+   ],
+   "old_detect_matched": true
+  },
+  {
+   "n": 8,
+   "kill_frame_candidate": 682,
+   "kill_time_candidate_s": 22.7333,
+   "anchor": "HUD 帧间差突变帧（顶部 y10..80，3σ）",
+   "anchor_prev_frame": 681,
+   "anchor_delta": 36.27,
+   "confidence": "medium",
+   "magenta_fullscreen_effect_frames": null,
+   "magenta_ratio_at_burst": 0.0,
+   "magenta_ratio_peak_near": 0.0,
+   "magenta_is_kill_banner": false,
+   "old_detect_kills_mine_s": [
+    22.7
+   ],
+   "old_detect_matched": true
+  },
+  {
+   "n": 9,
+   "kill_frame_candidate": 757,
+   "kill_time_candidate_s": 25.2333,
+   "anchor": "HUD 帧间差突变帧（顶部 y10..80，3σ）",
+   "anchor_prev_frame": 756,
+   "anchor_delta": 32.54,
+   "confidence": "medium",
+   "magenta_fullscreen_effect_frames": null,
+   "magenta_ratio_at_burst": 0.0,
+   "magenta_ratio_peak_near": 0.0,
+   "magenta_is_kill_banner": false,
+   "old_detect_kills_mine_s": [
+    25.333
+   ],
+   "old_detect_matched": true
+  },
+  {
+   "n": 10,
+   "kill_frame_candidate": 765,
+   "kill_time_candidate_s": 25.5,
+   "anchor": "HUD 帧间差突变帧（顶部 y10..80，3σ）",
+   "anchor_prev_frame": 764,
+   "anchor_delta": 30.36,
+   "confidence": "medium",
+   "magenta_fullscreen_effect_frames": null,
+   "magenta_ratio_at_burst": 0.0,
+   "magenta_ratio_peak_near": 0.0,
+   "magenta_is_kill_banner": false,
+   "old_detect_kills_mine_s": [
+    25.333
+   ],
+   "old_detect_matched": true
+  }
+ ]
+}

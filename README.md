@@ -17,7 +17,9 @@
 | 知道**某个效果怎么做出来**（菜单路径/参数/时长/坑） | `references/techniques/README.md`（索引）→ 对应专题 |
 | 查某个说法的**来源与证据等级** | `references/techniques/sources.md` |
 | 遥控剪映界面时按什么键 | 跑 `scripts/keymap_report.py`（**不要背快捷键，见下**） |
-| 搞清楚击杀帧怎么提取、坑在哪 | `references/kill-extraction.md` |
+| 搞清楚击杀帧怎么提取、坑在哪 | `references/kill-extraction.md`（⚠️ 2026-09-14 已修正：「洋红 = 击杀横幅」是误读） |
+| **判定「哪一帧算击杀帧」**（判据/锚点/能精确到哪一步） | `references/kill-frame-criteria.md`（★ 第 7 轮） |
+| **把击杀帧标进剪映草稿** | `projects/game-001/tools/make_killmark_draft.py` + `projects/game-001/spec/killmark-b61cc53d-交付说明.md` |
 | 环境/沙箱/网络/编码踩过的坑 | `references/environment.md` |
 | 本项目的**风格**规则（怎么切、切多快） | `references/editing-rules.md`（⚠️ **仍为空**，见下） |
 | **剪映曲库的曲子怎么拿来做 BGM** | `projects/game-001/tools/analyze_bgm_cache.py` + `pick_bgm_segment.py`（读**用户本机缓存**，见下） |
@@ -53,7 +55,7 @@
 
 ---
 
-## 当前状态（截至第 6 轮）
+## 当前状态（截至第 7 轮）
 
 | 部分 | 状态 |
 |---|---|
@@ -63,11 +65,13 @@
 | EDL → 草稿工具 | ✅ `scripts/edl_to_draft.py` |
 | **操作知识库** | ✅ `references/operations.md`（功能名/入口/**能否自动化** + 键位方案实测） |
 | **手法库** | ✅ `references/techniques/`（11 份：击杀瞬间/转场/卡点/调色/蒙版/关键帧/字幕/开场/音频 + 索引 + 来源） |
-| **击杀帧提取校准** | ✅ `references/kill-extraction.md`（含一处**实证的标定错误**） |
-| 网络取证工具 | ✅ `tools/web/`（本机唯一能过 HTTPS 的通道，见下） + `tools/dl_reference.py` |
+| **击杀帧判据（第 7 轮重标）** | ✅ `references/kill-frame-criteria.md` ★ —— 含**两条被推翻的旧结论**与「帧能精确到哪一步」 |
+| **剪映标记草稿（击杀帧）** | ✅ 第 7 轮：`击杀帧标记_b61cc53d`（原素材铺底 + 10 条 0.2s 短标记），独立校验通过 |
+| 击杀帧提取校准（旧） | ⚠️ `references/kill-extraction.md`：方法论仍成立，但**「洋红 = 击杀横幅」已被推翻**（文件顶注） |
+| 网络取证工具 | ✅ `tools/web/`（本机唯一能过 HTTPS 的通道）+ `tools/dl_reference.py`；⚠️ 第 7 轮 **B站 搜索接口 `-412`**，可达性会漂移 |
 | **剪辑规则库（风格）** | ⬜ **仍为空** —— 需要用户提供有代表性的成片后才能归纳 |
 | **剪映曲库 BGM 链路** | ✅ 第 6 轮打通：读用户本机 `Cache\music\`（mp3 + **剪映自算的 `.beat` 拍点**）→ 取段 → 切点对齐拍点。接口不可用（403），不去逆向 |
-| **自动击杀判据** | ⚠️ **第 6 轮发现误报**（`4c58efb4 @1.433` 目视 5 个头像全亮）。新造的"存活敌人数"判据连败两次（亮度/灰度），第三版用**饱和度**分离明显但受击会抖 ⇒ **只能当辅助，仍无 ground truth**。详见 `docs/lessons.md` 第 6 轮 §2 |
+| **自动击杀判据** | ⚠️⚠️ **第 6、7 轮连续被打穿两次**。第 7 轮结论：`detect_kills.py` 在**观战/直播 HUD 素材**上失效；**10 个候选全部只有间接证据（无一拿到正面证据）**。详见 `docs/lessons.md` 第 6、7 轮 |
 
 > **规则不能凭空编造。** 在拿到参考成片之前，`editing-rules.md` 保持为空。
 > 第 4–5 轮已经把**手法**（怎么做）和**操作**（在哪做）填起来了，但**风格**（切成什么样）依然只能等成片。
@@ -83,7 +87,8 @@
 │   ├── references/
 │   │   ├── edl-schema.md               # ★ EDL 决策协议（核心）
 │   │   ├── operations.md               # ★ 操作知识库（功能名/入口/能否自动化）
-│   │   ├── kill-extraction.md          # ★ 击杀帧提取的标定与校准
+│   │   ├── kill-extraction.md          # ★ 击杀帧提取的标定（⚠️ 顶注：洋红≠横幅）
+│   │   ├── kill-frame-criteria.md      # ★ 击杀帧判据与锚点（第 7 轮，含被推翻的结论）
 │   │   ├── techniques/                 # ★ 手法库（证据等级 L1–L4）
 │   │   │   ├── README.md               #   索引 + 等级约定
 │   │   │   ├── sources.md              #   来源索引（31 条教程 → 覆盖在哪）
