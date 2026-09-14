@@ -1,0 +1,1619 @@
+{
+ "version": "1.0",
+ "project": "LIBRARY_FRESH_01",
+ "canvas": {
+  "width": 1920,
+  "height": 1080,
+  "fps": 30
+ },
+ "style_ref": "game-montage",
+ "target_duration_s": 103.49157,
+ "tracks": [
+  {
+   "type": "video",
+   "name": "main"
+  },
+  {
+   "type": "video",
+   "name": "ovl_black"
+  },
+  {
+   "type": "video",
+   "name": "ovl_white"
+  },
+  {
+   "type": "audio",
+   "name": "bgm"
+  }
+ ],
+ "clips": [
+  {
+   "id": "c01p1",
+   "track": "main",
+   "source": "../../../原始素材/0a550967b46f242263f68b33be2252df.mp4",
+   "source_in": 17.7,
+   "start": 0.0,
+   "duration": 2.667,
+   "role": "0a550967_part1",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 0a550967 第 1 条（自身击杀 4 次）；本段 素材 17.70→20.37（2.67s）速度 1.0× ⇒ 时间线 2.667s。击杀活跃段，常速保留完整过程（击杀播报滞后开火 0.2–0.5s，故留前摇）。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   },
+   "animation": {
+    "intro": "动感放大",
+    "intro_duration": 0.5
+   }
+  },
+  {
+   "id": "c01p2",
+   "track": "main",
+   "source": "../../../原始素材/0a550967b46f242263f68b33be2252df.mp4",
+   "source_in": 20.367,
+   "start": 2.667,
+   "duration": 1.8,
+   "role": "0a550967_part2",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 0a550967 第 1 条（自身击杀 4 次）；本段 素材 20.37→26.67（6.30s）速度 3.5× ⇒ 时间线 1.800s。**空档用变速掠过而非剪掉** —— 保住连续性、又不拖沓。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   },
+   "speed": 3.5
+  },
+  {
+   "id": "c01p3",
+   "track": "main",
+   "source": "../../../原始素材/0a550967b46f242263f68b33be2252df.mp4",
+   "source_in": 26.667,
+   "start": 4.467,
+   "duration": 2.1,
+   "role": "0a550967_part3",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 0a550967 第 1 条（自身击杀 4 次）；本段 素材 26.67→28.77（2.10s）速度 1.0× ⇒ 时间线 2.100s。击杀活跃段，常速保留完整过程（击杀播报滞后开火 0.2–0.5s，故留前摇）。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   }
+  },
+  {
+   "id": "c01p4",
+   "track": "main",
+   "source": "../../../原始素材/0a550967b46f242263f68b33be2252df.mp4",
+   "source_in": 28.767,
+   "start": 6.567,
+   "duration": 0.980857,
+   "role": "0a550967_part4",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 0a550967 第 1 条（自身击杀 4 次）；本段 素材 28.77→32.20（3.43s）速度 3.5× ⇒ 时间线 0.981s。**空档用变速掠过而非剪掉** —— 保住连续性、又不拖沓。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   },
+   "speed": 3.5
+  },
+  {
+   "id": "c01p5",
+   "track": "main",
+   "source": "../../../原始素材/0a550967b46f242263f68b33be2252df.mp4",
+   "source_in": 32.2,
+   "start": 7.547857,
+   "duration": 0.814,
+   "role": "0a550967_part5",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 0a550967 第 1 条（自身击杀 4 次）；本段 素材 32.20→33.01（0.81s）速度 1.0× ⇒ 时间线 0.814s。击杀活跃段，常速保留完整过程（击杀播报滞后开火 0.2–0.5s，故留前摇）。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   }
+  },
+  {
+   "id": "c02p1",
+   "track": "main",
+   "source": "../../../原始素材/58b8e283b2ac553c9a9c4c8c113270db.mp4",
+   "source_in": 10.4,
+   "start": 8.361857,
+   "duration": 2.1,
+   "role": "58b8e283_part1",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 58b8e283 第 2 条（自身击杀 4 次）；本段 素材 10.40→12.50（2.10s）速度 1.0× ⇒ 时间线 2.100s。击杀活跃段，常速保留完整过程（击杀播报滞后开火 0.2–0.5s，故留前摇）。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   }
+  },
+  {
+   "id": "c02p2",
+   "track": "main",
+   "source": "../../../原始素材/58b8e283b2ac553c9a9c4c8c113270db.mp4",
+   "source_in": 12.5,
+   "start": 10.461857,
+   "duration": 0.885714,
+   "role": "58b8e283_part2",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 58b8e283 第 2 条（自身击杀 4 次）；本段 素材 12.50→15.60（3.10s）速度 3.5× ⇒ 时间线 0.886s。**空档用变速掠过而非剪掉** —— 保住连续性、又不拖沓。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   },
+   "speed": 3.5
+  },
+  {
+   "id": "c02p3",
+   "track": "main",
+   "source": "../../../原始素材/58b8e283b2ac553c9a9c4c8c113270db.mp4",
+   "source_in": 15.6,
+   "start": 11.347571,
+   "duration": 2.1,
+   "role": "58b8e283_part3",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 58b8e283 第 2 条（自身击杀 4 次）；本段 素材 15.60→17.70（2.10s）速度 1.0× ⇒ 时间线 2.100s。击杀活跃段，常速保留完整过程（击杀播报滞后开火 0.2–0.5s，故留前摇）。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   }
+  },
+  {
+   "id": "c02p4",
+   "track": "main",
+   "source": "../../../原始素材/58b8e283b2ac553c9a9c4c8c113270db.mp4",
+   "source_in": 17.7,
+   "start": 13.447571,
+   "duration": 0.742857,
+   "role": "58b8e283_part4",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 58b8e283 第 2 条（自身击杀 4 次）；本段 素材 17.70→20.30（2.60s）速度 3.5× ⇒ 时间线 0.743s。**空档用变速掠过而非剪掉** —— 保住连续性、又不拖沓。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   },
+   "speed": 3.5
+  },
+  {
+   "id": "c02p5",
+   "track": "main",
+   "source": "../../../原始素材/58b8e283b2ac553c9a9c4c8c113270db.mp4",
+   "source_in": 20.3,
+   "start": 14.190428,
+   "duration": 2.1,
+   "role": "58b8e283_part5",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 58b8e283 第 2 条（自身击杀 4 次）；本段 素材 20.30→22.40（2.10s）速度 1.0× ⇒ 时间线 2.100s。击杀活跃段，常速保留完整过程（击杀播报滞后开火 0.2–0.5s，故留前摇）。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   }
+  },
+  {
+   "id": "c02p6",
+   "track": "main",
+   "source": "../../../原始素材/58b8e283b2ac553c9a9c4c8c113270db.mp4",
+   "source_in": 22.4,
+   "start": 16.290428,
+   "duration": 1.028571,
+   "role": "58b8e283_part6",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 58b8e283 第 2 条（自身击杀 4 次）；本段 素材 22.40→26.00（3.60s）速度 3.5× ⇒ 时间线 1.029s。**空档用变速掠过而非剪掉** —— 保住连续性、又不拖沓。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   },
+   "speed": 3.5
+  },
+  {
+   "id": "c02p7",
+   "track": "main",
+   "source": "../../../原始素材/58b8e283b2ac553c9a9c4c8c113270db.mp4",
+   "source_in": 26.0,
+   "start": 17.318999,
+   "duration": 2.1,
+   "role": "58b8e283_part7",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 58b8e283 第 2 条（自身击杀 4 次）；本段 素材 26.00→28.10（2.10s）速度 1.0× ⇒ 时间线 2.100s。击杀活跃段，常速保留完整过程（击杀播报滞后开火 0.2–0.5s，故留前摇）。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   }
+  },
+  {
+   "id": "c03p1",
+   "track": "main",
+   "source": "../../../原始素材/38cc49038ae23ca325952b7cbcd4926d.mp4",
+   "source_in": 0.7,
+   "start": 19.418999,
+   "duration": 3.7,
+   "role": "38cc4903_part1",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 38cc4903 第 3 条（自身击杀 5 次）；本段 素材 0.70→4.40（3.70s）速度 1.0× ⇒ 时间线 3.700s。击杀活跃段，常速保留完整过程（击杀播报滞后开火 0.2–0.5s，故留前摇）。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   }
+  },
+  {
+   "id": "c03p2",
+   "track": "main",
+   "source": "../../../原始素材/38cc49038ae23ca325952b7cbcd4926d.mp4",
+   "source_in": 4.4,
+   "start": 23.118999,
+   "duration": 1.066571,
+   "role": "38cc4903_part2",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 38cc4903 第 3 条（自身击杀 5 次）；本段 素材 4.40→8.13（3.73s）速度 3.5× ⇒ 时间线 1.067s。**空档用变速掠过而非剪掉** —— 保住连续性、又不拖沓。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   },
+   "speed": 3.5
+  },
+  {
+   "id": "c03p3",
+   "track": "main",
+   "source": "../../../原始素材/38cc49038ae23ca325952b7cbcd4926d.mp4",
+   "source_in": 8.133,
+   "start": 24.18557,
+   "duration": 3.767,
+   "role": "38cc4903_part3",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 38cc4903 第 3 条（自身击杀 5 次）；本段 素材 8.13→11.90（3.77s）速度 1.0× ⇒ 时间线 3.767s。击杀活跃段，常速保留完整过程（击杀播报滞后开火 0.2–0.5s，故留前摇）。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   }
+  },
+  {
+   "id": "c04p1",
+   "track": "main",
+   "source": "../../../原始素材/dcc871b1791e7796fadac842593f10f7.mp4",
+   "source_in": 1.467,
+   "start": 27.95257,
+   "duration": 2.1,
+   "role": "dcc871b1_part1",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 dcc871b1 第 4 条（自身击杀 5 次）；本段 素材 1.47→3.57（2.10s）速度 1.0× ⇒ 时间线 2.100s。击杀活跃段，常速保留完整过程（击杀播报滞后开火 0.2–0.5s，故留前摇）。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   }
+  },
+  {
+   "id": "c04p2",
+   "track": "main",
+   "source": "../../../原始素材/dcc871b1791e7796fadac842593f10f7.mp4",
+   "source_in": 3.567,
+   "start": 30.05257,
+   "duration": 2.961714,
+   "role": "dcc871b1_part2",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 dcc871b1 第 4 条（自身击杀 5 次）；本段 素材 3.57→13.93（10.37s）速度 3.5× ⇒ 时间线 2.962s。**空档用变速掠过而非剪掉** —— 保住连续性、又不拖沓。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   },
+   "speed": 3.5
+  },
+  {
+   "id": "c04p3",
+   "track": "main",
+   "source": "../../../原始素材/dcc871b1791e7796fadac842593f10f7.mp4",
+   "source_in": 13.933,
+   "start": 33.014284,
+   "duration": 2.7,
+   "role": "dcc871b1_part3",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 dcc871b1 第 4 条（自身击杀 5 次）；本段 素材 13.93→16.63（2.70s）速度 1.0× ⇒ 时间线 2.700s。击杀活跃段，常速保留完整过程（击杀播报滞后开火 0.2–0.5s，故留前摇）。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   }
+  },
+  {
+   "id": "c04p4",
+   "track": "main",
+   "source": "../../../原始素材/dcc871b1791e7796fadac842593f10f7.mp4",
+   "source_in": 16.633,
+   "start": 35.714284,
+   "duration": 1.619143,
+   "role": "dcc871b1_part4",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 dcc871b1 第 4 条（自身击杀 5 次）；本段 素材 16.63→22.30（5.67s）速度 3.5× ⇒ 时间线 1.619s。**空档用变速掠过而非剪掉** —— 保住连续性、又不拖沓。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   },
+   "speed": 3.5
+  },
+  {
+   "id": "c04p5",
+   "track": "main",
+   "source": "../../../原始素材/dcc871b1791e7796fadac842593f10f7.mp4",
+   "source_in": 22.3,
+   "start": 37.333427,
+   "duration": 2.7,
+   "role": "dcc871b1_part5",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 dcc871b1 第 4 条（自身击杀 5 次）；本段 素材 22.30→25.00（2.70s）速度 1.0× ⇒ 时间线 2.700s。击杀活跃段，常速保留完整过程（击杀播报滞后开火 0.2–0.5s，故留前摇）。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   }
+  },
+  {
+   "id": "c05p1",
+   "track": "main",
+   "source": "../../../原始素材/4c58efb455faef8b4795ba6d6538b54b.mp4",
+   "source_in": 0.833,
+   "start": 40.033427,
+   "duration": 8.0,
+   "role": "4c58efb4_part1",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 4c58efb4 第 5 条（自身击杀 6 次）；本段 素材 0.83→8.83（8.00s）速度 1.0× ⇒ 时间线 8.000s。击杀活跃段，常速保留完整过程（击杀播报滞后开火 0.2–0.5s，故留前摇）。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   }
+  },
+  {
+   "id": "c05p2",
+   "track": "main",
+   "source": "../../../原始素材/4c58efb455faef8b4795ba6d6538b54b.mp4",
+   "source_in": 8.833,
+   "start": 48.033427,
+   "duration": 1.257143,
+   "role": "4c58efb4_part2",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 4c58efb4 第 5 条（自身击杀 6 次）；本段 素材 8.83→13.23（4.40s）速度 3.5× ⇒ 时间线 1.257s。**空档用变速掠过而非剪掉** —— 保住连续性、又不拖沓。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   },
+   "speed": 3.5
+  },
+  {
+   "id": "c05p3",
+   "track": "main",
+   "source": "../../../原始素材/4c58efb455faef8b4795ba6d6538b54b.mp4",
+   "source_in": 13.233,
+   "start": 49.29057,
+   "duration": 2.1,
+   "role": "4c58efb4_part3",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 4c58efb4 第 5 条（自身击杀 6 次）；本段 素材 13.23→15.33（2.10s）速度 1.0× ⇒ 时间线 2.100s。击杀活跃段，常速保留完整过程（击杀播报滞后开火 0.2–0.5s，故留前摇）。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   }
+  },
+  {
+   "id": "c05p4",
+   "track": "main",
+   "source": "../../../原始素材/4c58efb455faef8b4795ba6d6538b54b.mp4",
+   "source_in": 15.333,
+   "start": 51.39057,
+   "duration": 1.381143,
+   "role": "4c58efb4_part4",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 4c58efb4 第 5 条（自身击杀 6 次）；本段 素材 15.33→20.17（4.83s）速度 3.5× ⇒ 时间线 1.381s。**空档用变速掠过而非剪掉** —— 保住连续性、又不拖沓。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   },
+   "speed": 3.5
+  },
+  {
+   "id": "c05p5",
+   "track": "main",
+   "source": "../../../原始素材/4c58efb455faef8b4795ba6d6538b54b.mp4",
+   "source_in": 20.167,
+   "start": 52.771713,
+   "duration": 2.1,
+   "role": "4c58efb4_part5",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 4c58efb4 第 5 条（自身击杀 6 次）；本段 素材 20.17→22.27（2.10s）速度 1.0× ⇒ 时间线 2.100s。击杀活跃段，常速保留完整过程（击杀播报滞后开火 0.2–0.5s，故留前摇）。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   }
+  },
+  {
+   "id": "c06p1",
+   "track": "main",
+   "source": "../../../原始素材/b61cc53d55e6aa28e89031fc5ec5693c.mp4",
+   "source_in": 5.6,
+   "start": 54.871713,
+   "duration": 9.867,
+   "role": "b61cc53d_part1",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 b61cc53d 第 6 条（自身击杀 7 次）；本段 素材 5.60→15.47（9.87s）速度 1.0× ⇒ 时间线 9.867s。击杀活跃段，常速保留完整过程（击杀播报滞后开火 0.2–0.5s，故留前摇）。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   }
+  },
+  {
+   "id": "c06p2",
+   "track": "main",
+   "source": "../../../原始素材/b61cc53d55e6aa28e89031fc5ec5693c.mp4",
+   "source_in": 15.467,
+   "start": 64.738713,
+   "duration": 0.866571,
+   "role": "b61cc53d_part2",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 b61cc53d 第 6 条（自身击杀 7 次）；本段 素材 15.47→18.50（3.03s）速度 3.5× ⇒ 时间线 0.867s。**空档用变速掠过而非剪掉** —— 保住连续性、又不拖沓。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   },
+   "speed": 3.5
+  },
+  {
+   "id": "c06p3",
+   "track": "main",
+   "source": "../../../原始素材/b61cc53d55e6aa28e89031fc5ec5693c.mp4",
+   "source_in": 18.5,
+   "start": 65.605284,
+   "duration": 4.333,
+   "role": "b61cc53d_part3",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 b61cc53d 第 6 条（自身击杀 7 次）；本段 素材 18.50→22.83（4.33s）速度 1.0× ⇒ 时间线 4.333s。击杀活跃段，常速保留完整过程（击杀播报滞后开火 0.2–0.5s，故留前摇）。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   }
+  },
+  {
+   "id": "c07p1",
+   "track": "main",
+   "source": "../../../原始素材/7f0d8287758a222f243b1d145c045d94.mp4",
+   "source_in": 0.633,
+   "start": 69.938284,
+   "duration": 2.767,
+   "role": "7f0d8287_part1",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 7f0d8287 第 7 条（自身击杀 9 次）；本段 素材 0.63→3.40（2.77s）速度 1.0× ⇒ 时间线 2.767s。击杀活跃段，常速保留完整过程（击杀播报滞后开火 0.2–0.5s，故留前摇）。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   }
+  },
+  {
+   "id": "c07p2",
+   "track": "main",
+   "source": "../../../原始素材/7f0d8287758a222f243b1d145c045d94.mp4",
+   "source_in": 3.4,
+   "start": 72.705284,
+   "duration": 2.847714,
+   "role": "7f0d8287_part2",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 7f0d8287 第 7 条（自身击杀 9 次）；本段 素材 3.40→13.37（9.97s）速度 3.5× ⇒ 时间线 2.848s。**空档用变速掠过而非剪掉** —— 保住连续性、又不拖沓。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   },
+   "speed": 3.5
+  },
+  {
+   "id": "c07p3",
+   "track": "main",
+   "source": "../../../原始素材/7f0d8287758a222f243b1d145c045d94.mp4",
+   "source_in": 13.367,
+   "start": 75.552998,
+   "duration": 2.1,
+   "role": "7f0d8287_part3",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 7f0d8287 第 7 条（自身击杀 9 次）；本段 素材 13.37→15.47（2.10s）速度 1.0× ⇒ 时间线 2.100s。击杀活跃段，常速保留完整过程（击杀播报滞后开火 0.2–0.5s，故留前摇）。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   }
+  },
+  {
+   "id": "c07p4",
+   "track": "main",
+   "source": "../../../原始素材/7f0d8287758a222f243b1d145c045d94.mp4",
+   "source_in": 15.467,
+   "start": 77.652998,
+   "duration": 0.571429,
+   "role": "7f0d8287_part4",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 7f0d8287 第 7 条（自身击杀 9 次）；本段 素材 15.47→17.47（2.00s）速度 3.5× ⇒ 时间线 0.571s。**空档用变速掠过而非剪掉** —— 保住连续性、又不拖沓。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   },
+   "speed": 3.5
+  },
+  {
+   "id": "c07p5",
+   "track": "main",
+   "source": "../../../原始素材/7f0d8287758a222f243b1d145c045d94.mp4",
+   "source_in": 17.467,
+   "start": 78.224427,
+   "duration": 5.966,
+   "role": "7f0d8287_part5",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 7f0d8287 第 7 条（自身击杀 9 次）；本段 素材 17.47→23.43（5.97s）速度 1.0× ⇒ 时间线 5.966s。击杀活跃段，常速保留完整过程（击杀播报滞后开火 0.2–0.5s，故留前摇）。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   }
+  },
+  {
+   "id": "c07p6",
+   "track": "main",
+   "source": "../../../原始素材/7f0d8287758a222f243b1d145c045d94.mp4",
+   "source_in": 23.433,
+   "start": 84.190427,
+   "duration": 2.714286,
+   "role": "7f0d8287_part6",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 7f0d8287 第 7 条（自身击杀 9 次）；本段 素材 23.43→32.93（9.50s）速度 3.5× ⇒ 时间线 2.714s。**空档用变速掠过而非剪掉** —— 保住连续性、又不拖沓。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   },
+   "speed": 3.5
+  },
+  {
+   "id": "c07p7",
+   "track": "main",
+   "source": "../../../原始素材/7f0d8287758a222f243b1d145c045d94.mp4",
+   "source_in": 32.933,
+   "start": 86.904713,
+   "duration": 2.1,
+   "role": "7f0d8287_part7",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 7f0d8287 第 7 条（自身击杀 9 次）；本段 素材 32.93→35.03（2.10s）速度 1.0× ⇒ 时间线 2.100s。击杀活跃段，常速保留完整过程（击杀播报滞后开火 0.2–0.5s，故留前摇）。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   }
+  },
+  {
+   "id": "c07p8",
+   "track": "main",
+   "source": "../../../原始素材/7f0d8287758a222f243b1d145c045d94.mp4",
+   "source_in": 35.033,
+   "start": 89.004713,
+   "duration": 0.8,
+   "role": "7f0d8287_part8",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 7f0d8287 第 7 条（自身击杀 9 次）；本段 素材 35.03→37.83（2.80s）速度 3.5× ⇒ 时间线 0.800s。**空档用变速掠过而非剪掉** —— 保住连续性、又不拖沓。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   },
+   "speed": 3.5
+  },
+  {
+   "id": "c07p9",
+   "track": "main",
+   "source": "../../../原始素材/7f0d8287758a222f243b1d145c045d94.mp4",
+   "source_in": 37.833,
+   "start": 89.804713,
+   "duration": 3.234,
+   "role": "7f0d8287_part9",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 7f0d8287 第 7 条（自身击杀 9 次）；本段 素材 37.83→41.07（3.23s）速度 1.0× ⇒ 时间线 3.234s。击杀活跃段，常速保留完整过程（击杀播报滞后开火 0.2–0.5s，故留前摇）。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   }
+  },
+  {
+   "id": "c08p1",
+   "track": "main",
+   "source": "../../../原始素材/6b2eea343eee7595c3c0ede10d21d028.mp4",
+   "source_in": 9.5,
+   "start": 93.038713,
+   "duration": 4.967,
+   "role": "6b2eea34_part1",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 6b2eea34 第 8 条（自身击杀 4 次）；本段 素材 9.50→14.47（4.97s）速度 1.0× ⇒ 时间线 4.967s。击杀活跃段，常速保留完整过程（击杀播报滞后开火 0.2–0.5s，故留前摇）。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   }
+  },
+  {
+   "id": "c08p2",
+   "track": "main",
+   "source": "../../../原始素材/6b2eea343eee7595c3c0ede10d21d028.mp4",
+   "source_in": 14.467,
+   "start": 98.005713,
+   "duration": 2.218857,
+   "role": "6b2eea34_part2",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 6b2eea34 第 8 条（自身击杀 4 次）；本段 素材 14.47→22.23（7.77s）速度 3.5× ⇒ 时间线 2.219s。**空档用变速掠过而非剪掉** —— 保住连续性、又不拖沓。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   },
+   "speed": 3.5
+  },
+  {
+   "id": "c08p3",
+   "track": "main",
+   "source": "../../../原始素材/6b2eea343eee7595c3c0ede10d21d028.mp4",
+   "source_in": 22.233,
+   "start": 100.22457,
+   "duration": 3.267,
+   "role": "6b2eea34_part3",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "素材 6b2eea34 第 8 条（自身击杀 4 次）；本段 素材 22.23→25.50（3.27s）速度 1.0× ⇒ 时间线 3.267s。击杀活跃段，常速保留完整过程（击杀播报滞后开火 0.2–0.5s，故留前摇）。",
+   "volume": 0.32,
+   "filter": {
+    "type": "青橙",
+    "intensity": 65.0
+   },
+   "animation": {
+    "outro": "渐隐",
+    "outro_duration": 0.6
+   }
+  },
+  {
+   "id": "w1",
+   "track": "ovl_white",
+   "source": "../assets/white_2f.mp4",
+   "source_in": 0.0,
+   "start": 1.13365,
+   "duration": 0.0667,
+   "role": "flash_white",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "击杀反馈：2 帧白场**素材**压在击杀上。kill-moment.md Q5 实测白闪 50–167ms、最常见 33/67/133ms；§1 做法为官方素材→白场。",
+   "volume": 0.0
+  },
+  {
+   "id": "w2",
+   "track": "ovl_white",
+   "source": "../assets/white_2f.mp4",
+   "source_in": 0.0,
+   "start": 5.03365,
+   "duration": 0.0667,
+   "role": "flash_white",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "击杀反馈：2 帧白场**素材**压在击杀上。kill-moment.md Q5 实测白闪 50–167ms、最常见 33/67/133ms；§1 做法为官方素材→白场。",
+   "volume": 0.0
+  },
+  {
+   "id": "w3",
+   "track": "ovl_white",
+   "source": "../assets/white_2f.mp4",
+   "source_in": 0.0,
+   "start": 8.114507,
+   "duration": 0.0667,
+   "role": "flash_white",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "击杀反馈：2 帧白场**素材**压在击杀上。kill-moment.md Q5 实测白闪 50–167ms、最常见 33/67/133ms；§1 做法为官方素材→白场。",
+   "volume": 0.0
+  },
+  {
+   "id": "w4",
+   "track": "ovl_white",
+   "source": "../assets/white_2f.mp4",
+   "source_in": 0.0,
+   "start": 8.928507,
+   "duration": 0.0667,
+   "role": "flash_white",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "击杀反馈：2 帧白场**素材**压在击杀上。kill-moment.md Q5 实测白闪 50–167ms、最常见 33/67/133ms；§1 做法为官方素材→白场。",
+   "volume": 0.0
+  },
+  {
+   "id": "w5",
+   "track": "ovl_white",
+   "source": "../assets/white_2f.mp4",
+   "source_in": 0.0,
+   "start": 11.914221,
+   "duration": 0.0667,
+   "role": "flash_white",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "击杀反馈：2 帧白场**素材**压在击杀上。kill-moment.md Q5 实测白闪 50–167ms、最常见 33/67/133ms；§1 做法为官方素材→白场。",
+   "volume": 0.0
+  },
+  {
+   "id": "w6",
+   "track": "ovl_white",
+   "source": "../assets/white_2f.mp4",
+   "source_in": 0.0,
+   "start": 14.757078,
+   "duration": 0.0667,
+   "role": "flash_white",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "击杀反馈：2 帧白场**素材**压在击杀上。kill-moment.md Q5 实测白闪 50–167ms、最常见 33/67/133ms；§1 做法为官方素材→白场。",
+   "volume": 0.0
+  },
+  {
+   "id": "w7",
+   "track": "ovl_white",
+   "source": "../assets/white_2f.mp4",
+   "source_in": 0.0,
+   "start": 17.885649,
+   "duration": 0.0667,
+   "role": "flash_white",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "击杀反馈：2 帧白场**素材**压在击杀上。kill-moment.md Q5 实测白闪 50–167ms、最常见 33/67/133ms；§1 做法为官方素材→白场。",
+   "volume": 0.0
+  },
+  {
+   "id": "w8",
+   "track": "ovl_white",
+   "source": "../assets/white_2f.mp4",
+   "source_in": 0.0,
+   "start": 21.585649,
+   "duration": 0.0667,
+   "role": "flash_white",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "击杀反馈：2 帧白场**素材**压在击杀上。kill-moment.md Q5 实测白闪 50–167ms、最常见 33/67/133ms；§1 做法为官方素材→白场。",
+   "volume": 0.0
+  },
+  {
+   "id": "w9",
+   "track": "ovl_white",
+   "source": "../assets/white_2f.mp4",
+   "source_in": 0.0,
+   "start": 26.41922,
+   "duration": 0.0667,
+   "role": "flash_white",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "击杀反馈：2 帧白场**素材**压在击杀上。kill-moment.md Q5 实测白闪 50–167ms、最常见 33/67/133ms；§1 做法为官方素材→白场。",
+   "volume": 0.0
+  },
+  {
+   "id": "w10",
+   "track": "ovl_white",
+   "source": "../assets/white_2f.mp4",
+   "source_in": 0.0,
+   "start": 28.51922,
+   "duration": 0.0667,
+   "role": "flash_white",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "击杀反馈：2 帧白场**素材**压在击杀上。kill-moment.md Q5 实测白闪 50–167ms、最常见 33/67/133ms；§1 做法为官方素材→白场。",
+   "volume": 0.0
+  },
+  {
+   "id": "w11",
+   "track": "ovl_white",
+   "source": "../assets/white_2f.mp4",
+   "source_in": 0.0,
+   "start": 34.180934,
+   "duration": 0.0667,
+   "role": "flash_white",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "击杀反馈：2 帧白场**素材**压在击杀上。kill-moment.md Q5 实测白闪 50–167ms、最常见 33/67/133ms；§1 做法为官方素材→白场。",
+   "volume": 0.0
+  },
+  {
+   "id": "w12",
+   "track": "ovl_white",
+   "source": "../assets/white_2f.mp4",
+   "source_in": 0.0,
+   "start": 38.500077,
+   "duration": 0.0667,
+   "role": "flash_white",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "击杀反馈：2 帧白场**素材**压在击杀上。kill-moment.md Q5 实测白闪 50–167ms、最常见 33/67/133ms；§1 做法为官方素材→白场。",
+   "volume": 0.0
+  },
+  {
+   "id": "w13",
+   "track": "ovl_white",
+   "source": "../assets/white_2f.mp4",
+   "source_in": 0.0,
+   "start": 46.500077,
+   "duration": 0.0667,
+   "role": "flash_white",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "击杀反馈：2 帧白场**素材**压在击杀上。kill-moment.md Q5 实测白闪 50–167ms、最常见 33/67/133ms；§1 做法为官方素材→白场。",
+   "volume": 0.0
+  },
+  {
+   "id": "w14",
+   "track": "ovl_white",
+   "source": "../assets/white_2f.mp4",
+   "source_in": 0.0,
+   "start": 49.85722,
+   "duration": 0.0667,
+   "role": "flash_white",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "击杀反馈：2 帧白场**素材**压在击杀上。kill-moment.md Q5 实测白闪 50–167ms、最常见 33/67/133ms；§1 做法为官方素材→白场。",
+   "volume": 0.0
+  },
+  {
+   "id": "w15",
+   "track": "ovl_white",
+   "source": "../assets/white_2f.mp4",
+   "source_in": 0.0,
+   "start": 53.338363,
+   "duration": 0.0667,
+   "role": "flash_white",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "击杀反馈：2 帧白场**素材**压在击杀上。kill-moment.md Q5 实测白闪 50–167ms、最常见 33/67/133ms；§1 做法为官方素材→白场。",
+   "volume": 0.0
+  },
+  {
+   "id": "w16",
+   "track": "ovl_white",
+   "source": "../assets/white_2f.mp4",
+   "source_in": 0.0,
+   "start": 63.205363,
+   "duration": 0.0667,
+   "role": "flash_white",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "击杀反馈：2 帧白场**素材**压在击杀上。kill-moment.md Q5 实测白闪 50–167ms、最常见 33/67/133ms；§1 做法为官方素材→白场。",
+   "volume": 0.0
+  },
+  {
+   "id": "w17",
+   "track": "ovl_white",
+   "source": "../assets/white_2f.mp4",
+   "source_in": 0.0,
+   "start": 68.404934,
+   "duration": 0.0667,
+   "role": "flash_white",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "击杀反馈：2 帧白场**素材**压在击杀上。kill-moment.md Q5 实测白闪 50–167ms、最常见 33/67/133ms；§1 做法为官方素材→白场。",
+   "volume": 0.0
+  },
+  {
+   "id": "w18",
+   "track": "ovl_white",
+   "source": "../assets/white_2f.mp4",
+   "source_in": 0.0,
+   "start": 71.171934,
+   "duration": 0.0667,
+   "role": "flash_white",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "击杀反馈：2 帧白场**素材**压在击杀上。kill-moment.md Q5 实测白闪 50–167ms、最常见 33/67/133ms；§1 做法为官方素材→白场。",
+   "volume": 0.0
+  },
+  {
+   "id": "w19",
+   "track": "ovl_white",
+   "source": "../assets/white_2f.mp4",
+   "source_in": 0.0,
+   "start": 76.119648,
+   "duration": 0.0667,
+   "role": "flash_white",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "击杀反馈：2 帧白场**素材**压在击杀上。kill-moment.md Q5 实测白闪 50–167ms、最常见 33/67/133ms；§1 做法为官方素材→白场。",
+   "volume": 0.0
+  },
+  {
+   "id": "w20",
+   "track": "ovl_white",
+   "source": "../assets/white_2f.mp4",
+   "source_in": 0.0,
+   "start": 82.657077,
+   "duration": 0.0667,
+   "role": "flash_white",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "击杀反馈：2 帧白场**素材**压在击杀上。kill-moment.md Q5 实测白闪 50–167ms、最常见 33/67/133ms；§1 做法为官方素材→白场。",
+   "volume": 0.0
+  },
+  {
+   "id": "w21",
+   "track": "ovl_white",
+   "source": "../assets/white_2f.mp4",
+   "source_in": 0.0,
+   "start": 87.471363,
+   "duration": 0.0667,
+   "role": "flash_white",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "击杀反馈：2 帧白场**素材**压在击杀上。kill-moment.md Q5 实测白闪 50–167ms、最常见 33/67/133ms；§1 做法为官方素材→白场。",
+   "volume": 0.0
+  },
+  {
+   "id": "w22",
+   "track": "ovl_white",
+   "source": "../assets/white_2f.mp4",
+   "source_in": 0.0,
+   "start": 91.505363,
+   "duration": 0.0667,
+   "role": "flash_white",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "击杀反馈：2 帧白场**素材**压在击杀上。kill-moment.md Q5 实测白闪 50–167ms、最常见 33/67/133ms；§1 做法为官方素材→白场。",
+   "volume": 0.0
+  },
+  {
+   "id": "w23",
+   "track": "ovl_white",
+   "source": "../assets/white_2f.mp4",
+   "source_in": 0.0,
+   "start": 96.472363,
+   "duration": 0.0667,
+   "role": "flash_white",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "击杀反馈：2 帧白场**素材**压在击杀上。kill-moment.md Q5 实测白闪 50–167ms、最常见 33/67/133ms；§1 做法为官方素材→白场。",
+   "volume": 0.0
+  },
+  {
+   "id": "w24",
+   "track": "ovl_white",
+   "source": "../assets/white_2f.mp4",
+   "source_in": 0.0,
+   "start": 101.95822,
+   "duration": 0.0667,
+   "role": "flash_white",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "击杀反馈：2 帧白场**素材**压在击杀上。kill-moment.md Q5 实测白闪 50–167ms、最常见 33/67/133ms；§1 做法为官方素材→白场。",
+   "volume": 0.0
+  },
+  {
+   "id": "b1",
+   "track": "ovl_black",
+   "source": "../assets/black_2f.mp4",
+   "source_in": 0.0,
+   "start": 8.328507,
+   "duration": 0.0667,
+   "role": "hide_cut_black",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "藏切点：2 帧黑场**素材**压在换素材接缝上。transitions.md §3.3 实测黑场 33/167/667ms，取「隐形」那一档（1–2 帧）。",
+   "volume": 0.0
+  },
+  {
+   "id": "b2",
+   "track": "ovl_black",
+   "source": "../assets/black_2f.mp4",
+   "source_in": 0.0,
+   "start": 19.385649,
+   "duration": 0.0667,
+   "role": "hide_cut_black",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "藏切点：2 帧黑场**素材**压在换素材接缝上。transitions.md §3.3 实测黑场 33/167/667ms，取「隐形」那一档（1–2 帧）。",
+   "volume": 0.0
+  },
+  {
+   "id": "b3",
+   "track": "ovl_black",
+   "source": "../assets/black_2f.mp4",
+   "source_in": 0.0,
+   "start": 27.91922,
+   "duration": 0.0667,
+   "role": "hide_cut_black",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "藏切点：2 帧黑场**素材**压在换素材接缝上。transitions.md §3.3 实测黑场 33/167/667ms，取「隐形」那一档（1–2 帧）。",
+   "volume": 0.0
+  },
+  {
+   "id": "b4",
+   "track": "ovl_black",
+   "source": "../assets/black_2f.mp4",
+   "source_in": 0.0,
+   "start": 40.000077,
+   "duration": 0.0667,
+   "role": "hide_cut_black",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "藏切点：2 帧黑场**素材**压在换素材接缝上。transitions.md §3.3 实测黑场 33/167/667ms，取「隐形」那一档（1–2 帧）。",
+   "volume": 0.0
+  },
+  {
+   "id": "b5",
+   "track": "ovl_black",
+   "source": "../assets/black_2f.mp4",
+   "source_in": 0.0,
+   "start": 54.838363,
+   "duration": 0.0667,
+   "role": "hide_cut_black",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "藏切点：2 帧黑场**素材**压在换素材接缝上。transitions.md §3.3 实测黑场 33/167/667ms，取「隐形」那一档（1–2 帧）。",
+   "volume": 0.0
+  },
+  {
+   "id": "b6",
+   "track": "ovl_black",
+   "source": "../assets/black_2f.mp4",
+   "source_in": 0.0,
+   "start": 69.904934,
+   "duration": 0.0667,
+   "role": "hide_cut_black",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "藏切点：2 帧黑场**素材**压在换素材接缝上。transitions.md §3.3 实测黑场 33/167/667ms，取「隐形」那一档（1–2 帧）。",
+   "volume": 0.0
+  },
+  {
+   "id": "b7",
+   "track": "ovl_black",
+   "source": "../assets/black_2f.mp4",
+   "source_in": 0.0,
+   "start": 93.005363,
+   "duration": 0.0667,
+   "role": "hide_cut_black",
+   "rule_id": "LIB-FRESH-01",
+   "reason": "藏切点：2 帧黑场**素材**压在换素材接缝上。transitions.md §3.3 实测黑场 33/167/667ms，取「隐形」那一档（1–2 帧）。",
+   "volume": 0.0
+  }
+ ],
+ "texts": [],
+ "audio_overlays": [
+  {
+   "source": "../bgm/h2h_style_lib.wav",
+   "track": "bgm",
+   "start": 0.0,
+   "duration": 103.49157,
+   "volume": 0.8,
+   "fade": {
+    "in": 0.0,
+    "out": 0.5
+   }
+  }
+ ],
+ "effect_tracks": [
+  {
+   "name": "fx_flash",
+   "effects": [
+    {
+     "type": "曝光",
+     "start": 0.6,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 1.167,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 5.067,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 8.147857,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 8.961857,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 11.947571,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 14.790428,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 17.918999,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 20.018999,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 20.951999,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 21.618999,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 24.78557,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 26.45257,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 28.55257,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 33.614284,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 34.214284,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 37.933427,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 38.533427,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 40.633427,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 41.300427,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 43.867427,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 46.533427,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 49.89057,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 53.371713,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 55.471713,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 56.071713,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 58.838713,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 61.038713,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 63.238713,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 66.205284,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 68.438284,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 70.538284,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 71.205284,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 76.152998,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 78.824427,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 81.124427,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 82.690427,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 87.504713,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 90.404713,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 91.538713,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 93.638713,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 96.505713,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 100.82457,
+     "duration": 0.07
+    },
+    {
+     "type": "曝光",
+     "start": 101.99157,
+     "duration": 0.07
+    }
+   ]
+  },
+  {
+   "name": "fx_blur",
+   "effects": [
+    {
+     "type": "瞬间模糊",
+     "start": 1.167,
+     "duration": 0.13
+    },
+    {
+     "type": "瞬间模糊",
+     "start": 5.067,
+     "duration": 0.13
+    },
+    {
+     "type": "瞬间模糊",
+     "start": 8.147857,
+     "duration": 0.13
+    },
+    {
+     "type": "瞬间模糊",
+     "start": 8.961857,
+     "duration": 0.13
+    },
+    {
+     "type": "瞬间模糊",
+     "start": 11.947571,
+     "duration": 0.13
+    },
+    {
+     "type": "瞬间模糊",
+     "start": 14.790428,
+     "duration": 0.13
+    },
+    {
+     "type": "瞬间模糊",
+     "start": 17.918999,
+     "duration": 0.13
+    },
+    {
+     "type": "瞬间模糊",
+     "start": 21.618999,
+     "duration": 0.13
+    },
+    {
+     "type": "瞬间模糊",
+     "start": 26.45257,
+     "duration": 0.13
+    },
+    {
+     "type": "瞬间模糊",
+     "start": 28.55257,
+     "duration": 0.13
+    },
+    {
+     "type": "瞬间模糊",
+     "start": 34.214284,
+     "duration": 0.13
+    },
+    {
+     "type": "瞬间模糊",
+     "start": 38.533427,
+     "duration": 0.13
+    },
+    {
+     "type": "瞬间模糊",
+     "start": 46.533427,
+     "duration": 0.13
+    },
+    {
+     "type": "瞬间模糊",
+     "start": 49.89057,
+     "duration": 0.13
+    },
+    {
+     "type": "瞬间模糊",
+     "start": 53.371713,
+     "duration": 0.13
+    },
+    {
+     "type": "瞬间模糊",
+     "start": 63.238713,
+     "duration": 0.13
+    },
+    {
+     "type": "瞬间模糊",
+     "start": 68.438284,
+     "duration": 0.13
+    },
+    {
+     "type": "瞬间模糊",
+     "start": 71.205284,
+     "duration": 0.13
+    },
+    {
+     "type": "瞬间模糊",
+     "start": 76.152998,
+     "duration": 0.13
+    },
+    {
+     "type": "瞬间模糊",
+     "start": 82.690427,
+     "duration": 0.13
+    },
+    {
+     "type": "瞬间模糊",
+     "start": 87.504713,
+     "duration": 0.13
+    },
+    {
+     "type": "瞬间模糊",
+     "start": 91.538713,
+     "duration": 0.13
+    },
+    {
+     "type": "瞬间模糊",
+     "start": 96.505713,
+     "duration": 0.13
+    },
+    {
+     "type": "瞬间模糊",
+     "start": 101.99157,
+     "duration": 0.13
+    }
+   ]
+  },
+  {
+   "name": "fx_shake",
+   "effects": [
+    {
+     "type": "回弹摇摆",
+     "start": 1.167,
+     "duration": 0.2
+    },
+    {
+     "type": "回弹摇摆",
+     "start": 5.067,
+     "duration": 0.2
+    },
+    {
+     "type": "回弹摇摆",
+     "start": 8.147857,
+     "duration": 0.2
+    },
+    {
+     "type": "回弹摇摆",
+     "start": 8.961857,
+     "duration": 0.2
+    },
+    {
+     "type": "回弹摇摆",
+     "start": 11.947571,
+     "duration": 0.2
+    },
+    {
+     "type": "回弹摇摆",
+     "start": 14.790428,
+     "duration": 0.2
+    },
+    {
+     "type": "回弹摇摆",
+     "start": 17.918999,
+     "duration": 0.2
+    },
+    {
+     "type": "回弹摇摆",
+     "start": 21.618999,
+     "duration": 0.2
+    },
+    {
+     "type": "回弹摇摆",
+     "start": 26.45257,
+     "duration": 0.2
+    },
+    {
+     "type": "回弹摇摆",
+     "start": 28.55257,
+     "duration": 0.2
+    },
+    {
+     "type": "回弹摇摆",
+     "start": 34.214284,
+     "duration": 0.2
+    },
+    {
+     "type": "回弹摇摆",
+     "start": 38.533427,
+     "duration": 0.2
+    },
+    {
+     "type": "回弹摇摆",
+     "start": 46.533427,
+     "duration": 0.2
+    },
+    {
+     "type": "回弹摇摆",
+     "start": 49.89057,
+     "duration": 0.2
+    },
+    {
+     "type": "回弹摇摆",
+     "start": 53.371713,
+     "duration": 0.2
+    },
+    {
+     "type": "回弹摇摆",
+     "start": 63.238713,
+     "duration": 0.2
+    },
+    {
+     "type": "回弹摇摆",
+     "start": 68.438284,
+     "duration": 0.2
+    },
+    {
+     "type": "回弹摇摆",
+     "start": 71.205284,
+     "duration": 0.2
+    },
+    {
+     "type": "回弹摇摆",
+     "start": 76.152998,
+     "duration": 0.2
+    },
+    {
+     "type": "回弹摇摆",
+     "start": 82.690427,
+     "duration": 0.2
+    },
+    {
+     "type": "回弹摇摆",
+     "start": 87.504713,
+     "duration": 0.2
+    },
+    {
+     "type": "回弹摇摆",
+     "start": 91.538713,
+     "duration": 0.2
+    },
+    {
+     "type": "回弹摇摆",
+     "start": 96.505713,
+     "duration": 0.2
+    },
+    {
+     "type": "回弹摇摆",
+     "start": 101.99157,
+     "duration": 0.2
+    }
+   ]
+  },
+  {
+   "name": "g_vig",
+   "effects": [
+    {
+     "type": "暗角",
+     "start": 0.0,
+     "duration": 103.49157,
+     "params": [
+      10.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "g_grain",
+   "effects": [
+    {
+     "type": "噪点",
+     "start": 0.0,
+     "duration": 103.49157,
+     "params": [
+      5.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "g_sharp",
+   "effects": [
+    {
+     "type": "精细锐化",
+     "start": 0.0,
+     "duration": 103.49157,
+     "params": [
+      12.0,
+      10.0,
+      8.0,
+      100.0,
+      70.0
+     ]
+    }
+   ]
+  }
+ ],
+ "audio": {
+  "voice_priority": "low",
+  "bgm_volume": 0.8
+ },
+ "qa": {
+  "required": [
+   "duration-valid",
+   "audio-present",
+   "no-black-frame"
+  ]
+ },
+ "_form_note": "**全新**库收割版：8 条素材 / 40 个主轨段 / 零素材内剪辑 / 103.492s。空档用 3.5× 变速掠过。",
+ "_kill_source": "analysis2/kills_mine_measured.json（实测标定，见 references/kill-extraction.md）",
+ "_manual": [
+  "曲线变速（闪进 0.1×）—— EDL 未表达，operations.md §3.4",
+  "切口两侧 2 帧音频交叉淡化（防咔哒声）",
+  "如需动效模糊盖切口 → 调整层 + transform keyframe"
+ ]
+}
