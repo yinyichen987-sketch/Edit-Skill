@@ -1573,6 +1573,34 @@ ffmpeg 直接走 `imageio-ffmpeg`（仓库 pin 的版本），**解码 29s 只�
   或把徽记降级为**候选** + 第二信号（右上角播报）交叉确认。**都不便宜。**
 - **`references/editing-rules.md` 仍然为空**（等用户的真实成片）。
 
+### 交付（本机没有推送权限）
+
+本地 `kill-frame-training` 领先 `origin/kill-frame-training`（`fef3f9e`）**一段提交**（第 8 轮起）。
+**确切数量现算**：`git rev-list --count fef3f9e..HEAD` —— **不要抄文档里的数字**
+（第 11 轮在这里写过「8 个」，一提交就过期了）。交付包在 `%TEMP%\edit-skill-delivery\`：
+
+| 文件 | 说明 |
+|---|---|
+| `round8-12-kill-frame-training.patch` | `git format-patch fef3f9e..HEAD` 的补丁合并（本轮 ≈40 MB） |
+| `kill-frame-training-round8-12.bundle` | `fef3f9e..kill-frame-training` 的 bundle（本轮 ≈31 MB） |
+
+**往返验证**（第 9 轮建立的流程，本轮再做一次）：`git clone` 出一个**继承 system
+`core.autocrlf=true`** 的干净仓库，两条通道分别导入，再比 `git rev-parse "HEAD^{tree}"`：
+
+    git checkout --detach fef3f9e && git am <补丁列表>                          # 通道 1：补丁
+    git fetch <bundle> 'refs/heads/kill-frame-training:refs/heads/bundle-test'  # 通道 2：bundle
+    git rev-parse 'HEAD^{tree}' 'bundle-test^{tree}'    # 两个都应等于本地 HEAD 的 tree
+
+本轮**两条通道都与本地一致**（本条记录提交之前测的是 `6124d38e…`；本条提交会让 tree 再变一次，
+所以**以命令输出为准，不要把 hash 抄进文档**）。两个老坑照旧：`git am` 需要临时仓库里有
+committer 身份，通配符也不会自动展开成补丁列表。
+
+**第 12 轮新增的一个读数坑**：在 `core.autocrlf=true` 的收件方那边，`git am` 之后
+**工作区里的 `review.csv` 会变成 43 个 CRLF、2170 字节** —— 这是 autocrlf 的**正常**行为
+（blob 仍是 LF，tree 也一致）。⇒ **别拿「工作区字节数」当往返验证的判据，要拿 tree / blob。**
+（第 11 轮那个 1824→1781 的错位之所以是**真问题**，是因为当年**仓库里的 blob 本身**就是 CRLF，
+`am` 归一化后 blob 变了 ⇒ tree 才变了。）
+
 ---
 
 ## 模板（下轮复制）
