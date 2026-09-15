@@ -1330,20 +1330,25 @@ ffmpeg 直接走 `imageio-ffmpeg`（仓库 pin 的版本），**解码 29s 只�
 
 ### 交付（本机没有推送权限）
 
-本地 `kill-frame-training` 领先 `origin/kill-frame-training`（`fef3f9e`）**6 个提交**（第 8 轮起）。
-交付包在 `%TEMP%\edit-skill-delivery\`：
+本地 `kill-frame-training` 领先 `origin/kill-frame-training`（`fef3f9e`）**8 个提交**（第 8 轮起；
+确切数量见 `git rev-list --count fef3f9e..HEAD`）。交付包在 `%TEMP%\edit-skill-delivery\`：
 
 | 文件 | 说明 |
 |---|---|
-| `round8-10-kill-frame-training.patch` | `git format-patch fef3f9e..HEAD` 的 6 个补丁合并（7.8 MB） |
+| `round8-10-kill-frame-training.patch` | `git format-patch fef3f9e..HEAD` 的补丁合并（≈7.8 MB） |
 | `kill-frame-training-round8-10.bundle` | 含前置 `fef3f9e` 的 bundle（5.5 MB） |
 
-**往返验证**（第 9 轮建立的流程，两步都过）：
+**往返验证**（第 9 轮建立的流程）：把 `fef3f9e` 签出到临时仓库后，**两条通道分别导入**，
+再比 `git rev-parse "HEAD^{tree}"`：
 
-- 临时仓库 → `git checkout fef3f9e` → `git am`（6 个补丁，`exit=0`）→ tree = `46eb3ca5…`，**与本地一致**；
-- 临时仓库 → `git fetch <bundle>` → tree = `46eb3ca5…`，**与本地一致**。
+    git checkout --detach fef3f9e && git am <patches>        # 通道 1：补丁
+    git fetch <bundle> 'refs/heads/kill-frame-training:refs/heads/bundle-test'   # 通道 2：bundle
+    git rev-parse 'HEAD^{tree}' 'bundle-test^{tree}'         # 两个都应与本地 HEAD 的 tree 相等
 
-（`git am` 需要临时仓库里有 committer 身份：`git config user.name/user.email`，否则 `am` 会在最后一步失败。）
+两条通道的 tree 都与本地一致（本条记录提交之前测的是 `14b151e6…`；本条提交会让 tree 再变一次，
+所以**以命令输出为准，不要把 hash 抄进文档**）。
+踩坑：`git am` 需要临时仓库里有 committer 身份（`git config user.name/user.email`），
+否则会在最后一步失败；`git am <通配符>` 不展开，得先把补丁路径展开成列表。
 
 ### 遗留
 
