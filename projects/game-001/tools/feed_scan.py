@@ -78,6 +78,7 @@ SRC = ROOT / "原始素材"
 A2 = ROOT / "projects" / "game-001" / "analysis2"
 AUDIO_DIR = ROOT / "projects" / "game-001" / "verification" / "audio-signal"
 OUTDIR = ROOT / "projects" / "game-001" / "verification" / "feed-scan"
+ICON_DIR = ROOT / "projects" / "game-001" / "verification" / "icon-scan"
 
 FPS = 30.0
 FEED = (880, 56, 400, 26)   # x, y, w, h（w/h 必须是偶数：ffmpeg 会改写奇数边）
@@ -149,19 +150,44 @@ def count_matches(tt, cs, tol):
     return int((hi > lo).sum())
 
 
-def cross_audio(n_sim=2000, seed=5):
-    """横幅事件 vs 音频强瞬态：分强度档/容差做汇总检验 + 含挑选偏差的滞后扫描。"""
+def icon_event_times(short):
+    """读 center_kill_icon.py 产出的中心徽记事件（玩家自己的击杀）。"""
+    f = ICON_DIR / f"{short}.json"
+    if not f.exists():
+        return None
+    ev = json.loads(f.read_text(encoding="utf-8")).get("events") or []
+    return np.array([e["t_s"] for e in ev]) if ev else None
+
+
+def cross_audio(n_sim=2000, seed=5, source="feed"):
+    """事件 vs 音频强瞬态：分强度档/容差做汇总检验 + 含挑选偏差的滞后扫描。
+
+    source="feed" → 右上角播报事件（场上任何人的击杀）
+    source="icon" → 中心徽记事件（玩家自己的击杀；由 center_kill_icon.py 产出）
+    """
     rng = np.random.default_rng(seed)
+    label = {"feed": "横幅", "icon": "中心徽记"}.get(source, source)
     data = []
     for p in sorted(SRC.glob("*.mp4")):
         short = p.stem[:8]
-        ups, _ = banner_events(white_series(p))
-        if not ups:
-            continue
-        data.append((short, len(ups) / FPS + 1.0, np.array([i / FPS for i in ups])))
-    print("横幅事件合计 %d 个（%d 条素材）" % (sum(len(b) for _, _, b in data), len(data)))
-    out = {"generated_by": "projects/game-001/tools/feed_scan.py x --cross",
-           "evidence_level": "L1（横幅=本机逐帧量 top-right 白色剪影占比；音频=本机解码音轨）",
+        if source == "icon":
+            ts = icon_event_times(short)
+            if ts is None:
+                continue
+            ups = np.round(ts * FPS).astype(int)
+            if not len(ups):
+                continue
+        else:
+            ups, _ = banner_events(white_series(p))
+            if not ups:
+                continue
+        dur = max(len(ups) / FPS + 1.0, float(ups[-1]) / FPS + 1.0)
+        data.append((short, dur, np.array([i / FPS for i in ups])))
+    print("%s事件合计 %d 个（%d 条素材）" % (label, sum(len(b) for _, _, b in data), len(data)))
+    out = {"generated_by": f"projects/game-001/tools/feed_scan.py x --cross --source {source}",
+           "source": source, "source_label": label,
+           "evidence_level": "L1（事件=本机逐帧量像素判据；音频=本机解码音轨）",
+           "n_events": int(sum(len(b) for _, _, b in data)),
            "n_banner_events": int(sum(len(b) for _, _, b in data)),
            "tests": [], "lag_scan": None}
     for pct in (95, 99, 99.5):
@@ -240,7 +266,7 @@ def cross_audio(n_sim=2000, seed=5):
           "零分布 max 均值 %.1f/p95 %d ⇒ p=%.4f" % (
               tol, ls["matches_at_lag0"], ls["best_lag_s"], ls["best_matches"],
               ls["null_max_mean"], ls["null_max_p95"], ls["p_best_lag_maxstat"]))
-    dst = OUTDIR / "cross-audio.json"
+    dst = OUTDIR / ("cross-audio.json" if source == "feed" else f"cross-audio-{source}.json")
     dst.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8", newline="\n")
     print("[OK] %s" % dst.relative_to(ROOT))
     return out
@@ -310,9 +336,11 @@ def main():
     ap.add_argument("--cross", action="store_true", help="与音频瞬态做汇总检验")
     ap.add_argument("--rows", action="store_true",
                     help="逐行带诊断（复现「新条目追加在下面、第一行不变」）")
+    ap.add_argument("--source", choices=("feed", "icon"), default="feed",
+                    help="x --cross 用哪个事件源：feed=右上角播报（默认）、icon=中心徽记")
     args = ap.parse_args()
     if args.cross:
-        cross_audio()
+        cross_audio(source=args.source)
         return 0
     if args.rows:
         return rows(args.short)

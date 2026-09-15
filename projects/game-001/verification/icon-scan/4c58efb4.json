@@ -1,0 +1,135 @@
+{
+ "short": "4c58efb4",
+ "file": "4c58efb455faef8b4795ba6d6538b54b.mp4",
+ "evidence_level": "L1（本机逐帧量中心徽记框内低饱和亮块占比；区域与阈值均为实测标定）",
+ "region": {
+  "x": 612,
+  "y": 514,
+  "w": 112,
+  "h": 100
+ },
+ "params": {
+  "bright": 190,
+  "sat_max": 50,
+  "thresh": 0.02,
+  "min_run_frames": 3,
+  "merge_gap_frames": 2,
+  "min_dur_frames_high_conf": 30
+ },
+ "event_semantics": "徽记首现帧 = 玩家自己的一次击杀（**待人工确认**）；右上角播报则可能是队友的击杀",
+ "n_frames": 1141,
+ "feat_median": 0.00571,
+ "feat_peak": 0.9919,
+ "empty_frame_ratio": 0.493,
+ "n_events": 5,
+ "events": [
+  {
+   "frame": 192,
+   "t_s": 6.4,
+   "duration_frames": 97,
+   "duration_s": 3.233,
+   "peak": 0.4535
+  },
+  {
+   "frame": 326,
+   "t_s": 10.8667,
+   "duration_frames": 88,
+   "duration_s": 2.933,
+   "peak": 0.8598
+  },
+  {
+   "frame": 536,
+   "t_s": 17.8667,
+   "duration_frames": 111,
+   "duration_s": 3.7,
+   "peak": 0.364
+  },
+  {
+   "frame": 683,
+   "t_s": 22.7667,
+   "duration_frames": 60,
+   "duration_s": 2.0,
+   "peak": 0.1174
+  },
+  {
+   "frame": 1016,
+   "t_s": 33.8667,
+   "duration_frames": 125,
+   "duration_s": 4.167,
+   "peak": 0.1163
+  }
+ ],
+ "n_events_raw": 10,
+ "events_raw": [
+  {
+   "frame": 69,
+   "t_s": 2.3,
+   "duration_frames": 6,
+   "duration_s": 0.2,
+   "peak": 0.8646
+  },
+  {
+   "frame": 80,
+   "t_s": 2.6667,
+   "duration_frames": 10,
+   "duration_s": 0.333,
+   "peak": 0.4881
+  },
+  {
+   "frame": 120,
+   "t_s": 4.0,
+   "duration_frames": 11,
+   "duration_s": 0.367,
+   "peak": 0.9919
+  },
+  {
+   "frame": 141,
+   "t_s": 4.7,
+   "duration_frames": 3,
+   "duration_s": 0.1,
+   "peak": 0.0309
+  },
+  {
+   "frame": 192,
+   "t_s": 6.4,
+   "duration_frames": 97,
+   "duration_s": 3.233,
+   "peak": 0.4535
+  },
+  {
+   "frame": 320,
+   "t_s": 10.6667,
+   "duration_frames": 3,
+   "duration_s": 0.1,
+   "peak": 0.039
+  },
+  {
+   "frame": 326,
+   "t_s": 10.8667,
+   "duration_frames": 88,
+   "duration_s": 2.933,
+   "peak": 0.8598
+  },
+  {
+   "frame": 536,
+   "t_s": 17.8667,
+   "duration_frames": 111,
+   "duration_s": 3.7,
+   "peak": 0.364
+  },
+  {
+   "frame": 683,
+   "t_s": 22.7667,
+   "duration_frames": 60,
+   "duration_s": 2.0,
+   "peak": 0.1174
+  },
+  {
+   "frame": 1016,
+   "t_s": 33.8667,
+   "duration_frames": 125,
+   "duration_s": 4.167,
+   "peak": 0.1163
+  }
+ ]
+}

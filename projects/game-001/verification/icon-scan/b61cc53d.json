@@ -1,0 +1,107 @@
+{
+ "short": "b61cc53d",
+ "file": "b61cc53d55e6aa28e89031fc5ec5693c.mp4",
+ "evidence_level": "L1（本机逐帧量中心徽记框内低饱和亮块占比；区域与阈值均为实测标定）",
+ "region": {
+  "x": 612,
+  "y": 514,
+  "w": 112,
+  "h": 100
+ },
+ "params": {
+  "bright": 190,
+  "sat_max": 50,
+  "thresh": 0.02,
+  "min_run_frames": 3,
+  "merge_gap_frames": 2,
+  "min_dur_frames_high_conf": 30
+ },
+ "event_semantics": "徽记首现帧 = 玩家自己的一次击杀（**待人工确认**）；右上角播报则可能是队友的击杀",
+ "n_frames": 870,
+ "feat_median": 9e-05,
+ "feat_peak": 0.8092,
+ "empty_frame_ratio": 0.636,
+ "n_events": 4,
+ "events": [
+  {
+   "frame": 188,
+   "t_s": 6.2667,
+   "duration_frames": 77,
+   "duration_s": 2.567,
+   "peak": 0.8092
+  },
+  {
+   "frame": 344,
+   "t_s": 11.4667,
+   "duration_frames": 59,
+   "duration_s": 1.967,
+   "peak": 0.0871
+  },
+  {
+   "frame": 675,
+   "t_s": 22.5,
+   "duration_frames": 59,
+   "duration_s": 1.967,
+   "peak": 0.0953
+  },
+  {
+   "frame": 739,
+   "t_s": 24.6333,
+   "duration_frames": 59,
+   "duration_s": 1.967,
+   "peak": 0.0892
+  }
+ ],
+ "n_events_raw": 7,
+ "events_raw": [
+  {
+   "frame": 188,
+   "t_s": 6.2667,
+   "duration_frames": 77,
+   "duration_s": 2.567,
+   "peak": 0.8092
+  },
+  {
+   "frame": 344,
+   "t_s": 11.4667,
+   "duration_frames": 59,
+   "duration_s": 1.967,
+   "peak": 0.0871
+  },
+  {
+   "frame": 409,
+   "t_s": 13.6333,
+   "duration_frames": 5,
+   "duration_s": 0.167,
+   "peak": 0.0339
+  },
+  {
+   "frame": 599,
+   "t_s": 19.9667,
+   "duration_frames": 8,
+   "duration_s": 0.267,
+   "peak": 0.0505
+  },
+  {
+   "frame": 675,
+   "t_s": 22.5,
+   "duration_frames": 59,
+   "duration_s": 1.967,
+   "peak": 0.0953
+  },
+  {
+   "frame": 739,
+   "t_s": 24.6333,
+   "duration_frames": 59,
+   "duration_s": 1.967,
+   "peak": 0.0892
+  },
+  {
+   "frame": 803,
+   "t_s": 26.7667,
+   "duration_frames": 9,
+   "duration_s": 0.3,
+   "peak": 0.0585
+  }
+ ]
+}

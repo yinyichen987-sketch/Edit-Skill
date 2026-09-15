@@ -1,0 +1,325 @@
+{
+ "generated_by": "projects/game-001/tools/feed_scan.py x --cross --source icon",
+ "source": "icon",
+ "source_label": "中心徽记",
+ "evidence_level": "L1（事件=本机逐帧量像素判据；音频=本机解码音轨）",
+ "n_events": 42,
+ "n_banner_events": 42,
+ "tests": [
+  {
+   "audio_strength_pct": 95,
+   "tol_s": 0.03,
+   "tol_frames": 0.9,
+   "n_banner_events": 42,
+   "expected_by_chance": 6.23,
+   "observed": 11,
+   "hit_rate": 0.2619,
+   "chance_level": 0.1484,
+   "binom_p_one_sided": 0.039118,
+   "shift_null_mean": 6.32,
+   "shift_null_p_one_sided": 0.03948
+  },
+  {
+   "audio_strength_pct": 95,
+   "tol_s": 0.05,
+   "tol_frames": 1.5,
+   "n_banner_events": 42,
+   "expected_by_chance": 10.4,
+   "observed": 25,
+   "hit_rate": 0.5952,
+   "chance_level": 0.2476,
+   "binom_p_one_sided": 2e-06,
+   "shift_null_mean": 10.39,
+   "shift_null_p_one_sided": 0.0005
+  },
+  {
+   "audio_strength_pct": 95,
+   "tol_s": 0.1,
+   "tol_frames": 3.0,
+   "n_banner_events": 42,
+   "expected_by_chance": 18.23,
+   "observed": 33,
+   "hit_rate": 0.7857,
+   "chance_level": 0.4342,
+   "binom_p_one_sided": 4e-06,
+   "shift_null_mean": 18.26,
+   "shift_null_p_one_sided": 0.0005
+  },
+  {
+   "audio_strength_pct": 99,
+   "tol_s": 0.03,
+   "tol_frames": 0.9,
+   "n_banner_events": 42,
+   "expected_by_chance": 1.88,
+   "observed": 8,
+   "hit_rate": 0.1905,
+   "chance_level": 0.0448,
+   "binom_p_one_sided": 0.000485,
+   "shift_null_mean": 1.89,
+   "shift_null_p_one_sided": 0.0005
+  },
+  {
+   "audio_strength_pct": 99,
+   "tol_s": 0.05,
+   "tol_frames": 1.5,
+   "n_banner_events": 42,
+   "expected_by_chance": 3.14,
+   "observed": 17,
+   "hit_rate": 0.4048,
+   "chance_level": 0.0747,
+   "binom_p_one_sided": 0.0,
+   "shift_null_mean": 3.09,
+   "shift_null_p_one_sided": 0.0005
+  },
+  {
+   "audio_strength_pct": 99,
+   "tol_s": 0.1,
+   "tol_frames": 3.0,
+   "n_banner_events": 42,
+   "expected_by_chance": 5.93,
+   "observed": 24,
+   "hit_rate": 0.5714,
+   "chance_level": 0.1412,
+   "binom_p_one_sided": 0.0,
+   "shift_null_mean": 6.04,
+   "shift_null_p_one_sided": 0.0005
+  },
+  {
+   "audio_strength_pct": 99.5,
+   "tol_s": 0.03,
+   "tol_frames": 0.9,
+   "n_banner_events": 42,
+   "expected_by_chance": 1.07,
+   "observed": 5,
+   "hit_rate": 0.119,
+   "chance_level": 0.0255,
+   "binom_p_one_sided": 0.004201,
+   "shift_null_mean": 1.1,
+   "shift_null_p_one_sided": 0.008
+  },
+  {
+   "audio_strength_pct": 99.5,
+   "tol_s": 0.05,
+   "tol_frames": 1.5,
+   "n_banner_events": 42,
+   "expected_by_chance": 1.79,
+   "observed": 9,
+   "hit_rate": 0.2143,
+   "chance_level": 0.0427,
+   "binom_p_one_sided": 5.8e-05,
+   "shift_null_mean": 1.75,
+   "shift_null_p_one_sided": 0.0005
+  },
+  {
+   "audio_strength_pct": 99.5,
+   "tol_s": 0.1,
+   "tol_frames": 3.0,
+   "n_banner_events": 42,
+   "expected_by_chance": 3.38,
+   "observed": 12,
+   "hit_rate": 0.2857,
+   "chance_level": 0.0805,
+   "binom_p_one_sided": 8.2e-05,
+   "shift_null_mean": 3.35,
+   "shift_null_p_one_sided": 0.0005
+  }
+ ],
+ "lag_scan": {
+  "tol_s": 0.05,
+  "audio_strength_pct": 95,
+  "matches_at_lag0": 25,
+  "best_lag_s": 0.04,
+  "best_matches": 28,
+  "null_max_mean": 15.728,
+  "null_max_p95": 19.0,
+  "p_best_lag_maxstat": 0.001,
+  "top5": [
+   {
+    "lag_s": 0.04,
+    "matches": 28
+   },
+   {
+    "lag_s": 0.06,
+    "matches": 27
+   },
+   {
+    "lag_s": 0.0,
+    "matches": 25
+   },
+   {
+    "lag_s": 0.02,
+    "matches": 25
+   },
+   {
+    "lag_s": -0.38,
+    "matches": 22
+   }
+  ],
+  "curve": [
+   {
+    "lag_s": -0.4,
+    "matches": 20
+   },
+   {
+    "lag_s": -0.38,
+    "matches": 22
+   },
+   {
+    "lag_s": -0.36,
+    "matches": 19
+   },
+   {
+    "lag_s": -0.34,
+    "matches": 17
+   },
+   {
+    "lag_s": -0.32,
+    "matches": 14
+   },
+   {
+    "lag_s": -0.3,
+    "matches": 12
+   },
+   {
+    "lag_s": -0.28,
+    "matches": 12
+   },
+   {
+    "lag_s": -0.26,
+    "matches": 15
+   },
+   {
+    "lag_s": -0.24,
+    "matches": 16
+   },
+   {
+    "lag_s": -0.22,
+    "matches": 19
+   },
+   {
+    "lag_s": -0.2,
+    "matches": 18
+   },
+   {
+    "lag_s": -0.18,
+    "matches": 17
+   },
+   {
+    "lag_s": -0.16,
+    "matches": 19
+   },
+   {
+    "lag_s": -0.14,
+    "matches": 17
+   },
+   {
+    "lag_s": -0.12,
+    "matches": 18
+   },
+   {
+    "lag_s": -0.1,
+    "matches": 18
+   },
+   {
+    "lag_s": -0.08,
+    "matches": 20
+   },
+   {
+    "lag_s": -0.06,
+    "matches": 16
+   },
+   {
+    "lag_s": -0.04,
+    "matches": 15
+   },
+   {
+    "lag_s": -0.02,
+    "matches": 19
+   },
+   {
+    "lag_s": 0.0,
+    "matches": 25
+   },
+   {
+    "lag_s": 0.02,
+    "matches": 25
+   },
+   {
+    "lag_s": 0.04,
+    "matches": 28
+   },
+   {
+    "lag_s": 0.06,
+    "matches": 27
+   },
+   {
+    "lag_s": 0.08,
+    "matches": 22
+   },
+   {
+    "lag_s": 0.1,
+    "matches": 18
+   },
+   {
+    "lag_s": 0.12,
+    "matches": 13
+   },
+   {
+    "lag_s": 0.14,
+    "matches": 11
+   },
+   {
+    "lag_s": 0.16,
+    "matches": 13
+   },
+   {
+    "lag_s": 0.18,
+    "matches": 15
+   },
+   {
+    "lag_s": 0.2,
+    "matches": 18
+   },
+   {
+    "lag_s": 0.22,
+    "matches": 21
+   },
+   {
+    "lag_s": 0.24,
+    "matches": 20
+   },
+   {
+    "lag_s": 0.26,
+    "matches": 15
+   },
+   {
+    "lag_s": 0.28,
+    "matches": 15
+   },
+   {
+    "lag_s": 0.3,
+    "matches": 13
+   },
+   {
+    "lag_s": 0.32,
+    "matches": 12
+   },
+   {
+    "lag_s": 0.34,
+    "matches": 12
+   },
+   {
+    "lag_s": 0.36,
+    "matches": 14
+   },
+   {
+    "lag_s": 0.38,
+    "matches": 12
+   },
+   {
+    "lag_s": 0.4,
+    "matches": 11
+   }
+  ]
+ }
+}
