@@ -187,3 +187,29 @@
 > 环境事实（L1）：pip 走本机代理 `127.0.0.1:7890` 实测 **3.9–5.1 MB/s**，一次装完约 55 MB。
 > **对比第 8 轮**：同一个代理对 **`git` 的 pack 传输无效**（0.03 MB/s 卡死）
 > ⇒ 这台机器上「HTTP 下载能走、git 大传输走不通」，取分支只能下 tarball。
+
+---
+
+## 7. 交付：没有推送权限时怎么把这两轮交出去
+
+朋友的仓库我没有推送权限，所以本轮的交付物是**补丁 + bundle**（不入库，放在 `%TEMP%\edit-skill-delivery\`）：
+
+| 文件 | 内容 | 朋友怎么用 |
+|---|---|---|
+| `round8-9-kill-frame-training.patch` | 第 8/9 轮 + 换行符修正共 **3 个提交**，259 KB | 在 `fef3f9e` 上 `git am <补丁>` |
+| `kill-frame-training-round8-9.bundle` | 42 KB，**带前置提交 `fef3f9e`** | `git fetch <bundle> kill-frame-training` |
+
+**往返验证（本轮实测，L1）**：在从 `fef3f9e` 起的临时仓库里 `git am` 补丁 →
+
+```
+am exit=0   提交数=3
+补丁后 tree = 020ac170d81d5f386f19e703c94c914e3bea6170
+本地 tree   = 020ac170d81d5f386f19e703c94c914e3bea6170   ← 完全一致
+```
+
+> 比 **tree** 而不是比 commit hash：`am` 出来的提交 committer/时间不同，hash 必然不同。
+
+**第一次跑这个验证时 tree 不一致**，顺带抓出一个真 bug：3 个 JSON 文件在本地是 **CRLF**
+（`pathlib.write_text` 在 Windows 上默认会把 `\n` 翻成 `\r\n`），补丁打出来是 LF，
+blob 大小差 **「行数−1」个字节**。已在提交 `47ef417` 里归一化为 LF 并给工具加了 `newline="\n"`。
+⇒ **交付动作本身要验**：补丁能否干净应用 + 打完的 tree 是否等于本地 tree。

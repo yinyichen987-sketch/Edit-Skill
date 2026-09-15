@@ -91,6 +91,34 @@ pyJianYingDraft 只生成 2 个文件，剪映原生草稿有 24+ 个条目。�
 最初的测试视频是连续动画，没有镜头切换，导致切点检测「看起来正常」。造了带硬切的
 夹具后才暴露出低分切点漏判。**夹具要有能触发边界情况的构造**。
 
+### 交付层经验（本轮新增的一类）
+
+**10. ★ 交付包必须做「往返验证」—— 否则不知道自己交出去的是个打不上 / 打不对的包**
+
+朋友的仓库我没有推送权限，所以本轮第一次走「打补丁交接」：
+`git format-patch fef3f9e..HEAD` → 在一个从 `fef3f9e` 起的**临时仓库**里 `git am` → **比 tree**。
+
+> 比 tree 而不是比 commit hash：`am` 出来的提交 committer/时间不同，hash 必然不同，
+> **tree 相等才等于「内容一致」**。
+
+第一次跑的结论是 **tree 不一致**：3 个 JSON 的 blob 差 **「行数−1」个字节** ——
+本地是 **CRLF**、补丁打出来是 LF。
+根因：`pathlib.write_text(..., encoding="utf-8")` 在 Windows 上默认 `newline=None`，
+会把 `\n` **翻译成 `\r\n`**。全仓库 763 个文件里恰好只有这 3 个是 CRLF，
+**全是第 8/9 轮用 Python 写出来的 JSON**。
+
+修法：`write_text(..., newline="\n")`；并把那 3 个文件归一化为 LF（提交 `47ef417`）。
+修完再跑一次往返验证：**tree 完全一致（`020ac170…`，3 个提交，`am exit=0`）**。
+
+⇒ 两条可复用结论：
+
+- **交付动作要自己先验一遍**：补丁能否干净应用 + 打完的 tree 是否等于本地 tree。
+- **Python 在 Windows 上写文本文件，换行必须显式指定**，否则默认给你 CRLF。
+  这和第 8 轮「`tar.exe` 解不了中文路径」是同一类坑：**跨工具链的默认值不能想当然。**
+
+**交付物位置**（本轮生成，不入库）：`%TEMP%\edit-skill-delivery\`
+—— `round8-9-kill-frame-training.patch`（3 个提交，259 KB）+ `kill-frame-training-round8-9.bundle`（42 KB，含前置 `fef3f9e`）。
+
 ### 本轮产生的资产
 
 | 资产 | 位置 |
