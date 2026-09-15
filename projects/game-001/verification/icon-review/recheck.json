@@ -1,0 +1,1363 @@
+{
+ "generated_by": "projects/game-001/tools/icon_truth_recheck.py",
+ "source": "projects/game-001/verification/icon-review/review.csv（人工标注）",
+ "evidence_level": "L1（本机逐帧量 + 整段目视）",
+ "predicate": {
+  "bright": 190,
+  "sat_max": 50,
+  "frac_min": 0.02,
+  "border_frac_max": 0.05,
+  "core_frac_min": 0.004,
+  "note": "必要不充分：亮地面/武器皮肤/购买界面/地图路线都能通过"
+ },
+ "n_events": 42,
+ "events": [
+  {
+   "material": "0a550967",
+   "event_id": 1,
+   "verdict_kill": "N",
+   "frame": 0,
+   "t_s": 0.0,
+   "duration_frames": 71,
+   "peak": 0.6501,
+   "note": "你框选的地方可能是阴影",
+   "badge_like_frames": 12,
+   "badge_like_at_start": false,
+   "badge_like_segments": [
+    {
+     "from": 20,
+     "to": 31,
+     "len": 12
+    }
+   ]
+  },
+  {
+   "material": "0a550967",
+   "event_id": 2,
+   "verdict_kill": "Y",
+   "frame": 198,
+   "t_s": 6.6,
+   "duration_frames": 60,
+   "peak": 0.0915,
+   "note": "",
+   "badge_like_frames": 5,
+   "badge_like_at_start": true,
+   "badge_like_segments": [
+    {
+     "from": 198,
+     "to": 202,
+     "len": 5
+    }
+   ]
+  },
+  {
+   "material": "0a550967",
+   "event_id": 3,
+   "verdict_kill": "Y",
+   "frame": 519,
+   "t_s": 17.3,
+   "duration_frames": 60,
+   "peak": 0.1398,
+   "note": "",
+   "badge_like_frames": 7,
+   "badge_like_at_start": true,
+   "badge_like_segments": [
+    {
+     "from": 519,
+     "to": 524,
+     "len": 6
+    },
+    {
+     "from": 574,
+     "to": 574,
+     "len": 1
+    }
+   ]
+  },
+  {
+   "material": "0a550967",
+   "event_id": 4,
+   "verdict_kill": "Y",
+   "frame": 843,
+   "t_s": 28.1,
+   "duration_frames": 73,
+   "peak": 0.1255,
+   "note": "在0.5秒才看到击杀",
+   "badge_like_frames": 53,
+   "badge_like_at_start": true,
+   "badge_like_segments": [
+    {
+     "from": 843,
+     "to": 843,
+     "len": 1
+    },
+    {
+     "from": 850,
+     "to": 850,
+     "len": 1
+    },
+    {
+     "from": 853,
+     "to": 853,
+     "len": 1
+    },
+    {
+     "from": 857,
+     "to": 868,
+     "len": 12
+    },
+    {
+     "from": 870,
+     "to": 872,
+     "len": 3
+    },
+    {
+     "from": 879,
+     "to": 913,
+     "len": 35
+    }
+   ]
+  },
+  {
+   "material": "38cc4903",
+   "event_id": 1,
+   "verdict_kill": "Y",
+   "frame": 191,
+   "t_s": 6.3667,
+   "duration_frames": 59,
+   "peak": 0.0782,
+   "note": "",
+   "badge_like_frames": 2,
+   "badge_like_at_start": true,
+   "badge_like_segments": [
+    {
+     "from": 191,
+     "to": 192,
+     "len": 2
+    }
+   ]
+  },
+  {
+   "material": "38cc4903",
+   "event_id": 2,
+   "verdict_kill": "Y",
+   "frame": 415,
+   "t_s": 13.8333,
+   "duration_frames": 60,
+   "peak": 0.1026,
+   "note": "",
+   "badge_like_frames": 49,
+   "badge_like_at_start": true,
+   "badge_like_segments": [
+    {
+     "from": 415,
+     "to": 419,
+     "len": 5
+    },
+    {
+     "from": 421,
+     "to": 421,
+     "len": 1
+    },
+    {
+     "from": 424,
+     "to": 424,
+     "len": 1
+    },
+    {
+     "from": 427,
+     "to": 427,
+     "len": 1
+    },
+    {
+     "from": 430,
+     "to": 442,
+     "len": 13
+    },
+    {
+     "from": 444,
+     "to": 449,
+     "len": 6
+    },
+    {
+     "from": 451,
+     "to": 472,
+     "len": 22
+    }
+   ]
+  },
+  {
+   "material": "38cc4903",
+   "event_id": 3,
+   "verdict_kill": "Y",
+   "frame": 674,
+   "t_s": 22.4667,
+   "duration_frames": 98,
+   "peak": 0.5052,
+   "note": "",
+   "badge_like_frames": 57,
+   "badge_like_at_start": true,
+   "badge_like_segments": [
+    {
+     "from": 674,
+     "to": 694,
+     "len": 21
+    },
+    {
+     "from": 696,
+     "to": 731,
+     "len": 36
+    }
+   ]
+  },
+  {
+   "material": "4b0460c4",
+   "event_id": 1,
+   "verdict_kill": "Y",
+   "frame": 202,
+   "t_s": 6.7333,
+   "duration_frames": 60,
+   "peak": 0.1006,
+   "note": "",
+   "badge_like_frames": 50,
+   "badge_like_at_start": true,
+   "badge_like_segments": [
+    {
+     "from": 202,
+     "to": 206,
+     "len": 5
+    },
+    {
+     "from": 208,
+     "to": 208,
+     "len": 1
+    },
+    {
+     "from": 211,
+     "to": 211,
+     "len": 1
+    },
+    {
+     "from": 214,
+     "to": 214,
+     "len": 1
+    },
+    {
+     "from": 217,
+     "to": 258,
+     "len": 42
+    }
+   ]
+  },
+  {
+   "material": "4b0460c4",
+   "event_id": 2,
+   "verdict_kill": "Y",
+   "frame": 335,
+   "t_s": 11.1667,
+   "duration_frames": 60,
+   "peak": 0.0938,
+   "note": "",
+   "badge_like_frames": 50,
+   "badge_like_at_start": false,
+   "badge_like_segments": [
+    {
+     "from": 336,
+     "to": 340,
+     "len": 5
+    },
+    {
+     "from": 342,
+     "to": 342,
+     "len": 1
+    },
+    {
+     "from": 345,
+     "to": 345,
+     "len": 1
+    },
+    {
+     "from": 348,
+     "to": 348,
+     "len": 1
+    },
+    {
+     "from": 351,
+     "to": 392,
+     "len": 42
+    }
+   ]
+  },
+  {
+   "material": "4b0460c4",
+   "event_id": 3,
+   "verdict_kill": "Y",
+   "frame": 431,
+   "t_s": 14.3667,
+   "duration_frames": 60,
+   "peak": 0.0945,
+   "note": "",
+   "badge_like_frames": 50,
+   "badge_like_at_start": true,
+   "badge_like_segments": [
+    {
+     "from": 431,
+     "to": 435,
+     "len": 5
+    },
+    {
+     "from": 437,
+     "to": 437,
+     "len": 1
+    },
+    {
+     "from": 440,
+     "to": 440,
+     "len": 1
+    },
+    {
+     "from": 443,
+     "to": 443,
+     "len": 1
+    },
+    {
+     "from": 446,
+     "to": 487,
+     "len": 42
+    }
+   ]
+  },
+  {
+   "material": "4b0460c4",
+   "event_id": 4,
+   "verdict_kill": "N",
+   "frame": 518,
+   "t_s": 17.2667,
+   "duration_frames": 30,
+   "peak": 0.0202,
+   "note": "这是在看地图",
+   "badge_like_frames": 0,
+   "badge_like_at_start": false,
+   "badge_like_segments": []
+  },
+  {
+   "material": "4c58efb4",
+   "event_id": 1,
+   "verdict_kill": "Y",
+   "frame": 192,
+   "t_s": 6.4,
+   "duration_frames": 97,
+   "peak": 0.4535,
+   "note": "在0.5秒处出现击杀提示",
+   "badge_like_frames": 12,
+   "badge_like_at_start": true,
+   "badge_like_segments": [
+    {
+     "from": 192,
+     "to": 192,
+     "len": 1
+    },
+    {
+     "from": 194,
+     "to": 204,
+     "len": 11
+    }
+   ]
+  },
+  {
+   "material": "4c58efb4",
+   "event_id": 2,
+   "verdict_kill": "N",
+   "frame": 326,
+   "t_s": 10.8667,
+   "duration_frames": 88,
+   "peak": 0.8598,
+   "note": "你框选的是技能ui",
+   "badge_like_frames": 13,
+   "badge_like_at_start": false,
+   "badge_like_segments": [
+    {
+     "from": 330,
+     "to": 330,
+     "len": 1
+    },
+    {
+     "from": 389,
+     "to": 389,
+     "len": 1
+    },
+    {
+     "from": 400,
+     "to": 401,
+     "len": 2
+    },
+    {
+     "from": 405,
+     "to": 413,
+     "len": 9
+    }
+   ]
+  },
+  {
+   "material": "4c58efb4",
+   "event_id": 3,
+   "verdict_kill": "Y",
+   "frame": 536,
+   "t_s": 17.8667,
+   "duration_frames": 111,
+   "peak": 0.364,
+   "note": "",
+   "badge_like_frames": 9,
+   "badge_like_at_start": false,
+   "badge_like_segments": [
+    {
+     "from": 537,
+     "to": 540,
+     "len": 4
+    },
+    {
+     "from": 588,
+     "to": 592,
+     "len": 5
+    }
+   ]
+  },
+  {
+   "material": "4c58efb4",
+   "event_id": 4,
+   "verdict_kill": "Y",
+   "frame": 683,
+   "t_s": 22.7667,
+   "duration_frames": 60,
+   "peak": 0.1174,
+   "note": "",
+   "badge_like_frames": 4,
+   "badge_like_at_start": false,
+   "badge_like_segments": [
+    {
+     "from": 684,
+     "to": 687,
+     "len": 4
+    }
+   ]
+  },
+  {
+   "material": "4c58efb4",
+   "event_id": 5,
+   "verdict_kill": "Y",
+   "frame": 1016,
+   "t_s": 33.8667,
+   "duration_frames": 125,
+   "peak": 0.1163,
+   "note": "",
+   "badge_like_frames": 7,
+   "badge_like_at_start": true,
+   "badge_like_segments": [
+    {
+     "from": 1016,
+     "to": 1016,
+     "len": 1
+    },
+    {
+     "from": 1018,
+     "to": 1020,
+     "len": 3
+    },
+    {
+     "from": 1022,
+     "to": 1024,
+     "len": 3
+    }
+   ]
+  },
+  {
+   "material": "58b8e283",
+   "event_id": 1,
+   "verdict_kill": "Y",
+   "frame": 179,
+   "t_s": 5.9667,
+   "duration_frames": 64,
+   "peak": 0.0941,
+   "note": "0,5秒出现",
+   "badge_like_frames": 9,
+   "badge_like_at_start": true,
+   "badge_like_segments": [
+    {
+     "from": 179,
+     "to": 185,
+     "len": 7
+    },
+    {
+     "from": 187,
+     "to": 188,
+     "len": 2
+    }
+   ]
+  },
+  {
+   "material": "58b8e283",
+   "event_id": 2,
+   "verdict_kill": "Y",
+   "frame": 501,
+   "t_s": 16.7,
+   "duration_frames": 155,
+   "peak": 0.6534,
+   "note": "0,5秒出现",
+   "badge_like_frames": 1,
+   "badge_like_at_start": false,
+   "badge_like_segments": [
+    {
+     "from": 507,
+     "to": 507,
+     "len": 1
+    }
+   ]
+  },
+  {
+   "material": "58b8e283",
+   "event_id": 3,
+   "verdict_kill": "N",
+   "frame": 700,
+   "t_s": 23.3333,
+   "duration_frames": 131,
+   "peak": 0.5356,
+   "note": "",
+   "badge_like_frames": 4,
+   "badge_like_at_start": false,
+   "badge_like_segments": [
+    {
+     "from": 757,
+     "to": 760,
+     "len": 4
+    }
+   ]
+  },
+  {
+   "material": "6b2eea34",
+   "event_id": 1,
+   "verdict_kill": "Y",
+   "frame": 185,
+   "t_s": 6.1667,
+   "duration_frames": 60,
+   "peak": 0.0932,
+   "note": "",
+   "badge_like_frames": 11,
+   "badge_like_at_start": false,
+   "badge_like_segments": [
+    {
+     "from": 186,
+     "to": 189,
+     "len": 4
+    },
+    {
+     "from": 191,
+     "to": 192,
+     "len": 2
+    },
+    {
+     "from": 194,
+     "to": 195,
+     "len": 2
+    },
+    {
+     "from": 197,
+     "to": 198,
+     "len": 2
+    },
+    {
+     "from": 200,
+     "to": 200,
+     "len": 1
+    }
+   ]
+  },
+  {
+   "material": "6b2eea34",
+   "event_id": 2,
+   "verdict_kill": "Y",
+   "frame": 513,
+   "t_s": 17.1,
+   "duration_frames": 78,
+   "peak": 0.096,
+   "note": "",
+   "badge_like_frames": 17,
+   "badge_like_at_start": false,
+   "badge_like_segments": [
+    {
+     "from": 514,
+     "to": 517,
+     "len": 4
+    },
+    {
+     "from": 519,
+     "to": 520,
+     "len": 2
+    },
+    {
+     "from": 522,
+     "to": 522,
+     "len": 1
+    },
+    {
+     "from": 525,
+     "to": 525,
+     "len": 1
+    },
+    {
+     "from": 532,
+     "to": 537,
+     "len": 6
+    },
+    {
+     "from": 540,
+     "to": 540,
+     "len": 1
+    },
+    {
+     "from": 543,
+     "to": 544,
+     "len": 2
+    }
+   ]
+  },
+  {
+   "material": "6b2eea34",
+   "event_id": 3,
+   "verdict_kill": "Y",
+   "frame": 646,
+   "t_s": 21.5333,
+   "duration_frames": 80,
+   "peak": 0.3123,
+   "note": "",
+   "badge_like_frames": 18,
+   "badge_like_at_start": false,
+   "badge_like_segments": [
+    {
+     "from": 647,
+     "to": 650,
+     "len": 4
+    },
+    {
+     "from": 652,
+     "to": 652,
+     "len": 1
+    },
+    {
+     "from": 655,
+     "to": 655,
+     "len": 1
+    },
+    {
+     "from": 658,
+     "to": 660,
+     "len": 3
+    },
+    {
+     "from": 706,
+     "to": 706,
+     "len": 1
+    },
+    {
+     "from": 710,
+     "to": 710,
+     "len": 1
+    },
+    {
+     "from": 713,
+     "to": 718,
+     "len": 6
+    },
+    {
+     "from": 722,
+     "to": 722,
+     "len": 1
+    }
+   ]
+  },
+  {
+   "material": "7f0d8287",
+   "event_id": 1,
+   "verdict_kill": "Y",
+   "frame": 174,
+   "t_s": 5.8,
+   "duration_frames": 60,
+   "peak": 0.1748,
+   "note": "",
+   "badge_like_frames": 10,
+   "badge_like_at_start": true,
+   "badge_like_segments": [
+    {
+     "from": 174,
+     "to": 183,
+     "len": 10
+    }
+   ]
+  },
+  {
+   "material": "7f0d8287",
+   "event_id": 2,
+   "verdict_kill": "Y",
+   "frame": 519,
+   "t_s": 17.3,
+   "duration_frames": 60,
+   "peak": 0.1685,
+   "note": "",
+   "badge_like_frames": 16,
+   "badge_like_at_start": true,
+   "badge_like_segments": [
+    {
+     "from": 519,
+     "to": 529,
+     "len": 11
+    },
+    {
+     "from": 531,
+     "to": 532,
+     "len": 2
+    },
+    {
+     "from": 575,
+     "to": 576,
+     "len": 2
+    },
+    {
+     "from": 578,
+     "to": 578,
+     "len": 1
+    }
+   ]
+  },
+  {
+   "material": "7f0d8287",
+   "event_id": 3,
+   "verdict_kill": "Y",
+   "frame": 843,
+   "t_s": 28.1,
+   "duration_frames": 78,
+   "peak": 0.9988,
+   "note": "",
+   "badge_like_frames": 33,
+   "badge_like_at_start": true,
+   "badge_like_segments": [
+    {
+     "from": 843,
+     "to": 846,
+     "len": 4
+    },
+    {
+     "from": 848,
+     "to": 849,
+     "len": 2
+    },
+    {
+     "from": 851,
+     "to": 852,
+     "len": 2
+    },
+    {
+     "from": 854,
+     "to": 855,
+     "len": 2
+    },
+    {
+     "from": 857,
+     "to": 870,
+     "len": 14
+    },
+    {
+     "from": 874,
+     "to": 874,
+     "len": 1
+    },
+    {
+     "from": 884,
+     "to": 891,
+     "len": 8
+    }
+   ]
+  },
+  {
+   "material": "7f0d8287",
+   "event_id": 4,
+   "verdict_kill": "Y",
+   "frame": 985,
+   "t_s": 32.8333,
+   "duration_frames": 58,
+   "peak": 0.0739,
+   "note": "",
+   "badge_like_frames": 50,
+   "badge_like_at_start": true,
+   "badge_like_segments": [
+    {
+     "from": 985,
+     "to": 988,
+     "len": 4
+    },
+    {
+     "from": 990,
+     "to": 990,
+     "len": 1
+    },
+    {
+     "from": 993,
+     "to": 993,
+     "len": 1
+    },
+    {
+     "from": 996,
+     "to": 996,
+     "len": 1
+    },
+    {
+     "from": 998,
+     "to": 1039,
+     "len": 42
+    },
+    {
+     "from": 1041,
+     "to": 1041,
+     "len": 1
+    }
+   ]
+  },
+  {
+   "material": "7f0d8287",
+   "event_id": 5,
+   "verdict_kill": "Y",
+   "frame": 1139,
+   "t_s": 37.9667,
+   "duration_frames": 152,
+   "peak": 0.0869,
+   "note": "",
+   "badge_like_frames": 150,
+   "badge_like_at_start": true,
+   "badge_like_segments": [
+    {
+     "from": 1139,
+     "to": 1139,
+     "len": 1
+    },
+    {
+     "from": 1141,
+     "to": 1165,
+     "len": 25
+    },
+    {
+     "from": 1167,
+     "to": 1290,
+     "len": 124
+    }
+   ]
+  },
+  {
+   "material": "851622c5",
+   "event_id": 1,
+   "verdict_kill": "N",
+   "frame": 51,
+   "t_s": 1.7,
+   "duration_frames": 70,
+   "peak": 0.9694,
+   "note": "技能图标",
+   "badge_like_frames": 15,
+   "badge_like_at_start": false,
+   "badge_like_segments": [
+    {
+     "from": 52,
+     "to": 66,
+     "len": 15
+    }
+   ]
+  },
+  {
+   "material": "851622c5",
+   "event_id": 2,
+   "verdict_kill": "Y",
+   "frame": 188,
+   "t_s": 6.2667,
+   "duration_frames": 79,
+   "peak": 0.0791,
+   "note": "0.5秒",
+   "badge_like_frames": 71,
+   "badge_like_at_start": true,
+   "badge_like_segments": [
+    {
+     "from": 188,
+     "to": 190,
+     "len": 3
+    },
+    {
+     "from": 192,
+     "to": 204,
+     "len": 13
+    },
+    {
+     "from": 206,
+     "to": 207,
+     "len": 2
+    },
+    {
+     "from": 209,
+     "to": 210,
+     "len": 2
+    },
+    {
+     "from": 212,
+     "to": 218,
+     "len": 7
+    },
+    {
+     "from": 220,
+     "to": 254,
+     "len": 35
+    },
+    {
+     "from": 257,
+     "to": 261,
+     "len": 5
+    },
+    {
+     "from": 263,
+     "to": 266,
+     "len": 4
+    }
+   ]
+  },
+  {
+   "material": "851622c5",
+   "event_id": 3,
+   "verdict_kill": "N",
+   "frame": 505,
+   "t_s": 16.8333,
+   "duration_frames": 82,
+   "peak": 0.2852,
+   "note": "",
+   "badge_like_frames": 61,
+   "badge_like_at_start": false,
+   "badge_like_segments": [
+    {
+     "from": 523,
+     "to": 539,
+     "len": 17
+    },
+    {
+     "from": 542,
+     "to": 547,
+     "len": 6
+    },
+    {
+     "from": 549,
+     "to": 586,
+     "len": 38
+    }
+   ]
+  },
+  {
+   "material": "851622c5",
+   "event_id": 4,
+   "verdict_kill": "N",
+   "frame": 637,
+   "t_s": 21.2333,
+   "duration_frames": 152,
+   "peak": 0.9311,
+   "note": "框选的是加技能点的球",
+   "badge_like_frames": 2,
+   "badge_like_at_start": false,
+   "badge_like_segments": [
+    {
+     "from": 647,
+     "to": 647,
+     "len": 1
+    },
+    {
+     "from": 649,
+     "to": 649,
+     "len": 1
+    }
+   ]
+  },
+  {
+   "material": "851622c5",
+   "event_id": 5,
+   "verdict_kill": "Y",
+   "frame": 853,
+   "t_s": 28.4333,
+   "duration_frames": 66,
+   "peak": 0.3821,
+   "note": "",
+   "badge_like_frames": 45,
+   "badge_like_at_start": true,
+   "badge_like_segments": [
+    {
+     "from": 853,
+     "to": 876,
+     "len": 24
+    },
+    {
+     "from": 883,
+     "to": 884,
+     "len": 2
+    },
+    {
+     "from": 886,
+     "to": 891,
+     "len": 6
+    },
+    {
+     "from": 897,
+     "to": 898,
+     "len": 2
+    },
+    {
+     "from": 901,
+     "to": 910,
+     "len": 10
+    },
+    {
+     "from": 918,
+     "to": 918,
+     "len": 1
+    }
+   ]
+  },
+  {
+   "material": "9526869d",
+   "event_id": 1,
+   "verdict_kill": "Y",
+   "frame": 172,
+   "t_s": 5.7333,
+   "duration_frames": 58,
+   "peak": 0.0632,
+   "note": "",
+   "badge_like_frames": 58,
+   "badge_like_at_start": true,
+   "badge_like_segments": [
+    {
+     "from": 172,
+     "to": 229,
+     "len": 58
+    }
+   ]
+  },
+  {
+   "material": "9526869d",
+   "event_id": 2,
+   "verdict_kill": "Y",
+   "frame": 508,
+   "t_s": 16.9333,
+   "duration_frames": 58,
+   "peak": 0.0927,
+   "note": "",
+   "badge_like_frames": 40,
+   "badge_like_at_start": true,
+   "badge_like_segments": [
+    {
+     "from": 508,
+     "to": 517,
+     "len": 10
+    },
+    {
+     "from": 519,
+     "to": 538,
+     "len": 20
+    },
+    {
+     "from": 552,
+     "to": 556,
+     "len": 5
+    },
+    {
+     "from": 560,
+     "to": 563,
+     "len": 4
+    },
+    {
+     "from": 565,
+     "to": 565,
+     "len": 1
+    }
+   ]
+  },
+  {
+   "material": "9526869d",
+   "event_id": 3,
+   "verdict_kill": "Y",
+   "frame": 840,
+   "t_s": 28.0,
+   "duration_frames": 60,
+   "peak": 0.0654,
+   "note": "",
+   "badge_like_frames": 60,
+   "badge_like_at_start": true,
+   "badge_like_segments": [
+    {
+     "from": 840,
+     "to": 899,
+     "len": 60
+    }
+   ]
+  },
+  {
+   "material": "b61cc53d",
+   "event_id": 1,
+   "verdict_kill": "Y",
+   "frame": 188,
+   "t_s": 6.2667,
+   "duration_frames": 77,
+   "peak": 0.8092,
+   "note": "",
+   "badge_like_frames": 20,
+   "badge_like_at_start": true,
+   "badge_like_segments": [
+    {
+     "from": 188,
+     "to": 194,
+     "len": 7
+    },
+    {
+     "from": 196,
+     "to": 200,
+     "len": 5
+    },
+    {
+     "from": 213,
+     "to": 220,
+     "len": 8
+    }
+   ]
+  },
+  {
+   "material": "b61cc53d",
+   "event_id": 2,
+   "verdict_kill": "Y",
+   "frame": 344,
+   "t_s": 11.4667,
+   "duration_frames": 59,
+   "peak": 0.0871,
+   "note": "",
+   "badge_like_frames": 57,
+   "badge_like_at_start": true,
+   "badge_like_segments": [
+    {
+     "from": 344,
+     "to": 366,
+     "len": 23
+    },
+    {
+     "from": 368,
+     "to": 369,
+     "len": 2
+    },
+    {
+     "from": 371,
+     "to": 402,
+     "len": 32
+    }
+   ]
+  },
+  {
+   "material": "b61cc53d",
+   "event_id": 3,
+   "verdict_kill": "Y",
+   "frame": 675,
+   "t_s": 22.5,
+   "duration_frames": 59,
+   "peak": 0.0953,
+   "note": "",
+   "badge_like_frames": 54,
+   "badge_like_at_start": true,
+   "badge_like_segments": [
+    {
+     "from": 675,
+     "to": 683,
+     "len": 9
+    },
+    {
+     "from": 685,
+     "to": 696,
+     "len": 12
+    },
+    {
+     "from": 699,
+     "to": 699,
+     "len": 1
+    },
+    {
+     "from": 702,
+     "to": 733,
+     "len": 32
+    }
+   ]
+  },
+  {
+   "material": "b61cc53d",
+   "event_id": 4,
+   "verdict_kill": "Y",
+   "frame": 739,
+   "t_s": 24.6333,
+   "duration_frames": 59,
+   "peak": 0.0892,
+   "note": "",
+   "badge_like_frames": 53,
+   "badge_like_at_start": true,
+   "badge_like_segments": [
+    {
+     "from": 739,
+     "to": 763,
+     "len": 25
+    },
+    {
+     "from": 768,
+     "to": 776,
+     "len": 9
+    },
+    {
+     "from": 778,
+     "to": 778,
+     "len": 1
+    },
+    {
+     "from": 780,
+     "to": 797,
+     "len": 18
+    }
+   ]
+  },
+  {
+   "material": "dcc871b1",
+   "event_id": 1,
+   "verdict_kill": "Y",
+   "frame": 202,
+   "t_s": 6.7333,
+   "duration_frames": 59,
+   "peak": 0.1138,
+   "note": "",
+   "badge_like_frames": 45,
+   "badge_like_at_start": true,
+   "badge_like_segments": [
+    {
+     "from": 202,
+     "to": 206,
+     "len": 5
+    },
+    {
+     "from": 208,
+     "to": 208,
+     "len": 1
+    },
+    {
+     "from": 210,
+     "to": 211,
+     "len": 2
+    },
+    {
+     "from": 214,
+     "to": 214,
+     "len": 1
+    },
+    {
+     "from": 217,
+     "to": 223,
+     "len": 7
+    },
+    {
+     "from": 225,
+     "to": 225,
+     "len": 1
+    },
+    {
+     "from": 227,
+     "to": 238,
+     "len": 12
+    },
+    {
+     "from": 240,
+     "to": 242,
+     "len": 3
+    },
+    {
+     "from": 245,
+     "to": 257,
+     "len": 13
+    }
+   ]
+  },
+  {
+   "material": "dcc871b1",
+   "event_id": 2,
+   "verdict_kill": "N",
+   "frame": 267,
+   "t_s": 8.9,
+   "duration_frames": 66,
+   "peak": 0.098,
+   "note": "技能ui",
+   "badge_like_frames": 55,
+   "badge_like_at_start": true,
+   "badge_like_segments": [
+    {
+     "from": 267,
+     "to": 271,
+     "len": 5
+    },
+    {
+     "from": 274,
+     "to": 280,
+     "len": 7
+    },
+    {
+     "from": 283,
+     "to": 283,
+     "len": 1
+    },
+    {
+     "from": 286,
+     "to": 286,
+     "len": 1
+    },
+    {
+     "from": 289,
+     "to": 329,
+     "len": 41
+    }
+   ]
+  },
+  {
+   "material": "dcc871b1",
+   "event_id": 3,
+   "verdict_kill": "Y",
+   "frame": 618,
+   "t_s": 20.6,
+   "duration_frames": 59,
+   "peak": 0.1036,
+   "note": "",
+   "badge_like_frames": 50,
+   "badge_like_at_start": true,
+   "badge_like_segments": [
+    {
+     "from": 618,
+     "to": 622,
+     "len": 5
+    },
+    {
+     "from": 624,
+     "to": 624,
+     "len": 1
+    },
+    {
+     "from": 627,
+     "to": 627,
+     "len": 1
+    },
+    {
+     "from": 630,
+     "to": 630,
+     "len": 1
+    },
+    {
+     "from": 633,
+     "to": 674,
+     "len": 42
+    }
+   ]
+  }
+ ]
+}
