@@ -1,0 +1,300 @@
+{
+ "short": "58b8e283",
+ "file": "58b8e283b2ac553c9a9c4c8c113270db.mp4",
+ "duration_s": 30.0373,
+ "sample_rate": 48000,
+ "n_fft": 1024,
+ "hop_ms": 10.0,
+ "evidence_level": "L1（本机解码原始音轨实测）",
+ "detector": {
+  "adaptive_k": 6.0,
+  "min_gap_s": 0.1,
+  "mad": 292.99,
+  "n_onsets": 21,
+  "onsets_per_s": 0.699
+ },
+ "onsets": [
+  {
+   "t_s": 1.13,
+   "frame30": 33.9,
+   "flux": 7112.525,
+   "rms_db": -32.43,
+   "high_db": 18.18,
+   "prominence": 3792.088
+  },
+  {
+   "t_s": 1.96,
+   "frame30": 58.8,
+   "flux": 3489.858,
+   "rms_db": -26.68,
+   "high_db": 20.2,
+   "prominence": 195.027
+  },
+  {
+   "t_s": 6.05,
+   "frame30": 181.5,
+   "flux": 7093.124,
+   "rms_db": -27.02,
+   "high_db": 24.46,
+   "prominence": 3761.825
+  },
+  {
+   "t_s": 11.31,
+   "frame30": 339.3,
+   "flux": 3935.947,
+   "rms_db": -19.96,
+   "high_db": 33.28,
+   "prominence": 674.956
+  },
+  {
+   "t_s": 12.67,
+   "frame30": 380.1,
+   "flux": 3396.777,
+   "rms_db": -30.06,
+   "high_db": 23.53,
+   "prominence": 98.842
+  },
+  {
+   "t_s": 12.91,
+   "frame30": 387.3,
+   "flux": 3608.628,
+   "rms_db": -22.98,
+   "high_db": 31.83,
+   "prominence": 284.07
+  },
+  {
+   "t_s": 13.12,
+   "frame30": 393.6,
+   "flux": 3397.853,
+   "rms_db": -28.04,
+   "high_db": 19.82,
+   "prominence": 132.854
+  },
+  {
+   "t_s": 13.39,
+   "frame30": 401.7,
+   "flux": 3546.056,
+   "rms_db": -23.86,
+   "high_db": 31.7,
+   "prominence": 408.739
+  },
+  {
+   "t_s": 15.59,
+   "frame30": 467.7,
+   "flux": 3412.212,
+   "rms_db": -21.64,
+   "high_db": 26.68,
+   "prominence": 32.231
+  },
+  {
+   "t_s": 15.92,
+   "frame30": 477.6,
+   "flux": 8936.379,
+   "rms_db": -21.0,
+   "high_db": 29.06,
+   "prominence": 5581.975
+  },
+  {
+   "t_s": 16.66,
+   "frame30": 499.8,
+   "flux": 7088.829,
+   "rms_db": -25.1,
+   "high_db": 20.99,
+   "prominence": 3794.032
+  },
+  {
+   "t_s": 16.9,
+   "frame30": 507.0,
+   "flux": 4208.681,
+   "rms_db": -20.95,
+   "high_db": 23.33,
+   "prominence": 833.203
+  },
+  {
+   "t_s": 17.94,
+   "frame30": 538.2,
+   "flux": 4017.952,
+   "rms_db": -16.29,
+   "high_db": 34.47,
+   "prominence": 664.309
+  },
+  {
+   "t_s": 18.08,
+   "frame30": 542.4,
+   "flux": 4009.012,
+   "rms_db": -15.92,
+   "high_db": 24.17,
+   "prominence": 649.433
+  },
+  {
+   "t_s": 19.25,
+   "frame30": 577.5,
+   "flux": 6247.777,
+   "rms_db": -27.32,
+   "high_db": 16.41,
+   "prominence": 3053.504
+  },
+  {
+   "t_s": 19.39,
+   "frame30": 581.7,
+   "flux": 4499.283,
+   "rms_db": -27.33,
+   "high_db": 19.46,
+   "prominence": 1180.34
+  },
+  {
+   "t_s": 19.9,
+   "frame30": 597.0,
+   "flux": 4898.792,
+   "rms_db": -29.6,
+   "high_db": 13.29,
+   "prominence": 1657.427
+  },
+  {
+   "t_s": 22.92,
+   "frame30": 687.6,
+   "flux": 3679.222,
+   "rms_db": -34.82,
+   "high_db": 20.52,
+   "prominence": 413.877
+  },
+  {
+   "t_s": 24.27,
+   "frame30": 728.1,
+   "flux": 5347.751,
+   "rms_db": -27.68,
+   "high_db": 21.64,
+   "prominence": 1918.204
+  },
+  {
+   "t_s": 24.4,
+   "frame30": 732.0,
+   "flux": 3934.161,
+   "rms_db": -25.98,
+   "high_db": 23.54,
+   "prominence": 668.482
+  },
+  {
+   "t_s": 27.8,
+   "frame30": 834.0,
+   "flux": 4618.731,
+   "rms_db": -23.13,
+   "high_db": 27.49,
+   "prominence": 1370.878
+  }
+ ],
+ "candidates": [
+  {
+   "t_s": 0.567,
+   "src": "kills_mine/topright_edges(旧检测器)",
+   "confidence": "legacy-candidate",
+   "flux_at_t": 1496.331,
+   "flux_local_max_pm50ms": 1825.012,
+   "rms_db_at_t": -29.89,
+   "onsets_within_250ms": [],
+   "onsets_within_50ms": [],
+   "nearest_onset": 1.13
+  },
+  {
+   "t_s": 4.0,
+   "src": "kills_mine/topright_edges(旧检测器)",
+   "confidence": "legacy-candidate",
+   "flux_at_t": 1611.962,
+   "flux_local_max_pm50ms": 2058.503,
+   "rms_db_at_t": -31.36,
+   "onsets_within_250ms": [],
+   "onsets_within_50ms": [],
+   "nearest_onset": 1.96
+  },
+  {
+   "t_s": 7.2,
+   "src": "kills_mine/topright_edges(旧检测器)",
+   "confidence": "legacy-candidate",
+   "flux_at_t": 1593.36,
+   "flux_local_max_pm50ms": 2299.749,
+   "rms_db_at_t": -20.82,
+   "onsets_within_250ms": [],
+   "onsets_within_50ms": [],
+   "nearest_onset": 6.05
+  },
+  {
+   "t_s": 11.0,
+   "src": "kills_mine/topright_edges(旧检测器)",
+   "confidence": "legacy-candidate",
+   "flux_at_t": 1612.61,
+   "flux_local_max_pm50ms": 2098.82,
+   "rms_db_at_t": -18.9,
+   "onsets_within_250ms": [],
+   "onsets_within_50ms": [],
+   "nearest_onset": 11.31
+  },
+  {
+   "t_s": 16.2,
+   "src": "kills_mine/topright_edges(旧检测器)",
+   "confidence": "legacy-candidate",
+   "flux_at_t": 1886.655,
+   "flux_local_max_pm50ms": 2441.759,
+   "rms_db_at_t": -24.94,
+   "onsets_within_250ms": [],
+   "onsets_within_50ms": [],
+   "nearest_onset": 15.92
+  },
+  {
+   "t_s": 20.9,
+   "src": "kills_mine/topright_edges(旧检测器)",
+   "confidence": "legacy-candidate",
+   "flux_at_t": 1827.577,
+   "flux_local_max_pm50ms": 3293.931,
+   "rms_db_at_t": -19.97,
+   "onsets_within_250ms": [],
+   "onsets_within_50ms": [],
+   "nearest_onset": 19.9
+  },
+  {
+   "t_s": 21.833,
+   "src": "kills_mine/topright_edges(旧检测器)",
+   "confidence": "legacy-candidate",
+   "flux_at_t": 2207.956,
+   "flux_local_max_pm50ms": 2553.105,
+   "rms_db_at_t": -22.53,
+   "onsets_within_250ms": [],
+   "onsets_within_50ms": [],
+   "nearest_onset": 22.92
+  },
+  {
+   "t_s": 26.6,
+   "src": "kills_mine/topright_edges(旧检测器)",
+   "confidence": "legacy-candidate",
+   "flux_at_t": 1530.071,
+   "flux_local_max_pm50ms": 2015.369,
+   "rms_db_at_t": -23.73,
+   "onsets_within_250ms": [],
+   "onsets_within_50ms": [],
+   "nearest_onset": 27.8
+  },
+  {
+   "t_s": 27.233,
+   "src": "kills_mine/topright_edges(旧检测器)",
+   "confidence": "legacy-candidate",
+   "flux_at_t": 1268.395,
+   "flux_local_max_pm50ms": 2418.899,
+   "rms_db_at_t": -19.01,
+   "onsets_within_250ms": [],
+   "onsets_within_50ms": [],
+   "nearest_onset": 27.8
+  },
+  {
+   "t_s": 28.0,
+   "src": "kills_mine/topright_edges(旧检测器)",
+   "confidence": "legacy-candidate",
+   "flux_at_t": 1332.538,
+   "flux_local_max_pm50ms": 1808.122,
+   "rms_db_at_t": -25.95,
+   "onsets_within_250ms": [
+    27.8
+   ],
+   "onsets_within_50ms": [],
+   "nearest_onset": 27.8
+  }
+ ]
+}

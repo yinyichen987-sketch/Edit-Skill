@@ -1,0 +1,258 @@
+{
+ "short": "4b0460c4",
+ "file": "4b0460c400bbb5320acb6063b4f59358.mp4",
+ "duration_s": 19.0293,
+ "sample_rate": 48000,
+ "n_fft": 1024,
+ "hop_ms": 10.0,
+ "evidence_level": "L1（本机解码原始音轨实测）",
+ "detector": {
+  "adaptive_k": 6.0,
+  "min_gap_s": 0.1,
+  "mad": 300.8976,
+  "n_onsets": 20,
+  "onsets_per_s": 1.051
+ },
+ "onsets": [
+  {
+   "t_s": 0.43,
+   "frame30": 12.9,
+   "flux": 3455.834,
+   "rms_db": -17.95,
+   "high_db": 23.83,
+   "prominence": 81.541
+  },
+  {
+   "t_s": 1.09,
+   "frame30": 32.7,
+   "flux": 4362.983,
+   "rms_db": -18.87,
+   "high_db": 29.71,
+   "prominence": 996.878
+  },
+  {
+   "t_s": 4.11,
+   "frame30": 123.3,
+   "flux": 3753.366,
+   "rms_db": -27.09,
+   "high_db": 22.86,
+   "prominence": 363.416
+  },
+  {
+   "t_s": 4.57,
+   "frame30": 137.1,
+   "flux": 5111.683,
+   "rms_db": -24.1,
+   "high_db": 23.83,
+   "prominence": 1704.614
+  },
+  {
+   "t_s": 4.8,
+   "frame30": 144.0,
+   "flux": 6264.655,
+   "rms_db": -28.99,
+   "high_db": 17.9,
+   "prominence": 2759.047
+  },
+  {
+   "t_s": 4.9,
+   "frame30": 147.0,
+   "flux": 4857.624,
+   "rms_db": -17.29,
+   "high_db": 24.89,
+   "prominence": 1340.362
+  },
+  {
+   "t_s": 5.01,
+   "frame30": 150.3,
+   "flux": 3780.291,
+   "rms_db": -21.86,
+   "high_db": 26.64,
+   "prominence": 284.671
+  },
+  {
+   "t_s": 5.51,
+   "frame30": 165.3,
+   "flux": 4338.918,
+   "rms_db": -24.72,
+   "high_db": 24.7,
+   "prominence": 971.374
+  },
+  {
+   "t_s": 6.1,
+   "frame30": 183.0,
+   "flux": 3622.967,
+   "rms_db": -24.55,
+   "high_db": 21.87,
+   "prominence": 230.263
+  },
+  {
+   "t_s": 6.36,
+   "frame30": 190.8,
+   "flux": 8276.951,
+   "rms_db": -34.33,
+   "high_db": 17.16,
+   "prominence": 4944.406
+  },
+  {
+   "t_s": 6.62,
+   "frame30": 198.6,
+   "flux": 8884.551,
+   "rms_db": -16.36,
+   "high_db": 34.59,
+   "prominence": 5480.536
+  },
+  {
+   "t_s": 6.8,
+   "frame30": 204.0,
+   "flux": 3965.592,
+   "rms_db": -10.72,
+   "high_db": 30.28,
+   "prominence": 472.123
+  },
+  {
+   "t_s": 8.85,
+   "frame30": 265.5,
+   "flux": 3998.236,
+   "rms_db": -30.11,
+   "high_db": 19.51,
+   "prominence": 566.84
+  },
+  {
+   "t_s": 10.86,
+   "frame30": 325.8,
+   "flux": 7547.806,
+   "rms_db": -26.76,
+   "high_db": 21.76,
+   "prominence": 4205.239
+  },
+  {
+   "t_s": 11.01,
+   "frame30": 330.3,
+   "flux": 3399.614,
+   "rms_db": -20.08,
+   "high_db": 27.02,
+   "prominence": 31.139
+  },
+  {
+   "t_s": 11.2,
+   "frame30": 336.0,
+   "flux": 4236.943,
+   "rms_db": -23.42,
+   "high_db": 29.71,
+   "prominence": 818.487
+  },
+  {
+   "t_s": 11.93,
+   "frame30": 357.9,
+   "flux": 3841.859,
+   "rms_db": -16.79,
+   "high_db": 38.01,
+   "prominence": 473.276
+  },
+  {
+   "t_s": 14.44,
+   "frame30": 433.2,
+   "flux": 4346.445,
+   "rms_db": -13.82,
+   "high_db": 28.93,
+   "prominence": 779.48
+  },
+  {
+   "t_s": 16.37,
+   "frame30": 491.1,
+   "flux": 9081.611,
+   "rms_db": -22.47,
+   "high_db": 28.76,
+   "prominence": 5815.639
+  },
+  {
+   "t_s": 16.76,
+   "frame30": 502.8,
+   "flux": 6233.538,
+   "rms_db": -29.43,
+   "high_db": 25.4,
+   "prominence": 2903.588
+  }
+ ],
+ "candidates": [
+  {
+   "t_s": 4.6,
+   "src": "kills_mine/topright_edges(旧检测器)",
+   "confidence": "legacy-candidate",
+   "flux_at_t": 814.589,
+   "flux_local_max_pm50ms": 5111.683,
+   "rms_db_at_t": -23.15,
+   "onsets_within_250ms": [
+    4.57,
+    4.8
+   ],
+   "onsets_within_50ms": [
+    4.57
+   ],
+   "nearest_onset": 4.57
+  },
+  {
+   "t_s": 6.3,
+   "src": "kills_mine/topright_edges(旧检测器)",
+   "confidence": "legacy-candidate",
+   "flux_at_t": 1639.174,
+   "flux_local_max_pm50ms": 1841.718,
+   "rms_db_at_t": -31.89,
+   "onsets_within_250ms": [
+    6.1,
+    6.36
+   ],
+   "onsets_within_50ms": [],
+   "nearest_onset": 6.36
+  },
+  {
+   "t_s": 9.967,
+   "src": "kills_mine/topright_edges(旧检测器)",
+   "confidence": "legacy-candidate",
+   "flux_at_t": 1972.045,
+   "flux_local_max_pm50ms": 1998.041,
+   "rms_db_at_t": -24.66,
+   "onsets_within_250ms": [],
+   "onsets_within_50ms": [],
+   "nearest_onset": 10.86
+  },
+  {
+   "t_s": 12.567,
+   "src": "kills_mine/topright_edges(旧检测器)",
+   "confidence": "legacy-candidate",
+   "flux_at_t": 1628.321,
+   "flux_local_max_pm50ms": 1726.869,
+   "rms_db_at_t": -25.52,
+   "onsets_within_250ms": [],
+   "onsets_within_50ms": [],
+   "nearest_onset": 11.93
+  },
+  {
+   "t_s": 14.733,
+   "src": "kills_mine/topright_edges(旧检测器)",
+   "confidence": "legacy-candidate",
+   "flux_at_t": 1679.792,
+   "flux_local_max_pm50ms": 2679.12,
+   "rms_db_at_t": -14.18,
+   "onsets_within_250ms": [],
+   "onsets_within_50ms": [],
+   "nearest_onset": 14.44
+  },
+  {
+   "t_s": 16.733,
+   "src": "kills_mine/topright_edges(旧检测器)",
+   "confidence": "legacy-candidate",
+   "flux_at_t": 1765.76,
+   "flux_local_max_pm50ms": 6233.538,
+   "rms_db_at_t": -33.58,
+   "onsets_within_250ms": [
+    16.76
+   ],
+   "onsets_within_50ms": [
+    16.76
+   ],
+   "nearest_onset": 16.76
+  }
+ ]
+}

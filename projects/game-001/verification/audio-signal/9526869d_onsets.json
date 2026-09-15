@@ -1,0 +1,534 @@
+{
+ "short": "9526869d",
+ "file": "9526869dadea10a6413c208760aa5c42.mp4",
+ "duration_s": 33.0453,
+ "sample_rate": 48000,
+ "n_fft": 1024,
+ "hop_ms": 10.0,
+ "evidence_level": "L1（本机解码原始音轨实测）",
+ "detector": {
+  "adaptive_k": 6.0,
+  "min_gap_s": 0.1,
+  "mad": 296.6351,
+  "n_onsets": 55,
+  "onsets_per_s": 1.664
+ },
+ "onsets": [
+  {
+   "t_s": 3.74,
+   "frame30": 112.2,
+   "flux": 6782.005,
+   "rms_db": -29.49,
+   "high_db": 18.47,
+   "prominence": 3402.496
+  },
+  {
+   "t_s": 4.3,
+   "frame30": 129.0,
+   "flux": 7123.263,
+   "rms_db": -28.89,
+   "high_db": 22.02,
+   "prominence": 3863.001
+  },
+  {
+   "t_s": 4.49,
+   "frame30": 134.7,
+   "flux": 4732.089,
+   "rms_db": -22.8,
+   "high_db": 29.12,
+   "prominence": 1389.215
+  },
+  {
+   "t_s": 5.56,
+   "frame30": 166.8,
+   "flux": 4538.847,
+   "rms_db": -26.44,
+   "high_db": 22.27,
+   "prominence": 1142.129
+  },
+  {
+   "t_s": 6.67,
+   "frame30": 200.1,
+   "flux": 3541.463,
+   "rms_db": -30.77,
+   "high_db": 23.23,
+   "prominence": 82.337
+  },
+  {
+   "t_s": 8.08,
+   "frame30": 242.4,
+   "flux": 5343.886,
+   "rms_db": -27.15,
+   "high_db": 18.5,
+   "prominence": 1987.301
+  },
+  {
+   "t_s": 8.27,
+   "frame30": 248.1,
+   "flux": 4610.108,
+   "rms_db": -27.74,
+   "high_db": 19.11,
+   "prominence": 1312.003
+  },
+  {
+   "t_s": 8.55,
+   "frame30": 256.5,
+   "flux": 3397.037,
+   "rms_db": -17.16,
+   "high_db": 26.79,
+   "prominence": 105.703
+  },
+  {
+   "t_s": 8.93,
+   "frame30": 267.9,
+   "flux": 5793.709,
+   "rms_db": -34.42,
+   "high_db": 10.2,
+   "prominence": 2523.718
+  },
+  {
+   "t_s": 9.26,
+   "frame30": 277.8,
+   "flux": 6526.83,
+   "rms_db": -38.0,
+   "high_db": 17.01,
+   "prominence": 3323.465
+  },
+  {
+   "t_s": 9.37,
+   "frame30": 281.1,
+   "flux": 7116.693,
+   "rms_db": -27.02,
+   "high_db": 23.46,
+   "prominence": 3881.222
+  },
+  {
+   "t_s": 9.74,
+   "frame30": 292.2,
+   "flux": 5676.856,
+   "rms_db": -37.01,
+   "high_db": 8.93,
+   "prominence": 2292.493
+  },
+  {
+   "t_s": 10.64,
+   "frame30": 319.2,
+   "flux": 3872.656,
+   "rms_db": -28.55,
+   "high_db": 21.66,
+   "prominence": 523.455
+  },
+  {
+   "t_s": 10.77,
+   "frame30": 323.1,
+   "flux": 5333.078,
+   "rms_db": -30.43,
+   "high_db": 26.13,
+   "prominence": 1997.407
+  },
+  {
+   "t_s": 10.98,
+   "frame30": 329.4,
+   "flux": 3568.524,
+   "rms_db": -32.49,
+   "high_db": 23.41,
+   "prominence": 153.162
+  },
+  {
+   "t_s": 11.2,
+   "frame30": 336.0,
+   "flux": 3751.229,
+   "rms_db": -33.5,
+   "high_db": 16.49,
+   "prominence": 374.409
+  },
+  {
+   "t_s": 11.81,
+   "frame30": 354.3,
+   "flux": 4676.107,
+   "rms_db": -29.31,
+   "high_db": 19.76,
+   "prominence": 1417.112
+  },
+  {
+   "t_s": 11.93,
+   "frame30": 357.9,
+   "flux": 5432.983,
+   "rms_db": -25.47,
+   "high_db": 22.21,
+   "prominence": 2260.787
+  },
+  {
+   "t_s": 12.06,
+   "frame30": 361.8,
+   "flux": 3921.925,
+   "rms_db": -23.04,
+   "high_db": 22.45,
+   "prominence": 749.729
+  },
+  {
+   "t_s": 12.26,
+   "frame30": 367.8,
+   "flux": 3991.48,
+   "rms_db": -28.85,
+   "high_db": 16.9,
+   "prominence": 667.528
+  },
+  {
+   "t_s": 12.39,
+   "frame30": 371.7,
+   "flux": 3490.254,
+   "rms_db": -29.78,
+   "high_db": 13.77,
+   "prominence": 178.009
+  },
+  {
+   "t_s": 13.02,
+   "frame30": 390.6,
+   "flux": 4240.402,
+   "rms_db": -32.86,
+   "high_db": 20.45,
+   "prominence": 896.481
+  },
+  {
+   "t_s": 13.42,
+   "frame30": 402.6,
+   "flux": 5340.471,
+   "rms_db": -36.9,
+   "high_db": 16.97,
+   "prominence": 2029.747
+  },
+  {
+   "t_s": 13.55,
+   "frame30": 406.5,
+   "flux": 3682.512,
+   "rms_db": -24.32,
+   "high_db": 22.11,
+   "prominence": 375.016
+  },
+  {
+   "t_s": 13.73,
+   "frame30": 411.9,
+   "flux": 3585.317,
+   "rms_db": -26.01,
+   "high_db": 21.24,
+   "prominence": 301.16
+  },
+  {
+   "t_s": 13.85,
+   "frame30": 415.5,
+   "flux": 4812.264,
+   "rms_db": -23.46,
+   "high_db": 23.38,
+   "prominence": 1554.01
+  },
+  {
+   "t_s": 13.97,
+   "frame30": 419.1,
+   "flux": 4350.814,
+   "rms_db": -25.58,
+   "high_db": 25.37,
+   "prominence": 1125.042
+  },
+  {
+   "t_s": 14.11,
+   "frame30": 423.3,
+   "flux": 3614.722,
+   "rms_db": -20.12,
+   "high_db": 23.74,
+   "prominence": 356.468
+  },
+  {
+   "t_s": 14.23,
+   "frame30": 426.9,
+   "flux": 4945.33,
+   "rms_db": -21.89,
+   "high_db": 20.83,
+   "prominence": 1635.123
+  },
+  {
+   "t_s": 14.42,
+   "frame30": 432.6,
+   "flux": 3499.569,
+   "rms_db": -20.63,
+   "high_db": 24.36,
+   "prominence": 224.077
+  },
+  {
+   "t_s": 14.57,
+   "frame30": 437.1,
+   "flux": 4700.71,
+   "rms_db": -20.95,
+   "high_db": 20.29,
+   "prominence": 1409.362
+  },
+  {
+   "t_s": 14.77,
+   "frame30": 443.1,
+   "flux": 6924.314,
+   "rms_db": -23.31,
+   "high_db": 25.2,
+   "prominence": 3652.831
+  },
+  {
+   "t_s": 14.98,
+   "frame30": 449.4,
+   "flux": 5900.666,
+   "rms_db": -18.02,
+   "high_db": 24.08,
+   "prominence": 2582.522
+  },
+  {
+   "t_s": 15.18,
+   "frame30": 455.4,
+   "flux": 6380.657,
+   "rms_db": -24.88,
+   "high_db": 19.03,
+   "prominence": 3034.754
+  },
+  {
+   "t_s": 15.29,
+   "frame30": 458.7,
+   "flux": 4969.72,
+   "rms_db": -19.75,
+   "high_db": 29.19,
+   "prominence": 1524.143
+  },
+  {
+   "t_s": 16.05,
+   "frame30": 481.5,
+   "flux": 7838.868,
+   "rms_db": -18.06,
+   "high_db": 29.62,
+   "prominence": 4469.033
+  },
+  {
+   "t_s": 16.68,
+   "frame30": 500.4,
+   "flux": 4289.151,
+   "rms_db": -27.04,
+   "high_db": 16.31,
+   "prominence": 948.627
+  },
+  {
+   "t_s": 16.98,
+   "frame30": 509.4,
+   "flux": 4445.666,
+   "rms_db": -16.49,
+   "high_db": 34.17,
+   "prominence": 1008.498
+  },
+  {
+   "t_s": 22.42,
+   "frame30": 672.6,
+   "flux": 5008.289,
+   "rms_db": -41.6,
+   "high_db": 10.67,
+   "prominence": 1705.867
+  },
+  {
+   "t_s": 22.65,
+   "frame30": 679.5,
+   "flux": 5344.835,
+   "rms_db": -43.99,
+   "high_db": 7.5,
+   "prominence": 2055.815
+  },
+  {
+   "t_s": 24.28,
+   "frame30": 728.4,
+   "flux": 3666.033,
+   "rms_db": -23.97,
+   "high_db": 20.5,
+   "prominence": 364.073
+  },
+  {
+   "t_s": 25.52,
+   "frame30": 765.6,
+   "flux": 4081.672,
+   "rms_db": -20.04,
+   "high_db": 32.38,
+   "prominence": 704.783
+  },
+  {
+   "t_s": 27.73,
+   "frame30": 831.9,
+   "flux": 7902.21,
+   "rms_db": -12.66,
+   "high_db": 36.07,
+   "prominence": 4424.504
+  },
+  {
+   "t_s": 27.96,
+   "frame30": 838.8,
+   "flux": 8049.242,
+   "rms_db": -20.04,
+   "high_db": 29.08,
+   "prominence": 4514.267
+  },
+  {
+   "t_s": 29.24,
+   "frame30": 877.2,
+   "flux": 3513.345,
+   "rms_db": -29.26,
+   "high_db": 27.26,
+   "prominence": 76.786
+  },
+  {
+   "t_s": 29.93,
+   "frame30": 897.9,
+   "flux": 4999.723,
+   "rms_db": -27.18,
+   "high_db": 25.92,
+   "prominence": 1698.966
+  },
+  {
+   "t_s": 30.08,
+   "frame30": 902.4,
+   "flux": 7395.803,
+   "rms_db": -27.72,
+   "high_db": 22.31,
+   "prominence": 4073.049
+  },
+  {
+   "t_s": 30.19,
+   "frame30": 905.7,
+   "flux": 7490.528,
+   "rms_db": -20.58,
+   "high_db": 27.1,
+   "prominence": 4170.342
+  },
+  {
+   "t_s": 30.47,
+   "frame30": 914.1,
+   "flux": 8790.854,
+   "rms_db": -20.08,
+   "high_db": 32.86,
+   "prominence": 5468.1
+  },
+  {
+   "t_s": 30.67,
+   "frame30": 920.1,
+   "flux": 8181.707,
+   "rms_db": -18.58,
+   "high_db": 25.71,
+   "prominence": 4962.86
+  },
+  {
+   "t_s": 30.96,
+   "frame30": 928.8,
+   "flux": 3795.757,
+   "rms_db": -19.61,
+   "high_db": 17.1,
+   "prominence": 505.438
+  },
+  {
+   "t_s": 31.44,
+   "frame30": 943.2,
+   "flux": 10403.582,
+   "rms_db": -25.15,
+   "high_db": 29.65,
+   "prominence": 7044.77
+  },
+  {
+   "t_s": 31.56,
+   "frame30": 946.8,
+   "flux": 7016.836,
+   "rms_db": -17.83,
+   "high_db": 32.19,
+   "prominence": 3676.56
+  },
+  {
+   "t_s": 31.77,
+   "frame30": 953.1,
+   "flux": 8701.699,
+   "rms_db": -19.04,
+   "high_db": 29.34,
+   "prominence": 5396.596
+  },
+  {
+   "t_s": 31.87,
+   "frame30": 956.1,
+   "flux": 5813.69,
+   "rms_db": -16.88,
+   "high_db": 34.04,
+   "prominence": 2438.485
+  }
+ ],
+ "candidates": [
+  {
+   "t_s": 6.133,
+   "src": "kills_mine/topright_edges(旧检测器)",
+   "confidence": "legacy-candidate",
+   "flux_at_t": 1381.842,
+   "flux_local_max_pm50ms": 2241.154,
+   "rms_db_at_t": -21.79,
+   "onsets_within_250ms": [],
+   "onsets_within_50ms": [],
+   "nearest_onset": 6.67
+  },
+  {
+   "t_s": 7.967,
+   "src": "kills_mine/topright_edges(旧检测器)",
+   "confidence": "legacy-candidate",
+   "flux_at_t": 1704.398,
+   "flux_local_max_pm50ms": 2803.972,
+   "rms_db_at_t": -38.57,
+   "onsets_within_250ms": [
+    8.08
+   ],
+   "onsets_within_50ms": [],
+   "nearest_onset": 8.08
+  },
+  {
+   "t_s": 10.967,
+   "src": "kills_mine/topright_edges(旧检测器)",
+   "confidence": "legacy-candidate",
+   "flux_at_t": 2507.088,
+   "flux_local_max_pm50ms": 3568.524,
+   "rms_db_at_t": -36.35,
+   "onsets_within_250ms": [
+    10.77,
+    10.98,
+    11.2
+   ],
+   "onsets_within_50ms": [
+    10.98
+   ],
+   "nearest_onset": 10.98
+  },
+  {
+   "t_s": 18.8,
+   "src": "kills_mine/topright_edges(旧检测器)",
+   "confidence": "legacy-candidate",
+   "flux_at_t": 2021.235,
+   "flux_local_max_pm50ms": 2137.334,
+   "rms_db_at_t": -20.68,
+   "onsets_within_250ms": [],
+   "onsets_within_50ms": [],
+   "nearest_onset": 16.98
+  },
+  {
+   "t_s": 26.233,
+   "src": "kills_mine/topright_edges(旧检测器)",
+   "confidence": "legacy-candidate",
+   "flux_at_t": 1377.711,
+   "flux_local_max_pm50ms": 1934.43,
+   "rms_db_at_t": -21.6,
+   "onsets_within_250ms": [],
+   "onsets_within_50ms": [],
+   "nearest_onset": 25.52
+  },
+  {
+   "t_s": 32.567,
+   "src": "kills_mine/topright_edges(旧检测器)",
+   "confidence": "legacy-candidate",
+   "flux_at_t": 1653.096,
+   "flux_local_max_pm50ms": 2014.397,
+   "rms_db_at_t": -25.59,
+   "onsets_within_250ms": [],
+   "onsets_within_50ms": [],
+   "nearest_onset": 31.87
+  }
+ ]
+}
