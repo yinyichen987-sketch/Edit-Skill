@@ -1328,6 +1328,23 @@ ffmpeg 直接走 `imageio-ffmpeg`（仓库 pin 的版本），**解码 29s 只�
 | 逐素材播报事件 + 交叉检验 + 局限说明 | `projects/game-001/verification/feed-scan/` |
 | 区域/条目方向的逐帧证据图 | `verification/frames/4b0460c4_feed_stack_6.6-7.2_14.3-14.7.png`、`4b0460c4_t14.93_full.png`、`b61cc53d_feed_frames_6.100-6.600.png` |
 
+### 交付（本机没有推送权限）
+
+本地 `kill-frame-training` 领先 `origin/kill-frame-training`（`fef3f9e`）**6 个提交**（第 8 轮起）。
+交付包在 `%TEMP%\edit-skill-delivery\`：
+
+| 文件 | 说明 |
+|---|---|
+| `round8-10-kill-frame-training.patch` | `git format-patch fef3f9e..HEAD` 的 6 个补丁合并（7.8 MB） |
+| `kill-frame-training-round8-10.bundle` | 含前置 `fef3f9e` 的 bundle（5.5 MB） |
+
+**往返验证**（第 9 轮建立的流程，两步都过）：
+
+- 临时仓库 → `git checkout fef3f9e` → `git am`（6 个补丁，`exit=0`）→ tree = `46eb3ca5…`，**与本地一致**；
+- 临时仓库 → `git fetch <bundle>` → tree = `46eb3ca5…`，**与本地一致**。
+
+（`git am` 需要临时仓库里有 committer 身份：`git config user.name/user.email`，否则 `am` 会在最后一步失败。）
+
 ### 遗留
 
 - **播报事件集有偏**：只覆盖「一批播报里的第一次击杀」+ 少量假报。要拿全，得**按条目跟踪**
