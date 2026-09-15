@@ -1,0 +1,113 @@
+{
+ "method": "独立复算：按入库文件名编码还原区域裁切，用自写洋红掩膜 min(R,B)-G>30 且 min(R,B)>70 逐帧量化（numpy/PIL，未使用仓库脚本）",
+ "coverage": [
+  {
+   "n": 1,
+   "candidate_s": 6.5333,
+   "frame": 196,
+   "exact": 4,
+   "near": 6,
+   "verdict": "可独立复测",
+   "magenta_peak_recorded": 0.80756
+  },
+  {
+   "n": 2,
+   "candidate_s": 10.7333,
+   "frame": 322,
+   "exact": 4,
+   "near": 8,
+   "verdict": "可独立复测",
+   "magenta_peak_recorded": 0.00085
+  },
+  {
+   "n": 3,
+   "candidate_s": 11.7,
+   "frame": 351,
+   "exact": 0,
+   "near": 3,
+   "verdict": "仅邻近帧",
+   "magenta_peak_recorded": 0.0008
+  },
+  {
+   "n": 4,
+   "candidate_s": 13.9667,
+   "frame": 419,
+   "exact": 0,
+   "near": 3,
+   "verdict": "仅邻近帧",
+   "magenta_peak_recorded": 0.00028
+  },
+  {
+   "n": 5,
+   "candidate_s": 14.2667,
+   "frame": 428,
+   "exact": 0,
+   "near": 11,
+   "verdict": "仅邻近帧",
+   "magenta_peak_recorded": 0.0004
+  },
+  {
+   "n": 6,
+   "candidate_s": 15.9667,
+   "frame": 479,
+   "exact": 5,
+   "near": 5,
+   "verdict": "可独立复测",
+   "magenta_peak_recorded": 0.00142
+  },
+  {
+   "n": 7,
+   "candidate_s": 21.3,
+   "frame": 639,
+   "exact": 0,
+   "near": 0,
+   "verdict": "无任何证据帧",
+   "magenta_peak_recorded": 0.0
+  },
+  {
+   "n": 8,
+   "candidate_s": 22.7333,
+   "frame": 682,
+   "exact": 0,
+   "near": 0,
+   "verdict": "无任何证据帧",
+   "magenta_peak_recorded": 0.0
+  },
+  {
+   "n": 9,
+   "candidate_s": 25.2333,
+   "frame": 757,
+   "exact": 0,
+   "near": 0,
+   "verdict": "无任何证据帧",
+   "magenta_peak_recorded": 0.0
+  },
+  {
+   "n": 10,
+   "candidate_s": 25.5,
+   "frame": 765,
+   "exact": 0,
+   "near": 0,
+   "verdict": "无任何证据帧",
+   "magenta_peak_recorded": 0.0
+  }
+ ],
+ "magenta_burst": {
+  "region": "x560..1200, y50..170",
+  "series": {
+   "6.500": 0.0001,
+   "6.567": 0.9554,
+   "6.600": 0.9554,
+   "6.700": 0.9528,
+   "6.800": 0.9332
+  },
+  "peak_t": "6.567",
+  "peak_ratio": 0.9554
+ },
+ "notes": [
+  "groundtruth 记的 magenta_fullscreen_effect_frames=[197,204] 与独立复算一致（帧197=6.567s 为爆发首帧，区间 6.500→6.567 起跳）",
+  "但\"整屏洋红\"用词未被证据支持：同期右上角 370x80@910,2 区域洋红占比仅 0.0007 ⇒ 爆发是顶部偏右的一大块，不是整屏",
+  "groundtruth 的 magenta_ratio_peak_near=0.8076 与独立复算 0.9554 不一致 ⇒ 两处量的区域口径不同，同一物理量存在两套口径",
+  "10 个候选中有 4 个（21.300/22.733/25.233/25.500s）在 verification/frames 里没有任何对应帧 ⇒ 第7轮 §7-4（其余 9 个候选逐帧量洋红）无法仅凭入库证据完成"
+ ]
+}
