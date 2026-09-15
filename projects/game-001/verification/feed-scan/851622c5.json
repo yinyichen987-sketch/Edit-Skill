@@ -1,0 +1,79 @@
+{
+ "short": "851622c5",
+ "file": "851622c586bb012a42a402a4ac587111.mp4",
+ "evidence_level": "L1（本机逐帧量 top-right 白色剪影占比；区域与 q 均为实测标定）",
+ "region": {
+  "x": 880,
+  "y": 56,
+  "w": 400,
+  "h": 26
+ },
+ "params": {
+  "white_threshold": 235,
+  "q_per_entry": 0.029,
+  "smooth_frames": 5
+ },
+ "event_semantics": "上升沿 = 播报由「空」变「非空」（一批播报里的第一次击杀，或条目过期上移造成的空隙）。**不等于每一次击杀**：播报非空时追加在下面的新条目不会改变本带。level 不是条目数（见脚本头注）。",
+ "n_frames": 991,
+ "white_median": 0.01,
+ "white_p99": 0.0409,
+ "n_events": 8,
+ "events": [
+  {
+   "frame": 199,
+   "t_s": 6.6333,
+   "level": 1,
+   "white_before": 0.0,
+   "white_after": 0.0301
+  },
+  {
+   "frame": 523,
+   "t_s": 17.4333,
+   "level": 1,
+   "white_before": 0.0,
+   "white_after": 0.0258
+  },
+  {
+   "frame": 643,
+   "t_s": 21.4333,
+   "level": 2,
+   "white_before": 0.0409,
+   "white_after": 0.0484
+  },
+  {
+   "frame": 854,
+   "t_s": 28.4667,
+   "level": 1,
+   "white_before": 0.0143,
+   "white_after": 0.0147
+  },
+  {
+   "frame": 872,
+   "t_s": 29.0667,
+   "level": 1,
+   "white_before": 0.012,
+   "white_after": 0.0122
+  },
+  {
+   "frame": 889,
+   "t_s": 29.6333,
+   "level": 1,
+   "white_before": 0.0135,
+   "white_after": 0.0191
+  },
+  {
+   "frame": 904,
+   "t_s": 30.1333,
+   "level": 1,
+   "white_before": 0.0138,
+   "white_after": 0.0148
+  },
+  {
+   "frame": 922,
+   "t_s": 30.7333,
+   "level": 1,
+   "white_before": 0.0,
+   "white_after": 0.0281
+  }
+ ]
+}

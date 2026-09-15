@@ -1,0 +1,58 @@
+{
+ "short": "58b8e283",
+ "file": "58b8e283b2ac553c9a9c4c8c113270db.mp4",
+ "evidence_level": "L1（本机逐帧量 top-right 白色剪影占比；区域与 q 均为实测标定）",
+ "region": {
+  "x": 880,
+  "y": 56,
+  "w": 400,
+  "h": 26
+ },
+ "params": {
+  "white_threshold": 235,
+  "q_per_entry": 0.029,
+  "smooth_frames": 5
+ },
+ "event_semantics": "上升沿 = 播报由「空」变「非空」（一批播报里的第一次击杀，或条目过期上移造成的空隙）。**不等于每一次击杀**：播报非空时追加在下面的新条目不会改变本带。level 不是条目数（见脚本头注）。",
+ "n_frames": 901,
+ "white_median": 0.0097,
+ "white_p99": 0.0199,
+ "n_events": 5,
+ "events": [
+  {
+   "frame": 194,
+   "t_s": 6.4667,
+   "level": 1,
+   "white_before": 0.0112,
+   "white_after": 0.0163
+  },
+  {
+   "frame": 200,
+   "t_s": 6.6667,
+   "level": 1,
+   "white_before": 0.0129,
+   "white_after": 0.0163
+  },
+  {
+   "frame": 215,
+   "t_s": 7.1667,
+   "level": 1,
+   "white_before": 0.0133,
+   "white_after": 0.0164
+  },
+  {
+   "frame": 701,
+   "t_s": 23.3667,
+   "level": 1,
+   "white_before": 0.0,
+   "white_after": 0.0173
+  },
+  {
+   "frame": 801,
+   "t_s": 26.7,
+   "level": 1,
+   "white_before": 0.0174,
+   "white_after": 0.0125
+  }
+ ]
+}
