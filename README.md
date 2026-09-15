@@ -196,7 +196,8 @@ ffmpeg 由 `imageio-ffmpeg` 自带，**无需系统安装**；也没有 ffprobe�
 没推上去 = 这一轮没结束。**
 
 远程仓库：<https://github.com/yinyichen987-sketch/Edit-Skill>（分支 `game-video`；
-第 7 轮起的**击杀帧训练**在分支 **`kill-frame-training`**，从 `game-video` 切出）
+第 7 轮的击杀帧训练在分支 `kill-frame-training`，从 `game-video` 切出；
+**第 8–12 轮的成果在 `kill-frame-training-2`** —— 见下「第 12 轮的推送状态」）
 
 ### 第 7 轮的推送状态
 
@@ -229,6 +230,28 @@ ffmpeg 由 `imageio-ffmpeg` 自带，**无需系统安装**；也没有 ffprobe�
 # 2. 同步到 GitHub（提交 + 推送）
 .\tools\sync.ps1 -Message "第 N 轮：<主题>"
 ```
+
+### ★ 第 12 轮的推送状态：**推成功了** —— 第 10 轮那个结论要修正
+
+- ✅ **第 8–12 轮（14 个提交）已推到 GitHub，分支 `kill-frame-training-2`**
+  （`origin/kill-frame-training-2 = b2508ba`，与本地逐字节一致；`kill-frame-training` 仍停在 `fef3f9e`）。
+- **真因不是「本机推不上去」，是「本机没有存凭据」+「被我们自己的非交互设置挡住了提示」**：
+  `credential.helper = manager`，但 Windows 凭据管理器里**没有 github 条目**，
+  也没有 `GITHUB_TOKEN` / `.git-credentials` / `.netrc`；而先前显式设了
+  `GIT_TERMINAL_PROMPT=0` 与 `GCM_INTERACTIVE=never` ⇒ git 只能报
+  `Cannot prompt because user interactivity has been disabled` / `unable to get password from user`。
+- ⇒ **别主动禁用交互**：允许交互时 Git Credential Manager 会自己弹窗/走浏览器登录，
+  登一次就成功（本轮 27 秒推完）。第 10 轮那句「本机推不上去」应改写成
+  **「本机没有凭据，且被非交互设置挡住了提示」** —— 否则会一直误判成「只能走补丁」。
+- 代理仍用 `-c` **临时**传，**不要写进 `.git/config`**（本项目被残留代理配置坑过）：
+
+```powershell
+git -c http.proxy=http://127.0.0.1:7890 -c https.proxy=http://127.0.0.1:7890 `
+    push --set-upstream origin <分支>
+```
+
+- **patch/bundle 通道不算废**：它仍然是「**不需要凭据**」的交付方式（对方 `git am` /
+  `git fetch <bundle>`），在拿不到凭据的场景下继续有用；但**不再是唯一出路**。
 
 ### 推送失败时的退出码
 

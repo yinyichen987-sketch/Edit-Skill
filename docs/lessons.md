@@ -1573,7 +1573,7 @@ ffmpeg 直接走 `imageio-ffmpeg`（仓库 pin 的版本），**解码 29s 只�
   或把徽记降级为**候选** + 第二信号（右上角播报）交叉确认。**都不便宜。**
 - **`references/editing-rules.md` 仍然为空**（等用户的真实成片）。
 
-### 交付（本机没有推送权限）
+### 交付（第 12 轮：**推送成功了** —— 并修正第 10 轮的结论）
 
 本地 `kill-frame-training` 领先 `origin/kill-frame-training`（`fef3f9e`）**一段提交**（第 8 轮起）。
 **确切数量现算**：`git rev-list --count fef3f9e..HEAD` —— **不要抄文档里的数字**
@@ -1600,6 +1600,21 @@ committer 身份，通配符也不会自动展开成补丁列表。
 （blob 仍是 LF，tree 也一致）。⇒ **别拿「工作区字节数」当往返验证的判据，要拿 tree / blob。**
 （第 11 轮那个 1824→1781 的错位之所以是**真问题**，是因为当年**仓库里的 blob 本身**就是 CRLF，
 `am` 归一化后 blob 变了 ⇒ tree 才变了。）
+
+**★ 但本轮最后一步把第 10 轮的结论推翻了：本机其实推得上去。**
+
+- `git push --set-upstream origin kill-frame-training-2` **成功**（27 秒，
+  `[new branch]`，`origin/kill-frame-training-2 = b2508ba`，与本地一致）。
+- 第 8–10 轮失败的真因是**两条叠在一起**：
+  ① 本机**没有存任何 GitHub 凭据**（`credential.helper = manager`，但凭据管理器里没有 github
+  条目；无 `GITHUB_TOKEN` / `.git-credentials` / `.netrc`）；② 我**自己**显式设了
+  `GIT_TERMINAL_PROMPT=0` 与 `GCM_INTERACTIVE=never`，于是 git 连提示的机会都没有，
+  只能报 `Cannot prompt because user interactivity has been disabled`。
+- ⇒ **不要把「非交互」当成前提**。允许交互时 Git Credential Manager 会自己弹窗/走浏览器登录，
+  登一次就成功。第 10 轮写下的「本机推不上去，改成交 patch/bundle」应改成
+  **「本机没有凭据，且被非交互设置挡住了提示」** —— 这两个诊断的**处置完全相反**
+  （前者让你去打包，后者只要别禁用交互）。
+- 代理照旧用 `-c http.proxy=…` 临时传，**不写进 `.git/config`**（本项目被残留代理配置坑过）。
 
 ---
 
