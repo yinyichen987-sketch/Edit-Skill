@@ -1420,6 +1420,20 @@ ffmpeg 直接走 `imageio-ffmpeg`（仓库 pin 的版本），**解码 29s 只�
 `--source feed|icon`（约 10 行），两套事件源走**同一份**分强度档/容差 + max-statistic 零假设的代码。
 ⇒ **事件源可以换，检验不许各写一套** —— 否则两轮的数字没有可比性。
 
+**20. ★ 给人填的表，工具必须「只增不减」+「重跑不覆盖已填列」**
+
+标注是**人花几个小时**的产物，而工具是随时会重跑的。所以 `make_icon_review_sheets.py`
+写 CSV 前会先读回旧表：按 `(material, event_id)` 把 4 个标注列**搬回**新表，
+并把新表里没有的旧行**补回去**（只跑单条素材也不会删掉别的素材的行）。
+⇒ 交付给人用的表，**默认操作必须是「不会丢数据」的那个**，不能靠人记得先备份。
+
+**21. ★ 证据图要一次性回答「填表需要的每一个问题」**
+
+每块图里同时放：**整帧 ×3**（t−0.5s / t / t+0.5s，判断当时在不在交火、有没有敌人）
+＋ **徽记区逐帧 8 张**（f−4…f+3，判断徽记从哪一帧开始出现）＋ 左上角标题（t/帧号/段长/peak）。
+⇒ 标注者不需要回去翻原片。**给人省下的每一步，都要先由交付方想到**；
+少放一行，成本就整批转嫁到人身上。
+
 ### 本轮产生的资产
 
 | 资产 | 位置 |
@@ -1430,6 +1444,7 @@ ffmpeg 直接走 `imageio-ffmpeg`（仓库 pin 的版本），**解码 29s 只�
 | 逐帧首现帧证据图（f183–198） | `verification/frames/b61cc53d_icon_frames_183-198.png` |
 | 徽记 vs 播报对照（11.3–12.0 / 15.7–16.0） | `verification/frames/b61cc53d_icon_vs_feed_11.3-16.0.png` |
 | 击杀瞬间的中心徽记（4 张全帧） | `verification/frames/4b0460c4_icon_at_kills_6.8_14.45.png` |
+| **人工标注包**（11 张证据图 + `review.csv` 打勾表 + 怎么填的说明） | `projects/game-001/verification/icon-review/`（由 `tools/make_icon_review_sheets.py` 重生成） |
 
 ### 遗留
 
@@ -1438,6 +1453,8 @@ ffmpeg 直接走 `imageio-ffmpeg`（仓库 pin 的版本），**解码 29s 只�
 - **「徽记首现帧 == 真正的击杀帧」没有真值**（只能说它与播报首现同帧）。
 - **徽记标记的是「击杀后约 2s 的窗口」**，同一段里连续击杀会合并（最长 155 帧）。
 - **`human_verdict` 仍然没有**；**`references/editing-rules.md` 仍为空**（等用户给成片）。
+- **标注包已经备好**（`icon-review/`，42 个事件）—— 等**玩家本人**填 `review.csv` 的 4 列
+  （`verdict_kill / verdict_mine / kill_frame_offset / note`）。填完就能算第一份**准确率**。
 
 ---
 
