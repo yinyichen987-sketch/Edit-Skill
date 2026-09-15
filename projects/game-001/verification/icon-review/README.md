@@ -22,7 +22,11 @@
 └───┴───┴───┴───┴───┴───┴───┴───┘
 ```
 
-3. 把结论填进 `review.csv`（**用 Excel 打开**：这个文件故意做成 UTF-8 BOM + CRLF，中文不会乱码）。
+3. 把结论填进 `review.csv`（**用 Excel 打开**：文件带 UTF-8 BOM，中文不会乱码）。
+
+> ⚠️ `review.csv` 的换行是 **LF**，不是 CRLF：本机 git 的 **system 级** `core.autocrlf=true`，
+> 若文件是 CRLF，`git am` 会在收件方那边把它归一化成 LF ⇒ 交付包 tree 不一致
+> （第 11 轮实测：1824 字节 CRLF=43 → am 后 1781 字节 CRLF=0）。**BOM 才是中文不乱码的关键**。
 
 ## 2. 每一列填什么
 

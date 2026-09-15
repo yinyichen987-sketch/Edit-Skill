@@ -15,8 +15,10 @@
 
 `icon-review/review.csv` 每个事件一行（含**非高置信**的那些，`high_conf=0`），
 空白列留给人填（列义见 `icon-review/README.md`）。
-**这个 CSV 故意用 UTF-8 BOM + CRLF**，为的是 Excel 双击能正确显示中文，
-不是第 9 轮那个「Python 偷偷写 CRLF」的 bug。
+**这个 CSV 用 UTF-8 BOM + LF**：BOM 是「Excel 双击不乱码」的关键；
+**不能用 CRLF** —— 本机 git 的 **system 级** `core.autocrlf=true`（本仓库用 local 覆盖成 false），
+而 `git am` 在 autocrlf=true 的仓库里会把 CRLF **归一化成 LF**，于是「交付包打出来的 tree」
+和「我的 tree」不一致。第 11 轮实测：`review.csv` 1824 字节(CRLF=43) → am 后 1781 字节(CRLF=0)。
 
 ## 用法
 
@@ -178,11 +180,11 @@ def write_csv(rows):
     extra.sort(key=lambda r: (r.get("material", ""), int(r.get("event_id") or 0)))
     rows = rows + extra
     with dst.open("w", encoding="utf-8-sig", newline="") as fh:
-        w = csv.DictWriter(fh, fieldnames=CSV_COLUMNS, lineterminator="\r\n")
+        w = csv.DictWriter(fh, fieldnames=CSV_COLUMNS, lineterminator="\n")
         w.writeheader()
         w.writerows(rows)
     print("[OK] %s  (%d 行，其中 %d 行是旧表保留的；沿用 %d 个已填单元格；"
-          "UTF-8 BOM + CRLF，给 Excel 用)"
+          "UTF-8 BOM + LF，给 Excel 用)"
           % (dst.relative_to(ROOT), len(rows), len(extra), merged))
 
 
