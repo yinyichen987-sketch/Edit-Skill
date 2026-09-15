@@ -457,7 +457,10 @@ def main():
 
     dst = pathlib.Path(args.out) if args.out else OUTDIR / "audio-feasibility.json"
     dst.parent.mkdir(parents=True, exist_ok=True)
-    dst.write_text(json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8")
+    # newline="\n"：Windows 上 write_text 默认会把 \n 翻译成 \r\n，
+    # 而本仓库的文本文件是 LF。写成 CRLF 会让 `git am` 打出来的补丁与本地树不一致
+    # （第 9 轮实测：3 个 JSON 因此比同内容多出「行数-1」个字节）。
+    dst.write_text(json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8", newline="\n")
     print("\n[OK] %s" % dst.relative_to(ROOT))
     return 0
 
