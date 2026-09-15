@@ -1330,8 +1330,9 @@ ffmpeg 直接走 `imageio-ffmpeg`（仓库 pin 的版本），**解码 29s 只�
 
 ### 交付（本机没有推送权限）
 
-本地 `kill-frame-training` 领先 `origin/kill-frame-training`（`fef3f9e`）**8 个提交**（第 8 轮起；
-确切数量见 `git rev-list --count fef3f9e..HEAD`）。交付包在 `%TEMP%\edit-skill-delivery\`：
+本地 `kill-frame-training` 领先 `origin/kill-frame-training`（`fef3f9e`）**一段提交**（第 8 轮起）。
+**确切数量现算**：`git rev-list --count fef3f9e..HEAD` —— 不要抄文档里的数字
+（这里原本写了「8 个」，第 11 轮一提交就过期了）。交付包在 `%TEMP%\edit-skill-delivery\`：
 
 | 文件 | 说明 |
 |---|---|
