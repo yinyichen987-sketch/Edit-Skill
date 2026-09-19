@@ -39,6 +39,26 @@
 池子、顺序、目标都写进 `plan.json` 的 `pool_materials` / `selected_materials` / `dropped_materials`。
 注意：跨过目标的那条素材是**整条**进来的 ⇒ 实际时长会比目标高出一截（见 `spec/击杀集锦_B01…`）。
 
+## 音频层（第 17 轮新增，`--audio` 打开）
+
+    --audio                     叠加音频层：BGM + 每杀一个 impact + 切入前 whoosh（并压低游戏原声）
+    --bgm <path>                BGM 文件（默认 projects/game-001/bgm/bgm_128_18bars.wav）
+    --bgm-volume 0.7            BGM 音量
+    --voice-volume 0.45         游戏原声音量（1.0 = 原样）
+    --impact-volume / --whoosh-volume
+    --whoosh {all,material,none} whoosh 落点：all=每个切点前；material=只在换素材的接缝前
+
+依据 `references/techniques/audio.md`（都是既有记录，不是本轮新编的）：
+
+| 约定 | 来源 |
+|---|---|
+| **impact 落在击杀帧、whoosh 落在切入前** | `audio.md` §3（L4） |
+| **BGM 服从剪辑**：先定镜头长度 → 生成曲子 → 裁到成片长度 + 末 0.25s 淡出 | `audio.md` §1（L4） |
+| **剪映音效库不能被程序引用** ⇒ 音效自带 wav 走 `audio_overlays` | `audio.md` §4（L2） |
+| **没有可脚本化的动态 ducking** ⇒ 用静态音量压低游戏原声 | 转换器只支持固定 `volume`（本轮实测） |
+
+`--audio` **关闭时输出与之前逐字节相同**（回归对照见交付说明）。
+
 输出：`projects/game-001/edl/<name>.json`（默认名 `killreel.json`）
       `projects/game-001/edl/<name>.plan.json`（取段台账，供交付说明引用）
 """
@@ -48,6 +68,7 @@ import argparse
 import json
 import pathlib
 import sys
+import wave
 
 try:
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -73,9 +94,33 @@ POST_MIN = 1.0     # 吸附后「上一杀之后」的硬下限（不许把击�
 PRE_MIN = 0.4      # 吸附后「下一杀之前」的硬下限
 MIN_CLIP = 0.5     # 任一片段短于此值 ⇒ P0 违规（不出亚秒片段）
 
+# --- 音频层参数（第 17 轮；依据 references/techniques/audio.md）---
+BGM_DEFAULT = ROOT / "projects" / "game-001" / "bgm" / "bgm_128_18bars.wav"
+SFX_DIR = ROOT / "projects" / "game-001" / "sfx"
+IMPACT_SFX = ("impact_a.wav", "impact_b.wav")   # 从原素材裁下来的枪声（make_sfx 的产出）
+WHOOSH_SFX = "whoosh.wav"
+BGM_BARS = 18          # make_bgm.py 的小节数：18 × 1.875s = 33.750s（≥ B01 的 32.167s）
+BGM_DROP_BAR = 9       # drop 落第 9 小节 = 15.000s（成片中点；这是判断，不是量出来的）
+BGM_VOLUME = 0.7
+VOICE_VOLUME = 0.45    # 游戏原声压低（静态 ducking）
+IMPACT_VOLUME = 1.0
+WHOOSH_VOLUME = 0.8
+BGM_FADE_OUT = 0.25
+
 
 def fs(t: float) -> str:
     return f"{t:.6f}".rstrip("0").rstrip(".")
+
+
+def wav_dur(p: pathlib.Path) -> float:
+    """读 wav 的真实时长 —— 不硬编码音效长度（长度会随 make_sfx.py 改动）。"""
+    with wave.open(str(p)) as w:
+        return w.getnframes() / w.getframerate()
+
+
+def rel_to_edl(p: pathlib.Path) -> str:
+    """EDL 里的相对路径基准 = EDL 文件所在目录（edl_to_draft.build.resolve 的约定）。"""
+    return "../" + p.relative_to(EDL_DIR.parent).as_posix()
 
 
 def load_kills(short: str) -> tuple[list[float], str]:
@@ -175,6 +220,16 @@ def main() -> int:
     ap.add_argument("--target-seconds", type=float, default=None,
                     help="目标时长：按上面的顺序**整条素材地**累加，直到累计 ≥ 这个值"
                          "（跨过它的那条**算进来**）；不给就全用")
+    ap.add_argument("--audio", action="store_true",
+                    help="叠加音频层：BGM + 每杀一个 impact + 切入前 whoosh，并把游戏原声压到 --voice-volume")
+    ap.add_argument("--bgm", default=None, help=f"BGM 文件（默认 {BGM_DEFAULT.name}）")
+    ap.add_argument("--bgm-volume", type=float, default=BGM_VOLUME)
+    ap.add_argument("--voice-volume", type=float, default=VOICE_VOLUME,
+                    help="游戏原声音量（1.0 = 原样；剪映没有可脚本化的动态 ducking，所以这里是静态压低）")
+    ap.add_argument("--impact-volume", type=float, default=IMPACT_VOLUME)
+    ap.add_argument("--whoosh-volume", type=float, default=WHOOSH_VOLUME)
+    ap.add_argument("--whoosh", default="all", choices=("all", "material", "none"),
+                    help="whoosh 落点：all=每个切点前（默认）；material=只在换素材的接缝前；none=不放")
     ap.add_argument("--dry-run", action="store_true", help="只打印取段台账，不写文件")
     args = ap.parse_args()
     shorts = [s.strip() for s in args.materials.split(",") if s.strip()]
@@ -221,7 +276,9 @@ def main() -> int:
 
     # ---- 第二遍：按成片顺序拼片段（时间轴游标 = **整数微秒**，避免各自取整造成 1µs 重叠）----
     clips, texts = [], []
+    kill_tl: list[float] = []      # 每次击杀在成片时间轴上的位置（音频层用）
     t_us = 0
+    voice_vol = args.voice_volume if args.audio else 1.0
     for p in selected:
         s, f = p["material"], p["file"]
         for j, (a, b) in enumerate(p["keeps"], 1):
@@ -239,12 +296,97 @@ def main() -> int:
                            f"无击杀段 > {GAP}s 才删，删除处两侧留 POST {POST}s / PRE {PRE}s，"
                            f"切点已吸附到 ±{SNAP}s 内运动量最小帧，落点对齐 30fps 整数帧"),
                 "confidence": 0.81,
-                "volume": 1.0,
+                "volume": voice_vol,
             })
+            for k in inside:
+                kill_tl.append(t_us / 1e6 + (k - a_s))
             t_us += b_us - a_us
 
     if t_us <= 0 or any(c["duration"] < MIN_CLIP for c in clips):
         raise SystemExit("[FAIL] 有片段短于 MIN_CLIP 或总时长为 0（P0：不出亚秒片段）")
+
+    # ---- 音频层（第 17 轮）----
+    # 依据 references/techniques/audio.md 的既有约定（不是本轮新编的）：
+    #   · impact 落在**击杀帧**、whoosh 落在**切入前**  （audio.md §3，L4）
+    #   · BGM 服从剪辑：先定镜头长度 → 生成曲子 → 裁到成片长度 + 末 0.25s 淡出（§1，L4）
+    #   · 剪映音效库不能被程序引用 ⇒ 自带 wav 走 audio_overlays（§4，L2）
+    #   · 剪映没有可脚本化的动态 ducking ⇒ 用**静态音量**压低游戏原声
+    audio_overlays: list[dict] = []
+    audio_note = None
+    total_s = t_us / 1e6
+    if args.audio:
+        bgm_path = pathlib.Path(args.bgm) if args.bgm else BGM_DEFAULT
+        if not bgm_path.exists():
+            raise SystemExit(
+                f"[FAIL] 找不到 BGM：{bgm_path}\n"
+                "       先跑：.venv/Scripts/python.exe projects/game-001/tools/make_bgm.py "
+                f"{BGM_BARS} {BGM_DROP_BAR}")
+        audio_overlays.append({
+            "source": rel_to_edl(bgm_path), "track": "bgm", "start": 0.0,
+            "duration": round(total_s, 6), "volume": args.bgm_volume,
+            "fade": {"in": 0.0, "out": round(min(BGM_FADE_OUT, total_s), 6)},
+        })
+        impact_files = [SFX_DIR / n for n in IMPACT_SFX if (SFX_DIR / n).exists()]
+        if not impact_files:
+            raise SystemExit(f"[FAIL] {SFX_DIR} 下没有 impact_*.wav（先跑 make_sfx.py）")
+        n_impact = 0
+        for i, t in enumerate(kill_tl):
+            dur = min(wav_dur(impact_files[0]), total_s - t)
+            if dur < 0.02:
+                continue
+            audio_overlays.append({
+                "source": rel_to_edl(impact_files[i % len(impact_files)]),
+                "track": "sfx_impact", "start": round(t, 6),
+                "duration": round(dur, 6), "volume": args.impact_volume,
+            })
+            n_impact += 1
+        whoosh_path = SFX_DIR / WHOOSH_SFX
+        if not whoosh_path.exists():
+            raise SystemExit(f"[FAIL] 找不到 {whoosh_path}（先跑 make_sfx.py）")
+        whoosh_dur = wav_dur(whoosh_path)
+        cut_tl = [c["start"] for c in clips[1:]]
+        if args.whoosh == "material":
+            cut_tl = [c["start"] for i, c in enumerate(clips[1:], 1)
+                      if c["source"] != clips[i - 1]["source"]]
+        elif args.whoosh == "none":
+            cut_tl = []
+        n_whoosh = 0
+        for t in cut_tl:
+            start = max(0.0, t - whoosh_dur)          # whoosh 的**尾**落在切点上 = 「切入前」
+            dur = min(whoosh_dur, t - start)
+            if dur < 0.02:
+                continue
+            audio_overlays.append({
+                "source": rel_to_edl(whoosh_path),
+                "track": "sfx_whoosh", "start": round(start, 6),
+                "duration": round(dur, 6), "volume": args.whoosh_volume,
+            })
+            n_whoosh += 1
+        audio_note = {
+            "bgm": bgm_path.relative_to(ROOT).as_posix(),
+            "bgm_volume": args.bgm_volume,
+            "voice_volume": args.voice_volume,
+            "impact_volume": args.impact_volume,
+            "whoosh_volume": args.whoosh_volume,
+            "whoosh_mode": args.whoosh,
+            "n_impact": n_impact,
+            "n_whoosh": n_whoosh,
+            "kill_timeline_s": [round(t, 6) for t in kill_tl],
+            "cut_timeline_s": [round(t, 6) for t in cut_tl],
+            "rules": "impact 落击杀帧、whoosh 落切入前（audio.md §3，L4）；"
+                     "BGM 服从剪辑、裁到成片长度 + 末 0.25s 淡出（§1，L4）；"
+                     "动态 ducking 不可脚本化 ⇒ 静态压低游戏原声",
+        }
+        print("音频层：BGM %s（音量 %s） + impact×%d（落击杀帧）+ whoosh×%d（落切入前）；游戏原声 1.0 → %s"
+              % (bgm_path.name, args.bgm_volume, n_impact, n_whoosh, args.voice_volume))
+
+    tracks = [{"type": "video", "name": "main"}]
+    audio = {"voice_priority": "high", "bgm_volume": 0.0}
+    if args.audio:
+        tracks += [{"type": "audio", "name": "bgm"},
+                   {"type": "audio", "name": "sfx_impact"},
+                   {"type": "audio", "name": "sfx_whoosh"}]
+        audio = {"voice_priority": "high", "bgm_volume": args.bgm_volume}
 
     edl = {
         "version": "1.0",
@@ -252,12 +394,26 @@ def main() -> int:
         "canvas": {"width": CANVAS[0], "height": CANVAS[1], "fps": FPS},
         "style_ref": "game-valorant",
         "target_duration_s": round(t_us / 1e6, 3),
-        "tracks": [{"type": "video", "name": "main"}],
+        "tracks": tracks,
         "clips": clips,
         "texts": texts,
-        "audio": {"voice_priority": "high", "bgm_volume": 0.0},
+        "audio": audio,
         "qa": {"required": ["duration-valid", "no-black-frame", "audio-present"]},
     }
+    if audio_overlays:
+        edl["audio_overlays"] = audio_overlays
+        edl["_audio"] = {
+            "依据": "references/techniques/audio.md（§1 BGM 服从剪辑 / §3 音效对位 / §4 音效库不可程序引用）",
+            "对位": "impact 落在击杀帧；whoosh 的尾落在切点上（＝切入前）",
+            "游戏原声": f"静态压低到 {args.voice_volume}（剪映没有可脚本化的动态 ducking）",
+            "响度": "草稿不做响度归一化 —— −14 LUFS / ≤ −1 dBTP 仍须人工（见交付说明）",
+        }
+        # 与先例单素材 BGM 版同一套「人工清单」：EDL 表达不了的，写下来别假装做了
+        edl["_manual"] = [
+            "响度统一到 ≈ −14 LUFS、真峰 ≤ −1 dBTP —— 草稿里**没有**限幅器，这一步必须人工",
+            "各切点两侧 2 帧音频交叉淡化（防咔哒声）—— EDL 未表达",
+            "BGM 若与画面气质不合可在剪映里换曲：EDL 不关心 BGM 内容，只按时间码摆位置",
+        ]
     print(f"素材 {len(shorts)} 条 → 片段 {len(clips)} 个，成片 {t_us / 1e6:.3f}s")
     print("素材池 %d 条 → 选中 %d 条、丢弃 %d 条；顺序 = %s，目标 = %s" % (
         len(pool), len(selected), len(dropped), args.order_by,
@@ -282,6 +438,7 @@ def main() -> int:
                                                   "min_cut_s": MIN_CUT, "snap_s": SNAP,
                                                   "order_by": args.order_by,
                                                   "target_seconds": args.target_seconds},
+                    **({"audio_layer": audio_note} if audio_note else {}),
                     "pool_materials": [p["material"] for p in pool],
                     "selected_materials": [p["material"] for p in selected],
                     "dropped_materials": dropped,

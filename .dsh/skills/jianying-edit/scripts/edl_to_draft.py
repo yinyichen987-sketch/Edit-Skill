@@ -153,6 +153,37 @@ def validate(edl: dict, base_dir: str) -> list[str]:
             if not isinstance(item.get(key), (int, float)):
                 problems.append(f"文本 {tid} 的 {key} 缺失或不是数字")
 
+    # 音频叠加（BGM / 音效）：与片段同一套越界口径。
+    # 第 17 轮补：此前只校验 clips，于是「BGM 文件不在」「音效比素材本身还长」
+    # 这类错要等剪映里才发现（build 只打 WARN，不拦）。
+    for i, ao in enumerate(edl.get("audio_overlays") or [], 1):
+        tag = f"音频叠加 #{i}（track={ao.get('track')}）"
+        src = ao.get("source")
+        if not src:
+            problems.append(f"{tag} 缺少 source")
+            continue
+        exists = os.path.exists(resolve(src))
+        if not exists:
+            problems.append(f"{tag} 的音频不存在: {src}")
+        if ao.get("track") and ao["track"] not in names:
+            problems.append(f"{tag} 引用了不存在的轨道 '{ao['track']}'"
+                            "（build 会自动建轨，但显式声明才看得出意图）")
+        for key in ("start", "duration"):
+            if not isinstance(ao.get(key), (int, float)):
+                problems.append(f"{tag} 的 {key} 缺失或不是数字")
+        dur = ao.get("duration")
+        src_in = ao.get("source_in", 0) or 0
+        if (exists and isinstance(dur, (int, float)) and dur > 0
+                and isinstance(src_in, (int, float))):
+            total, basis = _material_duration(resolve(src), "audio")
+            if total is None:
+                problems.append(f"{tag} 无法读取时长（{basis}），越界未校验: {src}")
+            elif float(src_in) + float(dur) > total + 0.001:
+                problems.append(
+                    f"{tag} 时间码越界: source_in={src_in} + duration={dur} = "
+                    f"{float(src_in) + float(dur):.4f}s 超出音频可用时长 {total:.4f}s"
+                    f"（依据: {basis}, {os.path.basename(src)}）")
+
     return problems
 
 
@@ -348,6 +379,11 @@ def build(edl: dict, draft_root: str, name: str | None, dry_run: bool) -> dict:
                             for t in (edl.get("tracks") or [])]
         report["clips"] = len(edl.get("clips") or [])
         report["texts"] = len(edl.get("texts") or [])
+        # 干跑也要**如实**数出音频叠加与特效：否则汇总行里的「音效叠加 0 个」
+        # 会让人以为音频层没生效（第 17 轮加了 audio_overlays 之后才暴露）。
+        report["effects"] = sum(len(t.get("effects") or [])
+                                for t in (edl.get("effect_tracks") or []))
+        report["audio_overlays"] = len(edl.get("audio_overlays") or [])
         return report
 
     folder = d.DraftFolder(draft_root)

@@ -1,4 +1,4 @@
-"""合成一条**与剪切点同格**的电子 BGM（128 BPM，刚好 15.000 s = 32 拍 = 8 小节）。
+"""合成一条**与剪切点同格**的电子 BGM（128 BPM；小节数可给，默认 8 小节 = 15.000 s = 32 拍）。
 
 ## 为什么自己做而不是找现成曲子
 
@@ -24,8 +24,9 @@ BPM/相位未知，要先对齐再切；自己合成则**先把拍子钉死**，
 
 ## 用法
 
-    .venv\\Scripts\\python.exe projects\\game-001\\tools\\make_bgm.py
-输出：projects/game-001/bgm/bgm_128_15s.wav
+    .venv\\Scripts\\python.exe projects\\game-001\\tools\\make_bgm.py [小节数] [drop小节]
+    # 例：make_bgm.py 18 9  → 18 小节（33.750 s），第 9 小节落 drop
+输出：projects/game-001/bgm/bgm_128_<小节数>bars.wav
       projects/game-001/bgm/beat-grid.json   （剪切点对齐用）
 
 **换曲须知**：想换成剪映曲库里的热门曲（会员可用）时，只要新曲的 BPM 相近，
