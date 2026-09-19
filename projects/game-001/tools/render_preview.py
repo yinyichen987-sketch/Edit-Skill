@@ -118,10 +118,10 @@ def seg_audio_filter(volume: float, speed: float, duration: float) -> str:
     """片段音频滤镜：音量 + 变速 + **裁/补齐到精确时长**。
 
     为什么要 apad：每段独立编码后拼接时，容器时长 = max(视频, 音频)。
-    ffmpeg 的 `fps` 滤镜会把帧数**向上取整**，于是每段都比 EDL 时长多一点；
-    15 段累积出 +0.18s 的偏移 —— 对卡点片来说，末尾的画面会比 BGM 晚近 0.2s，
-    正好把"卡点"演示坏掉。音频补齐到精确时长（视频用 -frames:v 向下取整）
-    可让容器时长严格等于 EDL 时长。
+    音频补齐到精确时长，视频侧则由 -frames:v + tpad 凑齐**精确帧数**
+    （见 main() 里 n_frames 的注释）—— 两边都精确，容器时长才严格等于 EDL 时长。
+    ⚠️ 第 18 轮修正：此前视频用 `int(x*FPS)` 向下取整，实测**每段少 1 帧**
+    （14 段无一例外），画面累计比音频早 0.300 s ⇒ 预览里听什么都延后。
     """
     parts = [f"volume={volume}"]
     if speed != 1.0:
@@ -194,8 +194,13 @@ def main() -> int:
         speed = float(c.get("speed", 1.0)) or 1.0
         src_window = float(c["duration"]) * speed
         speed_v = [f"setpts=PTS/{speed:.6f}", f"fps={FPS}"] if speed != 1.0 else []
-        # 视频帧数**向下取整**，音频补齐到精确时长 → 容器时长严格等于 EDL 时长
-        n_frames = max(1, int(float(c["duration"]) * FPS + 1e-6))
+        # 视频帧数**必须精确**，不能向下取整。EDL 的每段时长本来就是整数帧，
+        # 但 JSON 只保留 6 位小数（如 2.233334 s），浮点误差会让 `int(x*FPS)` 掉一帧。
+        # 实测后果（第 18 轮）：14 段**每段都少 1 帧**，画面累计比音频**早 0.300 s** ——
+        # 于是预览里**所有音效（whoosh / impact）听起来都延后**最多 0.3 s。
+        # 修法：round() 求精确帧数 + 滤镜链尾 tpad 克隆末帧，保证 -frames:v 一定凑得齐。
+        n_frames = max(1, int(round(float(c["duration"]) * FPS)))
+        TPAD = "tpad=stop_mode=clone:stop_duration=1"
         afilter = seg_audio_filter(float(c.get("volume", 1.0)), speed, float(c["duration"]))
 
         # 调色：EDL 给了 filter 就近似成调研给出的廉价等价式
@@ -242,10 +247,9 @@ def main() -> int:
                 last = "vout"
             else:
                 last = "ov"
-            if grade or speed_v:
-                tail = grade + speed_v
-                fc += f";[{last}]{','.join(tail)}[vfin]"
-                last = "vfin"
+            tail = grade + speed_v + [TPAD]
+            fc += f";[{last}]{','.join(tail)}[vfin]"
+            last = "vfin"
             run(["-y", "-ss", f"{c.get('source_in', 0)}", "-t", f"{src_window}", "-i", str(src),
                  "-filter_complex", fc, "-map", f"[{last}]",
                  # ⚠️ 用了 -map 就**只**输出被映射的流：这里必须显式再映射音频，
@@ -273,6 +277,7 @@ def main() -> int:
             vf.append(f"eq=brightness='{piecewise(br)}':eval=frame")
         vf.extend(grade)
         vf.extend(speed_v)
+        vf.append(TPAD)
 
         run(["-y", "-ss", f"{c.get('source_in', 0)}", "-t", f"{src_window}", "-i", str(src),
              "-vf", ",".join(vf),

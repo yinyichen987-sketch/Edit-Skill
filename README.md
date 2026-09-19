@@ -213,6 +213,7 @@ ffmpeg 由 `imageio-ffmpeg` 自带，**无需系统安装**；也没有 ffprobe�
 | **同一判据在成片上退化成切点探测器** | `references/kill-extraction.md` §4 |
 | **效果时长只能在成片上量，不能在教程录屏上量** | `references/techniques/kill-moment.md` §3 |
 | 沙箱挡 git TLS / pip %TEMP% / Python TLS / ps1 的 BOM | `references/environment.md` |
+| **★ 预览渲染器按段向下取整帧数 ⇒ 每段少 1 帧、画面累计早 0.3s**（听什么都「延后」） | `projects/game-001/tools/render_preview.py`（第 18 轮修：round + tpad）+ `spec/击杀集锦_B01_音频版-交付说明.md` §10 |
 
 ---
 
@@ -223,7 +224,7 @@ ffmpeg 由 `imageio-ffmpeg` 自带，**无需系统安装**；也没有 ffprobe�
 
 远程仓库：<https://github.com/yinyichen987-sketch/Edit-Skill>（分支 `game-video`；
 第 7 轮的击杀帧训练在分支 `kill-frame-training`，从 `game-video` 切出；
-**第 8–17 轮的成果在 `kill-frame-training-2`** —— 见下「第 12 轮的推送状态」）
+**第 8–18 轮的成果在 `kill-frame-training-2`** —— 见下「第 12 轮的推送状态」）
 
 ### 第 7 轮的推送状态
 
