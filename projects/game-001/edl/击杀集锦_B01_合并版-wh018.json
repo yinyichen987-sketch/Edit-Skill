@@ -1,0 +1,399 @@
+{
+ "version": "1.0",
+ "project": "击杀集锦_B01_合并版-wh018",
+ "canvas": {
+  "width": 1920,
+  "height": 1080,
+  "fps": 30.0
+ },
+ "style_ref": "game-valorant",
+ "target_duration_s": 32.167,
+ "tracks": [
+  {
+   "type": "video",
+   "name": "main"
+  },
+  {
+   "type": "audio",
+   "name": "bgm"
+  },
+  {
+   "type": "audio",
+   "name": "sfx_impact"
+  },
+  {
+   "type": "audio",
+   "name": "sfx_whoosh"
+  }
+ ],
+ "clips": [
+  {
+   "id": "6b2eea34-01",
+   "track": "main",
+   "source": "../../../原始素材/6b2eea343eee7595c3c0ede10d21d028.mp4",
+   "source_in": 5.433333,
+   "start": 0.0,
+   "duration": 2.233334,
+   "role": "body",
+   "rule_id": "REEL-EXCLUDE-01",
+   "reason": "排除法：6b2eea34 保留 [5.433, 7.667]（2.23s），含 1 次我击杀 ['6.167']；无击杀段 > 3.0s 才删，删除处两侧留 POST 1.5s / PRE 0.6s，切点已吸附到 ±0.35s 内运动量最小帧，落点对齐 30fps 整数帧",
+   "confidence": 0.81,
+   "volume": 0.45
+  },
+  {
+   "id": "6b2eea34-02",
+   "track": "main",
+   "source": "../../../原始素材/6b2eea343eee7595c3c0ede10d21d028.mp4",
+   "source_in": 16.633333,
+   "start": 2.233334,
+   "duration": 1.766667,
+   "role": "body",
+   "rule_id": "REEL-EXCLUDE-01",
+   "reason": "排除法：6b2eea34 保留 [16.633, 18.400]（1.77s），含 1 次我击杀 ['17.100']；无击杀段 > 3.0s 才删，删除处两侧留 POST 1.5s / PRE 0.6s，切点已吸附到 ±0.35s 内运动量最小帧，落点对齐 30fps 整数帧",
+   "confidence": 0.81,
+   "volume": 0.45
+  },
+  {
+   "id": "6b2eea34-03",
+   "track": "main",
+   "source": "../../../原始素材/6b2eea343eee7595c3c0ede10d21d028.mp4",
+   "source_in": 21.133333,
+   "start": 4.000001,
+   "duration": 2.166667,
+   "role": "body",
+   "rule_id": "REEL-EXCLUDE-01",
+   "reason": "排除法：6b2eea34 保留 [21.133, 23.300]（2.17s），含 1 次我击杀 ['21.533']；无击杀段 > 3.0s 才删，删除处两侧留 POST 1.5s / PRE 0.6s，切点已吸附到 ±0.35s 内运动量最小帧，落点对齐 30fps 整数帧",
+   "confidence": 0.81,
+   "volume": 0.45
+  },
+  {
+   "id": "38cc4903-01",
+   "track": "main",
+   "source": "../../../原始素材/38cc49038ae23ca325952b7cbcd4926d.mp4",
+   "source_in": 5.9,
+   "start": 6.166668,
+   "duration": 2.1,
+   "role": "body",
+   "rule_id": "REEL-EXCLUDE-01",
+   "reason": "排除法：38cc4903 保留 [5.900, 8.000]（2.10s），含 1 次我击杀 ['6.333']；无击杀段 > 3.0s 才删，删除处两侧留 POST 1.5s / PRE 0.6s，切点已吸附到 ±0.35s 内运动量最小帧，落点对齐 30fps 整数帧",
+   "confidence": 0.81,
+   "volume": 0.45,
+   "transition": {
+    "type": "闪白",
+    "duration": 0.13
+   }
+  },
+  {
+   "id": "38cc4903-02",
+   "track": "main",
+   "source": "../../../原始素材/38cc49038ae23ca325952b7cbcd4926d.mp4",
+   "source_in": 13.4,
+   "start": 8.266668,
+   "duration": 1.766667,
+   "role": "body",
+   "rule_id": "REEL-EXCLUDE-01",
+   "reason": "排除法：38cc4903 保留 [13.400, 15.167]（1.77s），含 1 次我击杀 ['13.833']；无击杀段 > 3.0s 才删，删除处两侧留 POST 1.5s / PRE 0.6s，切点已吸附到 ±0.35s 内运动量最小帧，落点对齐 30fps 整数帧",
+   "confidence": 0.81,
+   "volume": 0.45
+  },
+  {
+   "id": "38cc4903-03",
+   "track": "main",
+   "source": "../../../原始素材/38cc49038ae23ca325952b7cbcd4926d.mp4",
+   "source_in": 21.8,
+   "start": 10.033335,
+   "duration": 2.466667,
+   "role": "body",
+   "rule_id": "REEL-EXCLUDE-01",
+   "reason": "排除法：38cc4903 保留 [21.800, 24.267]（2.47s），含 1 次我击杀 ['22.467']；无击杀段 > 3.0s 才删，删除处两侧留 POST 1.5s / PRE 0.6s，切点已吸附到 ±0.35s 内运动量最小帧，落点对齐 30fps 整数帧",
+   "confidence": 0.81,
+   "volume": 0.45
+  },
+  {
+   "id": "dcc871b1-01",
+   "track": "main",
+   "source": "../../../原始素材/dcc871b1791e7796fadac842593f10f7.mp4",
+   "source_in": 6.0,
+   "start": 12.500002,
+   "duration": 2.433333,
+   "role": "body",
+   "rule_id": "REEL-EXCLUDE-01",
+   "reason": "排除法：dcc871b1 保留 [6.000, 8.433]（2.43s），含 1 次我击杀 ['6.733']；无击杀段 > 3.0s 才删，删除处两侧留 POST 1.5s / PRE 0.6s，切点已吸附到 ±0.35s 内运动量最小帧，落点对齐 30fps 整数帧",
+   "confidence": 0.81,
+   "volume": 0.45,
+   "transition": {
+    "type": "闪白",
+    "duration": 0.13
+   }
+  },
+  {
+   "id": "dcc871b1-02",
+   "track": "main",
+   "source": "../../../原始素材/dcc871b1791e7796fadac842593f10f7.mp4",
+   "source_in": 20.066667,
+   "start": 14.933335,
+   "duration": 1.833333,
+   "role": "body",
+   "rule_id": "REEL-EXCLUDE-01",
+   "reason": "排除法：dcc871b1 保留 [20.067, 21.900]（1.83s），含 1 次我击杀 ['20.567']；无击杀段 > 3.0s 才删，删除处两侧留 POST 1.5s / PRE 0.6s，切点已吸附到 ±0.35s 内运动量最小帧，落点对齐 30fps 整数帧",
+   "confidence": 0.81,
+   "volume": 0.45
+  },
+  {
+   "id": "0a550967-01",
+   "track": "main",
+   "source": "../../../原始素材/0a550967b46f242263f68b33be2252df.mp4",
+   "source_in": 5.9,
+   "start": 16.766668,
+   "duration": 1.9,
+   "role": "body",
+   "rule_id": "REEL-EXCLUDE-01",
+   "reason": "排除法：0a550967 保留 [5.900, 7.800]（1.90s），含 1 次我击杀 ['6.600']；无击杀段 > 3.0s 才删，删除处两侧留 POST 1.5s / PRE 0.6s，切点已吸附到 ±0.35s 内运动量最小帧，落点对齐 30fps 整数帧",
+   "confidence": 0.81,
+   "volume": 0.45,
+   "transition": {
+    "type": "闪白",
+    "duration": 0.13
+   }
+  },
+  {
+   "id": "0a550967-02",
+   "track": "main",
+   "source": "../../../原始素材/0a550967b46f242263f68b33be2252df.mp4",
+   "source_in": 16.866667,
+   "start": 18.666668,
+   "duration": 2.3,
+   "role": "body",
+   "rule_id": "REEL-EXCLUDE-01",
+   "reason": "排除法：0a550967 保留 [16.867, 19.167]（2.30s），含 1 次我击杀 ['17.300']；无击杀段 > 3.0s 才删，删除处两侧留 POST 1.5s / PRE 0.6s，切点已吸附到 ±0.35s 内运动量最小帧，落点对齐 30fps 整数帧",
+   "confidence": 0.81,
+   "volume": 0.45
+  },
+  {
+   "id": "0a550967-03",
+   "track": "main",
+   "source": "../../../原始素材/0a550967b46f242263f68b33be2252df.mp4",
+   "source_in": 28.133333,
+   "start": 20.966668,
+   "duration": 2.3,
+   "role": "body",
+   "rule_id": "REEL-EXCLUDE-01",
+   "reason": "排除法：0a550967 保留 [28.133, 30.433]（2.30s），含 1 次我击杀 ['28.600']；无击杀段 > 3.0s 才删，删除处两侧留 POST 1.5s / PRE 0.6s，切点已吸附到 ±0.35s 内运动量最小帧，落点对齐 30fps 整数帧",
+   "confidence": 0.81,
+   "volume": 0.45
+  },
+  {
+   "id": "b61cc53d-01",
+   "track": "main",
+   "source": "../../../原始素材/b61cc53d55e6aa28e89031fc5ec5693c.mp4",
+   "source_in": 5.266667,
+   "start": 23.266668,
+   "duration": 2.633333,
+   "role": "body",
+   "rule_id": "REEL-EXCLUDE-01",
+   "reason": "排除法：b61cc53d 保留 [5.267, 7.900]（2.63s），含 1 次我击杀 ['6.233']；无击杀段 > 3.0s 才删，删除处两侧留 POST 1.5s / PRE 0.6s，切点已吸附到 ±0.35s 内运动量最小帧，落点对齐 30fps 整数帧",
+   "confidence": 0.81,
+   "volume": 0.45,
+   "transition": {
+    "type": "闪白",
+    "duration": 0.13
+   }
+  },
+  {
+   "id": "b61cc53d-02",
+   "track": "main",
+   "source": "../../../原始素材/b61cc53d55e6aa28e89031fc5ec5693c.mp4",
+   "source_in": 10.966667,
+   "start": 25.900001,
+   "duration": 2.033333,
+   "role": "body",
+   "rule_id": "REEL-EXCLUDE-01",
+   "reason": "排除法：b61cc53d 保留 [10.967, 13.000]（2.03s），含 1 次我击杀 ['11.433']；无击杀段 > 3.0s 才删，删除处两侧留 POST 1.5s / PRE 0.6s，切点已吸附到 ±0.35s 内运动量最小帧，落点对齐 30fps 整数帧",
+   "confidence": 0.81,
+   "volume": 0.45
+  },
+  {
+   "id": "b61cc53d-03",
+   "track": "main",
+   "source": "../../../原始素材/b61cc53d55e6aa28e89031fc5ec5693c.mp4",
+   "source_in": 22.066667,
+   "start": 27.933334,
+   "duration": 4.233333,
+   "role": "body",
+   "rule_id": "REEL-EXCLUDE-01",
+   "reason": "排除法：b61cc53d 保留 [22.067, 26.300]（4.23s），含 2 次我击杀 ['22.467', '24.600']；无击杀段 > 3.0s 才删，删除处两侧留 POST 1.5s / PRE 0.6s，切点已吸附到 ±0.35s 内运动量最小帧，落点对齐 30fps 整数帧",
+   "confidence": 0.81,
+   "volume": 0.45
+  }
+ ],
+ "texts": [],
+ "audio": {
+  "voice_priority": "high",
+  "bgm_volume": 0.7
+ },
+ "qa": {
+  "required": [
+   "duration-valid",
+   "no-black-frame",
+   "audio-present"
+  ]
+ },
+ "audio_overlays": [
+  {
+   "source": "../bgm/bgm_128_18bars.wav",
+   "track": "bgm",
+   "start": 0.0,
+   "duration": 32.166667,
+   "volume": 0.7,
+   "fade": {
+    "in": 0.0,
+    "out": 0.25
+   }
+  },
+  {
+   "source": "../sfx/impact_a.wav",
+   "track": "sfx_impact",
+   "start": 0.733367,
+   "duration": 0.16,
+   "volume": 1.0
+  },
+  {
+   "source": "../sfx/impact_b.wav",
+   "track": "sfx_impact",
+   "start": 2.700001,
+   "duration": 0.16,
+   "volume": 1.0
+  },
+  {
+   "source": "../sfx/impact_a.wav",
+   "track": "sfx_impact",
+   "start": 4.399968,
+   "duration": 0.16,
+   "volume": 1.0
+  },
+  {
+   "source": "../sfx/impact_b.wav",
+   "track": "sfx_impact",
+   "start": 6.599968,
+   "duration": 0.16,
+   "volume": 1.0
+  },
+  {
+   "source": "../sfx/impact_a.wav",
+   "track": "sfx_impact",
+   "start": 8.699968,
+   "duration": 0.16,
+   "volume": 1.0
+  },
+  {
+   "source": "../sfx/impact_b.wav",
+   "track": "sfx_impact",
+   "start": 10.700035,
+   "duration": 0.16,
+   "volume": 1.0
+  },
+  {
+   "source": "../sfx/impact_a.wav",
+   "track": "sfx_impact",
+   "start": 13.233302,
+   "duration": 0.16,
+   "volume": 1.0
+  },
+  {
+   "source": "../sfx/impact_b.wav",
+   "track": "sfx_impact",
+   "start": 15.433368,
+   "duration": 0.16,
+   "volume": 1.0
+  },
+  {
+   "source": "../sfx/impact_a.wav",
+   "track": "sfx_impact",
+   "start": 17.466668,
+   "duration": 0.16,
+   "volume": 1.0
+  },
+  {
+   "source": "../sfx/impact_b.wav",
+   "track": "sfx_impact",
+   "start": 19.100001,
+   "duration": 0.16,
+   "volume": 1.0
+  },
+  {
+   "source": "../sfx/impact_a.wav",
+   "track": "sfx_impact",
+   "start": 21.433335,
+   "duration": 0.16,
+   "volume": 1.0
+  },
+  {
+   "source": "../sfx/impact_b.wav",
+   "track": "sfx_impact",
+   "start": 24.233301,
+   "duration": 0.16,
+   "volume": 1.0
+  },
+  {
+   "source": "../sfx/impact_a.wav",
+   "track": "sfx_impact",
+   "start": 26.366634,
+   "duration": 0.16,
+   "volume": 1.0
+  },
+  {
+   "source": "../sfx/impact_b.wav",
+   "track": "sfx_impact",
+   "start": 28.333367,
+   "duration": 0.16,
+   "volume": 1.0
+  },
+  {
+   "source": "../sfx/impact_a.wav",
+   "track": "sfx_impact",
+   "start": 30.466667,
+   "duration": 0.16,
+   "volume": 1.0
+  },
+  {
+   "source": "../sfx/whoosh.wav",
+   "track": "sfx_whoosh",
+   "start": 5.816668,
+   "duration": 0.35,
+   "volume": 0.18
+  },
+  {
+   "source": "../sfx/whoosh.wav",
+   "track": "sfx_whoosh",
+   "start": 12.150002,
+   "duration": 0.35,
+   "volume": 0.18
+  },
+  {
+   "source": "../sfx/whoosh.wav",
+   "track": "sfx_whoosh",
+   "start": 16.416668,
+   "duration": 0.35,
+   "volume": 0.18
+  },
+  {
+   "source": "../sfx/whoosh.wav",
+   "track": "sfx_whoosh",
+   "start": 22.916668,
+   "duration": 0.35,
+   "volume": 0.18
+  }
+ ],
+ "_audio": {
+  "依据": "references/techniques/audio.md（§1 BGM 服从剪辑 / §3 音效对位 / §4 音效库不可程序引用）",
+  "对位": "impact 落在击杀帧；whoosh 的尾落在切点上（＝切入前）",
+  "游戏原声": "静态压低到 0.45（剪映没有可脚本化的动态 ducking）",
+  "响度": "草稿不做响度归一化 —— −14 LUFS / ≤ −1 dBTP 仍须人工（见交付说明）"
+ },
+ "_manual": [
+  "响度统一到 ≈ −14 LUFS、真峰 ≤ −1 dBTP —— 草稿里**没有**限幅器，这一步必须人工",
+  "各切点两侧 2 帧音频交叉淡化（防咔哒声）—— EDL 未表达",
+  "BGM 若与画面气质不合可在剪映里换曲：EDL 不关心 BGM 内容，只按时间码摆位置",
+  "转场 ×4 处（闪白:0.13）在剪映里会**占用前后片段的时间** ⇒ 成片时长可能比 EDL 的目标短；预览用的是 alpha 叠加、**不改时长** —— 两者不完全等价，导出后要复量时长"
+ ]
+}
