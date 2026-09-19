@@ -59,6 +59,19 @@
 
 `--audio` **关闭时输出与之前逐字节相同**（回归对照见交付说明）。
 
+## 视觉转场（第 19 轮新增）
+
+    --transition 闪白            在切点挂转场（`类型[:时长秒]`，如 `闪白:0.5`）；默认不加
+    --transition-scope {all,material,none}
+                                加在哪：all=每个切点；material=只在换素材的接缝（默认）
+
+EDL 语义取自 `references/edl-schema.md`「转场语义」：`transition` 写在片段上
+= **「进入本片段」的转场**，所以从第 2 个片段开始挂。转场名必须是剪映 `TransitionType`
+枚举里的，写错 `edl_to_draft.py` 会拦下。
+
+⚠️ **预览与剪映在转场上不等价**：预览用「白色叠加层 + alpha 包络」近似，**不改任何时长**；
+剪映的转场会**占用前后片段的时间**，成片可能比 EDL 目标短 ⇒ 导出后要复量时长。
+
 输出：`projects/game-001/edl/<name>.json`（默认名 `killreel.json`）
       `projects/game-001/edl/<name>.plan.json`（取段台账，供交付说明引用）
 """
@@ -230,6 +243,11 @@ def main() -> int:
     ap.add_argument("--whoosh-volume", type=float, default=WHOOSH_VOLUME)
     ap.add_argument("--whoosh", default="all", choices=("all", "material", "none"),
                     help="whoosh 落点：all=每个切点前（默认）；material=只在换素材的接缝前；none=不放")
+    ap.add_argument("--transition", default=None,
+                    help="在切点挂转场，`类型[:时长秒]`，如 `闪白` 或 `闪白:0.5`；默认不加")
+    ap.add_argument("--transition-scope", default="material",
+                    choices=("all", "material", "none"),
+                    help="转场加在哪：all=每个切点；material=只在换素材的接缝（默认）；none=不加")
     ap.add_argument("--dry-run", action="store_true", help="只打印取段台账，不写文件")
     args = ap.parse_args()
     shorts = [s.strip() for s in args.materials.split(",") if s.strip()]
@@ -304,6 +322,24 @@ def main() -> int:
 
     if t_us <= 0 or any(c["duration"] < MIN_CLIP for c in clips):
         raise SystemExit("[FAIL] 有片段短于 MIN_CLIP 或总时长为 0（P0：不出亚秒片段）")
+
+    # ---- 视觉转场（第 19 轮）----
+    # EDL 语义（references/edl-schema.md「转场语义」）：transition 写在片段上
+    #   = 「**进入本片段**的转场」⇒ 从第 2 个片段开始挂；挂在第 1 个片段上无效（执行层会忽略）。
+    # ⚠️ 转场名必须是剪映 TransitionType 枚举里的，写错 edl_to_draft.py 会拦下。
+    # ⚠️ 转场**不改变 EDL 里任何片段的时长**（改时长是执行层/剪映的事）。
+    n_trans = 0
+    trans_scope = args.transition_scope if args.transition else "none"
+    if args.transition:
+        tname, _, tdur = args.transition.partition(":")
+        trans_spec = {"type": tname}
+        if tdur:
+            trans_spec["duration"] = float(tdur)
+        for i, c in enumerate(clips[1:], 1):
+            if trans_scope == "material" and c["source"] == clips[i - 1]["source"]:
+                continue
+            c["transition"] = dict(trans_spec)
+            n_trans += 1
 
     # ---- 音频层（第 17 轮）----
     # 依据 references/techniques/audio.md 的既有约定（不是本轮新编的）：
@@ -414,6 +450,11 @@ def main() -> int:
             "各切点两侧 2 帧音频交叉淡化（防咔哒声）—— EDL 未表达",
             "BGM 若与画面气质不合可在剪映里换曲：EDL 不关心 BGM 内容，只按时间码摆位置",
         ]
+    if n_trans:
+        edl.setdefault("_manual", []).append(
+            f"转场 ×{n_trans} 处（{args.transition}）在剪映里会**占用前后片段的时间** ⇒ "
+            "成片时长可能比 EDL 的目标短；预览用的是 alpha 叠加、**不改时长** —— "
+            "两者不完全等价，导出后要复量时长")
     print(f"素材 {len(shorts)} 条 → 片段 {len(clips)} 个，成片 {t_us / 1e6:.3f}s")
     print("素材池 %d 条 → 选中 %d 条、丢弃 %d 条；顺序 = %s，目标 = %s" % (
         len(pool), len(selected), len(dropped), args.order_by,
@@ -427,6 +468,8 @@ def main() -> int:
         for b in p["blocks"]:
             print("      [%7.3f, %7.3f] %5.2fs  含击杀 %s" % (
                 b["in"], b["out"], b["dur"], b["kills_inside"]))
+    if n_trans:
+        print("视觉转场：%s × %d 处（范围 %s）" % (args.transition, n_trans, trans_scope))
     if args.dry_run:
         print("[dry-run] 未写文件")
         return 0
@@ -437,7 +480,9 @@ def main() -> int:
         json.dumps({"name": args.name, "params": {"gap_s": GAP, "pre_s": PRE, "post_s": POST,
                                                   "min_cut_s": MIN_CUT, "snap_s": SNAP,
                                                   "order_by": args.order_by,
-                                                  "target_seconds": args.target_seconds},
+                                                  "target_seconds": args.target_seconds,
+                                                  "transition": args.transition,
+                                                  "transition_scope": trans_scope},
                     **({"audio_layer": audio_note} if audio_note else {}),
                     "pool_materials": [p["material"] for p in pool],
                     "selected_materials": [p["material"] for p in selected],

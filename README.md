@@ -21,7 +21,7 @@
 | **判定「哪一帧算击杀帧」**（判据/锚点/能精确到哪一步） | `references/kill-frame-criteria.md`（★ 第 7 轮，第 12 轮补准确率） |
 | **「我击杀」的人工真值 / 判据到底准不准** | `projects/game-001/verification/icon-review/truth.json`（42 行人工判定）+ 同目录 `README.md` §5–§8 |
 | **把击杀帧标进剪映草稿** | `projects/game-001/tools/make_killmark_draft.py` + `projects/game-001/spec/killmark-b61cc53d-交付说明.md` |
-| **剪一条「击杀集锦」**（真值 → 取段 → 选片 → EDL + 台账 → 草稿） | `projects/game-001/tools/make_killreel_edl.py`；交付说明见 `projects/game-001/spec/击杀集锦_A01_徽记源-交付说明.md`、`…击杀集锦_B01_密度优先_30s-交付说明.md`（后者含选片规则与 5 种口径对比）；**要把音频层（BGM / 音效 / 压原声）加进去**见 `projects/game-001/spec/击杀集锦_B01_音频版-交付说明.md` |
+| **剪一条「击杀集锦」**（真值 → 取段 → 选片 → EDL + 台账 → 草稿） | `projects/game-001/tools/make_killreel_edl.py`；交付说明见 `projects/game-001/spec/击杀集锦_A01_徽记源-交付说明.md`、`…击杀集锦_B01_密度优先_30s-交付说明.md`（后者含选片规则与 5 种口径对比）；**要把音频层（BGM / 音效 / 压原声）加进去**见 `projects/game-001/spec/击杀集锦_B01_音频版-交付说明.md`；**嫌 whoosh 太吵 / 想改成画面效果**见 `projects/game-001/spec/击杀集锦_B01_音效对比-说明.md` |
 | **草稿出完的换行归一化**（CRLF→LF，每份必跑） | `.dsh/skills/jianying-edit/scripts/lf_normalize.py` |
 | 环境/沙箱/网络/编码踩过的坑 | `references/environment.md` |
 | 本项目的**风格**规则（怎么切、切多快） | `references/editing-rules.md`（⚠️ **仍为空**，见下） |
@@ -58,7 +58,7 @@
 
 ---
 
-## 当前状态（截至第 17 轮）
+## 当前状态（截至第 19 轮）
 
 | 部分 | 状态 |
 |---|---|
@@ -82,6 +82,7 @@
 | **第 13 轮：推翻「34% 漏报」** | ✅ 那个数字是**口径错**（把「播报事件里有几个带徽记」当成了召回率），重算脚本 `projects/game-001/tools/feed_icon_recall.py` ⇒ **召回率仍然没有分母** |
 | **★ 击杀集锦管线（第 14–17 轮）** | ✅ `projects/game-001/tools/make_killreel_edl.py`：击杀源 = 人工真值 → **排除法取段**（GAP 3.0s / POST 1.5s / PRE 0.6s / 切点吸附 ±0.35s / 整数帧对齐）→ EDL + **取段台账** → 剪映草稿。第 16 轮起**选片也进规则**：`--order-by density --target-seconds 30`（不再手敲 `--materials`），台账记 `pool/selected/dropped_materials`。**第 17 轮加音频层**：`--audio`（BGM + 每杀 1 个 impact + 切入前 whoosh + 静态压低游戏原声），**不开时输出逐字节不变**（已做回归对照） |
 | **★ 已交付的集锦（前两条被真人看过）** | ① **A01**（手挑 3 条素材）：11 段 / **27.767s** / 12 杀 —— 原话「刚刚好」② **B01**（规则自动选 5 条）：14 段 / **32.167s** / 15 杀（目标 30s，超 7.2% 已被接受） —— 原话「我感觉差不多了」，并确认**已在剪映里看过**。⇒ **取段参数（GAP 3.0 / POST 1.5 / PRE 0.6 / 切点吸附 ±0.35s）在 2 条片子上被本人判为可用**，其中一条还是规则选片的素材。③ **B01 音频版**（第 17 轮，画面沿用 B01、一刀未改）：**4 轨** / 14 段 / 32.167s / **29 条音频叠加** —— ⚠️ **还没被用户听过** |
+| **★ 音效/视觉强调与转场（第 18–19 轮）** | ⚠️ 用户反馈 whoosh「太突兀、太生硬、每段都切一次、坏气氛」⇒ 量出 3 条客观原因（13 条 = 每 2.47s 一次 / 带通噪声 频谱重心 3643 Hz / 峰值比 BGM 还高 2.4 dB）。做了两个对比版本：**轻音效版**（whoosh 4 条 @0.45，−14.6 LUFS / −2.3 dBFS）与 **闪白版**（无 whoosh + 闪白 0.13s × 4 处，−14.7 LUFS / −2.4 dBFS）。工具新增 `--transition` / `--transition-scope`。⚠️ **方向未定**（等用户选）；⚠️ **转场在剪映里会占时长、预览不占** ⇒ 走闪白成片会比 32.167s 短。详见 `projects/game-001/spec/击杀集锦_B01_音效对比-说明.md` |
 | **★ 音频层（第 17 轮）** | ✅ `--audio`：BGM（自合成 128 BPM / 18 小节 / 33.750s，`make_bgm.py 18 9` **字节可重生成**、不入库）+ impact×15（落击杀帧，a/b 交替）+ whoosh×13（尾落切点；`--whoosh all / material / none` ⇒ 13 / 4 / 0 条）+ 游戏原声静态压到 0.45。⚠️ **剪映草稿没有可脚本化的动态 ducking** ⇒ 只能静态音量；⚠️ **草稿 sha256 不可复算**（同名重生会变 293 处随机 UUID、非 UUID 差异 0）⇒ 判「可复现」要**逐字段比对** |
 | **第 15 轮：锚点字段修正** | ✅ 击杀时刻要取 `frame_true_note`（含人工在 `review.csv` 里写的偏移），旧的 `frame_true` 漏了备注 ⇒ 5 次击杀锚点早了 0.5s。⚠️ 但人工写的「0.5 秒」本身是粗估（实测有 +1.2s 的行）⇒ 锚点带 **±0.7s** 误差，对取段无害、对帧级对齐致命 |
 | **草稿换行归一化** | ✅ 第 16 轮固化：`.dsh/skills/jianying-edit/scripts/lf_normalize.py`（pyJianYingDraft 在 Windows 上写 CRLF，本仓库不许 CRLF，所以每份草稿都要过一遍） |
@@ -224,7 +225,7 @@ ffmpeg 由 `imageio-ffmpeg` 自带，**无需系统安装**；也没有 ffprobe�
 
 远程仓库：<https://github.com/yinyichen987-sketch/Edit-Skill>（分支 `game-video`；
 第 7 轮的击杀帧训练在分支 `kill-frame-training`，从 `game-video` 切出；
-**第 8–18 轮的成果在 `kill-frame-training-2`** —— 见下「第 12 轮的推送状态」）
+**第 8–19 轮的成果在 `kill-frame-training-2`** —— 见下「第 12 轮的推送状态」）
 
 ### 第 7 轮的推送状态
 
