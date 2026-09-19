@@ -1,0 +1,174 @@
+{
+ "version": "1.0",
+ "project": "击杀集锦_A01_徽记源",
+ "canvas": {
+  "width": 1920,
+  "height": 1080,
+  "fps": 30.0
+ },
+ "style_ref": "game-valorant",
+ "target_duration_s": 27.767,
+ "tracks": [
+  {
+   "type": "video",
+   "name": "main"
+  }
+ ],
+ "clips": [
+  {
+   "id": "7f0d8287-01",
+   "track": "main",
+   "source": "../../../原始素材/7f0d8287758a222f243b1d145c045d94.mp4",
+   "source_in": 4.866667,
+   "start": 0.0,
+   "duration": 2.366666,
+   "role": "body",
+   "rule_id": "REEL-EXCLUDE-01",
+   "reason": "排除法：7f0d8287 保留 [4.867, 7.233]（2.37s），含 1 次我击杀 ['5.800']；无击杀段 > 3.0s 才删，删除处两侧留 POST 1.5s / PRE 0.6s，切点已吸附到 ±0.35s 内运动量最小帧，落点对齐 30fps 整数帧",
+   "confidence": 0.81,
+   "volume": 1.0
+  },
+  {
+   "id": "7f0d8287-02",
+   "track": "main",
+   "source": "../../../原始素材/7f0d8287758a222f243b1d145c045d94.mp4",
+   "source_in": 16.5,
+   "start": 2.366666,
+   "duration": 2.6,
+   "role": "body",
+   "rule_id": "REEL-EXCLUDE-01",
+   "reason": "排除法：7f0d8287 保留 [16.500, 19.100]（2.60s），含 1 次我击杀 ['17.300']；无击杀段 > 3.0s 才删，删除处两侧留 POST 1.5s / PRE 0.6s，切点已吸附到 ±0.35s 内运动量最小帧，落点对齐 30fps 整数帧",
+   "confidence": 0.81,
+   "volume": 1.0
+  },
+  {
+   "id": "7f0d8287-03",
+   "track": "main",
+   "source": "../../../原始素材/7f0d8287758a222f243b1d145c045d94.mp4",
+   "source_in": 27.5,
+   "start": 4.966666,
+   "duration": 1.966667,
+   "role": "body",
+   "rule_id": "REEL-EXCLUDE-01",
+   "reason": "排除法：7f0d8287 保留 [27.500, 29.467]（1.97s），含 1 次我击杀 ['28.067']；无击杀段 > 3.0s 才删，删除处两侧留 POST 1.5s / PRE 0.6s，切点已吸附到 ±0.35s 内运动量最小帧，落点对齐 30fps 整数帧",
+   "confidence": 0.81,
+   "volume": 1.0
+  },
+  {
+   "id": "7f0d8287-04",
+   "track": "main",
+   "source": "../../../原始素材/7f0d8287758a222f243b1d145c045d94.mp4",
+   "source_in": 32.033333,
+   "start": 6.933333,
+   "duration": 2.333334,
+   "role": "body",
+   "rule_id": "REEL-EXCLUDE-01",
+   "reason": "排除法：7f0d8287 保留 [32.033, 34.367]（2.33s），含 1 次我击杀 ['32.767']；无击杀段 > 3.0s 才删，删除处两侧留 POST 1.5s / PRE 0.6s，切点已吸附到 ±0.35s 内运动量最小帧，落点对齐 30fps 整数帧",
+   "confidence": 0.81,
+   "volume": 1.0
+  },
+  {
+   "id": "7f0d8287-05",
+   "track": "main",
+   "source": "../../../原始素材/7f0d8287758a222f243b1d145c045d94.mp4",
+   "source_in": 37.033333,
+   "start": 9.266667,
+   "duration": 2.6,
+   "role": "body",
+   "rule_id": "REEL-EXCLUDE-01",
+   "reason": "排除法：7f0d8287 保留 [37.033, 39.633]（2.60s），含 1 次我击杀 ['37.933']；无击杀段 > 3.0s 才删，删除处两侧留 POST 1.5s / PRE 0.6s，切点已吸附到 ±0.35s 内运动量最小帧，落点对齐 30fps 整数帧",
+   "confidence": 0.81,
+   "volume": 1.0
+  },
+  {
+   "id": "b61cc53d-01",
+   "track": "main",
+   "source": "../../../原始素材/b61cc53d55e6aa28e89031fc5ec5693c.mp4",
+   "source_in": 5.266667,
+   "start": 11.866667,
+   "duration": 2.633333,
+   "role": "body",
+   "rule_id": "REEL-EXCLUDE-01",
+   "reason": "排除法：b61cc53d 保留 [5.267, 7.900]（2.63s），含 1 次我击杀 ['6.233']；无击杀段 > 3.0s 才删，删除处两侧留 POST 1.5s / PRE 0.6s，切点已吸附到 ±0.35s 内运动量最小帧，落点对齐 30fps 整数帧",
+   "confidence": 0.81,
+   "volume": 1.0
+  },
+  {
+   "id": "b61cc53d-02",
+   "track": "main",
+   "source": "../../../原始素材/b61cc53d55e6aa28e89031fc5ec5693c.mp4",
+   "source_in": 10.966667,
+   "start": 14.5,
+   "duration": 2.033333,
+   "role": "body",
+   "rule_id": "REEL-EXCLUDE-01",
+   "reason": "排除法：b61cc53d 保留 [10.967, 13.000]（2.03s），含 1 次我击杀 ['11.433']；无击杀段 > 3.0s 才删，删除处两侧留 POST 1.5s / PRE 0.6s，切点已吸附到 ±0.35s 内运动量最小帧，落点对齐 30fps 整数帧",
+   "confidence": 0.81,
+   "volume": 1.0
+  },
+  {
+   "id": "b61cc53d-03",
+   "track": "main",
+   "source": "../../../原始素材/b61cc53d55e6aa28e89031fc5ec5693c.mp4",
+   "source_in": 22.066667,
+   "start": 16.533333,
+   "duration": 4.233333,
+   "role": "body",
+   "rule_id": "REEL-EXCLUDE-01",
+   "reason": "排除法：b61cc53d 保留 [22.067, 26.300]（4.23s），含 2 次我击杀 ['22.467', '24.600']；无击杀段 > 3.0s 才删，删除处两侧留 POST 1.5s / PRE 0.6s，切点已吸附到 ±0.35s 内运动量最小帧，落点对齐 30fps 整数帧",
+   "confidence": 0.81,
+   "volume": 1.0
+  },
+  {
+   "id": "9526869d-01",
+   "track": "main",
+   "source": "../../../原始素材/9526869dadea10a6413c208760aa5c42.mp4",
+   "source_in": 4.933333,
+   "start": 20.766666,
+   "duration": 1.966667,
+   "role": "body",
+   "rule_id": "REEL-EXCLUDE-01",
+   "reason": "排除法：9526869d 保留 [4.933, 6.900]（1.97s），含 1 次我击杀 ['5.700']；无击杀段 > 3.0s 才删，删除处两侧留 POST 1.5s / PRE 0.6s，切点已吸附到 ±0.35s 内运动量最小帧，落点对齐 30fps 整数帧",
+   "confidence": 0.81,
+   "volume": 1.0
+  },
+  {
+   "id": "9526869d-02",
+   "track": "main",
+   "source": "../../../原始素材/9526869dadea10a6413c208760aa5c42.mp4",
+   "source_in": 16.333333,
+   "start": 22.733333,
+   "duration": 2.2,
+   "role": "body",
+   "rule_id": "REEL-EXCLUDE-01",
+   "reason": "排除法：9526869d 保留 [16.333, 18.533]（2.20s），含 1 次我击杀 ['16.900']；无击杀段 > 3.0s 才删，删除处两侧留 POST 1.5s / PRE 0.6s，切点已吸附到 ±0.35s 内运动量最小帧，落点对齐 30fps 整数帧",
+   "confidence": 0.81,
+   "volume": 1.0
+  },
+  {
+   "id": "9526869d-03",
+   "track": "main",
+   "source": "../../../原始素材/9526869dadea10a6413c208760aa5c42.mp4",
+   "source_in": 27.033333,
+   "start": 24.933333,
+   "duration": 2.833334,
+   "role": "body",
+   "rule_id": "REEL-EXCLUDE-01",
+   "reason": "排除法：9526869d 保留 [27.033, 29.867]（2.83s），含 1 次我击杀 ['28.000']；无击杀段 > 3.0s 才删，删除处两侧留 POST 1.5s / PRE 0.6s，切点已吸附到 ±0.35s 内运动量最小帧，落点对齐 30fps 整数帧",
+   "confidence": 0.81,
+   "volume": 1.0
+  }
+ ],
+ "texts": [],
+ "audio": {
+  "voice_priority": "high",
+  "bgm_volume": 0.0
+ },
+ "qa": {
+  "required": [
+   "duration-valid",
+   "no-black-frame",
+   "audio-present"
+  ]
+ }
+}
