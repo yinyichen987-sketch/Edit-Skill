@@ -21,6 +21,8 @@
 | **判定「哪一帧算击杀帧」**（判据/锚点/能精确到哪一步） | `references/kill-frame-criteria.md`（★ 第 7 轮，第 12 轮补准确率） |
 | **「我击杀」的人工真值 / 判据到底准不准** | `projects/game-001/verification/icon-review/truth.json`（42 行人工判定）+ 同目录 `README.md` §5–§8 |
 | **把击杀帧标进剪映草稿** | `projects/game-001/tools/make_killmark_draft.py` + `projects/game-001/spec/killmark-b61cc53d-交付说明.md` |
+| **剪一条「击杀集锦」**（真值 → 取段 → 选片 → EDL + 台账 → 草稿） | `projects/game-001/tools/make_killreel_edl.py`；交付说明见 `projects/game-001/spec/击杀集锦_A01_徽记源-交付说明.md`、`…击杀集锦_B01_密度优先_30s-交付说明.md`（后者含选片规则与 5 种口径对比） |
+| **草稿出完的换行归一化**（CRLF→LF，每份必跑） | `.dsh/skills/jianying-edit/scripts/lf_normalize.py` |
 | 环境/沙箱/网络/编码踩过的坑 | `references/environment.md` |
 | 本项目的**风格**规则（怎么切、切多快） | `references/editing-rules.md`（⚠️ **仍为空**，见下） |
 | **剪映曲库的曲子怎么拿来做 BGM** | `projects/game-001/tools/analyze_bgm_cache.py` + `pick_bgm_segment.py`（读**用户本机缓存**，见下） |
@@ -56,7 +58,7 @@
 
 ---
 
-## 当前状态（截至第 12 轮）
+## 当前状态（截至第 16 轮）
 
 | 部分 | 状态 |
 |---|---|
@@ -77,6 +79,11 @@
 | **中心击杀徽记检测（「我」击杀）** | ✅ 第 11 轮：`projects/game-001/tools/center_kill_icon.py` → `verification/icon-scan/`（11 条素材 **42 个高置信事件**；对音频 **9/9 显著**、最佳滞后 **+0.04s**，比播报的 −0.20s 更接近击杀时刻） |
 | **★ 人工真值（第 12 轮拿到）** | ✅ 玩家本人填完 `verification/icon-review/review.csv` 的 42 行 ⇒ `truth.json`。这是本项目**第一份人工真值表**，也是第一次能报**准确率**（此前只有对齐性） |
 | **★ 徽记的准确率（第 12 轮）** | ⚠️ 事件级 **34 / 42 = 81.0%** 是「我击杀」；按「事件窗口内到底有没有真徽记」算是 **37 / 42 = 88.1%**。**帧级**：给了整数偏移的 29 行里 **28 行是 `0/-1` 帧**，均值 **−0.45 帧（−15 ms）** ⇒ 徽记**首现帧可以当击杀帧**（误差 ≤1 帧 = 33 ms），但**事件级只能当候选源**（误报＝亮地面/武器皮肤/地图/购买界面；「加几何量」「段尾模板重锚定」两条提精度路线**都试过并否掉**，见 `icon-review/README.md` §7） |
+| **第 13 轮：推翻「34% 漏报」** | ✅ 那个数字是**口径错**（把「播报事件里有几个带徽记」当成了召回率），重算脚本 `projects/game-001/tools/feed_icon_recall.py` ⇒ **召回率仍然没有分母** |
+| **★ 击杀集锦管线（第 14–16 轮）** | ✅ `projects/game-001/tools/make_killreel_edl.py`：击杀源 = 人工真值 → **排除法取段**（GAP 3.0s / POST 1.5s / PRE 0.6s / 切点吸附 ±0.35s / 整数帧对齐）→ EDL + **取段台账** → 剪映草稿。第 16 轮起**选片也进规则**：`--order-by density --target-seconds 30`（不再手敲 `--materials`），台账记 `pool/selected/dropped_materials` |
+| **★ 已交付的两条集锦** | ① **A01**（手挑 3 条素材）：11 段 / **27.767s** / 12 杀 —— **用户本人看过，原话「刚刚好」**（目前**唯一**被真人确认过的产物）② **B01**（规则自动选 5 条）：14 段 / **32.167s** / 15 杀 —— 目标 30s **必然超 7.2%**，**尚未被真人确认** |
+| **第 15 轮：锚点字段修正** | ✅ 击杀时刻要取 `frame_true_note`（含人工在 `review.csv` 里写的偏移），旧的 `frame_true` 漏了备注 ⇒ 5 次击杀锚点早了 0.5s。⚠️ 但人工写的「0.5 秒」本身是粗估（实测有 +1.2s 的行）⇒ 锚点带 **±0.7s** 误差，对取段无害、对帧级对齐致命 |
+| **草稿换行归一化** | ✅ 第 16 轮固化：`.dsh/skills/jianying-edit/scripts/lf_normalize.py`（pyJianYingDraft 在 Windows 上写 CRLF，本仓库不许 CRLF，所以每份草稿都要过一遍） |
 
 > **规则不能凭空编造。** 在拿到参考成片之前，`editing-rules.md` 保持为空。
 > 第 4–5 轮已经把**手法**（怎么做）和**操作**（在哪做）填起来了，但**风格**（切成什么样）依然只能等成片。
@@ -107,6 +114,7 @@
 │   └── scripts/
 │       ├── analyze_film.py             # 成片/素材 → 结构分析
 │       ├── edl_to_draft.py             # EDL → 剪映草稿
+│       ├── lf_normalize.py             # ★ 草稿 CRLF→LF 归一化（每份新草稿必跑）
 │       └── keymap_report.py            # 读本机剪映真实键位方案
 ├── tools/                              # 仓库级工具
 │   ├── dl_reference.py                 # 参考视频下载（yt-dlp 薄封装）
@@ -117,6 +125,8 @@
 │   └── web/                            # 本机唯一能过 HTTPS 的通道（Node）
 ├── projects/game-001/                  # 第一个项目：瓦洛兰特集锦
 │   ├── research/                       # 调研产出（含 kill-moment-report.md）
+│   ├── tools/                          # ★ 本项目工具（make_killreel_edl.py 击杀集锦取段+选片、center_kill_icon.py 徽记检测等）
+│   ├── spec/                           # ★ 交付说明（击杀集锦 A01/B01、剪映导出清单、format-spec）
 │   ├── edl/  draft-out/  verification/
 │   └── ref-analysis/                   # 参考成片分析
 ├── docs/lessons.md                     # ★ 逐轮经验沉淀（每轮必写）
@@ -152,6 +162,13 @@ ffmpeg 由 `imageio-ffmpeg` 自带，**无需系统安装**；也没有 ffprobe�
 
 # 生成剪映草稿（生成前请完全退出剪映；之后需重启/切换草稿才能看到）
 .venv\Scripts\python.exe .dsh\skills\jianying-edit\scripts\edl_to_draft.py edl.json --name "项目名"
+
+# 剪一条击杀集锦：取段 + 选片 + 台账（加 --dry-run 可先看一遍不写盘）
+.venv\Scripts\python.exe projects\game-001\tools\make_killreel_edl.py --materials <短id,短id,...> `
+    --order-by density --target-seconds 30 --name 击杀集锦_B01_密度优先_30s
+
+# 草稿 CRLF→LF 归一化（每份新草稿必跑；带 JSON 自检）
+.venv\Scripts\python.exe .dsh\skills\jianying-edit\scripts\lf_normalize.py "projects\game-001\draft-out\<草稿名>"
 
 # 本机剪映键位方案（同一功能在不同方案下键位不同）
 .venv\Scripts\python.exe .dsh\skills\jianying-edit\scripts\keymap_report.py --compare
@@ -197,7 +214,7 @@ ffmpeg 由 `imageio-ffmpeg` 自带，**无需系统安装**；也没有 ffprobe�
 
 远程仓库：<https://github.com/yinyichen987-sketch/Edit-Skill>（分支 `game-video`；
 第 7 轮的击杀帧训练在分支 `kill-frame-training`，从 `game-video` 切出；
-**第 8–12 轮的成果在 `kill-frame-training-2`** —— 见下「第 12 轮的推送状态」）
+**第 8–16 轮的成果在 `kill-frame-training-2`** —— 见下「第 12 轮的推送状态」）
 
 ### 第 7 轮的推送状态
 
