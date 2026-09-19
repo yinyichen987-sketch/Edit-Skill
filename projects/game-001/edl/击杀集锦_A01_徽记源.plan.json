@@ -20,7 +20,7 @@
     32.7667,
     37.9333
    ],
-   "kill_source": "truth.json（人工判「我击杀」，时刻取人工校正帧 frame_true），无误报",
+   "kill_source": "truth.json（人工判「我击杀」，时刻取人工校正帧 frame_true_note），无误报",
    "n_blocks": 5,
    "kept_s": 11.8667,
    "kept_ratio": 0.276,
@@ -149,7 +149,7 @@
     22.4667,
     24.6
    ],
-   "kill_source": "truth.json（人工判「我击杀」，时刻取人工校正帧 frame_true），无误报",
+   "kill_source": "truth.json（人工判「我击杀」，时刻取人工校正帧 frame_true_note），无误报",
    "n_blocks": 3,
    "kept_s": 8.9,
    "kept_ratio": 0.307,
@@ -238,7 +238,7 @@
     16.9,
     28.0
    ],
-   "kill_source": "truth.json（人工判「我击杀」，时刻取人工校正帧 frame_true），无误报",
+   "kill_source": "truth.json（人工判「我击杀」，时刻取人工校正帧 frame_true_note），无误报",
    "n_blocks": 3,
    "kept_s": 7.0,
    "kept_ratio": 0.212,

@@ -82,7 +82,11 @@ def main():
         frame = int(r["frame"])
         note = (r.get("note") or "").strip()
         kill, mine = (r["verdict_kill"] or "").strip().upper(), (r["verdict_mine"] or "").strip().upper()
-        if off is None and "0.5" in note:
+        # 备注里的「0.5 秒」被写成过「0,5 秒」（第 15 轮发现 2 行用逗号）——
+        # 旧版只认 ASCII 的 "0.5"，那 2 行**静默地没有被校正**。
+        # ⇒ 先把逗号类字符与全角数字归一化，再匹配。
+        note_key = note.translate(str.maketrans("，,．。０１２３４５６７８９", "....0123456789"))
+        if off is None and "0.5" in note_key:
             off_note = args.note_offset
         else:
             off_note = 0

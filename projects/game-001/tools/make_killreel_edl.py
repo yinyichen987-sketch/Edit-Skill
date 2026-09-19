@@ -72,8 +72,10 @@ def fs(t: float) -> str:
 def load_kills(short: str) -> tuple[list[float], str]:
     """返回 (击杀秒列表, 来源标记)。只取人工判为「我击杀」的；无真值则退回高置信段。
 
-    时刻取 `frame_true`（= 检测帧 + 人工给的 `kill_frame_offset`，即人看着画面判的**真实击杀帧**，
-    见 `icon_truth_from_review.py` 的字段表）。没有整数 offset 的行退回 `t_s`。
+    时刻取 `frame_true_note`（= 检测帧 + 人工给的 `kill_frame_offset` + 从备注推出的偏移）。
+    为什么**不用** `frame_true`：`frame_true` 不含备注偏移，而 `review.csv` 里有 5 行
+    （全都是我击杀）把 offset 写成 `?`、只在备注里写「0.5 秒才看到击杀」
+    ⇒ 用 `frame_true` 会让这 5 次的时刻**早 15 帧（0.5s）**（第 15 轮用逐帧图发现的）。
     """
     tf = V / "icon-review" / "truth.json"
     if tf.exists():
@@ -81,11 +83,13 @@ def load_kills(short: str) -> tuple[list[float], str]:
         rows = [e for e in truth if e["material"] == short]
         if rows:
             def t_of(e) -> float:
-                f = e["frame_true"] if e.get("frame_true") is not None else e["frame"]
+                f = e.get("frame_true_note")
+                if f is None:
+                    f = e["frame_true"] if e.get("frame_true") is not None else e["frame"]
                 return round(f / FPS, 4)
             mine = sorted(t_of(e) for e in rows if e["verdict_mine"] == "Y")
             rejected = [e["t_s"] for e in rows if e["verdict_mine"] != "Y"]
-            return mine, ("truth.json（人工判「我击杀」，时刻取人工校正帧 frame_true）"
+            return mine, ("truth.json（人工判「我击杀」，时刻取人工校正帧 frame_true_note）"
                           + (f"，已排除 {len(rejected)} 处误报：{rejected}" if rejected else "，无误报"))
     d = json.loads((V / "icon-scan" / f"{short}.json").read_text(encoding="utf-8"))
     return sorted(e["t_s"] for e in d["events"]), "icon-scan 高置信段（**无人工真值**）"

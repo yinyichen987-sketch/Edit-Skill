@@ -294,8 +294,8 @@
    "offset_raw": "?",
    "offset": null,
    "frame_true": null,
-   "offset_from_note": 0,
-   "frame_true_note": 179,
+   "offset_from_note": 15,
+   "frame_true_note": 194,
    "note": "0,5秒出现"
   },
   {
@@ -311,8 +311,8 @@
    "offset_raw": "?",
    "offset": null,
    "frame_true": null,
-   "offset_from_note": 0,
-   "frame_true_note": 501,
+   "offset_from_note": 15,
+   "frame_true_note": 516,
    "note": "0,5秒出现"
   },
   {
