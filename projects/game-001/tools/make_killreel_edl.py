@@ -30,6 +30,15 @@
     .venv\\Scripts\\python.exe projects/game-001/tools/make_killreel_edl.py --materials 7f0d8287,b61cc53d,9526869d --name 击杀集锦_A01_徽记源
     .venv\\Scripts\\python.exe projects/game-001/tools/make_killreel_edl.py --materials ... --dry-run
 
+## 选片：从「素材池」到一条 N 秒（第 16 轮新增）
+
+    --order-by {input,kills,density}   成片顺序（每杀占用片长升序 = density，用得多）
+    --target-seconds 30                按上面的顺序**整条素材地**累加，直到累计 ≥ 30s
+
+这条规则是**可复算的**，不要用「手敲一串 --materials」代替它 ——
+池子、顺序、目标都写进 `plan.json` 的 `pool_materials` / `selected_materials` / `dropped_materials`。
+注意：跨过目标的那条素材是**整条**进来的 ⇒ 实际时长会比目标高出一截（见 `spec/击杀集锦_B01…`）。
+
 输出：`projects/game-001/edl/<name>.json`（默认名 `killreel.json`）
       `projects/game-001/edl/<name>.plan.json`（取段台账，供交付说明引用）
 """
@@ -158,14 +167,20 @@ def blocks_of(kills: list[float], dur: float, motion):
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--materials", required=True, help="逗号分隔的素材短 id，顺序即成片顺序")
+    ap.add_argument("--materials", required=True, help="逗号分隔的素材短 id（这是**素材池**）")
     ap.add_argument("--name", default="killreel", help="草稿名 / EDL 文件名")
+    ap.add_argument("--order-by", default="input", choices=("input", "kills", "density"),
+                    help="成片顺序：input=按 --materials 给的原顺序；kills=按我击杀数降序；"
+                         "density=按「每杀占用片长」升序（越大越省时长，说明击杀越密）")
+    ap.add_argument("--target-seconds", type=float, default=None,
+                    help="目标时长：按上面的顺序**整条素材地**累加，直到累计 ≥ 这个值"
+                         "（跨过它的那条**算进来**）；不给就全用")
     ap.add_argument("--dry-run", action="store_true", help="只打印取段台账，不写文件")
     args = ap.parse_args()
     shorts = [s.strip() for s in args.materials.split(",") if s.strip()]
 
-    clips, plan, texts = [], [], []
-    t_us = 0                       # 时间轴游标：**整数微秒**，避免各自取整造成 1µs 重叠
+    # ---- 第一遍：逐素材算保留片段（每条素材独立 ⇒ 成片顺序可以随便换）----
+    pool = []
     for s in shorts:
         f = next(SRC.glob(f"{s}*.mp4"), None)
         if f is None:
@@ -178,7 +193,7 @@ def main() -> int:
                else json.loads((V / "icon-scan" / f"{s}.json").read_text(encoding="utf-8"))["n_frames"] / FPS)
         keeps, cuts = blocks_of(kills, dur, motion)
         kept = sum(b - a for a, b in keeps) / FPS
-        plan.append({"material": s, "file": f.name, "duration_s": round(dur, 4),
+        pool.append({"material": s, "file": f, "duration_s": round(dur, 4),
                      "kills_s": kills, "kill_source": ksrc,
                      "n_blocks": len(keeps), "kept_s": round(kept, 4),
                      "kept_ratio": round(kept / dur, 3),
@@ -188,10 +203,30 @@ def main() -> int:
                                  "kills_inside": [k for k in kills
                                                   if a / FPS - 1e-9 <= k <= b / FPS + 1e-9]}
                                 for a, b in keeps],
-                     "cuts": cuts})
-        for j, (a, b) in enumerate(keeps, 1):
+                     "cuts": cuts, "keeps": keeps})
+
+    # ---- 选片与排序：让「从池子里挑哪几条素材」变成可复算的规则，而不是手敲的顺序 ----
+    ordered = list(pool)
+    if args.order_by == "density":
+        ordered.sort(key=lambda p: p["kept_s"] / max(1, len(p["kills_s"])))
+    elif args.order_by == "kills":
+        ordered.sort(key=lambda p: -len(p["kills_s"]))
+    selected, dropped, acc = [], [], 0.0
+    for p in ordered:
+        if args.target_seconds is not None and acc >= args.target_seconds:
+            dropped.append(p["material"])
+            continue
+        selected.append(p)
+        acc += p["kept_s"]
+
+    # ---- 第二遍：按成片顺序拼片段（时间轴游标 = **整数微秒**，避免各自取整造成 1µs 重叠）----
+    clips, texts = [], []
+    t_us = 0
+    for p in selected:
+        s, f = p["material"], p["file"]
+        for j, (a, b) in enumerate(p["keeps"], 1):
             a_s, b_s = a / FPS, b / FPS
-            inside = [k for k in kills if a_s - 1e-9 <= k <= b_s + 1e-9]
+            inside = [k for k in p["kills_s"] if a_s - 1e-9 <= k <= b_s + 1e-9]
             a_us, b_us = us(a), us(b)
             clips.append({
                 "id": f"{s}-{j:02d}", "track": "main",
@@ -224,7 +259,12 @@ def main() -> int:
         "qa": {"required": ["duration-valid", "no-black-frame", "audio-present"]},
     }
     print(f"素材 {len(shorts)} 条 → 片段 {len(clips)} 个，成片 {t_us / 1e6:.3f}s")
-    for p in plan:
+    print("素材池 %d 条 → 选中 %d 条、丢弃 %d 条；顺序 = %s，目标 = %s" % (
+        len(pool), len(selected), len(dropped), args.order_by,
+        "无（全用）" if args.target_seconds is None else "%.1fs" % args.target_seconds))
+    if dropped:
+        print("  丢弃（已满足目标）：%s" % ", ".join(dropped))
+    for p in selected:
         print("  %-9s %6.3fs  我击杀 %d 次 → 保留 %6.3fs（%.0f%%）%d 段  [%s]" % (
             p["material"], p["duration_s"], len(p["kills_s"]), p["kept_s"],
             100 * p["kept_ratio"], p["n_blocks"], p["kill_source"]))
@@ -239,8 +279,16 @@ def main() -> int:
     dst.write_text(json.dumps(edl, ensure_ascii=False, indent=1), encoding="utf-8", newline="\n")
     (EDL_DIR / f"{dst.stem}.plan.json").write_text(
         json.dumps({"name": args.name, "params": {"gap_s": GAP, "pre_s": PRE, "post_s": POST,
-                                                  "min_cut_s": MIN_CUT, "snap_s": SNAP},
-                    "total_duration_s": round(t_us / 1e6, 3), "materials": plan},
+                                                  "min_cut_s": MIN_CUT, "snap_s": SNAP,
+                                                  "order_by": args.order_by,
+                                                  "target_seconds": args.target_seconds},
+                    "pool_materials": [p["material"] for p in pool],
+                    "selected_materials": [p["material"] for p in selected],
+                    "dropped_materials": dropped,
+                    "total_duration_s": round(t_us / 1e6, 3),
+                    # file 在内存里是 Path（要拿 .name 拼 EDL 的 source），写盘时转成字符串
+                    "materials": [{**{k: v for k, v in p.items() if k not in ("keeps", "file")},
+                                   "file": p["file"].name} for p in selected]},
                    ensure_ascii=False, indent=1), encoding="utf-8", newline="\n")
     print("[OK] %s" % dst.relative_to(ROOT))
     print("[OK] %s" % (EDL_DIR / f"{dst.stem}.plan.json").relative_to(ROOT))

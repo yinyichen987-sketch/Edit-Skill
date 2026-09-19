@@ -5,13 +5,25 @@
   "pre_s": 0.6,
   "post_s": 1.5,
   "min_cut_s": 1.5,
-  "snap_s": 0.35
+  "snap_s": 0.35,
+  "order_by": "input",
+  "target_seconds": null
  },
+ "pool_materials": [
+  "7f0d8287",
+  "b61cc53d",
+  "9526869d"
+ ],
+ "selected_materials": [
+  "7f0d8287",
+  "b61cc53d",
+  "9526869d"
+ ],
+ "dropped_materials": [],
  "total_duration_s": 27.767,
  "materials": [
   {
    "material": "7f0d8287",
-   "file": "7f0d8287758a222f243b1d145c045d94.mp4",
    "duration_s": 43.0,
    "kills_s": [
     5.8,
@@ -137,11 +149,11 @@
      "from": 43.0,
      "why": "下一杀前摇前切入"
     }
-   ]
+   ],
+   "file": "7f0d8287758a222f243b1d145c045d94.mp4"
   },
   {
    "material": "b61cc53d",
-   "file": "b61cc53d55e6aa28e89031fc5ec5693c.mp4",
    "duration_s": 28.9667,
    "kills_s": [
     6.2333,
@@ -227,11 +239,11 @@
      "from": 28.966666666666665,
      "why": "下一杀前摇前切入"
     }
-   ]
+   ],
+   "file": "b61cc53d55e6aa28e89031fc5ec5693c.mp4"
   },
   {
    "material": "9526869d",
-   "file": "9526869dadea10a6413c208760aa5c42.mp4",
    "duration_s": 33.0,
    "kills_s": [
     5.7,
@@ -315,7 +327,8 @@
      "from": 33.0,
      "why": "下一杀前摇前切入"
     }
-   ]
+   ],
+   "file": "9526869dadea10a6413c208760aa5c42.mp4"
   }
  ]
 }
